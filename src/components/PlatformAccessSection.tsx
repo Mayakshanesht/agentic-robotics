@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export function PlatformAccessSection() {
@@ -39,13 +40,17 @@ export function PlatformAccessSection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="hero" size="xl" className="group">
-                  Try Beta
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button variant="heroOutline" size="xl">
-                  Request Access
-                </Button>
+                <Link to="/request-access">
+                  <Button variant="hero" size="xl" className="group">
+                    Try Beta
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link to="/request-access">
+                  <Button variant="heroOutline" size="xl">
+                    Request Access
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,14 +1,15 @@
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const footerLinks = {
   product: [
-    { label: "Technology", href: "#technology" },
-    { label: "Use Cases", href: "#use-cases" },
-    { label: "Platform", href: "#platform" },
+    { label: "Technology", href: "/#technology", isAnchor: true },
+    { label: "Use Cases", href: "/#use-cases", isAnchor: true },
+    { label: "Platform", href: "/#platform", isAnchor: true },
   ],
   company: [
-    { label: "Team", href: "#team" },
-    { label: "Beta Program", href: "#platform" },
+    { label: "Team", href: "/#team", isAnchor: true },
+    { label: "Beta Program", href: "/request-access", isAnchor: false },
   ],
 };
 
@@ -32,12 +33,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -49,12 +50,21 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
+                  {link.isAnchor ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
