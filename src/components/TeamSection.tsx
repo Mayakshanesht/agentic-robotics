@@ -7,7 +7,7 @@ const team = [
   {
     name: "Mayur Waghchoure",
     role: "Founder & CEO",
-    description: "Robotics and AI engineer with experience in autonomous systems, robotic learning, and large-scale AI infrastructure. Built and launched KnowGraph, a graph-based learning platform. Master's in Robotic Systems Engineering from RWTH Aachen University.",
+    description: "Robotics and AI engineer with experience in autonomous systems, robotic learning, and large-scale AI infrastructure. Master's in Robotic Systems Engineering from RWTH Aachen University.",
   },
   {
     name: "Madhava Pandiyan",
@@ -24,15 +24,20 @@ const validation = [
   },
   {
     icon: GraduationCap,
-    title: "RWTH Aachen Ideation Program",
-    description: "Academic mentorship from Prof. Dr. Bastian Leibe, with strong product and commercialization focus.",
+    title: "RWTH Innovation Ideation Program",
+    description: "Accelerator program through RWTH Aachen University's innovation wing, with guidance from Tobias Recker on product development and market positioning.",
+  },
+  {
+    icon: Award,
+    title: "EXIST Research Transfer Grant",
+    description: "Applying for EXIST funding with Prof. Dr. Bastian Leibe as academic mentor. Program period: May 1, 2026 onwards.",
   },
 ];
 
-const partnerships = [
-  "RWTH Aachen University",
-  "KTH Sweden",
+const lettersOfIntent = [
   "FEV Europe",
+  "Haver & Boecker",
+  "Dorle Controls",
 ];
 
 export function TeamSection() {
@@ -84,23 +89,31 @@ export function TeamSection() {
           ))}
         </div>
 
-        {/* Research Partnerships */}
+        {/* Funding & Letters of Intent */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mb-16"
         >
-          <p className="text-sm text-muted-foreground mb-4">Research partnerships</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 text-foreground">
-            {partnerships.map((partner, index) => (
-              <span key={partner}>
-                <span className="font-display font-semibold">{partner}</span>
-                {index < partnerships.length - 1 && (
-                  <span className="hidden sm:inline-block ml-8 w-1 h-1 bg-border rounded-full" />
-                )}
-              </span>
-            ))}
+          <div className="bg-card border border-border rounded-xl p-8 max-w-2xl mx-auto">
+            <h3 className="font-display text-xl font-semibold mb-4">
+              Seeking Seed Investment
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              We are actively seeking seed funding to accelerate product development and market expansion. 
+              We have secured Letters of Intent from industry leaders validating our solution.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {lettersOfIntent.map((company) => (
+                <span 
+                  key={company}
+                  className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                >
+                  {company}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -109,22 +122,22 @@ export function TeamSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-3xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
           <h3 className="font-display text-xl font-semibold text-center mb-8">
-            Institutional Validation
+            Institutional Validation & Support
           </h3>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-3 gap-6">
             {validation.map((item) => (
               <div
                 key={item.title}
-                className="flex gap-4 p-6 bg-card border border-border rounded-xl"
+                className="flex flex-col gap-4 p-6 bg-card border border-border rounded-xl"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display font-semibold text-sm mb-1">
+                  <h4 className="font-display font-semibold text-sm mb-2">
                     {item.title}
                   </h4>
                   <p className="text-xs text-muted-foreground">

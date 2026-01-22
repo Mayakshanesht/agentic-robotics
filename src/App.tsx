@@ -9,6 +9,9 @@ import UseCases from "./pages/UseCases";
 import Platform from "./pages/Platform";
 import Team from "./pages/Team";
 import Blog from "./pages/Blog";
+import BlogPost1 from "./pages/BlogPost1";
+import BlogPost2 from "./pages/BlogPost2";
+import BlogPost3 from "./pages/BlogPost3";
 import RequestAccess from "./pages/RequestAccess";
 import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
@@ -29,6 +32,9 @@ const App = () => (
           <Route path="/platform" element={<Platform />} />
           <Route path="/team" element={<Team />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/why-physical-ai-needs-4d-synthetic-data" element={<BlogPost1 />} />
+          <Route path="/blog/sim-to-real-gap-solved" element={<BlogPost2 />} />
+          <Route path="/blog/introducing-cloudbee-robotics" element={<BlogPost3 />} />
           <Route path="/request-access" element={<RequestAccess />} />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin" element={<Admin />} />
