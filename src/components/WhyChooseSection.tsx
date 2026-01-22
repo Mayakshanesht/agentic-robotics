@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Clock, DollarSign, Shield, Blocks, Server } from "lucide-react";
+import { Clock, DollarSign, Shield, Blocks, Server, Zap } from "lucide-react";
 
 const reasons = [
-  { icon: Clock, title: "Reduced Development Time", description: "Accelerate from concept to deployment" },
-  { icon: DollarSign, title: "Lower Training Cost", description: "Eliminate expensive data collection" },
-  { icon: Shield, title: "Improved Robustness", description: "Models that work in reality" },
+  { icon: Clock, title: "60-80% Faster", description: "Accelerate development cycles" },
+  { icon: DollarSign, title: "50-70% Cost Reduction", description: "Eliminate expensive data collection" },
+  { icon: Shield, title: "Safety-First", description: "Built-in constraints & recovery" },
   { icon: Blocks, title: "Vendor-Agnostic", description: "Works with any robot platform" },
-  { icon: Server, title: "Built for Real Deployment", description: "Not just simulation success" },
+  { icon: Server, title: "Production-Ready", description: "Not just simulation success" },
+  { icon: Zap, title: "Scalable", description: "From prototype to production" },
 ];
 
 export function WhyChooseSection() {
@@ -17,7 +18,7 @@ export function WhyChooseSection() {
 
   return (
     <section className="section-spacing relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-teal/5 via-transparent to-green-accent/5" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
       
       <div className="section-container relative z-10" ref={ref}>
         <motion.div
@@ -26,23 +27,26 @@ export function WhyChooseSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+            Why CloudBee
+          </span>
           <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
             Why Enterprises Choose{" "}
             <span className="text-gradient-teal">CloudBee</span>
           </h2>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex items-center gap-4 px-6 py-4 bg-card border border-border rounded-xl hover:border-teal/30 transition-colors"
+              className="flex items-center gap-4 px-6 py-4 bg-card border border-border rounded-xl hover:border-primary/30 transition-colors"
             >
-              <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center flex-shrink-0">
-                <reason.icon className="w-5 h-5 text-teal" />
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <reason.icon className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h3 className="font-display font-semibold text-foreground">
