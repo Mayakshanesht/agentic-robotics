@@ -20,11 +20,11 @@ export function PlatformAccessSection() {
         >
           {/* Card */}
           <div className="border-gradient p-12 lg:p-16 text-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-teal/5 to-green-accent/5 rounded-[inherit] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-[inherit] pointer-events-none" />
             
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border mb-8">
-                <Shield className="w-4 h-4 text-teal" />
+                <Shield className="w-4 h-4 text-primary" />
                 <span className="text-sm text-muted-foreground">Private Beta</span>
               </div>
 
@@ -35,20 +35,19 @@ export function PlatformAccessSection() {
 
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
                 Our platform is currently in private beta. Access is selective and 
-                designed for serious robotics teams building production systems. 
-                Join the future of Physical AI infrastructure.
+                designed for serious robotics teams building production systems.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/request-access">
                   <Button variant="hero" size="xl" className="group">
-                    Try Beta
+                    Request Access
                     <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/request-access">
                   <Button variant="heroOutline" size="xl">
-                    Request Access
+                    Contact Us
                   </Button>
                 </Link>
               </div>
@@ -56,7 +55,7 @@ export function PlatformAccessSection() {
           </div>
 
           {/* Glow */}
-          <div className="absolute -inset-8 bg-gradient-to-r from-teal/10 via-transparent to-green-accent/10 rounded-3xl blur-3xl -z-10" />
+          <div className="absolute -inset-8 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 rounded-3xl blur-3xl -z-10" />
         </motion.div>
       </div>
     </section>

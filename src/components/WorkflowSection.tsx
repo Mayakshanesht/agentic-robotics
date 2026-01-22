@@ -4,10 +4,16 @@ import { useRef } from "react";
 import workflowImage from "@/assets/workflow.png";
 
 const steps = [
-  { number: "01", title: "Task Definition", description: "Define robotic tasks at a high level using natural language or structured inputs." },
-  { number: "02", title: "Synthetic Generation", description: "Automatically generate realistic training scenarios without manual teleoperation." },
-  { number: "03", title: "Model Training", description: "Train world-aware models that understand physics and long-term outcomes." },
-  { number: "04", title: "Deployment", description: "Deploy intelligence directly to real robots, ready for production." },
+  { number: "01", title: "Define Task", description: "Specify robotic tasks using natural language or structured inputs. No complex programming required." },
+  { number: "02", title: "Generate 4D Worlds", description: "Automatically create realistic synthetic training environments with physics, objects, and temporal dynamics." },
+  { number: "03", title: "Train World Models", description: "Train AI that understands physical interactions, object dynamics, and long-term outcomes." },
+  { number: "04", title: "Deploy to Robots", description: "Export deployment-ready policies directly to real hardware. Seamless sim-to-real transfer." },
+];
+
+const metrics = [
+  { value: "60-80%", label: "Faster Development" },
+  { value: "50-70%", label: "Cost Reduction" },
+  { value: "10x", label: "Faster Iteration" },
 ];
 
 export function WorkflowSection() {
@@ -23,14 +29,33 @@ export function WorkflowSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+            How It Works
+          </span>
           <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
-            From Task to Deployment —{" "}
-            <span className="text-gradient-teal">End to End</span>
+            From Task Definition to{" "}
+            <span className="text-gradient-teal">Real-World Deployment</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Of course this is how robotics should work. Define a task, generate training data, 
-            train models, and deploy to real hardware.
+            A unified pipeline that takes you from concept to production-ready robot intelligence.
           </p>
+        </motion.div>
+
+        {/* Metrics */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex flex-wrap justify-center gap-8 lg:gap-16 mb-16"
+        >
+          {metrics.map((metric) => (
+            <div key={metric.label} className="text-center">
+              <div className="font-display text-3xl lg:text-4xl font-bold text-gradient-teal">
+                {metric.value}
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">{metric.label}</div>
+            </div>
+          ))}
         </motion.div>
 
         {/* Workflow Diagram */}
@@ -47,7 +72,7 @@ export function WorkflowSection() {
               className="w-full h-auto rounded-lg"
             />
           </div>
-          <div className="absolute -inset-8 bg-gradient-to-r from-teal/5 via-transparent to-green-accent/5 rounded-3xl blur-3xl -z-10" />
+          <div className="absolute -inset-8 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl blur-3xl -z-10" />
         </motion.div>
 
         {/* Steps Grid */}

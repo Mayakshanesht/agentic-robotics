@@ -4,6 +4,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Technology from "./pages/Technology";
+import UseCases from "./pages/UseCases";
+import Platform from "./pages/Platform";
+import Team from "./pages/Team";
+import Blog from "./pages/Blog";
 import RequestAccess from "./pages/RequestAccess";
 import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
@@ -19,6 +24,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/technology" element={<Technology />} />
+          <Route path="/use-cases" element={<UseCases />} />
+          <Route path="/platform" element={<Platform />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/request-access" element={<RequestAccess />} />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin" element={<Admin />} />
