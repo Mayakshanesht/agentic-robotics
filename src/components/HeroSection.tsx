@@ -6,21 +6,18 @@ import heroAnimation from "@/assets/hero-animation.gif";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-end pb-20 lg:pb-32 overflow-hidden bg-background">
-      {/* Full-width Background Animation - More Visible */}
+    <section className="relative min-h-screen flex items-end justify-center pb-16 lg:pb-24 overflow-hidden bg-background">
+      {/* Full-width Background Animation - Fully Visible */}
       <div className="absolute inset-0">
         <img
           src={heroAnimation}
           alt="CloudBee Robotics Agentic Physical AI"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       </div>
 
-      {/* Subtle Floating Glow */}
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] animate-pulse-slow" />
-
-      <div className="section-container relative z-10">
+      <div className="section-container relative z-10 flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,12 +39,12 @@ export function HeroSection() {
             <span className="text-gradient-teal">Infrastructure</span>
           </h1>
 
-          <p className="text-lg text-muted-foreground max-w-xl mb-8 leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
             End-to-end platform for long horizon robotics — from synthetic world generation 
             to deployable AI models.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/request-access">
               <Button variant="hero" size="xl" className="group w-full sm:w-auto">
                 Request Access
