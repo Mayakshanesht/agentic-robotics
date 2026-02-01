@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Technology", href: "/technology" },
-  { label: "Platform", href: "/platform" },
   { label: "Use Cases", href: "/use-cases" },
+  { label: "Platform", href: "/platform" },
   { label: "Team", href: "/team" },
   { label: "Blog", href: "/blog" },
 ];
@@ -48,8 +49,13 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center">
+          {/* CTAs */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Link to="/request-access">
+              <Button variant="heroOutline" size="default">
+                Contact Us
+              </Button>
+            </Link>
             <Link to="/request-access">
               <Button variant="hero" size="default">
                 Request Access
@@ -91,7 +97,12 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-border">
+              <div className="flex flex-col gap-3 pt-4 border-t border-border">
+                <Link to="/request-access" onClick={() => setIsOpen(false)}>
+                  <Button variant="heroOutline" size="lg" className="w-full">
+                    Contact Us
+                  </Button>
+                </Link>
                 <Link to="/request-access" onClick={() => setIsOpen(false)}>
                   <Button variant="hero" size="lg" className="w-full">
                     Request Access
