@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { AlertTriangle, Database, GitBranch, Puzzle, ArrowRight } from "lucide-react";
+import { AlertTriangle, Database, GitBranch, Puzzle, ChevronRight } from "lucide-react";
+import flowSyntheticWorlds from "@/assets/flow-synthetic-worlds.png";
+import flowWorldModels from "@/assets/flow-world-models.png";
+import flowAgenticPolicies from "@/assets/flow-agentic-policies.png";
+import flowRealRobots from "@/assets/flow-real-robots.png";
 
 const problems = [
   {
@@ -27,10 +31,10 @@ const problems = [
 ];
 
 const solutionSteps = [
-  "Synthetic Worlds",
-  "World Models", 
-  "Agentic Policies",
-  "Real Robots",
+  { title: "Synthetic Worlds", image: flowSyntheticWorlds },
+  { title: "World Models", image: flowWorldModels },
+  { title: "Agentic Policies", image: flowAgenticPolicies },
+  { title: "Real Robots", image: flowRealRobots },
 ];
 
 export function ProblemSection() {
@@ -56,24 +60,27 @@ export function ProblemSection() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-28">
           {problems.map((problem, index) => (
             <motion.div
               key={problem.title}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="card-professional"
+              className="group relative"
             >
-              <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center mb-5">
-                <problem.icon className="w-6 h-6 text-destructive" />
+              <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
+              <div className="relative bg-card border border-border rounded-2xl p-6 h-full hover:border-destructive/30 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-5">
+                  <problem.icon className="w-6 h-6 text-destructive" />
+                </div>
+                <h3 className="font-display text-lg font-bold mb-3 text-foreground">
+                  {problem.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {problem.description}
+                </p>
               </div>
-              <h3 className="font-display text-lg font-bold mb-3 text-foreground">
-                {problem.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {problem.description}
-              </p>
             </motion.div>
           ))}
         </div>
@@ -83,26 +90,42 @@ export function ProblemSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center max-w-4xl mx-auto"
+          className="text-center max-w-5xl mx-auto"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
             Our Solution
           </span>
-          <h3 className="font-display text-2xl lg:text-3xl font-bold mb-6 text-foreground">
+          <h3 className="font-display text-2xl lg:text-3xl font-bold mb-12 text-foreground">
             An End-to-End Agentic Physical AI Platform
           </h3>
           
-          {/* Visual Flow */}
-          <div className="flex flex-wrap items-center justify-center gap-3 lg:gap-4 mb-8">
+          {/* Visual Flow with Images */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-10">
             {solutionSteps.map((step, index) => (
-              <div key={step} className="flex items-center gap-3 lg:gap-4">
-                <div className="px-4 py-2 lg:px-6 lg:py-3 bg-primary/10 border border-primary/20 rounded-full">
-                  <span className="text-sm lg:text-base font-semibold text-primary whitespace-nowrap">{step}</span>
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                className="relative group"
+              >
+                <div className="aspect-square rounded-2xl overflow-hidden border border-border bg-card relative">
+                  <img 
+                    src={step.image} 
+                    alt={step.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <span className="text-background text-sm lg:text-base font-semibold">{step.title}</span>
+                  </div>
                 </div>
                 {index < solutionSteps.length - 1 && (
-                  <ArrowRight className="w-4 h-4 text-muted-foreground hidden sm:block" />
+                  <div className="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10">
+                    <ChevronRight className="w-6 h-6 text-primary" />
+                  </div>
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
 
