@@ -7,17 +7,8 @@ import heroAnimation from "@/assets/hero-animation.gif";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col bg-background">
-      {/* Hero Visual - Full width, unobstructed, max 60-70vh */}
-      <div className="w-full h-[60vh] lg:h-[70vh] relative">
-        <img
-          src={heroAnimation}
-          alt="CloudBee Robotics Agentic Physical AI"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Content below the visual */}
-      <div className="flex-1 flex items-center justify-center py-16 lg:py-20 bg-background">
+      {/* Content ABOVE the visual */}
+      <div className="pt-32 pb-16 lg:pb-20 bg-background">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -35,7 +26,7 @@ export function HeroSection() {
             </p>
 
             <p className="text-base text-muted-foreground/80 max-w-xl mx-auto mb-10">
-              From world generation to robot-ready policies—on one unified platform.
+              A unified platform for world generation, agentic training, and robot-ready deployment.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -53,6 +44,15 @@ export function HeroSection() {
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Hero Visual - Full width, centered, starts below text */}
+      <div className="w-full flex-1 min-h-[50vh] lg:min-h-[60vh] relative">
+        <img
+          src={heroAnimation}
+          alt="CloudBee Robotics Agentic Physical AI"
+          className="w-full h-full object-cover"
+        />
       </div>
     </section>
   );

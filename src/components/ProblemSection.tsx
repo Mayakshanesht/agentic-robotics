@@ -1,40 +1,29 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { AlertTriangle, Database, GitBranch, Puzzle, ChevronRight } from "lucide-react";
-import flowSyntheticWorlds from "@/assets/flow-synthetic-worlds.png";
-import flowWorldModels from "@/assets/flow-world-models.png";
-import flowAgenticPolicies from "@/assets/flow-agentic-policies.png";
-import flowRealRobots from "@/assets/flow-real-robots.png";
+import { AlertTriangle, Database, GitBranch, Puzzle } from "lucide-react";
 
 const problems = [
   {
     icon: AlertTriangle,
-    title: "Complex Tasks Break",
-    description: "Long-horizon, multi-step robotic tasks fail under real-world uncertainty.",
+    title: "Long-Horizon Task Failures",
+    description: "Robots struggle with multi-step tasks requiring reasoning and real-world adaptation.",
   },
   {
     icon: Database,
-    title: "Data Is the Bottleneck",
-    description: "No internet-scale data. Each task costs €100k–€300k and months of iteration.",
+    title: "Data Scarcity",
+    description: "Teleoperation-based data collection is costly and unscalable. CloudBee generates synthetic 4D, USD-native data to train robust VLA models at scale.",
   },
   {
     icon: GitBranch,
-    title: "Models Don't Generalize",
-    description: "Black-box foundation models collapse in unseen environments.",
+    title: "Poor Generalization",
+    description: "Models trained in narrow settings fail in new environments.",
   },
   {
     icon: Puzzle,
-    title: "Fragmented Pipelines",
-    description: "Simulation, training, and deployment remain disconnected.",
+    title: "Fragmented Toolchains",
+    description: "Simulation, training, and deployment systems do not integrate seamlessly.",
   },
-];
-
-const solutionSteps = [
-  { title: "Synthetic Worlds", image: flowSyntheticWorlds },
-  { title: "World Models", image: flowWorldModels },
-  { title: "Agentic Policies", image: flowAgenticPolicies },
-  { title: "Real Robots", image: flowRealRobots },
 ];
 
 export function ProblemSection() {
@@ -49,18 +38,28 @@ export function ProblemSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-8"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
             The Challenge
           </span>
           <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6 text-foreground">
-            Robotics Doesn't Scale{" "}
-            <span className="text-gradient-teal">Like Software</span>
+            Why Robotics Still{" "}
+            <span className="text-gradient-teal">Doesn't Scale</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-28">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-center text-muted-foreground max-w-2xl mx-auto mb-16 leading-relaxed"
+        >
+          Robotics development remains slow, expensive, and fragmented.
+          Long-horizon tasks fail not because of hardware—but due to missing scalable worlds, data, and reasoning.
+        </motion.p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {problems.map((problem, index) => (
             <motion.div
               key={problem.title}
@@ -84,56 +83,6 @@ export function ProblemSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Our Solution */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center max-w-5xl mx-auto"
-        >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Our Solution
-          </span>
-          <h3 className="font-display text-2xl lg:text-3xl font-bold mb-12 text-foreground">
-            An End-to-End Agentic Physical AI Platform
-          </h3>
-          
-          {/* Visual Flow with Images */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-10">
-            {solutionSteps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                className="relative group"
-              >
-                <div className="aspect-square rounded-2xl overflow-hidden border border-border bg-card relative">
-                  <img 
-                    src={step.image} 
-                    alt={step.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <span className="text-background text-sm lg:text-base font-semibold">{step.title}</span>
-                  </div>
-                </div>
-                {index < solutionSteps.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10">
-                    <ChevronRight className="w-6 h-6 text-primary" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            CloudBee replaces fragmented robotics pipelines with a unified infrastructure that generates 
-            synthetic 4D worlds, trains world-aware agents, and deploys robot-ready skills automatically.
-          </p>
-        </motion.div>
       </div>
     </section>
   );
