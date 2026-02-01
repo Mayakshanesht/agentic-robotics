@@ -44,10 +44,11 @@ const AdminLogin = () => {
       if (error) throw error;
 
       navigate("/admin");
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Invalid email or password";
       toast({
         title: "Login Failed",
-        description: error.message || "Invalid email or password",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {

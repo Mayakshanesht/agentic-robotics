@@ -2,26 +2,26 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PlatformAccessSection } from "@/components/PlatformAccessSection";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap } from "lucide-react";
-import syntheticWorldImg from "@/assets/platform-synthetic-world.png";
-import agenticTrainingImg from "@/assets/platform-agentic-training.png";
-import deploymentImg from "@/assets/platform-deployment.png";
+import { ArrowRight, Zap, Globe, Brain, Bot, Box } from "lucide-react";
 
 const platformSections = [
   {
     title: "Synthetic World Generation",
     description: "Generate scalable, task-conditioned synthetic environments using natural language and structured priors—designed for training robust physical AI.",
-    image: syntheticWorldImg,
+    icon: Globe,
+    iconColor: "text-blue-500",
   },
   {
     title: "Agentic Training for Long-Horizon Tasks",
     description: "Train world-aware agents that plan, reason, and adapt across long time horizons—beyond reactive policies.",
-    image: agenticTrainingImg,
+    icon: Brain,
+    iconColor: "text-purple-500",
   },
   {
     title: "Deployment to Real Robots",
     description: "Seamlessly deploy trained policies to physical robots with robust sim-to-real transfer.",
-    image: deploymentImg,
+    icon: Bot,
+    iconColor: "text-green-500",
   },
 ];
 
@@ -88,12 +88,16 @@ const Platform = () => {
                     </p>
                   </div>
                   <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                    <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
-                      <img 
-                        src={section.image} 
-                        alt={section.title}
-                        className="w-full h-auto object-cover aspect-video"
-                      />
+                    <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-border shadow-lg p-12 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-border flex items-center justify-center`}>
+                          <section.icon className={`w-12 h-12 ${section.iconColor}`} />
+                        </div>
+                        <div className="space-y-2">
+                          <div className="w-16 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent mx-auto"></div>
+                          <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary/10 to-transparent mx-auto"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
