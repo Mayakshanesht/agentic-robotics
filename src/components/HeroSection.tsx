@@ -46,12 +46,13 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Hero Visual - Full width, centered, starts below text */}
-      <div className="w-full flex-1 min-h-[50vh] lg:min-h-[60vh] relative">
+      {/* Hero Visual - Full width, centered, starts below text, bottom 10% clipped */}
+      <div className="w-full flex-1 min-h-[55vh] lg:min-h-[70vh] relative overflow-hidden">
         <img
           src={heroAnimation}
           alt="CloudBee Robotics Agentic Physical AI"
-          className="w-full h-full object-cover"
+          className="w-full h-[111%] object-cover object-top"
+          style={{ clipPath: 'inset(0 0 10% 0)' }}
         />
       </div>
     </section>
