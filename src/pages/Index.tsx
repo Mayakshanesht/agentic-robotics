@@ -2,8 +2,10 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { LatestUpdateStrip } from "@/components/LatestUpdateStrip";
 import { ProblemSection } from "@/components/ProblemSection";
+import { SolutionSection } from "@/components/SolutionSection";
 import { NewsSection } from "@/components/NewsSection";
 import { Footer } from "@/components/Footer";
+import { AskCloudBee } from "@/components/AskCloudBee";
 
 const Index = () => {
   return (
@@ -13,9 +15,11 @@ const Index = () => {
         <HeroSection />
         <LatestUpdateStrip />
         <ProblemSection />
+        <SolutionSection />
         <NewsSection />
       </main>
       <Footer />
+      <AskCloudBee />
     </div>
   );
 };

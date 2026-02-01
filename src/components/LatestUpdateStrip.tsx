@@ -4,38 +4,47 @@ import ideationPitch from "@/assets/ideation-pitch.jpg";
 
 export function LatestUpdateStrip() {
   return (
-    <section className="py-12 bg-primary/5 border-y border-primary/10">
+    <section className="py-16 lg:py-20 bg-background border-y border-border/50">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col md:flex-row items-center gap-6 md:gap-10"
+          className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center"
         >
-          {/* Image */}
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border-2 border-primary/20 flex-shrink-0">
+          {/* Image - Left half */}
+          <div className="relative aspect-[4/3] lg:aspect-[3/2] rounded-2xl overflow-hidden border border-border/50 shadow-lg">
             <img 
               src={ideationPitch} 
               alt="CloudBee at RWTH Ideation Event"
               className="w-full h-full object-cover"
             />
+            <div className="absolute bottom-3 left-3 bg-background/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+              <p className="text-xs text-muted-foreground">
+                © RWTH Innovation GmbH
+              </p>
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="flex-1 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-              <Sparkles className="w-4 h-4 text-primary" />
+          {/* Content - Right half */}
+          <div className="flex flex-col justify-center">
+            <div className="flex items-center gap-2 mb-4">
+              <Sparkles className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold text-sm uppercase tracking-wider">
                 Latest Update
               </span>
             </div>
-            <p className="text-foreground leading-relaxed">
+            <h3 className="font-display text-2xl lg:text-3xl font-bold mb-4 text-foreground">
+              RWTH Ideation Event
+            </h3>
+            <p className="text-muted-foreground leading-relaxed text-lg">
               CloudBee Robotics was recently pitched by Mayur Waghchoure at the{" "}
-              <span className="font-semibold">RWTH Ideation Event</span>, presenting our vision for agentic physical AI infrastructure.
+              <span className="font-semibold text-foreground">RWTH Ideation Event</span>, 
+              presenting our vision for agentic physical AI infrastructure.
             </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              Photo credit: © RWTH Innovation GmbH
+            <p className="text-sm text-muted-foreground/70 mt-4">
+              Building the future of robotics AI in Aachen, Germany.
             </p>
           </div>
         </motion.div>

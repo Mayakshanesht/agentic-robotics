@@ -7,8 +7,18 @@ import heroAnimation from "@/assets/hero-animation.gif";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col bg-background">
-      {/* Content ABOVE the visual */}
-      <div className="pt-32 pb-16 lg:pb-20 bg-background">
+      {/* Hero Visual - GIF above, bottom 15% clipped */}
+      <div className="w-full pt-20 lg:pt-24 overflow-hidden">
+        <img
+          src={heroAnimation}
+          alt="CloudBee Robotics Agentic Physical AI"
+          className="w-full h-[55vh] lg:h-[65vh] object-cover object-top"
+          style={{ clipPath: 'inset(0 0 15% 0)' }}
+        />
+      </div>
+
+      {/* Content BELOW the visual */}
+      <div className="py-12 lg:py-16 bg-background">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -44,16 +54,6 @@ export function HeroSection() {
             </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Hero Visual - Full width, centered, starts below text, bottom 10% clipped */}
-      <div className="w-full flex-1 min-h-[55vh] lg:min-h-[70vh] relative overflow-hidden">
-        <img
-          src={heroAnimation}
-          alt="CloudBee Robotics Agentic Physical AI"
-          className="w-full h-[111%] object-cover object-top"
-          style={{ clipPath: 'inset(0 0 10% 0)' }}
-        />
       </div>
     </section>
   );
