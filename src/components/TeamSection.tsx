@@ -24,12 +24,12 @@ const validation = [
   {
     icon: Briefcase,
     title: "Deloitte Problem–Solution Fit",
-    description: "Successfully completed Sept – Dec 2025 with Graff Jo, validating problem definition and solution direction.",
+    description: "Successfully completed Sept – Dec 2025 with Jo (Manager), validating problem definition and solution direction.",
   },
   {
     icon: GraduationCap,
     title: "RWTH Innovation Ideation Program",
-    description: "Accelerator program through RWTH Aachen University's innovation wing, with guidance from Dr Tobias Recker (Innovation Lead) on product development and market positioning.",
+    description: "Accelerator program through RWTH Aachen University's innovation wing, with guidance from Tobias (Coach) on product development and market positioning.",
   },
   {
     icon: Award,

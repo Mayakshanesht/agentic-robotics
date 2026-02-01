@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Play, Eye, Zap, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import demoVideo from "@/assets/CloudBee Agentic Demo.mp4";
 import sceneGenVideo from "@/assets/scene_generation_demo.mp4";
@@ -252,13 +253,17 @@ export function DemoShowcase() {
               Get exclusive access to our full demo suite and see how CloudBee can transform your robotics development pipeline.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" className="button-hero group">
-                Request Full Demo Access
-                <Play className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
-              </Button>
-              <Button variant="heroOutline" size="xl">
-                Schedule Live Demo
-              </Button>
+              <Link to="/request-access">
+                <Button variant="hero" size="xl" className="button-hero group">
+                  Request Full Demo Access
+                  <Play className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+                </Button>
+              </Link>
+              <Link to="/request-access">
+                <Button variant="heroOutline" size="xl">
+                  Schedule Live Demo
+                </Button>
+              </Link>
             </div>
           </div>
         </motion.div>

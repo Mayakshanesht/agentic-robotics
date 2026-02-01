@@ -74,7 +74,10 @@ export function HeroSection() {
             </div>
 
             <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-              Advanced synthetic data generation for model training, better world reasoning and VLA models, real-world deployment, and agentic architecture planning and execution
+              <span className="font-semibold text-foreground">Scalable synthetic data</span> grounded in custom scenes with <span className="font-semibold text-foreground">panorama/text input</span>, 
+              <span className="font-semibold text-foreground"> enhanced models with safety layers</span>, 
+              <span className="font-semibold text-foreground"> agentic task planning</span> for complex tasks, and 
+              <span className="font-semibold text-foreground"> 4D data in USD format</span> for seamless deployment
             </p>
 
             <p className="text-sm text-muted-foreground/70 max-w-xl mx-auto mb-6">
