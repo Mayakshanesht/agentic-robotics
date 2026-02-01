@@ -109,8 +109,12 @@ const RequestAccess = () => {
                   transition={{ duration: 0.6 }}
                 >
                   <div className="text-center mb-12">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6">
+                      <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                      <span className="text-sm text-primary font-medium">Private Beta</span>
+                    </div>
                     <h1 className="font-display text-3xl lg:text-5xl font-bold mb-4">
-                      Request <span className="text-gradient-teal">Beta Access</span>
+                      Request <span className="text-gradient-teal">Access</span>
                     </h1>
                     <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                       Join the future of Physical AI infrastructure. Fill out the form below and our team will reach out to discuss your robotics needs.
