@@ -30,7 +30,7 @@ const validation = [
   {
     icon: Award,
     title: "EXIST Research Transfer Grant",
-    description: "Applying for EXIST funding with Prof. Dr. Bastian Leibe as academic mentor. Program period: May 1, 2026 onwards.",
+    description: "Applying for EXIST funding with Prof. Dr. Bastian Liebe as academic mentor. Program period: May 1, 2026 onwards.",
   },
 ];
 
