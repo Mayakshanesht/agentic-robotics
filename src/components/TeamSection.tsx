@@ -24,24 +24,29 @@ const validation = [
   {
     icon: Briefcase,
     title: "Deloitte Problem–Solution Fit",
-    description: "Successfully completed Sept – Dec 2025, validating problem definition and solution direction.",
+    description: "Successfully completed Sept – Dec 2025 with Graff Jo, validating problem definition and solution direction.",
   },
   {
     icon: GraduationCap,
     title: "RWTH Innovation Ideation Program",
-    description: "Accelerator program through RWTH Aachen University's innovation wing, with guidance from Tobias Recker on product development and market positioning.",
+    description: "Accelerator program through RWTH Aachen University's innovation wing, with guidance from Dr Tobias Recker (Innovation Lead) on product development and market positioning.",
   },
   {
     icon: Award,
     title: "EXIST Research Transfer Grant",
-    description: "Applying for EXIST funding with Prof. Dr. Bastian Liebe as academic mentor. Program period: May 1, 2026 onwards.",
+    description: "Applying for EXIST funding with Prof. Dr. Bastian Leibe as academic mentor at RWTH Aachen University. Program period: May 1, 2026 onwards.",
   },
 ];
 
 const lettersOfIntent = [
   "FEV Europe",
-  "Haver & Boecker",
+  "Haver & Boecker", 
   "Dorle Controls",
+  "Fraunhofer IML",
+];
+
+const researchLabs = [
+  "IGMR, RWTH Aachen University",
 ];
 
 export function TeamSection() {
@@ -124,6 +129,22 @@ export function TeamSection() {
                   {company}
                 </span>
               ))}
+            </div>
+            
+            <div className="mt-6 pt-6 border-t border-border">
+              <h4 className="font-display text-sm font-semibold mb-3 text-muted-foreground">
+                Research Partnerships
+              </h4>
+              <div className="flex flex-wrap justify-center gap-3">
+                {researchLabs.map((lab) => (
+                  <span 
+                    key={lab}
+                    className="px-4 py-2 bg-green-accent/10 text-green-accent rounded-full text-xs font-medium"
+                  >
+                    {lab}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

@@ -55,8 +55,9 @@ export function ProblemSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center text-muted-foreground max-w-2xl mx-auto mb-16 leading-relaxed"
         >
-          Robotics development remains slow, expensive, and fragmented.
-          Long-horizon tasks fail not because of hardware—but due to missing scalable worlds, data, and reasoning.
+          <span className="font-semibold text-foreground">$100-250k saved per robot</span> • 
+          <span className="font-semibold text-foreground"> 6 months faster deployment</span> • 
+          <span className="font-semibold text-foreground"> 80% reduction in training costs</span>
         </motion.p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -66,7 +67,7 @@ export function ProblemSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative"
+              className="group relative hover-lift glow-effect"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
               <div className="relative bg-card border border-border rounded-2xl p-6 h-full hover:border-destructive/30 transition-all duration-300">

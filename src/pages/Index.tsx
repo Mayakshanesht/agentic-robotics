@@ -1,9 +1,11 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { HeroStats } from "@/components/HeroStats";
 import { LatestUpdateStrip } from "@/components/LatestUpdateStrip";
 import { ProblemSection } from "@/components/ProblemSection";
 import { SolutionSection } from "@/components/SolutionSection";
-import { NewsSection } from "@/components/NewsSection";
+import { TrustIndicators } from "@/components/TrustIndicators";
+import { DemoShowcase } from "@/components/DemoShowcase";
 import { Footer } from "@/components/Footer";
 import { AskCloudBee } from "@/components/AskCloudBee";
 
@@ -13,10 +15,12 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <HeroStats />
         <LatestUpdateStrip />
         <ProblemSection />
         <SolutionSection />
-        <NewsSection />
+        <TrustIndicators />
+        <DemoShowcase />
       </main>
       <Footer />
       <AskCloudBee />
