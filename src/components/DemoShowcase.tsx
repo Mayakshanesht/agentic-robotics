@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { Play, Eye, Zap, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import demoVideo from "@/assets/CloudBee Agentic Demo.mp4";
 import sceneGenVideo from "@/assets/scene_generation_demo.mp4";
 
 const demoFeatures = [
@@ -53,87 +52,16 @@ export function DemoShowcase() {
           </p>
         </motion.div>
 
-        {/* Demo Videos Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {/* Main Agentic Demo */}
+        {/* Scene Generation Demo */}
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="group relative"
           >
-            <div className="relative bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 hover-lift">
-              <div className="relative h-64 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                
-                <video
-                  className="w-full h-full object-cover"
-                  muted
-                  loop
-                  playsInline
-                  onMouseEnter={(e) => e.currentTarget.play()}
-                  onMouseLeave={(e) => e.currentTarget.pause()}
-                >
-                  <source src={demoVideo} type="video/mp4" />
-                </video>
-                
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 text-white hover:scale-110 transition-all duration-300"
-                    onClick={() => {
-                      const modal = document.createElement('div');
-                      modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm';
-                      modal.innerHTML = `
-                        <div class="relative w-full max-w-5xl mx-4">
-                          <button class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                              <line x1="18" y1="6" x2="6" y2="18"></line>
-                              <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                          </button>
-                          <video class="w-full rounded-lg shadow-2xl" controls autoplay>
-                            <source src="${demoVideo}" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      `;
-                      modal.onclick = (e) => {
-                        const target = e.target as HTMLElement;
-                        if (target === modal || target.tagName === 'BUTTON' || target.tagName === 'svg' || target.tagName === 'line') {
-                          document.body.removeChild(modal);
-                        }
-                      };
-                      document.body.appendChild(modal);
-                    }}
-                  >
-                    <Play className="w-5 h-5 mr-2" />
-                    Watch Demo
-                  </Button>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="font-display text-xl font-bold mb-3 text-foreground text-center">
-                  CloudBee Agentic Demo
-                </h3>
-                <p className="text-muted-foreground text-center leading-relaxed text-sm">
-                  Complete platform showcase from world generation to deployment
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Scene Generation Demo */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="group relative"
-          >
             <div className="relative bg-card border border-border rounded-2xl overflow-hidden hover:border-green-accent/30 transition-all duration-300 hover-lift">
-              <div className="relative h-64 bg-gradient-to-br from-green-accent/10 to-green-accent/5 flex items-center justify-center">
+              <div className="relative h-96 bg-gradient-to-br from-green-accent/10 to-green-accent/5 flex items-center justify-center">
                 <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
                 
                 <video
