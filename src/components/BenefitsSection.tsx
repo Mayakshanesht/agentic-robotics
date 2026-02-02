@@ -14,26 +14,26 @@ const benefits = [
   {
     icon: Database,
     title: "Scalable Synthetic Data",
-    description: "Generate unlimited synthetic data grounded in custom scenes with panorama and text input capabilities",
-    features: ["Custom scene generation", "Panorama input support", "Text-to-scene conversion", "Unlimited scalability"]
+    description: "Generate unlimited synthetic data for training without the constraints of real-world data collection",
+    features: ["Unlimited data generation", "Cost-effective scaling", "Rapid iteration cycles", "Quality assurance"]
   },
   {
     icon: Shield,
-    title: "Enhanced Safety Layers",
-    description: "Built-in safety mechanisms and validation layers ensuring reliable and secure robot operations",
-    features: ["Real-time safety monitoring", "Collision avoidance", "Fail-safe mechanisms", "Compliance validation"]
+    title: "Explainable Models",
+    description: "Build models that are not only powerful but also transparent and trustworthy for enterprise deployment",
+    features: ["Model interpretability", "Decision transparency", "Safety validation", "Compliance ready"]
   },
   {
     icon: Brain,
-    title: "Agentic Task Planning",
-    description: "Intelligent task decomposition and planning for solving complex robotics challenges autonomously",
-    features: ["Complex task breakdown", "Autonomous decision making", "Multi-step planning", "Adaptive execution"]
+    title: "Agentic Architecture",
+    description: "Create novel agent-based systems that can handle complex, multi-step tasks autonomously",
+    features: ["Autonomous planning", "Multi-step reasoning", "Adaptive behavior", "Complex task handling"]
   },
   {
     icon: File,
-    title: "4D USD Format",
-    description: "Universal Scene Description format with temporal data for seamless integration and deployment",
-    features: ["4D temporal data", "USD compatibility", "Cross-platform support", "Easy deployment"]
+    title: "Direct Robot Deployment",
+    description: "Deploy trained models directly to physical robots with minimal integration overhead",
+    features: ["One-click deployment", "Real-world ready", "Hardware agnostic", "Continuous operations"]
   }
 ];
 
@@ -51,13 +51,16 @@ export function BenefitsSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Key Capabilities
+            Why CloudBee
           </span>
           <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6 text-foreground">
-            Why Choose <span className="text-gradient-teal">CloudBee</span>
+            Why Robotics Still Doesn't <span className="text-gradient-teal">Scale</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our platform delivers comprehensive solutions that address the most challenging aspects of robotics development and deployment.
+            Robotics development remains slow, expensive, and difficult to deploy at scale. Teams struggle with limited data, brittle systems, and long development cycles that delay real-world impact.
+          </p>
+          <p className="text-lg text-muted-foreground mt-4">
+            CloudBee addresses these challenges with a unified platform to generate scalable synthetic data, train better and explainable models, build novel agentic architectures, and deploy directly to robots.
           </p>
         </motion.div>
 
@@ -88,7 +91,7 @@ export function BenefitsSection() {
                 
                 <div className="space-y-3">
                   {benefit.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-3">
+                    <div key={featureIndex} className="flex items-center gap-3 justify-center">
                       <CheckCircle className="w-4 h-4 text-green-accent flex-shrink-0" />
                       <span className="text-sm text-muted-foreground">{feature}</span>
                     </div>
@@ -108,20 +111,20 @@ export function BenefitsSection() {
         >
           <div className="bg-gradient-to-r from-primary/5 to-green-accent/5 rounded-2xl p-8 border border-primary/20">
             <h3 className="font-display text-2xl font-bold mb-8 text-foreground">
-              Proven Performance
+              What We Enable
             </h3>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">10x</div>
-                <div className="text-sm text-muted-foreground">Faster Training</div>
+                <div className="text-3xl font-bold text-primary mb-2">Significantly Faster</div>
+                <div className="text-sm text-muted-foreground">Training & Iteration</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-accent mb-2">95%</div>
-                <div className="text-sm text-muted-foreground">Sim-to-Real Transfer</div>
+                <div className="text-3xl font-bold text-green-accent mb-2">Strong Performance</div>
+                <div className="text-sm text-muted-foreground">Real-World Deployment</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-accent mb-2">100%</div>
-                <div className="text-sm text-muted-foreground">Enterprise Ready</div>
+                <div className="text-3xl font-bold text-orange-accent mb-2">Enterprise Ready</div>
+                <div className="text-sm text-muted-foreground">Built for Scale</div>
               </div>
             </div>
           </div>

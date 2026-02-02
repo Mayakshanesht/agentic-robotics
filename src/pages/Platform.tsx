@@ -1,28 +1,36 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PlatformAccessSection } from "@/components/PlatformAccessSection";
+import { HeroStats } from "@/components/HeroStats";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Globe, Brain, Bot, Box } from "lucide-react";
+import { ArrowRight, Zap, Globe, Brain, Bot, Box, CheckCircle } from "lucide-react";
 
 const platformSections = [
   {
-    title: "Synthetic World Generation",
-    description: "Generate scalable, task-conditioned synthetic environments using natural language and structured priors—designed for training robust physical AI.",
+    title: "Scalable Synthetic Data Generation",
+    description: "Generate unlimited, high-quality synthetic data for training robotics models without the constraints and costs of real-world data collection.",
     icon: Globe,
     iconColor: "text-blue-500",
   },
   {
-    title: "Agentic Training for Long-Horizon Tasks",
-    description: "Train world-aware agents that plan, reason, and adapt across long time horizons—beyond reactive policies.",
+    title: "Better & Explainable Models",
+    description: "Train advanced models that not only perform better but are also transparent and interpretable for enterprise deployment.",
     icon: Brain,
     iconColor: "text-purple-500",
   },
   {
-    title: "Deployment to Real Robots",
-    description: "Seamlessly deploy trained policies to physical robots with robust sim-to-real transfer.",
+    title: "Novel Agentic Architecture",
+    description: "Build and deploy agent-based systems that can autonomously handle complex, multi-step tasks in dynamic environments.",
     icon: Bot,
     iconColor: "text-green-500",
   },
+];
+
+const capabilities = [
+  "Unlimited synthetic data generation",
+  "Explainable and interpretable models", 
+  "Autonomous agentic task planning",
+  "Direct robot deployment pipeline"
 ];
 
 const Platform = () => {
@@ -44,12 +52,12 @@ const Platform = () => {
                 The CloudBee <span className="text-gradient-teal">Platform</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                End-to-end infrastructure for training and deploying agentic physical AI.
+                Generate scalable synthetic data, train better and explainable models, build novel agentic architectures, and deploy directly to robots.
               </p>
               
               {/* Visual Flow */}
               <div className="flex flex-wrap items-center justify-center gap-3 lg:gap-4">
-                {["Synthetic Worlds", "World Models", "Agentic Policies", "Real Robots"].map((step, index) => (
+                {["Synthetic Data", "Model Training", "Agentic Architecture", "Robot Deployment"].map((step, index) => (
                   <div key={step} className="flex items-center gap-3 lg:gap-4">
                     <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
                       <span className="text-sm font-semibold text-primary whitespace-nowrap">{step}</span>
@@ -64,10 +72,11 @@ const Platform = () => {
           </div>
         </section>
 
-        {/* Platform Sections with Images */}
+        {/* Platform Overview */}
         <section className="section-spacing bg-secondary/30">
           <div className="section-container">
-            <div className="space-y-24">
+            <HeroStats />
+            <div className="space-y-16">
               {platformSections.map((section, index) => (
                 <motion.div
                   key={section.title}
@@ -106,25 +115,33 @@ const Platform = () => {
           </div>
         </section>
 
-        {/* Key Advantage Callout */}
-        <section className="py-16 bg-primary/5 border-y border-primary/10">
+        {/* Key Capabilities */}
+        <section className="py-20">
           <div className="section-container">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto text-center md:text-left"
+              className="max-w-4xl mx-auto text-center mb-16"
             >
-              <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <Zap className="w-8 h-8 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-display text-xl font-bold mb-2">Key Advantage</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Synthetic, USD-native 4D data enables consistent world representations across simulation, training, and deployment.
-                </p>
-              </div>
+              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
+                Built for <span className="text-gradient-teal">Scale</span>, Not Demos
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Traditional robotics pipelines struggle to scale across environments and use cases. CloudBee enables faster iteration and deployment where reliability matters most.
+              </p>
             </motion.div>
+
+            <div className="bg-gradient-to-r from-primary/5 to-green-accent/5 rounded-2xl p-8 border border-primary/20 max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-6">
+                {capabilities.map((capability, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-accent flex-shrink-0" />
+                    <span className="text-sm">{capability}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

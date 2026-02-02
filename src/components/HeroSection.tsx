@@ -26,7 +26,7 @@ export function HeroSection() {
               className="space-y-4"
             >
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-white drop-shadow-lg">
-                Agentic Physical AI Infrastructure
+                Infrastructure for Agentic Physical AI
               </h2>
               <Link to="/request-access">
                 <Button 
@@ -34,7 +34,7 @@ export function HeroSection() {
                   size="lg"
                   className="bg-orange-500 hover:bg-orange-600 text-white border-orange-400 hover:border-orange-300 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                 >
-                  Get Started Now
+                  Request Early Access
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
@@ -53,8 +53,7 @@ export function HeroSection() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] mb-3 text-foreground">
-              Build the Future of{" "}
-              <span className="text-gradient-teal">Robotics</span>
+              Building the Intelligent Robotics <span className="text-gradient-teal">Workforce for Industry</span>
             </h1>
 
             {/* Social Proof Badges */}
@@ -74,19 +73,16 @@ export function HeroSection() {
             </div>
 
             <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-              <span className="font-semibold text-foreground">Scalable synthetic data</span> grounded in custom scenes with <span className="font-semibold text-foreground">panorama/text input</span>, 
-              <span className="font-semibold text-foreground"> enhanced models with safety layers</span>, 
-              <span className="font-semibold text-foreground"> agentic task planning</span> for complex tasks, and 
-              <span className="font-semibold text-foreground"> 4D data in USD format</span> for seamless deployment
-            </p>
-
-            <p className="text-sm text-muted-foreground/70 max-w-xl mx-auto mb-6">
-              <span className="font-semibold text-foreground">10x faster training</span> • 
-              <span className="font-semibold text-foreground"> 95% sim-to-real transfer</span> • 
-              <span className="font-semibold text-foreground"> Enterprise ready</span>
+              CloudBee develops infrastructure for <span className="font-semibold text-foreground">agentic physical AI</span>—enabling world-aware robots and stronger VLA models to perform complex, real-world tasks reliably and at scale.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link to="/request-access">
+                <Button variant="hero" size="xl" className="w-full sm:w-auto">
+                  Request Early Access
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
               <Link to="/technology">
                 <Button variant="heroOutline" size="xl" className="w-full sm:w-auto">
                   Learn More

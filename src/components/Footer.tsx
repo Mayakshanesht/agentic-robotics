@@ -23,9 +23,15 @@ export function Footer() {
           <div className="md:col-span-2">
             <img src={logo} alt="CloudBee Robotics" className="h-10 w-auto mb-5 invert" />
             <p className="text-background/80 text-sm max-w-sm mb-6 leading-relaxed">
-              Infrastructure for Agentic Physical AI—from synthetic worlds to real robots.
+              Infrastructure for Agentic Physical AI
             </p>
-            <div className="flex items-center gap-3 mb-6">
+            <Link 
+              to="/request-access"
+              className="inline-block px-6 py-3 bg-background text-foreground font-semibold rounded-xl hover:bg-background/90 transition-colors mb-6"
+            >
+              Request Access
+            </Link>
+            <div className="flex items-center gap-3">
               <a 
                 href="https://linkedin.com/company/cloudbee-robotics" 
                 target="_blank"
@@ -74,7 +80,7 @@ export function Footer() {
               <span>Contact: Mayur Waghchoure</span>
             </div>
           </div>
-          <p className="text-background/50 text-sm">© {new Date().getFullYear()} CloudBee Robotics. All rights reserved.</p>
+          <p className="text-background/50 text-sm">© 2026 CloudBee Robotics. All rights reserved.</p>
         </div>
       </div>
     </footer>
