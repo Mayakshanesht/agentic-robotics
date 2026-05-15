@@ -3,38 +3,38 @@ import { Box, BrainCircuit, Network, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pipeline = [
-  "Task Description",
-  "Synthetic Worlds",
-  "Multimodal Data",
-  "VLA & World Models",
-  "Task Reasoning",
-  "Safe Execution",
-  "ROS2 Deployment",
+  "Text Prompt / Panorama",
+  "4D Synthetic World (USD)",
+  "Multimodal Sensor Data",
+  "VLA + World Model Training",
+  "Agentic Task Reasoning",
+  "Functional-Safety Runtime",
+  "ROS 2 Deployment",
 ];
 
 const cards = [
   {
     icon: Box,
     title: "DataForge",
-    subtitle: "Synthetic Multimodal World Generation",
-    body: "Generate high-fidelity 4D training scenarios at scale — no teleoperation required. Vision, tactile, force, LiDAR, proprioception and more.",
+    subtitle: "4D Synthetic Worlds in USD",
+    body: "Generate photoreal, physics-accurate 4D worlds in OpenUSD from a single text prompt or panorama — vision, depth, tactile, force, LiDAR, and proprioception included. No teleoperation, no rigs.",
     badge: "60–80% lower data cost",
     color: "blue",
   },
   {
     icon: BrainCircuit,
     title: "ModelLab",
-    subtitle: "VLA & World Model Training",
-    body: "Fine-tune Vision-Language-Action models and world models with sim-to-real optimized pipelines for robust, generalizable robot behavior.",
+    subtitle: "Multimodal VLA & World Models",
+    body: "Train and fine-tune Vision–Language–Action and world models on multimodal synthetic + real data. Solves the brittleness and scale limits of teleoperation-only pipelines.",
     badge: "Sim-to-real optimized",
     color: "green",
   },
   {
     icon: Network,
     title: "AgentOS",
-    subtitle: "Autonomous Runtime & Orchestration",
-    body: "Deploy long-horizon task execution with world-state memory, task reasoning nodes, and safety-constrained policies. EU AI Act–ready by design.",
-    badge: "Safety-first",
+    subtitle: "Autonomous OS for Robotics",
+    body: "An autonomous operating system — like an agentic platform for physical robots — that plans, reasons, and acts on long-horizon tasks with functional-safety guarantees architected in, not bolted on.",
+    badge: "Functional safety by design",
     color: "blue",
   },
 ];
@@ -50,11 +50,15 @@ export function PlatformOverview() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
+          <div className="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-[10px] font-mono uppercase tracking-wider border border-accent-blue/30 bg-accent-blue/5 text-accent-blue">
+            The Autonomous OS for Robotics
+          </div>
           <h2 className="font-display font-bold text-3xl lg:text-5xl mb-4">
-            One Platform. <span className="text-gradient-blue">End-to-End.</span>
+            One platform, from <span className="text-gradient-blue">prompt to safe execution.</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            From synthetic world generation to live robot deployment — CloudBee connects the entire pipeline.
+            A 4D synthetic data engine, multimodal training stack, and an autonomous runtime —
+            engineered with functional-safety guarantees so robots can solve complex, long-horizon tasks in the real world.
           </p>
         </motion.div>
 
