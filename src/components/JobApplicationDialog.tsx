@@ -37,7 +37,15 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
     }
     setLoading(true);
     try {
-      const { error } = await supabase.from("job_applications").insert({ role, ...parsed.data });
+      const { error } = await supabase.from("job_applications").insert({
+        role,
+        full_name: parsed.data.full_name,
+        email: parsed.data.email,
+        cover_letter: parsed.data.cover_letter,
+        location: parsed.data.location || null,
+        linkedin: parsed.data.linkedin || null,
+        portfolio: parsed.data.portfolio || null,
+      });
       if (error) throw error;
       setDone(true);
       toast.success("Application submitted. Thank you!");
