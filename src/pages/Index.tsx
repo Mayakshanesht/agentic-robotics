@@ -9,7 +9,7 @@ import { SkillMarketplace } from "@/components/home/SkillMarketplace";
 import { WhyCloudBee } from "@/components/home/WhyCloudBee";
 import { TargetIndustries } from "@/components/home/TargetIndustries";
 import { Traction } from "@/components/home/Traction";
-import { TeamSection } from "@/components/home/TeamSection";
+
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { AskCloudBee } from "@/components/AskCloudBee";
 
@@ -36,7 +36,7 @@ const Index = () => {
       <WhyCloudBee />
       <TargetIndustries />
       <Traction />
-      <TeamSection />
+      
       <FinalCTA />
       <AskCloudBee />
     </PageShell>
