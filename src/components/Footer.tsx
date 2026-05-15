@@ -42,9 +42,18 @@ export function Footer() {
               <li><Link to="/impressum" className="hover:text-foreground">Impressum</Link></li>
               <li><a href="#" className="hover:text-foreground">Privacy Policy</a></li>
             </ul>
-            <div className="mt-5 text-xs text-muted-foreground">
+            <div className="mt-5 text-xs text-muted-foreground leading-relaxed">
               <div>info@cloudbeerobotics.de</div>
-              <div>Aachen, Germany</div>
+              <a
+                href="https://www.google.com/maps/place/Collective+Incubator/@50.7850548,6.1073097,17z/data=!4m6!3m5!1s0x47c09b20c34800b5:0x40128dcd06f393a0!8m2!3d50.7856865!4d6.1087014"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-2 hover:text-foreground transition-colors"
+              >
+                Collective Incubator<br />
+                Jülicher Str. 209q-s<br />
+                52070 Aachen, Germany
+              </a>
             </div>
           </div>
         </div>

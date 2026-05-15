@@ -18,14 +18,15 @@ export default function Impressum() {
             <Section title="Angaben gemäß § 5 TMG">
               <p>
                 CloudBee Robotics<br />
-                [Street and number]<br />
-                52062 Aachen<br />
+                c/o Collective Incubator<br />
+                Jülicher Str. 209q-s<br />
+                52070 Aachen<br />
                 Germany
               </p>
             </Section>
 
             <Section title="Vertreten durch">
-              <p>[Founder Name]</p>
+              <p>Mayur Waghchoure — Founder & CEO</p>
             </Section>
 
             <Section title="Kontakt">
