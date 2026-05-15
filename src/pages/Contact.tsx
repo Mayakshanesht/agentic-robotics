@@ -95,10 +95,20 @@ export default function Contact() {
                     <Globe size={16} className="text-accent-blue" />
                     cloudbeerobotics.de
                   </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <MapPin size={16} className="text-accent-blue" />
-                    Aachen, Germany
-                  </div>
+                  <a
+                    href="https://www.google.com/maps/place/Collective+Incubator/@50.7850548,6.1073097,17z/data=!4m6!3m5!1s0x47c09b20c34800b5:0x40128dcd06f393a0!8m2!3d50.7856865!4d6.1087014"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <MapPin size={16} className="text-accent-blue mt-0.5 shrink-0" />
+                    <span>
+                      Collective Incubator<br />
+                      Jülicher Str. 209q-s<br />
+                      52070 Aachen, Germany
+                      <span className="block text-xs text-accent-blue/80 font-mono mt-1">Open in Google Maps →</span>
+                    </span>
+                  </a>
                 </div>
               </div>
 
