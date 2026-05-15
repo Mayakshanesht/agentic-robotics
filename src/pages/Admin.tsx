@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, LogOut, Trash2, RefreshCw, Users, Mail, Building, Briefcase, Calendar, MessageSquare, FileText, Newspaper } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -203,7 +204,7 @@ function Card({ children, onDelete }: { children: React.ReactNode; onDelete: () 
     </div>
   );
 }
-function Row({ icon: Icon, label, value, href }: { icon: any; label: string; value: string; href?: string }) {
+function Row({ icon: Icon, label, value, href }: { icon: LucideIcon; label: string; value: string; href?: string }) {
   return (
     <div className="flex items-start gap-3 min-w-0">
       <Icon className="w-4 h-4 text-accent-blue mt-1 shrink-0" />
