@@ -28,10 +28,16 @@ export default function ResetPassword() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setReady(Boolean(data.session)));
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setReady(Boolean(session));
+    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "PASSWORD_RECOVERY" || session) setReady(true);
     });
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) setReady(true);
+    });
+    // Fallback: if a recovery hash is present, allow the form regardless
+    if (typeof window !== "undefined" && window.location.hash.includes("type=recovery")) {
+      setReady(true);
+    }
     return () => listener.subscription.unsubscribe();
   }, []);
 
@@ -101,7 +107,7 @@ export default function ResetPassword() {
                   <Label htmlFor="confirm-password">Confirm password</Label>
                   <Input id="confirm-password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="bg-secondary/50" />
                 </div>
-                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading || !ready}>
+                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
                   {loading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Updating...</> : "Update Password"}
                 </Button>
               </form>
