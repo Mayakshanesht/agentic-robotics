@@ -19,6 +19,7 @@ import BlogPostDynamic from "./pages/BlogPostDynamic";
 import RequestAccess from "./pages/RequestAccess";
 import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
+import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPostDynamic />} />
           <Route path="/request-access" element={<RequestAccess />} />
           <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
