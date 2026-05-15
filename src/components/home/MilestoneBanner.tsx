@@ -1,5 +1,26 @@
 import { motion } from "framer-motion";
-import { Award, GraduationCap, CheckCircle2 } from "lucide-react";
+import { Award, CheckCircle2, Briefcase, Lightbulb } from "lucide-react";
+
+const milestones = [
+  {
+    icon: Award,
+    color: "text-accent-green",
+    title: "EXIST Research Transfer Grant — Secured",
+    desc: "German Federal Ministry funding to build CloudBee Robotics from RWTH Aachen.",
+  },
+  {
+    icon: Briefcase,
+    color: "text-accent-blue",
+    title: "Deloitte Problem–Solution Fit — Completed",
+    desc: "Full validation cycle with Deloitte: problem definition and solution direction signed off.",
+  },
+  {
+    icon: Lightbulb,
+    color: "text-accent-green",
+    title: "RWTH Ideation Program — Completed",
+    desc: "Graduated from RWTH Innovation Ideation — from problem-fit through halftime to final pitch.",
+  },
+];
 
 export function MilestoneBanner() {
   return (
@@ -20,27 +41,18 @@ export function MilestoneBanner() {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-5 flex-1 w-full">
-            <div className="flex items-start gap-3">
-              <Award size={20} className="text-accent-green mt-0.5 shrink-0" />
-              <div>
-                <div className="text-sm font-display font-semibold text-foreground">EXIST Research Transfer Grant — Secured</div>
-                <div className="text-xs text-muted-foreground mt-0.5">German Federal Ministry funding to build CloudBee Robotics from RWTH Aachen.</div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <CheckCircle2 size={20} className="text-accent-blue mt-0.5 shrink-0" />
-              <div>
-                <div className="text-sm font-display font-semibold text-foreground">RWTH Ideation Program — Completed</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Full validation cycle through RWTH Innovation, from problem-fit to halftime to graduation.</div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <GraduationCap size={20} className="text-accent-green mt-0.5 shrink-0" />
-              <div>
-                <div className="text-sm font-display font-semibold text-foreground">Academic Mentor: Prof. Dr. Bastian Leibe</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Computer Vision Group, RWTH Aachen — world-class research backing.</div>
-              </div>
-            </div>
+            {milestones.map((m) => {
+              const Icon = m.icon;
+              return (
+                <div key={m.title} className="flex items-start gap-3">
+                  <Icon size={20} className={`${m.color} mt-0.5 shrink-0`} />
+                  <div>
+                    <div className="text-sm font-display font-semibold text-foreground">{m.title}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{m.desc}</div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
