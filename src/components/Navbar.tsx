@@ -1,114 +1,104 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Technology", href: "/technology" },
-  { label: "Use Cases", href: "/use-cases" },
   { label: "Platform", href: "/platform" },
-  { label: "Team", href: "/team" },
-  { label: "Blog", href: "/blog" },
+  { label: "Hardware", href: "/hardware" },
+  { label: "Research", href: "/research" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const isActive = (href: string) => {
-    if (href === "/") return location.pathname === "/";
-    return location.pathname.startsWith(href);
-  };
+  useEffect(() => setIsOpen(false), [location.pathname]);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/75 backdrop-blur-xl border-b border-border"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="section-container">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="CloudBee Robotics" className="h-10 w-auto" />
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          <Link to="/" className="flex items-center gap-2.5">
+            <img src={logo} alt="CloudBee Robotics" className="h-8 w-auto" />
+            <span className="font-display font-bold text-base lg:text-lg tracking-tight text-foreground">
+              CloudBee <span className="text-muted-foreground font-medium">Robotics</span>
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={`transition-colors font-medium ${
-                  isActive(link.href)
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((l) => (
+              <NavLink
+                key={l.href}
+                to={l.href}
+                className={({ isActive }) =>
+                  `px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                    isActive ? "text-accent-blue" : "text-muted-foreground hover:text-foreground"
+                  }`
+                }
               >
-                {link.label}
-              </Link>
+                {l.label}
+              </NavLink>
             ))}
           </div>
 
-          {/* CTAs */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link to="/request-access">
-              <Button variant="heroOutline" size="default">
-                Contact Us
-              </Button>
-            </Link>
-            <Link to="/request-access">
-              <Button variant="hero" size="default">
-                Request Access
-              </Button>
+          <div className="hidden lg:block">
+            <Link to="/contact" className="btn-pilot">
+              Request Pilot
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="lg:hidden text-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border"
+            className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border"
           >
-            <div className="section-container py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`transition-colors font-medium py-2 ${
-                    isActive(link.href)
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                  onClick={() => setIsOpen(false)}
+            <div className="section-container py-5 flex flex-col gap-1">
+              {navLinks.map((l) => (
+                <NavLink
+                  key={l.href}
+                  to={l.href}
+                  className={({ isActive }) =>
+                    `px-3 py-3 text-sm font-medium rounded-md ${
+                      isActive ? "text-accent-blue bg-secondary/40" : "text-muted-foreground"
+                    }`
+                  }
                 >
-                  {link.label}
-                </Link>
+                  {l.label}
+                </NavLink>
               ))}
-              <div className="flex flex-col gap-3 pt-4 border-t border-border">
-                <Link to="/request-access" onClick={() => setIsOpen(false)}>
-                  <Button variant="heroOutline" size="lg" className="w-full">
-                    Contact Us
-                  </Button>
-                </Link>
-                <Link to="/request-access" onClick={() => setIsOpen(false)}>
-                  <Button variant="hero" size="lg" className="w-full">
-                    Request Access
-                  </Button>
-                </Link>
-              </div>
+              <Link to="/contact" className="btn-pilot mt-2 w-full">
+                Request Pilot
+              </Link>
             </div>
           </motion.div>
         )}

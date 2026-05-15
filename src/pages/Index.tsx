@@ -1,25 +1,28 @@
-import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/HeroSection";
-import { BenefitsSection } from "@/components/BenefitsSection";
-import { TrustIndicators } from "@/components/TrustIndicators";
-import { DemoShowcase } from "@/components/DemoShowcase";
-import { Footer } from "@/components/Footer";
+import { PageShell } from "@/components/PageShell";
+import { HeroSection } from "@/components/home/HeroSection";
+import { ProblemStrip } from "@/components/home/ProblemStrip";
+import { PlatformOverview } from "@/components/home/PlatformOverview";
+import { WhyCloudBee } from "@/components/home/WhyCloudBee";
+import { TargetIndustries } from "@/components/home/TargetIndustries";
+import { Traction } from "@/components/home/Traction";
+import { FinalCTA } from "@/components/home/FinalCTA";
 import { AskCloudBee } from "@/components/AskCloudBee";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <BenefitsSection />
-        <TrustIndicators />
-        <DemoShowcase />
-      </main>
-      <Footer />
-      <AskCloudBee />
-    </div>
-  );
-};
+const Index = () => (
+  <PageShell
+    title="CloudBee Robotics — The Operating System for Autonomous Robots"
+    description="CloudBee Robotics builds the infrastructure that takes any robot from task description to deployed intelligence — in weeks, not months."
+    path="/"
+  >
+    <HeroSection />
+    <ProblemStrip />
+    <PlatformOverview />
+    <WhyCloudBee />
+    <TargetIndustries />
+    <Traction />
+    <FinalCTA />
+    <AskCloudBee />
+  </PageShell>
+);
 
 export default Index;

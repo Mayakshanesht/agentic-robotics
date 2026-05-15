@@ -1,155 +1,166 @@
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { PlatformAccessSection } from "@/components/PlatformAccessSection";
-import { HeroStats } from "@/components/HeroStats";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Globe, Brain, Bot, Box, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Box, BrainCircuit, Network, Layers } from "lucide-react";
+import { PageShell } from "@/components/PageShell";
+import { ParticleBackground } from "@/components/ParticleBackground";
 
-const platformSections = [
+const pillars = [
   {
-    title: "Scalable Synthetic Data Generation",
-    description: "Generate unlimited, high-quality synthetic data for training robotics models without the constraints and costs of real-world data collection.",
-    icon: Globe,
-    iconColor: "text-blue-500",
+    icon: Box,
+    color: "blue",
+    title: "DataForge",
+    subtitle: "Synthetic Multimodal World Generation",
+    body: "Most robotics teams spend 6–12 months collecting training data manually — at costs of €100k to €300k per task. DataForge eliminates this by programmatically generating high-fidelity 4D simulation worlds with multimodal sensor streams including vision, depth, tactile, force, LiDAR, and proprioception. The result: production-quality training data in hours, not months.",
   },
   {
-    title: "Better & Explainable Models",
-    description: "Train advanced models that not only perform better but are also transparent and interpretable for enterprise deployment.",
-    icon: Brain,
-    iconColor: "text-purple-500",
+    icon: BrainCircuit,
+    color: "green",
+    title: "ModelLab",
+    subtitle: "VLA & World Model Training",
+    body: "ModelLab provides a fine-tuning and evaluation environment for Vision-Language-Action (VLA) models and world models — optimized for sim-to-real transfer. Teams can iterate on robot behavior rapidly, test generalization across scenarios, and ship robust policies without brittle, task-specific engineering.",
   },
   {
-    title: "Novel Agentic Architecture",
-    description: "Build and deploy agent-based systems that can autonomously handle complex, multi-step tasks in dynamic environments.",
-    icon: Bot,
-    iconColor: "text-green-500",
+    icon: Network,
+    color: "blue",
+    title: "AgentOS",
+    subtitle: "Autonomous Runtime & Orchestration",
+    body: "AgentOS is the autonomous runtime that powers deployed robots. It handles long-horizon task planning, environment understanding, skill library management, working memory, and safety-constrained execution — all in a composable, ROS2-compatible architecture. Built with EU AI Act compliance in mind from day one.",
   },
 ];
 
-const capabilities = [
-  "Unlimited synthetic data generation",
-  "Explainable and interpretable models", 
-  "Autonomous agentic task planning",
-  "Direct robot deployment pipeline"
+const steps = [
+  "Describe your task in natural language",
+  "DataForge generates synthetic training worlds",
+  "Multimodal data is collected at scale",
+  "ModelLab trains and validates robot policies",
+  "AgentOS deploys and orchestrates live execution",
+  "Continuous learning feeds back into the loop",
 ];
 
-const Platform = () => {
+export default function Platform() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
-        {/* Page Header */}
-        <section className="pt-32 pb-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-          <div className="section-container relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <h1 className="font-display text-4xl lg:text-5xl font-bold mb-6">
-                The CloudBee <span className="text-gradient-teal">Platform</span>
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Generate scalable synthetic data, train better and explainable models, build novel agentic architectures, and deploy directly to robots.
-              </p>
-              
-              {/* Visual Flow */}
-              <div className="flex flex-wrap items-center justify-center gap-3 lg:gap-4">
-                {["Synthetic Data", "Model Training", "Agentic Architecture", "Robot Deployment"].map((step, index) => (
-                  <div key={step} className="flex items-center gap-3 lg:gap-4">
-                    <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
-                      <span className="text-sm font-semibold text-primary whitespace-nowrap">{step}</span>
-                    </div>
-                    {index < 3 && (
-                      <ArrowRight className="w-4 h-4 text-muted-foreground hidden sm:block" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </section>
+    <PageShell
+      title="Platform — CloudBee Robotics"
+      description="The infrastructure layer for physical AI. A unified, modular system to bring any robotic hardware to production-grade autonomous capability."
+      path="/platform"
+    >
+      {/* Hero */}
+      <section className="relative pt-32 lg:pt-40 pb-20 overflow-hidden bg-hero-gradient">
+        <ParticleBackground density={35} />
+        <div className="absolute inset-0 grid-bg opacity-40" />
+        <div className="section-container relative z-10 max-w-4xl">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">The Platform</div>
+            <h1 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-5">
+              The Infrastructure Layer for <span className="text-gradient-blue">Physical AI</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              A unified, modular system designed to bring any robotic hardware to production-grade autonomous capability.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* Platform Overview */}
-        <section className="section-spacing bg-secondary/30">
-          <div className="section-container">
-            <HeroStats />
-            <div className="space-y-16">
-              {platformSections.map((section, index) => (
-                <motion.div
-                  key={section.title}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                  className={`grid lg:grid-cols-2 gap-12 items-center ${
-                    index % 2 === 1 ? "" : ""
-                  }`}
-                >
-                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                    <h2 className="font-display text-2xl lg:text-3xl font-bold mb-6">
-                      {section.title}
-                    </h2>
-                    <p className="text-muted-foreground leading-relaxed text-lg">
-                      {section.description}
-                    </p>
-                  </div>
-                  <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                    <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-border shadow-lg p-12 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-border flex items-center justify-center`}>
-                          <section.icon className={`w-12 h-12 ${section.iconColor}`} />
-                        </div>
-                        <div className="space-y-2">
-                          <div className="w-16 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent mx-auto"></div>
-                          <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary/10 to-transparent mx-auto"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+      {/* Vision */}
+      <section className="section-spacing border-t border-border">
+        <div className="section-container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-display font-bold text-3xl lg:text-4xl mb-5">
+                We're Building a <span className="text-gradient-blue">Platform</span>, Not Just a Product.
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                CloudBee is designed as an open platform — customers can onboard any humanoid or robotic hardware quickly for their custom use case. Whether you're working with leading humanoid platforms or industrial arms, CloudBee's software layer allows your team to define tasks, generate training data, train custom robot policies, and deploy them to production — all from a single integrated environment.
+              </p>
+            </div>
+
+            {/* OS stack diagram */}
+            <div className="glass-card p-6 space-y-2">
+              {[
+                { label: "Custom Skills / Tasks", color: "accent-green", sub: "Application layer" },
+                { label: "CloudBee Platform · DataForge · ModelLab · AgentOS", color: "accent-blue", sub: "Intelligence layer" },
+                { label: "Hardware · Humanoids · Arms · Mobile Robots", color: "muted-foreground", sub: "Physical layer" },
+              ].map((row) => (
+                <div key={row.label} className="rounded-lg border border-border bg-surface/60 px-4 py-4">
+                  <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">{row.sub}</div>
+                  <div className={`font-display font-semibold text-${row.color}`}>{row.label}</div>
+                </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Key Capabilities */}
-        <section className="py-20">
-          <div className="section-container">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center mb-16"
-            >
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
-                Built for <span className="text-gradient-teal">Scale</span>, Not Demos
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Traditional robotics pipelines struggle to scale across environments and use cases. CloudBee enables faster iteration and deployment where reliability matters most.
-              </p>
-            </motion.div>
-
-            <div className="bg-gradient-to-r from-primary/5 to-green-accent/5 rounded-2xl p-8 border border-primary/20 max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-6">
-                {capabilities.map((capability, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-accent flex-shrink-0" />
-                    <span className="text-sm">{capability}</span>
+      {/* Pillars deep dive */}
+      <section className="border-t border-border bg-surface/30">
+        {pillars.map((p, i) => {
+          const Icon = p.icon;
+          const reverse = i % 2 === 1;
+          const accent = p.color === "blue" ? "text-accent-blue" : "text-accent-green";
+          return (
+            <div key={p.title} className="section-container py-20 lg:py-28 border-b border-border last:border-0">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6 }}
+                className={`grid lg:grid-cols-2 gap-12 items-center ${reverse ? "lg:grid-flow-dense" : ""}`}
+              >
+                <div className={reverse ? "lg:col-start-2" : ""}>
+                  <div className={`inline-flex w-12 h-12 rounded-lg bg-surface items-center justify-center mb-5 ${accent}`}>
+                    <Icon size={22} />
                   </div>
-                ))}
-              </div>
+                  <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">{p.subtitle}</div>
+                  <h3 className="font-display font-bold text-3xl lg:text-4xl mb-4">{p.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{p.body}</p>
+                </div>
+                <div className={reverse ? "lg:col-start-1 lg:row-start-1" : ""}>
+                  <div className="glass-card p-10 aspect-square max-w-md mx-auto flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-mesh opacity-60" />
+                    <Icon size={120} className={`${accent} opacity-70 relative`} strokeWidth={1.2} />
+                  </div>
+                </div>
+              </motion.div>
             </div>
+          );
+        })}
+      </section>
+
+      {/* How it works */}
+      <section className="section-spacing">
+        <div className="section-container">
+          <div className="text-center mb-12">
+            <h2 className="font-display font-bold text-3xl lg:text-4xl mb-3">
+              How It <span className="text-gradient-blue">Works</span>
+            </h2>
+            <p className="text-muted-foreground">From task spec to deployed autonomy — in one continuous loop.</p>
           </div>
-        </section>
 
-        <PlatformAccessSection />
-      </main>
-      <Footer />
-    </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {steps.map((s, i) => (
+              <motion.div
+                key={s}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
+                className="glass-card p-5 flex gap-4"
+              >
+                <div className="font-display font-bold text-accent-blue text-2xl shrink-0 font-mono">
+                  0{i + 1}
+                </div>
+                <div className="text-sm text-foreground leading-snug">{s}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/contact" className="btn-pilot">
+              Request a Pilot <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </PageShell>
   );
-};
-
-export default Platform;
+}
