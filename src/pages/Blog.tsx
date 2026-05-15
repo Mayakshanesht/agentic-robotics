@@ -1,144 +1,117 @@
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight, ExternalLink, Trophy, Rocket, Target } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const blogPosts = [
-  {
-    title: "Why Physical AI Needs 4D Synthetic Data",
-    excerpt: "Traditional approaches to robot training are hitting a wall. Here's why 4D world generation is the key to scalable robot intelligence.",
-    date: "Jan 15, 2026",
-    category: "Technology",
-    slug: "/blog/why-physical-ai-needs-4d-synthetic-data",
-  },
-  {
-    title: "The Sim-to-Real Gap: Solved",
-    excerpt: "How world-aware AI models bridge the gap between simulation and real-world deployment.",
-    date: "Jan 10, 2026",
-    category: "Research",
-    slug: "/blog/sim-to-real-gap-solved",
-  },
-  {
-    title: "Introducing CloudBee Robotics Platform",
-    excerpt: "We're building the infrastructure for agentic physical AI. Here's our vision for the future of robotics.",
-    date: "Jan 5, 2026",
-    category: "Announcement",
-    slug: "/blog/introducing-cloudbee-robotics",
-  },
-];
-
-const news = [
-  {
-    icon: Rocket,
-    title: "Deloitte Problem-Solution Fit Program Begins",
-    date: "September 2025",
-    description: "CloudBee Robotics selected for the Deloitte Problem-Solution Fit program.",
-    link: "https://www.linkedin.com/feed/update/urn:li:activity:7386834347191848960",
-  },
-  {
-    icon: Trophy,
-    title: "Successfully Completed Deloitte Program",
-    date: "December 2025",
-    description: "Strong validation of our problem definition and solution direction.",
-    link: "https://www.linkedin.com/feed/update/urn:li:activity:7418516640637624320",
-  },
-  {
-    icon: Target,
-    title: "RWTH Ideation Program Halftime Pitch",
-    date: "January 2026",
-    description: "Delivered our halftime pitch at the RWTH Innovation Ideation Program.",
-    link: "https://www.linkedin.com/feed/update/urn:li:activity:7422690213560229888",
-    credit: "Photo credit: © RWTH Innovation GmbH",
-  },
-];
+import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
+import { PageShell } from "@/components/PageShell";
+import { blogPosts, news } from "@/data/blog";
 
 export default function Blog() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main className="pt-32 pb-20">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
-          >
-            <h1 className="font-display text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-              Blog & <span className="text-gradient-teal">News</span>
+    <PageShell
+      title="Blog & News — CloudBee Robotics"
+      description="Technical insights, research updates, and milestones from CloudBee Robotics."
+      path="/blog"
+    >
+      <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
+        <div className="absolute inset-0 grid-bg opacity-40" />
+        <div className="section-container relative z-10 max-w-4xl">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">Blog & News</div>
+            <h1 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-5">
+              Notes from the <span className="text-gradient-blue">frontier.</span>
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl">
               Technical insights, research updates, and milestones from CloudBee Robotics.
             </p>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Blog Posts */}
-          <div className="mb-20">
-            <h2 className="font-display text-2xl font-semibold mb-8 text-foreground">Blog Posts</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {blogPosts.map((post, index) => (
-                <Link key={post.title} to={post.slug}>
-                  <motion.article
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group bg-card border border-border rounded-2xl p-6 h-full hover:border-primary/30 transition-all duration-300"
-                  >
-                    <span className="text-primary text-sm font-medium">{post.category}</span>
-                    <h3 className="font-display text-xl font-semibold mt-2 mb-3 text-foreground group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4">{post.excerpt}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-muted-foreground text-xs flex items-center gap-1">
-                        <Calendar className="w-3 h-3" /> {post.date}
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                  </motion.article>
-                </Link>
-              ))}
-            </div>
+      {/* Blog Posts */}
+      <section className="section-spacing border-t border-border">
+        <div className="section-container">
+          <div className="flex items-baseline justify-between mb-10">
+            <h2 className="font-display font-bold text-2xl lg:text-3xl">Blog</h2>
+            <span className="text-xs font-mono text-muted-foreground">{blogPosts.length} posts</span>
           </div>
 
-          {/* News */}
-          <div>
-            <h2 className="font-display text-2xl font-semibold mb-8 text-foreground">News & Milestones</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {news.map((item, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {blogPosts.map((post, i) => (
+              <motion.div
+                key={post.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+              >
+                <Link to={post.slug} className="block glass-card p-6 h-full group">
+                  <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-3">
+                    {post.category}
+                  </div>
+                  <h3 className="font-display font-semibold text-lg mb-3 text-foreground group-hover:text-accent-blue transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-5 leading-relaxed">{post.excerpt}</p>
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <span className="text-xs text-muted-foreground inline-flex items-center gap-1.5">
+                      <Calendar size={12} /> {post.date}
+                    </span>
+                    <ArrowRight size={14} className="text-accent-blue opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News */}
+      <section className="section-spacing border-t border-border bg-surface/30">
+        <div className="section-container">
+          <div className="flex items-baseline justify-between mb-10">
+            <h2 className="font-display font-bold text-2xl lg:text-3xl">Announcements</h2>
+            <span className="text-xs font-mono text-muted-foreground">{news.length} updates</span>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {news.map((item, i) => {
+              const Icon = item.icon;
+              return (
                 <motion.a
                   key={item.title}
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="group bg-card border border-border rounded-2xl p-6 h-full hover:border-primary/30 transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.5 }}
+                  className="glass-card p-6 group"
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                      <item.icon className="w-6 h-6 text-primary" />
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-11 h-11 rounded-lg bg-accent-blue/10 text-accent-blue flex items-center justify-center">
+                      <Icon size={20} />
                     </div>
-                    <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-full border border-accent-green/30 bg-accent-green/10 text-accent-green">
+                      {item.highlight}
+                    </span>
                   </div>
-                  <h3 className="font-display text-base font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-semibold text-base mb-2 text-foreground group-hover:text-accent-blue transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4">{item.description}</p>
-                  <span className="text-muted-foreground text-xs flex items-center gap-1">
-                    <Calendar className="w-3 h-3" /> {item.date}
-                  </span>
-                  {item.credit && (
-                    <p className="text-xs text-muted-foreground/60 mt-2">{item.credit}</p>
-                  )}
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{item.description}</p>
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <span className="text-xs text-muted-foreground inline-flex items-center gap-1.5">
+                      <Calendar size={12} /> {item.date}
+                    </span>
+                    <ExternalLink size={14} className="text-accent-blue opacity-60 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  {item.credit && <div className="text-[10px] text-muted-foreground/60 mt-2">{item.credit}</div>}
                 </motion.a>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </section>
+    </PageShell>
   );
 }
