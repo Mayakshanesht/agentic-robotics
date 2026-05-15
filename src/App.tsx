@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import BlogPost1 from "./pages/BlogPost1";
 import BlogPost2 from "./pages/BlogPost2";
 import BlogPost3 from "./pages/BlogPost3";
+import BlogPostDynamic from "./pages/BlogPostDynamic";
 import RequestAccess from "./pages/RequestAccess";
 import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/blog/why-physical-ai-needs-4d-synthetic-data" element={<BlogPost1 />} />
           <Route path="/blog/sim-to-real-gap-solved" element={<BlogPost2 />} />
           <Route path="/blog/introducing-cloudbee-robotics" element={<BlogPost3 />} />
+          <Route path="/blog/:slug" element={<BlogPostDynamic />} />
           <Route path="/request-access" element={<RequestAccess />} />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin" element={<Admin />} />
