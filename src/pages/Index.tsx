@@ -36,7 +36,7 @@ const Index = () => {
       <WhyCloudBee />
       <TargetIndustries />
       <Traction />
-      <TeamSection />
+      
       <FinalCTA />
       <AskCloudBee />
     </PageShell>
