@@ -107,7 +107,7 @@ export default function ResetPassword() {
                   <Label htmlFor="confirm-password">Confirm password</Label>
                   <Input id="confirm-password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="bg-secondary/50" />
                 </div>
-                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading || !ready}>
+                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
                   {loading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Updating...</> : "Update Password"}
                 </Button>
               </form>
