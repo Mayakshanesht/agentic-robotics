@@ -45,8 +45,8 @@ export default function Contact() {
       setDone(true);
       toast.success("Message sent. We'll be in touch shortly.");
       setForm({ name: "", company: "", email: "", interest: "Pilot Program", message: "" });
-    } catch (err: any) {
-      toast.error(err?.message ?? "Failed to send. Please email info@cloudbeerobotics.de directly.");
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : "Failed to send. Please email info@cloudbeerobotics.de directly.");
     } finally {
       setLoading(false);
     }
