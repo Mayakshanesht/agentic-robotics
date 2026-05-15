@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ProblemStrip } from "@/components/home/ProblemStrip";
+import { MilestoneBanner } from "@/components/home/MilestoneBanner";
 import { PlatformOverview } from "@/components/home/PlatformOverview";
 import { SkillMarketplace } from "@/components/home/SkillMarketplace";
 import { WhyCloudBee } from "@/components/home/WhyCloudBee";
@@ -29,6 +30,7 @@ const Index = () => {
     >
       <HeroSection />
       <ProblemStrip />
+      <MilestoneBanner />
       <PlatformOverview />
       <SkillMarketplace />
       <WhyCloudBee />
