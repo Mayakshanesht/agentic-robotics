@@ -31,8 +31,16 @@ export default function Contact() {
     }
     setLoading(true);
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", { body: parsed.data });
+      const { error } = await supabase.from("contact_inquiries").insert({
+        name: parsed.data.name,
+        company: parsed.data.company || null,
+        email: parsed.data.email,
+        interest: parsed.data.interest,
+        message: parsed.data.message,
+      });
       if (error) throw error;
+      // Best-effort email notification (won't block UX if not configured)
+      supabase.functions.invoke("send-contact-email", { body: parsed.data }).catch(() => {});
       setDone(true);
       toast.success("Message sent. We'll be in touch shortly.");
       setForm({ name: "", company: "", email: "", interest: "Pilot Program", message: "" });
@@ -75,6 +83,13 @@ export default function Contact() {
                   <a href="mailto:info@cloudbeerobotics.de" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                     <Mail size={16} className="text-accent-blue" />
                     info@cloudbeerobotics.de
+                  </a>
+                  <a href="mailto:mayurwaghchoure1995@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+                    <Mail size={16} className="text-accent-green" />
+                    <span>
+                      mayurwaghchoure1995@gmail.com
+                      <span className="block text-xs text-muted-foreground/70 font-mono">Founder & CEO — Mayur Waghchoure</span>
+                    </span>
                   </a>
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <Globe size={16} className="text-accent-blue" />
