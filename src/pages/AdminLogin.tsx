@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowLeft, Lock } from "lucide-react";
+import { ArrowLeft, KeyRound, Lock } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -18,36 +18,49 @@ const schema = z.object({
   email: z.string().trim().email("Please enter a valid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
+const resetSchema = z.object({
+  email: z.string().trim().email("Please enter a valid email"),
+});
 type FormData = z.infer<typeof schema>;
+type ResetData = z.infer<typeof resetSchema>;
 
 const AdminLogin = () => {
   const [loading, setLoading] = useState(false);
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const [mode, setMode] = useState<"signin" | "reset">("signin");
   const { toast } = useToast();
   const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const { register: registerReset, handleSubmit: handleResetSubmit, formState: { errors: resetErrors } } = useForm<ResetData>({
+    resolver: zodResolver(resetSchema),
+    defaultValues: { email: "mayurwaghchoure1995@gmail.com" },
+  });
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
-      if (mode === "signin") {
-        const { error } = await supabase.auth.signInWithPassword({ email: data.email, password: data.password });
-        if (error) throw error;
-        navigate("/admin");
-      } else {
-        const { error } = await supabase.auth.signUp({
-          email: data.email,
-          password: data.password,
-          options: { emailRedirectTo: `${window.location.origin}/admin` },
-        });
-        if (error) throw error;
-        toast({ title: "Account created", description: "You can now sign in." });
-        setMode("signin");
-        reset({ email: data.email, password: "" });
-      }
+      const { error } = await supabase.auth.signInWithPassword({ email: data.email, password: data.password });
+      if (error) throw error;
+      navigate("/admin");
     } catch (e: unknown) {
       toast({ title: "Failed", description: e instanceof Error ? e.message : "Something went wrong", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const sendPasswordSetup = async (data: ResetData) => {
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+      if (error) throw error;
+      toast({ title: "Password setup email sent", description: "Open the email link to create a new admin password." });
+      setMode("signin");
+      reset({ email: data.email, password: "" });
+    } catch (e: unknown) {
+      toast({ title: "Failed", description: e instanceof Error ? e.message : "Could not send password setup email", variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -70,38 +83,51 @@ const AdminLogin = () => {
                     <Lock className="w-8 h-8 text-primary" />
                   </div>
                   <h1 className="font-display text-3xl font-bold mb-2">Admin Access</h1>
-                  <p className="text-muted-foreground">Sign in or create your admin password.</p>
+                  <p className="text-muted-foreground">Sign in or securely set a password for your admin email.</p>
                 </div>
 
                 <div className="border-gradient p-8">
-                  <Tabs value={mode} onValueChange={(v) => setMode(v as "signin" | "signup")} className="mb-6">
+                  <Tabs value={mode} onValueChange={(v) => setMode(v as "signin" | "reset")} className="mb-6">
                     <TabsList className="grid grid-cols-2 w-full">
                       <TabsTrigger value="signin">Sign In</TabsTrigger>
-                      <TabsTrigger value="signup">Create Password</TabsTrigger>
+                      <TabsTrigger value="reset">Set Password</TabsTrigger>
                     </TabsList>
                     <TabsContent value="signin" />
-                    <TabsContent value="signup">
+                    <TabsContent value="reset">
                       <p className="text-xs text-muted-foreground mt-2">
-                        First time here? Create a password with your admin email — your role is already provisioned.
+                        This email already exists. Use this to receive a secure password setup link.
                       </p>
                     </TabsContent>
                   </Tabs>
 
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="you@cloudbeerobotics.de" {...register("email")} className="bg-secondary/50" />
-                      {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="password">Password</Label>
-                      <Input id="password" type="password" placeholder="••••••••" {...register("password")} className="bg-secondary/50" />
-                      {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
-                    </div>
-                    <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
-                      {loading ? "Please wait..." : mode === "signin" ? "Sign In" : "Create Account"}
-                    </Button>
-                  </form>
+                  {mode === "signin" ? (
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input id="email" type="email" placeholder="mayurwaghchoure1995@gmail.com" {...register("email")} className="bg-secondary/50" />
+                        {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="password">Password</Label>
+                        <Input id="password" type="password" placeholder="••••••••" {...register("password")} className="bg-secondary/50" />
+                        {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
+                      </div>
+                      <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
+                        {loading ? "Please wait..." : "Sign In"}
+                      </Button>
+                    </form>
+                  ) : (
+                    <form onSubmit={handleResetSubmit(sendPasswordSetup)} className="space-y-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="reset-email">Admin email</Label>
+                        <Input id="reset-email" type="email" {...registerReset("email")} className="bg-secondary/50" />
+                        {resetErrors.email && <p className="text-sm text-destructive">{resetErrors.email.message}</p>}
+                      </div>
+                      <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
+                        <KeyRound className="w-4 h-4 mr-2" /> {loading ? "Sending..." : "Send Password Setup Link"}
+                      </Button>
+                    </form>
+                  )}
                 </div>
               </motion.div>
             </div>
