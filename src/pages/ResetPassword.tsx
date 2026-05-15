@@ -29,6 +29,10 @@ export default function ResetPassword() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setReady(Boolean(data.session)));
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setReady(Boolean(session));
+    });
+    return () => listener.subscription.unsubscribe();
   }, []);
 
   const updatePassword = async (e: React.FormEvent) => {
