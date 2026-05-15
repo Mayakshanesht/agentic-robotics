@@ -8,6 +8,7 @@ import Platform from "./pages/Platform";
 import Hardware from "./pages/Hardware";
 import Research from "./pages/Research";
 import Careers from "./pages/Careers";
+import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import Blog from "./pages/Blog";
@@ -39,7 +40,7 @@ const App = () => (
           {/* Legacy routes — redirect to nearest new equivalent */}
           <Route path="/technology" element={<Navigate to="/platform" replace />} />
           <Route path="/use-cases" element={<Navigate to="/platform" replace />} />
-          <Route path="/team" element={<Navigate to="/careers" replace />} />
+          <Route path="/team" element={<Team />} />
           {/* Existing functional pages preserved */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/why-physical-ai-needs-4d-synthetic-data" element={<BlogPost1 />} />
