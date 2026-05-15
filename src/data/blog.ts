@@ -1,4 +1,4 @@
-import { ExternalLink, Calendar, Trophy, Rocket, Target } from "lucide-react";
+import { ExternalLink, Calendar, Trophy, Rocket, Target, Award } from "lucide-react";
 
 /**
  * ============================================================
@@ -38,6 +38,15 @@ export const blogPosts = [
  * ============================================================
  */
 export const news = [
+  {
+    icon: Award,
+    title: "CloudBee Robotics Awarded EXIST Funding",
+    date: "May 2026",
+    description:
+      "We're excited to share that CloudBee Robotics has been awarded EXIST funding from the German Federal Government — a major milestone as we continue building in the agentic physical AI space, bringing state-of-the-art AI models into industrial robotics, robotic arms, humanoids, AGVs, healthcare, home care, and agriculture. Huge thanks to RWTH Collective Incubator, RWTH Innovation, Therese Liegmann, Hanna, Dr. Tobias Recker, and our academic mentor Dr. Bastian Leibe.",
+    link: "https://www.linkedin.com/posts/mayur-waghchoure-a5aba5ab_cloudbeerobotics-existfunding-startupfunding-share-7454759287098191872-71IS",
+    highlight: "EXIST Grant",
+  },
   {
     icon: Rocket,
     title: "Deloitte Problem-Solution Fit Program Begins",
