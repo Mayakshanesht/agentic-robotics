@@ -3,6 +3,8 @@ import { Linkedin, Twitter } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 export function Footer() {
+  const linkedInUrl = "https://www.linkedin.com/company/cloudbeerobotics/";
+
   return (
     <footer className="border-t border-border bg-background">
       <div className="section-container py-14">
@@ -16,7 +18,7 @@ export function Footer() {
               The Autonomous OS powering the next generation of embodied intelligence.
             </p>
             <div className="flex gap-3 mt-5">
-              <a href="#" aria-label="LinkedIn" className="p-2 rounded-md border border-border text-muted-foreground hover:text-accent-blue hover:border-accent-blue/40 transition-colors">
+              <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" aria-label="CloudBee Robotics on LinkedIn" className="p-2 rounded-md border border-border text-muted-foreground hover:text-accent-blue hover:border-accent-blue/40 transition-colors">
                 <Linkedin size={16} />
               </a>
               <a href="#" aria-label="Twitter" className="p-2 rounded-md border border-border text-muted-foreground hover:text-accent-blue hover:border-accent-blue/40 transition-colors">
