@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 const items = [
-  "EXIST Gründerstipendium — German Federal Grant (2024/2025)",
-  "RWTH Aachen University Startup Ecosystem",
-  "Backed by Collective Incubator",
-  "Industrial Letter of Intent — FEV Group",
+  "EXIST Research Transfer Grant — Secured (Federal Ministry of Economic Affairs)",
+  "Academic Mentor — Prof. Dr. Bastian Leibe, RWTH Aachen Computer Vision Group",
+  "RWTH Innovation Ideation Program — Completed",
+  "Deloitte Problem–Solution Fit — Completed",
+  "Industrial Letter of Intent — FEV Europe",
   "Research Collaboration — IGMR Institute, RWTH Aachen",
-  "Functional prototype operational",
-  "Pilots underway",
+  "Functional prototype operational — pilots underway",
 ];
 
 export function Traction() {

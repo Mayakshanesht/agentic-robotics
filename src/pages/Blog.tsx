@@ -1,10 +1,37 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
-import { blogPosts, news } from "@/data/blog";
+import { blogPosts as staticPosts, news } from "@/data/blog";
+import { supabase } from "@/integrations/supabase/client";
+
+type Post = { slug: string; title: string; excerpt: string; date: string; category: string };
 
 export default function Blog() {
+  const [posts, setPosts] = useState<Post[]>(staticPosts);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await supabase
+        .from("blog_posts")
+        .select("slug, title, excerpt, category, created_at")
+        .eq("published", true)
+        .order("created_at", { ascending: false });
+      if (data && data.length) {
+        const dbPosts: Post[] = data.map((p) => ({
+          slug: `/blog/${p.slug}`,
+          title: p.title,
+          excerpt: p.excerpt,
+          category: p.category,
+          date: new Date(p.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
+        }));
+        // Merge DB posts first, then static ones (de-duped by slug)
+        const seen = new Set(dbPosts.map((p) => p.slug));
+        setPosts([...dbPosts, ...staticPosts.filter((p) => !seen.has(p.slug))]);
+      }
+    })();
+  }, []);
   return (
     <PageShell
       title="Blog & News — CloudBee Robotics"
@@ -31,11 +58,11 @@ export default function Blog() {
         <div className="section-container">
           <div className="flex items-baseline justify-between mb-10">
             <h2 className="font-display font-bold text-2xl lg:text-3xl">Blog</h2>
-            <span className="text-xs font-mono text-muted-foreground">{blogPosts.length} posts</span>
+            <span className="text-xs font-mono text-muted-foreground">{posts.length} posts</span>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {blogPosts.map((post, i) => (
+            {posts.map((post, i) => (
               <motion.div
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}

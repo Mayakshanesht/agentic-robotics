@@ -24,9 +24,9 @@ const team = [
 ];
 
 const validation = [
-  { icon: Briefcase, title: "Deloitte Problem–Solution Fit", description: "Successfully completed Sept – Dec 2025, validating problem definition and solution direction." },
-  { icon: GraduationCap, title: "RWTH Innovation Ideation Program", description: "Accelerator through RWTH Aachen's innovation wing — guidance on product development and market positioning." },
-  { icon: Award, title: "EXIST Research Transfer Grant", description: "Applying for EXIST funding with Prof. Dr. Bastian Leibe as academic mentor at RWTH Aachen." },
+  { icon: Award, title: "EXIST Research Transfer Grant — Secured", description: "German Federal Ministry of Economic Affairs grant to build CloudBee Robotics out of RWTH Aachen." },
+  { icon: GraduationCap, title: "Academic Mentor — Prof. Dr. Bastian Leibe", description: "Head of the Computer Vision Group at RWTH Aachen — world-leading research in perception and learning." },
+  { icon: Briefcase, title: "RWTH Ideation Program — Completed", description: "Full Deloitte Problem–Solution Fit and RWTH Innovation Ideation cycle — successfully graduated." },
 ];
 
 const lois = ["FEV Europe", "Haver & Boecker", "Dorle Controls", "Fraunhofer IML"];
