@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Bot, Cpu } from "lucide-react";
+import { ArrowRight, Bot, Cpu, Wrench } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 
 const partners = [
@@ -15,6 +15,18 @@ const partners = [
     name: "Figure AI",
     body: "Figure's humanoid robots paired with CloudBee's AgentOS and ModelLab enable enterprise-grade physical AI deployments.",
     tags: ["Humanoid", "Enterprise"],
+  },
+  {
+    icon: Wrench,
+    name: "SO-101 Robotic Arm",
+    body: "Low-cost open-source manipulator widely used by research labs and pilot programs. CloudBee uses SO-101 for fast prototyping of pick-and-place, assembly, and tool-use skills before scaling to industrial-grade arms.",
+    tags: ["Manipulator", "Prototype Platform"],
+  },
+  {
+    icon: Bot,
+    name: "Industrial Arms (UR, Franka, KUKA)",
+    body: "Production-grade 6/7-DoF arms onboarded via ROS2 for automotive cells, kitting, and quality inspection — running CloudBee AgentOS with safety-constrained policies.",
+    tags: ["Industrial", "Automotive"],
   },
 ];
 

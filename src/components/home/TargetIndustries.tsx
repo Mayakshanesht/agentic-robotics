@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import { Factory, Bot, HeartPulse, Sparkles } from "lucide-react";
+import { Factory, Bot, HeartPulse, Car, Sparkles } from "lucide-react";
 
 const industries = [
-  { icon: Factory, title: "Industrial Manufacturing", body: "Automate complex assembly and logistics tasks" },
-  { icon: Bot, title: "Humanoid Robotics", body: "Onboard humanoids fast with custom skill stacks" },
-  { icon: HeartPulse, title: "Healthcare & Assisted Living", body: "Reliable, safe robots in sensitive environments" },
-  { icon: Sparkles, title: "Service Robotics", body: "From task spec to live deployment, autonomously" },
+  { icon: Car, title: "Automotive & Mobility", body: "Robotic cells for assembly, kitting, and inline QA — validated with FEV Europe." },
+  { icon: Factory, title: "Industrial Manufacturing", body: "Automate complex assembly, material handling, and logistics tasks." },
+  { icon: Bot, title: "Humanoid Robotics", body: "Onboard humanoids fast with custom skill stacks and safety constraints." },
+  { icon: HeartPulse, title: "Healthcare & Assisted Living", body: "Reliable, safe robots in sensitive environments." },
+  { icon: Sparkles, title: "Service Robotics", body: "From task spec to live deployment, autonomously." },
 ];
 
 export function TargetIndustries() {
@@ -22,7 +23,7 @@ export function TargetIndustries() {
           Built for <span className="text-gradient-blue">Real-World Deployments</span>
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {industries.map((it, i) => {
             const Icon = it.icon;
             return (

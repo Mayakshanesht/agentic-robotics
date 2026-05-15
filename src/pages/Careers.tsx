@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Rocket, Brain, Mail, FlaskConical, Wrench, Globe2 } from "lucide-react";
+import { MapPin, Rocket, Brain, FlaskConical, Wrench, Globe2 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
-
-const APPLY_EMAIL = "mayurwaghchoure1995@gmail.com";
+import { JobApplicationDialog } from "@/components/JobApplicationDialog";
 
 const values = [
   { icon: FlaskConical, title: "Research-first", body: "We work at the frontier, not behind it." },
@@ -11,6 +11,8 @@ const values = [
 ];
 
 export default function Careers() {
+  const [openRole, setOpenRole] = useState<string | null>(null);
+
   return (
     <PageShell
       title="Careers — CloudBee Robotics"
@@ -36,12 +38,10 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Roles */}
       <section className="section-spacing border-t border-border">
         <div className="section-container max-w-5xl">
           <h2 className="font-display font-bold text-2xl lg:text-3xl mb-8">Open Roles</h2>
 
-          {/* Featured Role */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -61,18 +61,15 @@ export default function Careers() {
                 </h3>
                 <div className="text-sm text-muted-foreground mt-1">Agentic AI & Robotics</div>
                 <div className="text-xs font-mono text-muted-foreground mt-2">
-                  📍 Aachen, Germany | EU-based preferred | Full-time
+                  Aachen, Germany · EU-based preferred · Full-time
                 </div>
               </div>
             </div>
 
             <div className="mt-6 space-y-6 text-sm text-muted-foreground leading-relaxed">
-              <div>
-                <h4 className="font-display font-semibold text-foreground mb-2">About the Role</h4>
-                <p>
-                  CloudBee Robotics is developing next-generation agentic physical AI systems at the intersection of robotics, synthetic data generation, embodied AI, and robotic foundation models. We are looking for a highly motivated Research Scientist / Founding AI Engineer to join our early core team and help build scalable AI systems for autonomous robotics. This role is ideal for a PhD candidate, researcher, or experienced engineer who wants to work on cutting-edge AI while taking on increasing technical leadership responsibilities.
-                </p>
-              </div>
+              <p>
+                CloudBee Robotics is developing next-generation agentic physical AI systems at the intersection of robotics, synthetic data generation, embodied AI, and robotic foundation models. We are looking for a highly motivated Research Scientist / Founding AI Engineer to join our early core team.
+              </p>
 
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
@@ -83,41 +80,38 @@ export default function Careers() {
                     <li>Synthetic data generation</li>
                     <li>World models & video generation</li>
                     <li>NVIDIA Isaac Sim / Omniverse</li>
-                    <li>Full-stack AI infrastructure</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-display font-semibold text-foreground mb-2">Preferred Background</h4>
                   <ul className="space-y-1.5 list-disc list-inside marker:text-accent-blue">
                     <li>PhD (ongoing/completed) in AI, Robotics, ML, CV — or strong industry experience</li>
-                    <li>Experience with generative AI, multimodal systems, robotics simulation, or large-scale ML</li>
-                    <li>Strong engineering mindset beyond research prototypes</li>
+                    <li>Experience with generative AI, multimodal systems, or robotics simulation</li>
+                    <li>Strong engineering mindset</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-display font-semibold text-foreground mb-2">What We Offer</h4>
                   <ul className="space-y-1.5 list-disc list-inside marker:text-accent-green">
-                    <li>Founding team membership with high ownership</li>
-                    <li>Technical leadership growth path</li>
+                    <li>Founding team membership</li>
                     <li>Compensation aligned with EXIST norms</li>
-                    <li>Meaningful long-term equity participation</li>
-                    <li>Research-driven, collaborative environment</li>
+                    <li>Meaningful equity participation</li>
+                    <li>Research-driven environment</li>
                   </ul>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6 border-t border-border">
-              <a href={`mailto:${APPLY_EMAIL}?subject=Application — Research Scientist / Founding AI Engineer`} className="btn-pilot">
-                <Mail size={16} /> Apply Now
-              </a>
+              <button onClick={() => setOpenRole("Research Scientist / Founding AI Engineer")} className="btn-pilot">
+                Apply Now
+              </button>
               <div className="text-xs text-muted-foreground">
                 Candidates based in Europe/Germany or willing to relocate to Aachen strongly preferred.
               </div>
             </div>
           </motion.div>
 
-          {/* Open Application */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -134,14 +128,13 @@ export default function Careers() {
                 </p>
               </div>
             </div>
-            <a href={`mailto:${APPLY_EMAIL}?subject=Open Application`} className="inline-flex items-center gap-2 mt-4 text-accent-blue font-semibold hover:gap-3 transition-all">
-              <Mail size={16} /> Open Application
-            </a>
+            <button onClick={() => setOpenRole("Open Application")} className="inline-flex items-center gap-2 mt-4 text-accent-blue font-semibold hover:gap-3 transition-all">
+              Submit Open Application →
+            </button>
           </motion.div>
         </div>
       </section>
 
-      {/* Values */}
       <section className="section-spacing bg-surface/40 border-t border-border">
         <div className="section-container max-w-5xl">
           <div className="grid md:grid-cols-3 gap-5">
@@ -167,6 +160,12 @@ export default function Careers() {
           </div>
         </div>
       </section>
+
+      <JobApplicationDialog
+        role={openRole ?? ""}
+        open={!!openRole}
+        onClose={() => setOpenRole(null)}
+      />
     </PageShell>
   );
 }

@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Award, GraduationCap, Briefcase } from "lucide-react";
+import { Award, GraduationCap, Briefcase, Mail } from "lucide-react";
 import mayurImg from "@/assets/mayur.png";
 import madhavaImg from "@/assets/madhava.png";
+import pitchImg from "@/assets/ideation-pitch.jpg";
 
 const team = [
   {
     name: "Mayur Waghchoure",
     role: "Founder & CEO",
     image: mayurImg,
+    email: "mayurwaghchoure1995@gmail.com",
     description:
       "Robotics and AI engineer with experience in autonomous systems, robotic learning, and large-scale AI infrastructure. M.Sc. Robotic Systems Engineering, RWTH Aachen.",
   },
@@ -22,28 +24,16 @@ const team = [
 ];
 
 const validation = [
-  {
-    icon: Briefcase,
-    title: "Deloitte Problem–Solution Fit",
-    description: "Successfully completed Sept – Dec 2025, validating problem definition and solution direction.",
-  },
-  {
-    icon: GraduationCap,
-    title: "RWTH Innovation Ideation Program",
-    description: "Accelerator through RWTH Aachen's innovation wing — guidance on product development and market positioning.",
-  },
-  {
-    icon: Award,
-    title: "EXIST Research Transfer Grant",
-    description: "Applying for EXIST funding with Prof. Dr. Bastian Leibe as academic mentor at RWTH Aachen.",
-  },
+  { icon: Briefcase, title: "Deloitte Problem–Solution Fit", description: "Successfully completed Sept – Dec 2025, validating problem definition and solution direction." },
+  { icon: GraduationCap, title: "RWTH Innovation Ideation Program", description: "Accelerator through RWTH Aachen's innovation wing — guidance on product development and market positioning." },
+  { icon: Award, title: "EXIST Research Transfer Grant", description: "Applying for EXIST funding with Prof. Dr. Bastian Leibe as academic mentor at RWTH Aachen." },
 ];
 
 const lois = ["FEV Europe", "Haver & Boecker", "Dorle Controls", "Fraunhofer IML"];
 
 export function TeamSection() {
   return (
-    <section className="section-spacing border-t border-border bg-surface/30">
+    <section id="team" className="section-spacing border-t border-border bg-surface/30 scroll-mt-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -62,7 +52,7 @@ export function TeamSection() {
           </p>
         </motion.div>
 
-        {/* Team grid */}
+        {/* Founders */}
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
           {team.map((m, i) => (
             <motion.div
@@ -73,17 +63,50 @@ export function TeamSection() {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="glass-card p-7 flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left"
             >
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-accent-blue/30 shrink-0">
+              <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-accent-blue/30 shrink-0">
                 <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-display font-bold text-lg text-foreground">{m.name}</h3>
                 <div className="text-sm text-accent-blue font-medium mb-2">{m.role}</div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{m.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">{m.description}</p>
+                {m.email && (
+                  <a href={`mailto:${m.email}`} className="inline-flex items-center gap-2 text-xs font-mono text-accent-green hover:text-accent-blue transition-colors break-all">
+                    <Mail size={12} /> {m.email}
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Pitch moment */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl mx-auto mb-16 grid lg:grid-cols-2 gap-8 items-center"
+        >
+          <div className="glass-card overflow-hidden p-0">
+            <img src={pitchImg} alt="Mayur Waghchoure pitching CloudBee Robotics at the RWTH Aachen ideation half-time event" className="w-full h-full object-cover" />
+          </div>
+          <div>
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-3">Building in Public</div>
+            <h3 className="font-display font-bold text-2xl lg:text-3xl mb-4 leading-tight">
+              From a thesis to a thesis-defying mission.
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Founder Mayur Waghchoure presenting CloudBee Robotics at the RWTH Aachen Innovation
+              Ideation Program — laying out the case for a German-built infrastructure layer for
+              agentic physical AI.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Backed by RWTH Aachen, supported by EXIST, validated by Deloitte and industry LOIs from
+              FEV Europe, Haver & Boecker, Dorle Controls, and Fraunhofer IML.
+            </p>
+          </div>
+        </motion.div>
 
         {/* LOIs */}
         <div className="glass-card p-8 max-w-3xl mx-auto text-center mb-10">
