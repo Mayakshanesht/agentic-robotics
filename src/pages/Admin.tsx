@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, LogOut, Trash2, RefreshCw, Users, Mail, Building, Briefcase, Calendar, MessageSquare, FileText } from "lucide-react";
+import { ArrowLeft, LogOut, Trash2, RefreshCw, Users, Mail, Building, Briefcase, Calendar, MessageSquare, FileText, Newspaper } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { BlogManager } from "@/components/admin/BlogManager";
 
 interface BetaRequest {
   id: string; full_name: string; email: string;
@@ -110,12 +111,17 @@ const Admin = () => {
               </h1>
               <p className="text-muted-foreground mb-8">All inbound — contact inquiries, job applications, and beta requests.</p>
 
-              <Tabs defaultValue="contacts" className="w-full">
+              <Tabs defaultValue="blog" className="w-full">
                 <TabsList className="mb-6">
+                  <TabsTrigger value="blog"><Newspaper className="w-4 h-4 mr-2" /> Blog</TabsTrigger>
                   <TabsTrigger value="contacts"><MessageSquare className="w-4 h-4 mr-2" /> Contact ({contacts.length})</TabsTrigger>
-                  <TabsTrigger value="jobs"><FileText className="w-4 h-4 mr-2" /> Job Applications ({jobs.length})</TabsTrigger>
-                  <TabsTrigger value="beta"><Users className="w-4 h-4 mr-2" /> Beta Requests ({beta.length})</TabsTrigger>
+                  <TabsTrigger value="jobs"><FileText className="w-4 h-4 mr-2" /> Jobs ({jobs.length})</TabsTrigger>
+                  <TabsTrigger value="beta"><Users className="w-4 h-4 mr-2" /> Beta ({beta.length})</TabsTrigger>
                 </TabsList>
+
+                <TabsContent value="blog">
+                  <BlogManager />
+                </TabsContent>
 
                 <TabsContent value="contacts">
                   {contacts.length === 0 ? (
