@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Platform", href: "/platform" },
   { label: "Hardware", href: "/hardware" },
   { label: "Research", href: "/research" },
+  { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
