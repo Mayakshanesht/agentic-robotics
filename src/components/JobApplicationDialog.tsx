@@ -49,8 +49,8 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
       if (error) throw error;
       setDone(true);
       toast.success("Application submitted. Thank you!");
-    } catch (err: any) {
-      toast.error(err?.message ?? "Failed to submit");
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : "Failed to submit");
     } finally {
       setLoading(false);
     }
