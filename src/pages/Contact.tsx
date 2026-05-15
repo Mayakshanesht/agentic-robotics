@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
-import { Mail, MapPin, Globe, Send, Loader2, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Globe, Send, Loader2, CheckCircle2, Linkedin } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -15,6 +15,7 @@ const contactSchema = z.object({
 });
 
 const interests = ["Pilot Program", "Partnership", "Investment", "Research Collaboration", "Other"] as const;
+const linkedInUrl = "https://www.linkedin.com/company/cloudbeerobotics/";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", company: "", email: "", interest: "Pilot Program", message: "" });
@@ -95,6 +96,10 @@ export default function Contact() {
                     <Globe size={16} className="text-accent-blue" />
                     cloudbeerobotics.de
                   </div>
+                  <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+                    <Linkedin size={16} className="text-accent-blue" />
+                    CloudBee Robotics on LinkedIn
+                  </a>
                   <a
                     href="https://www.google.com/maps/place/Collective+Incubator/@50.7850548,6.1073097,17z/data=!4m6!3m5!1s0x47c09b20c34800b5:0x40128dcd06f393a0!8m2!3d50.7856865!4d6.1087014"
                     target="_blank"
