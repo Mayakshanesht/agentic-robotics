@@ -58,11 +58,11 @@ export default function Blog() {
         <div className="section-container">
           <div className="flex items-baseline justify-between mb-10">
             <h2 className="font-display font-bold text-2xl lg:text-3xl">Blog</h2>
-            <span className="text-xs font-mono text-muted-foreground">{blogPosts.length} posts</span>
+            <span className="text-xs font-mono text-muted-foreground">{posts.length} posts</span>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {blogPosts.map((post, i) => (
+            {posts.map((post, i) => (
               <motion.div
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}
