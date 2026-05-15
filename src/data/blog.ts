@@ -41,7 +41,7 @@ export const news = [
   {
     icon: Award,
     title: "CloudBee Robotics Awarded EXIST Funding",
-    date: "May 2026",
+    date: "May 2026 — Present",
     description:
       "We're excited to share that CloudBee Robotics has been awarded EXIST funding from the German Federal Government — a major milestone as we continue building in the agentic physical AI space, bringing state-of-the-art AI models into industrial robotics, robotic arms, humanoids, AGVs, healthcare, home care, and agriculture. Huge thanks to RWTH Collective Incubator, RWTH Innovation, Therese Liegmann, Hanna, Dr. Tobias Recker, and our academic mentor Dr. Bastian Leibe.",
     link: "https://www.linkedin.com/posts/mayur-waghchoure-a5aba5ab_cloudbeerobotics-existfunding-startupfunding-share-7454759287098191872-71IS",
@@ -65,11 +65,11 @@ export const news = [
   },
   {
     icon: Target,
-    title: "RWTH Ideation Program Halftime Pitch",
-    date: "January 2026",
-    description: "Delivered our halftime pitch at the RWTH Innovation Ideation Program with great feedback on market positioning.",
+    title: "RWTH Innovation Ideation Program Completed",
+    date: "March 2026",
+    description: "Successfully completed the RWTH Innovation Ideation Program with strong validation of our market positioning and go-to-market strategy.",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7422690213560229888",
-    highlight: "In Progress",
+    highlight: "Completed",
     credit: "© RWTH Innovation GmbH",
   },
 ];
