@@ -3,36 +3,36 @@ import { Box, BrainCircuit, Network, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pipeline = [
-  "Task Description",
-  "DataForge",
-  "ModelLab",
-  "AgentOS",
-  "ROS 2 Deployment",
+  "Task Prompt",
+  "DataForge · 4D Synthetic Data",
+  "ModelLab · Explainable VLA",
+  "AgentOS · Long-Horizon Reasoning",
+  "ROS 2 Skill Download",
 ];
 
 const cards = [
   {
     icon: Box,
     title: "DataForge",
-    subtitle: "Synthetic Multimodal World Generation",
-    body: "Generate high-fidelity 4D training scenarios without expensive teleoperation. Tactile, force, vision, LiDAR, and proprioception data at scale — also reusable for general computer vision and AI model development beyond robotics.",
-    keywords: ["Isaac Sim", "Omniverse", "Procedural Generation", "CV-ready Datasets"],
+    subtitle: "Synthetic Multimodal 4D Data",
+    body: "No teleoperation. We synthesize high-fidelity 4D scenarios — vision, tactile, force, LiDAR, proprioception — at scale. The same datasets are reusable for general computer vision and AI model development beyond robotics.",
+    keywords: ["Isaac Sim", "Omniverse", "Multimodal 4D", "CV-ready Datasets"],
     color: "blue",
   },
   {
     icon: BrainCircuit,
     title: "ModelLab",
-    subtitle: "VLA & World Model Training",
-    body: "Fine-tune vision-language-action models and world models with sim-to-real optimized pipelines for robust generalization.",
-    keywords: ["Foundation Models", "Multimodal Learning", "Sim-to-Real"],
+    subtitle: "Explainable, Safety-Validated VLA",
+    body: "Train vision-language-action and world models built for functional safety. Decisions are traceable and validatable — engineered for certification and production, not demo videos.",
+    keywords: ["Explainable AI", "Functional Safety", "Sim-to-Real", "Validation"],
     color: "green",
   },
   {
     icon: Network,
     title: "AgentOS",
-    subtitle: "Autonomous Runtime & Orchestration",
-    body: "Deploy and orchestrate long-horizon tasks using task reasoning, world-state memory, and safety-constrained robot policies.",
-    keywords: ["Agentic AI", "Task Planning", "Safe Execution"],
+    subtitle: "Long-Horizon Runtime · ROS 2 Skills",
+    body: "Plan and execute long-horizon tasks with world-state memory and safety contracts. Policies ship as ROS 2 nodes — connect a robot, request a task, download a skill.",
+    keywords: ["Agentic Planning", "World-State Memory", "ROS 2 Node", "Safe Execution"],
     color: "blue",
   },
 ];

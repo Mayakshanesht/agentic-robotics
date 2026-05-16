@@ -1,27 +1,34 @@
 import { motion } from "framer-motion";
-import { Hourglass, Coins, Target } from "lucide-react";
+import { Database, ShieldAlert, GitBranch, Rocket } from "lucide-react";
 
 const items = [
   {
-    icon: Hourglass,
-    title: "Slow",
-    metric: "6–12 months",
-    desc: "of teleoperation data collection and per-task integration before a single deployment.",
+    icon: Database,
+    title: "Data Bottleneck",
+    metric: "Teleoperation",
+    desc: "Teams burn months collecting human-teleoperated demos per task. We replace it with synthetic, multimodal 4D data — vision, tactile, force, LiDAR, proprioception — generated at scale.",
     color: "text-accent-blue",
   },
   {
-    icon: Coins,
-    title: "Expensive",
-    metric: "€100k–300k",
-    desc: "per task in traditional robotics R&D — most of it spent on data and bespoke engineering.",
+    icon: ShieldAlert,
+    title: "Black-Box Models",
+    metric: "Unsafe to Ship",
+    desc: "Most VLA stacks can't pass functional-safety validation. We build explainable models with traceable decisions — engineered for certification, not just demos.",
     color: "text-accent-green",
   },
   {
-    icon: Target,
-    title: "Brittle",
-    metric: "70%+ failures",
-    desc: "task-specific integrations that don't generalize — sim-to-real transfer breaks at scale.",
+    icon: GitBranch,
+    title: "Long-Horizon Tasks",
+    metric: "Breaks at Scale",
+    desc: "Stitching primitives breaks on multi-step, real-world goals. AgentOS plans, reasons, and recovers across long-horizon tasks with world-state memory.",
     color: "text-accent-blue",
+  },
+  {
+    icon: Rocket,
+    title: "Deployment Friction",
+    metric: "Months → Days",
+    desc: "Bespoke integration per robot kills velocity. Our runtime ships agentic policies as ROS 2 nodes — seamless deployment on any humanoid, arm, or AMR.",
+    color: "text-accent-green",
   },
 ];
 
@@ -41,11 +48,15 @@ export function ProblemStrip() {
             The Problem
           </div>
           <h2 className="font-display font-bold text-3xl lg:text-5xl mb-3">
-            The Robotics <span className="text-gradient-blue">Deployment Gap.</span>
+            Four walls between robots and <span className="text-gradient-blue">real-world autonomy.</span>
           </h2>
+          <p className="text-muted-foreground text-lg mt-4">
+            Deployment is just the last mile. The real blockers are data, safety, reasoning, and integration —
+            and we solve all four in one platform.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {items.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -54,14 +65,14 @@ export function ProblemStrip() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="glass-card p-7 text-left"
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="glass-card p-6 text-left"
               >
                 <div className={`w-11 h-11 rounded-lg bg-surface flex items-center justify-center mb-4 ${s.color}`}>
                   <Icon size={22} />
                 </div>
                 <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">{s.title}</div>
-                <div className={`font-display font-bold text-2xl lg:text-3xl mb-2 ${s.color}`}>{s.metric}</div>
+                <div className={`font-display font-bold text-xl lg:text-2xl mb-2 ${s.color}`}>{s.metric}</div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </motion.div>
             );
@@ -69,7 +80,8 @@ export function ProblemStrip() {
         </div>
 
         <p className="text-center text-lg lg:text-xl font-display font-medium text-foreground">
-          Traditional robotics pipelines are broken. <span className="text-gradient-green">CloudBee changes this.</span>
+          One platform — from synthetic data to safe, explainable, deployable intelligence.{" "}
+          <span className="text-gradient-green">CloudBee closes the loop.</span>
         </p>
       </div>
     </section>
