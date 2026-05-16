@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ParticleBackground } from "@/components/ParticleBackground";
 
-const trustItems = ["EXIST Grant", "RWTH Aachen", "Collective Incubator", "FEV Group LOI"];
+const trustItems = ["EXIST Gründerstipendium", "RWTH Aachen University", "Collective Incubator"];
 
 export function HeroSection() {
   return (
