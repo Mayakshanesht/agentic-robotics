@@ -1,22 +1,31 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Store, Download, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, Store, Wifi, MessageSquare, Boxes, PackageCheck } from "lucide-react";
 
-const features = [
+const flow = [
   {
-    icon: Download,
-    title: "Install Skills On-Demand",
-    body: "Humanoids and robots fetch pre-validated skills from a curated catalog — the way modern devices install apps.",
+    icon: Wifi,
+    step: "01",
+    title: "Connect Your Robot",
+    body: "Plug any humanoid, robotic arm, or AMR into CloudBee over the internet — Unitree, Figure, custom hardware. ROS 2 native.",
   },
   {
-    icon: Sparkles,
-    title: "Generate New Skills Live",
-    body: "Describe a task in natural language; AgentOS composes new skills in real time from primitives in the marketplace.",
+    icon: MessageSquare,
+    step: "02",
+    title: "Describe the Task",
+    body: "Ask in natural language. AgentOS scopes the task, identifies missing skills, and triggers the pipeline automatically.",
   },
   {
-    icon: ShieldCheck,
-    title: "Safety-Guaranteed Execution",
-    body: "Every skill ships with safety contracts. AgentOS enforces constraints at runtime, so complex behavior stays inside guarded limits.",
+    icon: Boxes,
+    step: "03",
+    title: "We Generate & Train",
+    body: "DataForge synthesizes multimodal 4D data for the task; ModelLab trains and validates an explainable, safety-checked policy.",
+  },
+  {
+    icon: PackageCheck,
+    step: "04",
+    title: "Download as ROS 2 Skill",
+    body: "Get an agentic AI solution wrapped in a ROS 2 node — pushed directly to your robot, ready to run with safety contracts.",
   },
 ];
 
@@ -33,19 +42,20 @@ export function SkillMarketplace() {
           className="max-w-3xl mx-auto text-center mb-14"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full border border-accent-green/30 bg-accent-green/10 text-xs font-mono text-accent-green">
-            <Store size={12} /> Coming · Skill Marketplace
+            <Store size={12} /> The Future · Skill Store for Robots
           </div>
           <h2 className="font-display font-bold text-3xl lg:text-5xl mb-4 leading-tight">
-            An <span className="text-gradient-blue">App Store</span> for Robot Skills.
+            Connect your robot. Ask for a task.{" "}
+            <span className="text-gradient-blue">Get a skill.</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Our autonomous AgentOS lets humanoids download capabilities — or generate them on the fly —
-            and execute complex tasks with strong safety guarantees by design.
+            CloudBee becomes the skill store for embodied AI — a closed loop from task prompt to a downloadable,
+            safety-validated ROS 2 skill running on your robot.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-          {features.map((f, i) => {
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          {flow.map((f, i) => {
             const Icon = f.icon;
             return (
               <motion.div
@@ -54,8 +64,9 @@ export function SkillMarketplace() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="glass-card p-6"
+                className="glass-card p-6 relative"
               >
+                <div className="absolute top-4 right-4 text-[10px] font-mono text-accent-blue/50">{f.step}</div>
                 <div className="w-11 h-11 rounded-lg bg-accent-blue/10 text-accent-blue flex items-center justify-center mb-4">
                   <Icon size={20} />
                 </div>
