@@ -6,7 +6,6 @@ const items = [
   "Academic Mentor — Prof. Dr. Bastian Leibe, RWTH Aachen Computer Vision Group",
   "RWTH Innovation Ideation Program — Completed (March 2026)",
   "Deloitte Problem–Solution Fit — Completed",
-  "Industrial Letter of Intent — FEV Europe",
   "Research Collaboration — IGMR Institute, RWTH Aachen",
   "Functional prototype operational — pilots underway",
 ];
