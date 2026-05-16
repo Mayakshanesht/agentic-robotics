@@ -25,21 +25,6 @@ export function HeroSection() {
           </div>
 
           <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
-            The Operating System for{" "}
-            <span className="text-gradient-blue">Autonomous Robots.</span>
-          </h1>
-
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-9">
-            CloudBee Robotics builds the infrastructure that takes any robot from task description
-            to deployed intelligence — <span className="text-foreground font-medium">in weeks, not months.</span>
-          </p>
-
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-accent-blue/30 bg-accent-blue/5 text-xs font-mono text-accent-blue">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-glow-pulse" />
-            Infrastructure for Agentic Physical AI
-          </div>
-
-          <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
             Autonomous Operating System for{" "}
             <span className="text-gradient-blue">Agentic Physical AI.</span>
           </h1>
