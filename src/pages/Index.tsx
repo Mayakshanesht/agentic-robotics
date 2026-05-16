@@ -25,7 +25,7 @@ const Index = () => {
   return (
     <PageShell
       title="CloudBee Robotics — The Operating System for Autonomous Robots"
-      description="CloudBee Robotics builds the infrastructure that takes any robot from task description to deployed intelligence — in weeks, not months."
+      description="CloudBee Robotics builds the infrastructure layer for embodied AI — from task description to deployed intelligence on any humanoid robot, in a couple of days."
       path="/"
     >
       <HeroSection />
