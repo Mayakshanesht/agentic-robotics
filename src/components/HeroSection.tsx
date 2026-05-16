@@ -26,7 +26,7 @@ export function HeroSection() {
               className="space-y-4"
             >
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-white drop-shadow-lg">
-                Infrastructure for Agentic Physical AI
+                Infrastructure Layer for Embodied AI
               </h2>
               <Link to="/request-access">
                 <Button 
