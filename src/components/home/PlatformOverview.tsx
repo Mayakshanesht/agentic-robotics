@@ -3,12 +3,10 @@ import { Box, BrainCircuit, Network, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pipeline = [
-  "Text Prompt / Panorama",
-  "4D Synthetic World (USD)",
-  "Multimodal Sensor Data",
-  "VLA + World Model Training",
-  "Agentic Task Reasoning",
-  "Functional-Safety Runtime",
+  "Task Description",
+  "DataForge",
+  "ModelLab",
+  "AgentOS",
   "ROS 2 Deployment",
 ];
 
@@ -16,25 +14,25 @@ const cards = [
   {
     icon: Box,
     title: "DataForge",
-    subtitle: "4D Synthetic Worlds in USD",
-    body: "Generate photoreal, physics-accurate 4D worlds in OpenUSD from a single text prompt or panorama — vision, depth, tactile, force, LiDAR, and proprioception included. No teleoperation, no rigs.",
-    badge: "60–80% lower data cost",
+    subtitle: "Synthetic Multimodal World Generation",
+    body: "Generate high-fidelity 4D training scenarios without expensive teleoperation. Tactile, force, vision, LiDAR, and proprioception data at scale.",
+    keywords: ["Isaac Sim", "Omniverse", "Procedural Generation"],
     color: "blue",
   },
   {
     icon: BrainCircuit,
     title: "ModelLab",
-    subtitle: "Multimodal VLA & World Models",
-    body: "Train and fine-tune Vision–Language–Action and world models on multimodal synthetic + real data. Solves the brittleness and scale limits of teleoperation-only pipelines.",
-    badge: "Sim-to-real optimized",
+    subtitle: "VLA & World Model Training",
+    body: "Fine-tune vision-language-action models and world models with sim-to-real optimized pipelines for robust generalization.",
+    keywords: ["Foundation Models", "Multimodal Learning", "Sim-to-Real"],
     color: "green",
   },
   {
     icon: Network,
     title: "AgentOS",
-    subtitle: "Autonomous OS for Robotics",
-    body: "An autonomous operating system — like an agentic platform for physical robots — that plans, reasons, and acts on long-horizon tasks with functional-safety guarantees architected in, not bolted on.",
-    badge: "Functional safety by design",
+    subtitle: "Autonomous Runtime & Orchestration",
+    body: "Deploy and orchestrate long-horizon tasks using task reasoning, world-state memory, and safety-constrained robot policies.",
+    keywords: ["Agentic AI", "Task Planning", "Safe Execution"],
     color: "blue",
   },
 ];
