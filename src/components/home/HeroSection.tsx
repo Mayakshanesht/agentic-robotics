@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ParticleBackground } from "@/components/ParticleBackground";
 
-const trustItems = ["EXIST Grant", "RWTH Aachen", "Collective Incubator", "FEV Group LOI"];
+const trustItems = ["EXIST Gründerstipendium", "RWTH Aachen University", "Collective Incubator"];
 
 export function HeroSection() {
   return (
@@ -25,16 +25,21 @@ export function HeroSection() {
           </div>
 
           <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
-            The Operating System for{" "}
-            <span className="text-gradient-blue">Autonomous Robots.</span>
+            Autonomous Operating System for{" "}
+            <span className="text-gradient-blue">Agentic Physical AI.</span>
           </h1>
 
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-9">
-            CloudBee Robotics builds the infrastructure that takes any robot from task description
-            to deployed intelligence — <span className="text-foreground font-medium">in weeks, not months.</span>
+          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-5">
+            The platform that takes any humanoid robot from task description to deployed intelligence —{" "}
+            <span className="text-foreground font-medium">in weeks, not months.</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
+          <p className="text-sm lg:text-base text-muted-foreground/90 max-w-2xl mx-auto leading-relaxed mb-9">
+            Deploy Unitree, Figure, or any robotic hardware with our complete infrastructure stack:
+            synthetic multimodal 4D data generation, VLA/world model training, and autonomous runtime orchestration.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
             <Link to="/contact" className="btn-pilot text-base px-7 py-3">
               Request a Pilot
               <ArrowRight size={16} />
@@ -44,6 +49,12 @@ export function HeroSection() {
               className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-sm border border-accent-blue/40 text-foreground hover:bg-accent-blue/10 hover:border-accent-blue/70 transition-all"
             >
               Explore the Platform
+            </Link>
+          </div>
+
+          <div className="mb-12">
+            <Link to="/careers" className="text-sm text-accent-green hover:text-accent-green/80 font-medium underline-offset-4 hover:underline transition-colors">
+              We're Hiring →
             </Link>
           </div>
 
