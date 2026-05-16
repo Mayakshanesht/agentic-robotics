@@ -108,9 +108,13 @@ export function PlatformOverview() {
                   {c.subtitle}
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{c.body}</p>
-                <span className={`inline-block self-start text-xs font-semibold px-2.5 py-1 rounded-full border ${badgeBg}`}>
-                  {c.badge}
-                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {c.keywords.map((k) => (
+                    <span key={k} className={`text-[10px] font-mono px-2 py-1 rounded-md border ${badgeBg}`}>
+                      {k}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             );
           })}
