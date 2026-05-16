@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Factory, Bot, HeartPulse, Car, Sparkles } from "lucide-react";
 
 const industries = [
-  { icon: Car, title: "Automotive & Mobility", body: "Robotic cells for assembly, kitting, and inline QA — validated with FEV Europe." },
+  { icon: Car, title: "Automotive & Mobility", body: "Robotic cells for assembly, kitting, and inline QA across automotive manufacturing." },
   { icon: Factory, title: "Industrial Manufacturing", body: "Automate complex assembly, material handling, and logistics tasks." },
   { icon: Bot, title: "Humanoid Robotics", body: "Onboard humanoids fast with custom skill stacks and safety constraints." },
   { icon: HeartPulse, title: "Healthcare & Assisted Living", body: "Reliable, safe robots in sensitive environments." },
