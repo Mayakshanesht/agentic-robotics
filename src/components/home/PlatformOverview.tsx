@@ -15,8 +15,8 @@ const cards = [
     icon: Box,
     title: "DataForge",
     subtitle: "Synthetic Multimodal World Generation",
-    body: "Generate high-fidelity 4D training scenarios without expensive teleoperation. Tactile, force, vision, LiDAR, and proprioception data at scale.",
-    keywords: ["Isaac Sim", "Omniverse", "Procedural Generation"],
+    body: "Generate high-fidelity 4D training scenarios without expensive teleoperation. Tactile, force, vision, LiDAR, and proprioception data at scale — also reusable for general computer vision and AI model development beyond robotics.",
+    keywords: ["Isaac Sim", "Omniverse", "Procedural Generation", "CV-ready Datasets"],
     color: "blue",
   },
   {
