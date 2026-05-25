@@ -29,6 +29,7 @@ export default {
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
         "accent-blue": { DEFAULT: "hsl(var(--accent-blue))", glow: "hsl(var(--accent-blue-glow))" },
         "accent-green": { DEFAULT: "hsl(var(--accent-green))", glow: "hsl(var(--accent-green-glow))" },
+        "orange-accent": { DEFAULT: "hsl(var(--orange-accent))", glow: "hsl(var(--orange-accent-glow))" },
       },
       borderRadius: {
         lg: "var(--radius)",
