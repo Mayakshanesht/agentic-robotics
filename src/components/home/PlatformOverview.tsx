@@ -130,7 +130,7 @@ export function PlatformOverview() {
                 <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${a.bar}`} />
                 {/* Soft radial glow */}
                 <div
-                  className={`pointer-events-none absolute -top-16 -right-16 w-56 h-56 rounded-full blur-3xl bg-gradient-radial ${a.glow} to-transparent opacity-70 group-hover:opacity-100 transition-opacity`}
+                  className={`pointer-events-none absolute -top-16 -right-16 w-56 h-56 rounded-full blur-3xl ${a.glow} opacity-70 group-hover:opacity-100 transition-opacity`}
                 />
 
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${a.icon}`}>
