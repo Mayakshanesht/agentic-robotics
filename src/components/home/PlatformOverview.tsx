@@ -64,7 +64,7 @@ const cards: Card[] = [
 const accentMap = {
   orange: {
     bar: "from-orange-accent to-amber-400",
-    glow: "from-orange-accent/15",
+    glow: "bg-orange-accent/20",
     icon: "text-orange-accent bg-orange-accent/10",
     sub: "text-orange-accent",
     dot: "bg-orange-accent",
@@ -73,7 +73,7 @@ const accentMap = {
   },
   blue: {
     bar: "from-accent-blue to-sky-400",
-    glow: "from-accent-blue/15",
+    glow: "bg-accent-blue/20",
     icon: "text-accent-blue bg-accent-blue/10",
     sub: "text-accent-blue",
     dot: "bg-accent-blue",
@@ -82,7 +82,7 @@ const accentMap = {
   },
   green: {
     bar: "from-accent-green to-emerald-400",
-    glow: "from-accent-green/15",
+    glow: "bg-accent-green/20",
     icon: "text-accent-green bg-accent-green/10",
     sub: "text-accent-green",
     dot: "bg-accent-green",
