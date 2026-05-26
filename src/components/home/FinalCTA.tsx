@@ -57,7 +57,7 @@ export function FinalCTA() {
                 Apply for a Pilot <ArrowRight size={16} />
               </Link>
               <Link
-                to="/platform"
+                to="/product"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm border border-accent-blue/40 text-foreground hover:bg-accent-blue/10 hover:border-accent-blue/70 transition-all w-full"
               >
                 Explore the Platform

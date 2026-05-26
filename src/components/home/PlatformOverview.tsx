@@ -41,7 +41,7 @@ const cards: Card[] = [
       "Auto-annotated — zero manual labeling",
     ],
     badge: "v0.1 · MVP",
-    cta: { label: "Learn More", to: "/platform" },
+    cta: { label: "Learn More", to: "/product" },
     accent: "blue",
   },
   {
@@ -169,8 +169,8 @@ export function PlatformOverview() {
         </div>
 
         <div className="text-center mt-12">
-          <Link to="/platform" className="inline-flex items-center gap-2 text-accent-blue font-semibold hover:gap-3 transition-all">
-            See the full platform <ArrowRight size={16} />
+          <Link to="/product" className="inline-flex items-center gap-2 text-accent-blue font-semibold hover:gap-3 transition-all">
+            See the full product <ArrowRight size={16} />
           </Link>
         </div>
       </div>

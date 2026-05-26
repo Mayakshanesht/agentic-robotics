@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Box, BrainCircuit, Network, Layers } from "lucide-react";
+import { ArrowRight, Box, BrainCircuit, Network } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
 
@@ -10,21 +10,21 @@ const pillars = [
     color: "blue",
     title: "DataForge",
     subtitle: "Synthetic Multimodal World Generation",
-    body: "Most robotics teams spend 6–12 months collecting training data manually — at costs of €100k to €300k per task. DataForge eliminates this by programmatically generating high-fidelity 4D simulation worlds with multimodal sensor streams including vision, depth, tactile, force, LiDAR, and proprioception. The result: production-quality training data in hours, not months.",
+    body: "Most robotics teams spend 6–12 months collecting training data manually. DataForge programmatically generates high-fidelity 4D simulation worlds with multimodal sensor streams — vision, depth, tactile, force, LiDAR, proprioception. Production-quality training data in hours, not months. Reusable beyond robotics for general computer-vision and AI model training.",
   },
   {
     icon: BrainCircuit,
     color: "green",
     title: "ModelLab",
-    subtitle: "VLA & World Model Training",
-    body: "ModelLab provides a fine-tuning and evaluation environment for Vision-Language-Action (VLA) models and world models — optimized for sim-to-real transfer. Teams can iterate on robot behavior rapidly, test generalization across scenarios, and ship robust policies without brittle, task-specific engineering.",
+    subtitle: "Explainable VLA & World-Model Training",
+    body: "ModelLab is a fine-tuning and evaluation environment for Vision-Language-Action models and world models — optimized for sim-to-real transfer and functional-safety validation. Teams ship robust, traceable policies without brittle task-specific engineering.",
   },
   {
     icon: Network,
     color: "blue",
     title: "AgentOS",
     subtitle: "Autonomous Runtime & Orchestration",
-    body: "AgentOS is the autonomous runtime that powers deployed robots. It handles long-horizon task planning, environment understanding, skill library management, working memory, and safety-constrained execution — all in a composable, ROS2-compatible architecture. Built with EU AI Act compliance in mind from day one.",
+    body: "AgentOS is the runtime that powers deployed robots — long-horizon task planning, world-state memory, skill library, and safety-constrained execution. Composable, ROS 2-native, EU AI Act ready from day one.",
   },
 ];
 
@@ -37,12 +37,12 @@ const steps = [
   "Continuous learning feeds back into the loop",
 ];
 
-export default function Platform() {
+export default function Product() {
   return (
     <PageShell
-      title="Platform — CloudBee Robotics"
-      description="The infrastructure layer for physical AI. A unified, modular system to bring any robotic hardware to production-grade autonomous capability."
-      path="/platform"
+      title="Product — CloudBee Robotics"
+      description="The autonomous OS for agentic physical AI. DataForge, ModelLab, and AgentOS — one modular platform from synthetic data to deployed intelligence."
+      path="/product"
     >
       {/* Hero */}
       <section className="relative pt-32 lg:pt-40 pb-20 overflow-hidden bg-hero-gradient">
@@ -50,12 +50,12 @@ export default function Platform() {
         <div className="absolute inset-0 grid-bg opacity-40" />
         <div className="section-container relative z-10 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">The Platform</div>
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">The Product</div>
             <h1 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-5">
-              The Infrastructure Layer for <span className="text-gradient-blue">Physical AI</span>
+              The Autonomous OS for <span className="text-gradient-blue">Physical AI</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              A unified, modular system designed to bring any robotic hardware to production-grade autonomous capability.
+              A unified, modular system that takes any robot from task description to deployed intelligence — in a couple of days.
             </p>
           </motion.div>
         </div>
@@ -70,16 +70,15 @@ export default function Platform() {
                 We're Building a <span className="text-gradient-blue">Platform</span>, Not Just a Product.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                CloudBee is designed as an open platform — customers can onboard any humanoid or robotic hardware quickly for their custom use case. Whether you're working with leading humanoid platforms or industrial arms, CloudBee's software layer allows your team to define tasks, generate training data, train custom robot policies, and deploy them to production — all from a single integrated environment.
+                CloudBee is an open platform. Customers can onboard any humanoid, robotic arm, or mobile robot quickly — define tasks, generate training data, train custom policies, and deploy them to production from a single integrated environment.
               </p>
             </div>
 
-            {/* OS stack diagram */}
             <div className="glass-card p-6 space-y-2">
               {[
                 { label: "Custom Skills / Tasks", color: "accent-green", sub: "Application layer" },
-                { label: "CloudBee Platform · DataForge · ModelLab · AgentOS", color: "accent-blue", sub: "Intelligence layer" },
-                { label: "Hardware · Humanoids · Arms · Mobile Robots", color: "muted-foreground", sub: "Physical layer" },
+                { label: "DataForge · ModelLab · AgentOS", color: "accent-blue", sub: "Intelligence layer" },
+                { label: "Hardware · Humanoids · Arms · AMRs", color: "muted-foreground", sub: "Physical layer" },
               ].map((row) => (
                 <div key={row.label} className="rounded-lg border border-border bg-surface/60 px-4 py-4">
                   <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">{row.sub}</div>
@@ -155,8 +154,8 @@ export default function Platform() {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/contact" className="btn-pilot">
-              Request a Pilot <ArrowRight size={16} />
+            <Link to="/solution" className="btn-pilot">
+              See Solutions <ArrowRight size={16} />
             </Link>
           </div>
         </div>

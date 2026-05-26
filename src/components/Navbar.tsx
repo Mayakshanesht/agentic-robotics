@@ -5,12 +5,11 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Platform", href: "/platform" },
-  { label: "Hardware", href: "/hardware" },
+  { label: "Product", href: "/product" },
+  { label: "Solution", href: "/solution" },
   { label: "Research", href: "/research" },
-  { label: "Team", href: "/team" },
+  { label: "Team & Careers", href: "/team-careers" },
   { label: "Blog", href: "/blog" },
-  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
