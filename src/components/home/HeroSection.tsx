@@ -2,14 +2,16 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import robotHumanoid from "@/assets/hero/robot-humanoid.jpg";
+import robotArm from "@/assets/hero/robot-arm.jpg";
+import robotAmr from "@/assets/hero/robot-amr.jpg";
 import teamWorkshop from "@/assets/hero/team-workshop.jpeg";
 import pitchIncubator from "@/assets/hero/pitch-incubator.jpeg";
-import physicalAiTalk from "@/assets/hero/physical-ai-talk.jpeg";
-import founderPresenting from "@/assets/hero/founder-presenting.jpeg";
-import lemonadeComic from "@/assets/hero/lemonade-comic.jpeg";
 
 type Slide = {
   image: string;
+  /** CSS object-position to keep faces out of frame */
+  position?: string;
   eyebrow: string;
   title: React.ReactNode;
   body: string;
@@ -18,64 +20,69 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    image: pitchIncubator,
-    eyebrow: "Live · Collective Incubator",
+    image: robotHumanoid,
+    position: "center 30%",
+    eyebrow: "Autonomous OS",
     title: (
       <>
-        Autonomous OS for{" "}
+        Operating System for{" "}
         <span className="text-gradient-blue">Agentic Physical AI.</span>
       </>
     ),
     body: "From task description to deployed intelligence on any humanoid robot — in a couple of days.",
-    tag: "Founder pitch · Aachen",
+    tag: "CloudBee Robotics · Aachen, Germany",
+  },
+  {
+    image: robotArm,
+    position: "center center",
+    eyebrow: "Hardware Agnostic",
+    title: (
+      <>
+        Humanoids, arms, AMRs —{" "}
+        <span className="text-gradient-green">one platform.</span>
+      </>
+    ),
+    body: "ROS 2 native. Bring your robot, describe the task, deploy a validated skill.",
+    tag: "Industrial manipulators · pick · assembly · inspection",
+  },
+  {
+    image: robotAmr,
+    position: "center center",
+    eyebrow: "Real-World Deployment",
+    title: (
+      <>
+        From simulation to{" "}
+        <span className="text-gradient-blue">the warehouse floor.</span>
+      </>
+    ),
+    body: "Synthetic 4D data, explainable VLA models, long-horizon agents — engineered for functional safety.",
+    tag: "Logistics · Manufacturing · Service Robotics",
+  },
+  {
+    image: pitchIncubator,
+    position: "center 22%",
+    eyebrow: "Building in Public",
+    title: (
+      <>
+        Backed by RWTH Aachen.{" "}
+        <span className="text-gradient-green">EXIST funded.</span>
+      </>
+    ),
+    body: "Engineers, researchers, and operators shipping the infrastructure layer for embodied AI.",
+    tag: "Collective Incubator · RWTH Innovation",
   },
   {
     image: teamWorkshop,
-    eyebrow: "The Team",
-    title: (
-      <>
-        Engineers, researchers, and builders —{" "}
-        <span className="text-gradient-green">all in one room.</span>
-      </>
-    ),
-    body: "An interdisciplinary team from RWTH Aachen and beyond, shipping the infrastructure layer for embodied AI.",
-    tag: "Workshop · Collective Incubator",
-  },
-  {
-    image: physicalAiTalk,
-    eyebrow: "Physical AI Is Coming",
-    title: (
-      <>
-        1.3 billion AI robots will move around us{" "}
-        <span className="text-gradient-blue">by 2035.</span>
-      </>
-    ),
-    body: "The bottleneck isn't hardware — it's data, safety, and reasoning. CloudBee solves all three.",
-    tag: "Keynote · Industry briefing",
-  },
-  {
-    image: founderPresenting,
-    eyebrow: "What We Build",
-    title: (
-      <>
-        One OS. Synthetic data, explainable models,{" "}
-        <span className="text-gradient-green">long-horizon agents.</span>
-      </>
-    ),
-    body: "DataForge generates 4D synthetic data. ModelLab trains safety-validated VLA. AgentOS runs everything as ROS 2 skills.",
-    tag: "Mayur Waghchoure · Founder & CEO",
-  },
-  {
-    image: lemonadeComic,
-    eyebrow: "How It Works",
+    position: "center 18%",
+    eyebrow: "The Skill Store",
     title: (
       <>
         Ask in plain language.{" "}
         <span className="text-gradient-blue">Download a robot skill.</span>
       </>
     ),
-    body: "Connect your robot, describe the task. We generate data, train the policy, and deliver a ROS 2 node — ready to run.",
-    tag: "The Skill Store for robots",
+    body: "We generate the data, train the policy, and deliver a ROS 2 node — ready to run.",
+    tag: "Closed loop · from prompt to deployed autonomy",
   },
 ];
 
@@ -107,9 +114,9 @@ export function HeroSection() {
         <AnimatePresence mode="sync">
           <motion.div
             key={index}
-            initial={{ opacity: 0, scale: 1.08 }}
+            initial={{ opacity: 0, scale: 1.06 }}
             animate={{ opacity: 1, scale: 1.0 }}
-            exit={{ opacity: 0, scale: 1.04 }}
+            exit={{ opacity: 0, scale: 1.03 }}
             transition={{ opacity: { duration: 1.1 }, scale: { duration: AUTOPLAY_MS / 1000, ease: "linear" } }}
             className="absolute inset-0"
           >
@@ -118,6 +125,7 @@ export function HeroSection() {
               alt=""
               aria-hidden="true"
               className="w-full h-full object-cover"
+              style={{ objectPosition: slide.position ?? "center center" }}
               loading="eager"
             />
           </motion.div>
@@ -125,7 +133,7 @@ export function HeroSection() {
         {/* Dark gradient overlays for legibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-        <div className="absolute inset-0 grid-bg opacity-25" />
+        <div className="absolute inset-0 grid-bg opacity-20" />
       </div>
 
       {/* Content */}
@@ -165,10 +173,10 @@ export function HeroSection() {
               <ArrowRight size={16} />
             </Link>
             <Link
-              to="/platform"
+              to="/product"
               className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-sm border border-accent-blue/40 text-foreground hover:bg-accent-blue/10 hover:border-accent-blue/70 transition-all bg-background/40 backdrop-blur"
             >
-              Explore the Platform
+              Explore the Product
             </Link>
           </div>
 

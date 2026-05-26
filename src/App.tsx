@@ -4,11 +4,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
-import Platform from "./pages/Platform";
-import Hardware from "./pages/Hardware";
+import Product from "./pages/Product";
+import Solution from "./pages/Solution";
 import Research from "./pages/Research";
-import Careers from "./pages/Careers";
-import Team from "./pages/Team";
+import TeamCareers from "./pages/TeamCareers";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import Blog from "./pages/Blog";
@@ -32,17 +31,19 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/platform" element={<Platform />} />
-          <Route path="/hardware" element={<Hardware />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/solution" element={<Solution />} />
           <Route path="/research" element={<Research />} />
-          <Route path="/careers" element={<Careers />} />
+          <Route path="/team-careers" element={<TeamCareers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
-          {/* Legacy routes — redirect to nearest new equivalent */}
-          <Route path="/technology" element={<Navigate to="/platform" replace />} />
-          <Route path="/use-cases" element={<Navigate to="/platform" replace />} />
-          <Route path="/team" element={<Team />} />
-          {/* Existing functional pages preserved */}
+          {/* Legacy redirects */}
+          <Route path="/platform" element={<Navigate to="/product" replace />} />
+          <Route path="/hardware" element={<Navigate to="/solution" replace />} />
+          <Route path="/technology" element={<Navigate to="/product" replace />} />
+          <Route path="/use-cases" element={<Navigate to="/solution" replace />} />
+          <Route path="/team" element={<Navigate to="/team-careers" replace />} />
+          <Route path="/careers" element={<Navigate to="/team-careers" replace />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/why-physical-ai-needs-4d-synthetic-data" element={<BlogPost1 />} />
           <Route path="/blog/sim-to-real-gap-solved" element={<BlogPost2 />} />
