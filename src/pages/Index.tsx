@@ -8,8 +8,7 @@ import { PlatformOverview } from "@/components/home/PlatformOverview";
 import { SkillMarketplace } from "@/components/home/SkillMarketplace";
 import { WhyCloudBee } from "@/components/home/WhyCloudBee";
 import { TargetIndustries } from "@/components/home/TargetIndustries";
-import { Traction } from "@/components/home/Traction";
-
+import { HomeNews } from "@/components/home/HomeNews";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { AskCloudBee } from "@/components/AskCloudBee";
 
@@ -35,8 +34,7 @@ const Index = () => {
       <SkillMarketplace />
       <WhyCloudBee />
       <TargetIndustries />
-      <Traction />
-      
+      <HomeNews />
       <FinalCTA />
       <AskCloudBee />
     </PageShell>
