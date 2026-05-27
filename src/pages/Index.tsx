@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { HeroSection } from "@/components/home/HeroSection";
+import { TrustStrip } from "@/components/home/TrustStrip";
 import { ProblemStrip } from "@/components/home/ProblemStrip";
-import { MilestoneBanner } from "@/components/home/MilestoneBanner";
 import { PlatformOverview } from "@/components/home/PlatformOverview";
 import { SkillMarketplace } from "@/components/home/SkillMarketplace";
-import { WhyCloudBee } from "@/components/home/WhyCloudBee";
+import { MissionVision } from "@/components/home/MissionVision";
+import { Timeline } from "@/components/home/Timeline";
 import { TargetIndustries } from "@/components/home/TargetIndustries";
 import { HomeNews } from "@/components/home/HomeNews";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -23,16 +24,17 @@ const Index = () => {
 
   return (
     <PageShell
-      title="CloudBee Robotics — The Operating System for Autonomous Robots"
-      description="CloudBee Robotics builds the infrastructure layer for embodied AI — from task description to deployed intelligence on any humanoid robot, in a couple of days."
+      title="CloudBee Robotics — Autonomous OS for Embodied AI"
+      description="CloudBee Robotics builds the infrastructure layer for embodied AI. Synthetic 4D data, explainable VLA models, agentic ROS 2 runtime — deployable on any humanoid, arm, or AMR in a couple of days."
       path="/"
     >
       <HeroSection />
+      <TrustStrip />
       <ProblemStrip />
-      <MilestoneBanner />
       <PlatformOverview />
+      <MissionVision />
       <SkillMarketplace />
-      <WhyCloudBee />
+      <Timeline />
       <TargetIndustries />
       <HomeNews />
       <FinalCTA />

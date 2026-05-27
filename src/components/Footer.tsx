@@ -33,7 +33,8 @@ export function Footer() {
               <li><Link to="/product" className="hover:text-foreground">Product</Link></li>
               <li><Link to="/solution" className="hover:text-foreground">Solution</Link></li>
               <li><Link to="/research" className="hover:text-foreground">Research</Link></li>
-              <li><Link to="/team-careers" className="hover:text-foreground">Team & Careers</Link></li>
+              <li><Link to="/team" className="hover:text-foreground">Team</Link></li>
+              <li><Link to="/careers" className="hover:text-foreground">Careers</Link></li>
               <li><Link to="/blog" className="hover:text-foreground">Blog</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
             </ul>
@@ -62,8 +63,8 @@ export function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <div>© 2026 CloudBee Robotics. All rights reserved. Aachen, Germany.</div>
-          <div className="font-mono">v1.0 · built in Aachen</div>
+          <div>© 2026 CloudBee Robotics GmbH (i.G.). All rights reserved.</div>
+          <div className="font-mono">Built at RWTH Aachen · Collective Incubator, Aachen, Germany</div>
         </div>
       </div>
     </footer>

@@ -7,7 +7,8 @@ import Index from "./pages/Index";
 import Product from "./pages/Product";
 import Solution from "./pages/Solution";
 import Research from "./pages/Research";
-import TeamCareers from "./pages/TeamCareers";
+import Team from "./pages/Team";
+import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import Blog from "./pages/Blog";
@@ -34,7 +35,8 @@ const App = () => (
           <Route path="/product" element={<Product />} />
           <Route path="/solution" element={<Solution />} />
           <Route path="/research" element={<Research />} />
-          <Route path="/team-careers" element={<TeamCareers />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           {/* Legacy redirects */}
@@ -42,8 +44,7 @@ const App = () => (
           <Route path="/hardware" element={<Navigate to="/solution" replace />} />
           <Route path="/technology" element={<Navigate to="/product" replace />} />
           <Route path="/use-cases" element={<Navigate to="/solution" replace />} />
-          <Route path="/team" element={<Navigate to="/team-careers" replace />} />
-          <Route path="/careers" element={<Navigate to="/team-careers" replace />} />
+          <Route path="/team-careers" element={<Navigate to="/team" replace />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/why-physical-ai-needs-4d-synthetic-data" element={<BlogPost1 />} />
           <Route path="/blog/sim-to-real-gap-solved" element={<BlogPost2 />} />
