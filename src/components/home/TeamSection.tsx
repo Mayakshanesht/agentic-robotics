@@ -145,7 +145,7 @@ export function TeamSection() {
         </div>
 
         <div className="text-center mt-12">
-          <Link to="/team-careers" className="inline-flex items-center gap-2 text-accent-blue font-semibold text-sm hover:gap-3 transition-all">
+          <Link to="/careers" className="inline-flex items-center gap-2 text-accent-blue font-semibold text-sm hover:gap-3 transition-all">
             We're hiring →
           </Link>
         </div>
