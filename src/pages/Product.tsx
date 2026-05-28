@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Box, BrainCircuit, Network } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
+import demoVideo from "@/assets/hero/humanoid-pallet.mp4";
 
 const pillars = [
   {
@@ -11,6 +12,7 @@ const pillars = [
     title: "DataForge",
     subtitle: "Synthetic Multimodal World Generation",
     body: "Most robotics teams spend 6–12 months collecting training data manually. DataForge programmatically generates high-fidelity 4D simulation worlds with multimodal sensor streams — vision, depth, tactile, force, LiDAR, proprioception. Production-quality training data in hours, not months. Reusable beyond robotics for general computer-vision and AI model training.",
+    video: demoVideo,
   },
   {
     icon: BrainCircuit,
@@ -26,7 +28,8 @@ const pillars = [
     subtitle: "Autonomous Runtime & Orchestration",
     body: "AgentOS is the runtime that powers deployed robots — long-horizon task planning, world-state memory, skill library, and safety-constrained execution. Composable, ROS 2-native, EU AI Act ready from day one.",
   },
-];
+] as const;
+
 
 const steps = [
   "Describe your task in natural language",
