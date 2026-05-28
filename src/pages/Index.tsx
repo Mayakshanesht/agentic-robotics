@@ -8,7 +8,6 @@ import { PlatformOverview } from "@/components/home/PlatformOverview";
 import { SkillMarketplace } from "@/components/home/SkillMarketplace";
 import { MissionVision } from "@/components/home/MissionVision";
 import { Timeline } from "@/components/home/Timeline";
-import { TargetIndustries } from "@/components/home/TargetIndustries";
 import { HomeNews } from "@/components/home/HomeNews";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { AskCloudBee } from "@/components/AskCloudBee";
@@ -25,7 +24,7 @@ const Index = () => {
   return (
     <PageShell
       title="CloudBee Robotics — Autonomous OS for Embodied AI"
-      description="CloudBee Robotics builds the infrastructure layer for embodied AI. Synthetic 4D data, explainable VLA models, agentic ROS 2 runtime — deployable on any humanoid, arm, or AMR in a couple of days."
+      description="CloudBee Robotics builds the infrastructure layer for embodied AI. Synthetic 4D data, explainable VLA models, agentic ROS 2 runtime — deployable on any humanoid, arm, or AMR."
       path="/"
     >
       <HeroSection />
@@ -35,7 +34,6 @@ const Index = () => {
       <MissionVision />
       <SkillMarketplace />
       <Timeline />
-      <TargetIndustries />
       <HomeNews />
       <FinalCTA />
       <AskCloudBee />

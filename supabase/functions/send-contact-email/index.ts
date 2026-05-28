@@ -38,7 +38,7 @@ Deno.serve(async (req) => {
       });
     }
 
-    const html = `
+    const internalHtml = `
       <div style="font-family:Inter,system-ui,sans-serif;background:#050810;color:#fff;padding:32px;border-radius:12px;max-width:560px;margin:auto">
         <h2 style="margin:0 0 8px;color:#00AEEF">New CloudBee Website Inquiry</h2>
         <p style="color:#B0BEC5;margin:0 0 20px;font-size:14px">Interest: <strong style="color:#fff">${esc(interest)}</strong></p>
@@ -51,32 +51,71 @@ Deno.serve(async (req) => {
         <div style="white-space:pre-wrap;line-height:1.55;color:#fff">${esc(message)}</div>
       </div>`;
 
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    const confirmationHtml = `
+      <div style="font-family:Inter,system-ui,sans-serif;background:#fafbfc;color:#0F172A;padding:32px;border-radius:12px;max-width:560px;margin:auto;border:1px solid #e2e8f0">
+        <h2 style="margin:0 0 12px;color:#0F172A;font-size:22px">Thanks for reaching out, ${esc(name)} 👋</h2>
+        <p style="margin:0 0 16px;color:#475569;font-size:14px;line-height:1.55">
+          We've received your message at CloudBee Robotics and someone from the team will get back to you within a few business days.
+        </p>
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#64748b;margin-bottom:6px">Your message · ${esc(interest)}</div>
+          <div style="white-space:pre-wrap;line-height:1.55;color:#0F172A;font-size:14px">${esc(message)}</div>
+        </div>
+        <p style="margin:18px 0 0;color:#475569;font-size:13px;line-height:1.55">
+          In the meantime, feel free to learn more about our platform at <a href="https://cloudbeerobotics.de" style="color:#00AEEF;text-decoration:none">cloudbeerobotics.de</a> or reply to this email with anything else you'd like to share.
+        </p>
+        <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0"/>
+        <div style="font-size:12px;color:#94a3b8">
+          CloudBee Robotics · Collective Incubator, Aachen, Germany<br/>
+          This is an automated confirmation — replies go straight to our team.
+        </div>
+      </div>`;
+
+    const send = (payload: Record<string, unknown>) =>
+      fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+    const [internalRes, confirmRes] = await Promise.allSettled([
+      send({
         from: FROM_EMAIL,
         to: [TO_EMAIL],
         reply_to: email,
         subject: `[CloudBee] ${interest} — ${name}${company ? ` · ${company}` : ''}`,
-        html,
+        html: internalHtml,
       }),
-    });
+      send({
+        from: FROM_EMAIL,
+        to: [email],
+        reply_to: TO_EMAIL,
+        subject: `We received your message — CloudBee Robotics`,
+        html: confirmationHtml,
+      }),
+    ]);
 
-    if (!res.ok) {
-      const txt = await res.text();
-      console.error('Resend error:', res.status, txt);
+    if (internalRes.status === 'rejected' || (internalRes.status === 'fulfilled' && !internalRes.value.ok)) {
+      const detail =
+        internalRes.status === 'fulfilled' ? await internalRes.value.text() : String(internalRes.reason);
+      console.error('Resend internal error:', detail);
       return new Response(JSON.stringify({ error: 'Failed to send email' }), {
         status: 502,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
 
-    const data = await res.json();
-    return new Response(JSON.stringify({ ok: true, id: data.id }), {
+    if (confirmRes.status === 'rejected' || (confirmRes.status === 'fulfilled' && !confirmRes.value.ok)) {
+      const detail =
+        confirmRes.status === 'fulfilled' ? await confirmRes.value.text() : String(confirmRes.reason);
+      console.warn('Resend confirmation email failed (non-blocking):', detail);
+    }
+
+    return new Response(JSON.stringify({ ok: true }), {
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
+
   } catch (err) {
     console.error('send-contact-email error', err);
     return new Response(JSON.stringify({ error: 'Internal error' }), {

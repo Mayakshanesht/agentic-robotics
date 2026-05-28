@@ -50,10 +50,10 @@ export function ProblemStrip() {
           <h2 className="font-display font-bold text-3xl lg:text-5xl mb-3">
             Four walls between robots and <span className="text-gradient-blue">real-world autonomy.</span>
           </h2>
-          <p className="text-muted-foreground text-lg mt-4">
-            Deployment is just the last mile. The real blockers are data, safety, reasoning, and integration —
-            and we solve all four in one platform.
+          <p className="text-muted-foreground text-base mt-3">
+            Data · safety · reasoning · integration — all solved in one platform.
           </p>
+
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">

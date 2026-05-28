@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Cpu, Database, BrainCircuit } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import demoVideo from "@/assets/hero/humanoid-pallet.mp4";
 type Card = {
   icon: typeof Cpu;
   sub: string;
@@ -11,6 +11,8 @@ type Card = {
   badge: string;
   cta: { label: string; to: string };
   accent: "orange" | "blue" | "green";
+  /** Optional inline visual: video src or "open" for ModelLab open-state placeholder */
+  media?: { kind: "video"; src: string; caption: string } | { kind: "open"; caption: string };
 };
 
 const cards: Card[] = [
@@ -28,6 +30,7 @@ const cards: Card[] = [
     badge: "Available Now",
     cta: { label: "Request Demo", to: "/contact" },
     accent: "orange",
+    media: { kind: "video", src: demoVideo, caption: "Humanoid · palletize · AgentOS runtime" },
   },
   {
     icon: Database,
@@ -43,6 +46,7 @@ const cards: Card[] = [
     badge: "v0.1 · MVP",
     cta: { label: "Learn More", to: "/product" },
     accent: "blue",
+    media: { kind: "video", src: demoVideo, caption: "Synthetic 4D scenario · multimodal capture" },
   },
   {
     icon: BrainCircuit,
@@ -55,11 +59,13 @@ const cards: Card[] = [
       "Multimodal token integration",
       "Continuous learning from every deployment",
     ],
-    badge: "Coming Soon",
+    badge: "Open · In R&D",
     cta: { label: "Join Waitlist", to: "/contact" },
     accent: "green",
+    media: { kind: "open", caption: "Open research · join the waitlist" },
   },
 ];
+
 
 const accentMap = {
   orange: {
@@ -136,6 +142,39 @@ export function PlatformOverview() {
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${a.icon}`}>
                   <Icon size={22} />
                 </div>
+
+                {/* Inline media: video for AgentOS/DataForge, open placeholder for ModelLab */}
+                {c.media && (
+                  <div className={`relative rounded-lg overflow-hidden border border-border mb-5 ${c.media.kind === "open" ? "" : "aspect-video bg-surface"}`}>
+                    {c.media.kind === "video" ? (
+                      <>
+                        <video
+                          src={c.media.src}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                          aria-label={c.media.caption}
+                        />
+                        <div className="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-background/80 backdrop-blur text-[9px] font-mono uppercase tracking-wider text-accent-green border border-accent-green/30">
+                          <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
+                          Live
+                        </div>
+                        <div className="absolute inset-x-0 bottom-0 px-2 py-1.5 bg-gradient-to-t from-background/90 to-transparent text-[10px] font-mono text-foreground/90">
+                          {c.media.caption}
+                        </div>
+                      </>
+                    ) : (
+                      <div className="aspect-video bg-gradient-to-br from-accent-green/10 via-surface to-emerald-500/5 flex flex-col items-center justify-center gap-2 text-center px-4">
+                        <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent-green">Open · In R&D</div>
+                        <div className="text-xs text-muted-foreground max-w-[16rem]">{c.media.caption}</div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+
 
                 <div className={`text-[10px] font-mono uppercase tracking-wider mb-1.5 ${a.sub}`}>
                   {c.sub}

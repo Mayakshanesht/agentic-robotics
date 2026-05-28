@@ -5,12 +5,6 @@ type Status = "done" | "active" | "next";
 
 const events: { date: string; title: string; body: string; status: Status }[] = [
   {
-    date: "Apr 2025",
-    title: "Research kickoff at RWTH Aachen",
-    body: "First prototypes of the synthetic 4D data pipeline and ROS 2 runtime built inside the Computer Vision Group.",
-    status: "done",
-  },
-  {
     date: "Sep 2025",
     title: "Deloitte Problem–Solution Fit · RWTH Innovation Ideation",
     body: "Full PSF cycle completed with Deloitte mentors. Validated infrastructure-layer positioning with industry partners.",
@@ -19,12 +13,12 @@ const events: { date: string; title: string; body: string; status: Status }[] = 
   {
     date: "Dec 2025",
     title: "Industry Letters of Intent",
-    body: "Signed LOIs from FEV Europe, Haver & Boecker, Dorle Controls, and Fraunhofer IML — covering manipulation, inspection, and logistics use cases.",
+    body: "Signed LOIs from FEV Europe, Haver & Boecker, and Dorle Controls — covering manipulation, inspection, and logistics use cases.",
     status: "done",
   },
   {
     date: "Q1 2026",
-    title: "EXIST Research Transfer Grant secured",
+    title: "EXIST Gründungstipendium secured",
     body: "Backed by the German Federal Ministry for Economic Affairs and Climate Action to build CloudBee Robotics out of RWTH Aachen.",
     status: "done",
   },
@@ -48,6 +42,7 @@ const events: { date: string; title: string; body: string; status: Status }[] = 
   },
 ];
 
+
 const statusConfig: Record<Status, { dot: string; icon: typeof Circle; ring: string; label: string }> = {
   done: { dot: "bg-accent-green", icon: CheckCircle2, ring: "ring-accent-green/30", label: "Shipped" },
   active: { dot: "bg-orange-accent", icon: Loader2, ring: "ring-orange-accent/40", label: "In progress" },
@@ -70,8 +65,9 @@ export function Timeline() {
             From research to <span className="text-gradient-blue">deployed product.</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Eight months from first prototype to signed industry LOIs, EXIST funding, and pilot-ready runtime. Here is exactly where we are.
+            From PSF validation to EXIST funding and pilot-ready runtime — here is exactly where we are.
           </p>
+
         </motion.div>
 
         <div className="relative max-w-3xl">
