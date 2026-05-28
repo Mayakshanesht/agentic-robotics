@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Cpu, Database, BrainCircuit } from "lucide-react";
 import { Link } from "react-router-dom";
+import demoVideo from "@/assets/hero/humanoid-pallet.mp4";
 
 type Card = {
   icon: typeof Cpu;
