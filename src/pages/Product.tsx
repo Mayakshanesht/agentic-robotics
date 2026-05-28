@@ -113,6 +113,9 @@ export default function Product() {
                     <Icon size={22} />
                   </div>
                   <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">{p.subtitle}</div>
+                  <h3 className="font-display font-bold text-3xl lg:text-4xl mb-4">{p.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{p.body}</p>
+                </div>
                 <div className={reverse ? "lg:col-start-1 lg:row-start-1" : ""}>
                   {"video" in p && p.video ? (
                     <div className="relative rounded-2xl overflow-hidden border border-accent-blue/30 shadow-2xl shadow-accent-blue/10 bg-surface max-w-md mx-auto aspect-video">
@@ -141,9 +144,6 @@ export default function Product() {
                   )}
                 </div>
 
-                    <Icon size={120} className={`${accent} opacity-70 relative`} strokeWidth={1.2} />
-                  </div>
-                </div>
               </motion.div>
             </div>
           );
