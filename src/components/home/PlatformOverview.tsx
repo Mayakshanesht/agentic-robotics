@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Cpu, Database, BrainCircuit } from "lucide-react";
 import { Link } from "react-router-dom";
 import demoVideo from "@/assets/hero/humanoid-pallet.mp4";
-
 type Card = {
   icon: typeof Cpu;
   sub: string;
@@ -12,6 +11,8 @@ type Card = {
   badge: string;
   cta: { label: string; to: string };
   accent: "orange" | "blue" | "green";
+  /** Optional inline visual: video src or "open" for ModelLab open-state placeholder */
+  media?: { kind: "video"; src: string; caption: string } | { kind: "open"; caption: string };
 };
 
 const cards: Card[] = [
@@ -29,6 +30,7 @@ const cards: Card[] = [
     badge: "Available Now",
     cta: { label: "Request Demo", to: "/contact" },
     accent: "orange",
+    media: { kind: "video", src: demoVideo, caption: "Humanoid · palletize · AgentOS runtime" },
   },
   {
     icon: Database,
@@ -44,6 +46,7 @@ const cards: Card[] = [
     badge: "v0.1 · MVP",
     cta: { label: "Learn More", to: "/product" },
     accent: "blue",
+    media: { kind: "video", src: demoVideo, caption: "Synthetic 4D scenario · multimodal capture" },
   },
   {
     icon: BrainCircuit,
@@ -56,10 +59,13 @@ const cards: Card[] = [
       "Multimodal token integration",
       "Continuous learning from every deployment",
     ],
-    badge: "Coming Soon",
+    badge: "Open · In R&D",
     cta: { label: "Join Waitlist", to: "/contact" },
     accent: "green",
+    media: { kind: "open", caption: "Open research · join the waitlist" },
   },
+];
+
 ];
 
 const accentMap = {
