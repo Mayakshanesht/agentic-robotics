@@ -23,67 +23,67 @@ const slides: Slide[] = [
   {
     image: robotHumanoid,
     position: "center 30%",
-    eyebrow: "Autonomous OS",
+    eyebrow: "Capability Factory",
     title: (
       <>
-        Operating System for{" "}
-        <span className="text-gradient-blue">Agentic Physical AI.</span>
+        Building the Capability Factory for{" "}
+        <span className="text-gradient-blue">Physical AI.</span>
       </>
     ),
-    body: "From task description to deployed intelligence on any robot — in days.",
+    body: "We transform robotic tasks into deployable capabilities — synthetic experience, world models, foundation models, continuous learning.",
     tag: "CloudBee Robotics · Aachen, Germany",
   },
   {
     image: robotArm,
     position: "center center",
-    eyebrow: "Hardware Agnostic",
+    eyebrow: "Synthetic Experience",
     title: (
       <>
-        Humanoids, arms, AMRs —{" "}
-        <span className="text-gradient-green">one platform.</span>
+        Skip months of teleoperation.{" "}
+        <span className="text-gradient-green">Generate it instead.</span>
       </>
     ),
-    body: "ROS 2 native. Bring your robot, describe the task, deploy a validated skill.",
-    tag: "Pick · Assembly · Inspection · Logistics",
+    body: "Multimodal 4D worlds — auto-annotated, physics-accurate, ready to train.",
+    tag: "DataForge · Synthetic experience engine",
   },
   {
     image: robotAmr,
     position: "center center",
-    eyebrow: "Real-World Deployment",
+    eyebrow: "Hardware Agnostic",
     title: (
       <>
-        From simulation to{" "}
-        <span className="text-gradient-blue">the warehouse floor.</span>
+        Humanoids, arms, AMRs —{" "}
+        <span className="text-gradient-blue">one platform.</span>
       </>
     ),
-    body: "Synthetic 4D data · explainable VLA · long-horizon agents — engineered for safety.",
-    tag: "Manufacturing · Logistics · Service Robotics",
+    body: "Agentic ROS 2 runtime. Bring the robot, describe the task, deploy the capability.",
+    tag: "AgentOS · Fleet orchestration",
   },
   {
     image: pitchIncubator,
     position: "center 22%",
-    eyebrow: "Building in Public",
+    eyebrow: "European Deep Tech",
     title: (
       <>
-        Backed by RWTH Aachen.{" "}
+        Built at RWTH Aachen.{" "}
         <span className="text-gradient-green">EXIST funded.</span>
       </>
     ),
-    body: "Engineers and researchers shipping the infrastructure layer for embodied AI.",
+    body: "Safety-aware infrastructure for embodied AI — engineered in Europe.",
     tag: "Collective Incubator · RWTH Innovation",
   },
   {
     image: teamWorkshop,
     position: "center 18%",
-    eyebrow: "The Skill Store",
+    eyebrow: "Capability Store",
     title: (
       <>
-        Ask in plain language.{" "}
-        <span className="text-gradient-blue">Download a robot skill.</span>
+        Describe a task.{" "}
+        <span className="text-gradient-blue">Deploy a capability.</span>
       </>
     ),
-    body: "We generate the data, train the policy, deliver a ROS 2 node — ready to run.",
-    tag: "Closed loop · prompt to deployed autonomy",
+    body: "Synthetic data → trained policy → ROS 2 node. Closed loop, continuously improving.",
+    tag: "Prompt → deployed autonomy",
   },
 ];
 
