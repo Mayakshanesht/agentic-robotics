@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Cpu, Database, BrainCircuit } from "lucide-react";
 import { Link } from "react-router-dom";
-import demoVideo from "@/assets/hero/humanoid-pallet.mp4";
+import agentOsVideo from "@/assets/hero/humanoid-pallet.mp4";
+import simulationVideo from "@/assets/scene_generation_demo.mp4";
 type Card = {
   icon: typeof Cpu;
   sub: string;
@@ -18,46 +19,46 @@ type Card = {
 const cards: Card[] = [
   {
     icon: Cpu,
-    sub: "The Wedge · Entry Product",
+    sub: "Orchestration · Runtime",
     title: "AgentOS",
-    body: "Autonomous runtime that plans and executes long-horizon robot tasks with world-state reasoning, safety contracts, and automatic re-planning.",
+    body: "Agentic ROS 2 runtime that plans, executes, and recovers long-horizon tasks across robot fleets — with safety contracts and continuous monitoring.",
     features: [
-      "Task Reasoning Nodes — hardware-agnostic policy units",
-      "World-state memory across multi-step tasks",
-      "Neuro-symbolic safety · EU AI Act auditable",
-      "One-click ROS 2 deployment to any compatible robot",
+      "Robot orchestration & fleet management",
+      "Agentic execution with world-state reasoning",
+      "Continuous monitoring & re-planning",
+      "Native ROS 2 deployment, any hardware",
     ],
     badge: "Available Now",
-    cta: { label: "Request Demo", to: "/contact" },
+    cta: { label: "Schedule a Demo", to: "/contact" },
     accent: "orange",
-    media: { kind: "video", src: demoVideo, caption: "Humanoid · palletize · AgentOS runtime" },
+    media: { kind: "video", src: agentOsVideo, caption: "AgentOS · humanoid executing long-horizon task" },
   },
   {
     icon: Database,
-    sub: "Synthetic Data Generation",
+    sub: "Synthetic Experience Engine",
     title: "DataForge",
-    body: "Turn a natural-language task into a full 4D synthetic training environment — multimodal, auto-annotated, reusable beyond robotics.",
+    body: "Turn a natural-language task into a multimodal 4D world — digital twins, randomized scenarios, sim-to-real ready.",
     features: [
-      "Text-to-4D world · physics-accurate scenarios",
-      "RGB · Depth · Tactile · F/T · LiDAR · proprioception",
-      "Domain randomization for robust sim-to-real",
-      "Auto-annotated — zero manual labeling",
+      "Synthetic experience generation at scale",
+      "Multimodal: RGB · Depth · Tactile · F/T · LiDAR",
+      "Digital twin & scenario generation",
+      "Sim-to-real transfer · domain randomization",
     ],
     badge: "v0.1 · MVP",
     cta: { label: "Learn More", to: "/product" },
     accent: "blue",
-    media: { kind: "video", src: demoVideo, caption: "Synthetic 4D scenario · multimodal capture" },
+    media: { kind: "video", src: simulationVideo, caption: "DataForge · synthetic scene generation" },
   },
   {
     icon: BrainCircuit,
-    sub: "VLA & World Model Training",
+    sub: "Foundation Models · VLA",
     title: "ModelLab",
-    body: "Train explainable Vision-Language-Action and world models on your multimodal data. Engineered for functional safety and validation.",
+    body: "Adapt foundation models, train VLAs and world models on multimodal experience — explainable, evaluable, safety-aware.",
     features: [
-      "Explainable, traceable decisions",
-      "LoRA fine-tuning · parameter-efficient",
-      "Multimodal token integration",
-      "Continuous learning from every deployment",
+      "Foundation model adaptation",
+      "VLA & world model training",
+      "Fine-tuning & evaluation pipelines",
+      "Continuous learning from deployment",
     ],
     badge: "Open · In R&D",
     cta: { label: "Join Waitlist", to: "/contact" },
