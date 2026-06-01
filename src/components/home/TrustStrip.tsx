@@ -10,76 +10,69 @@ type Item =
 const items: Item[] = [
   {
     kind: "image",
-    src: internationalAcademy,
-    alt: "International Academy — RWTH Aachen University",
-    label: "International Academy",
-    sub: "RWTH Aachen University",
-  },
-  {
-    kind: "image",
     src: collectiveIncubatorLogo,
     alt: "Collective Incubator Aachen",
     label: "Collective Incubator",
     sub: "Aachen, Germany",
-    invert: true,
   },
-  { kind: "placeholder", icon: Award, label: "EXIST Gründungstipendium", sub: "Logo coming soon" },
-  { kind: "placeholder", icon: GraduationCap, label: "RWTH Aachen", sub: "Logo coming soon" },
-  { kind: "placeholder", icon: Building2, label: "More partners", sub: "Logo coming soon" },
+  { kind: "placeholder", icon: Award, label: "EXIST Funding", sub: "German Federal Ministry" },
+  { kind: "placeholder", icon: GraduationCap, label: "RWTH Aachen University", sub: "Founding ecosystem" },
+  {
+    kind: "image",
+    src: internationalAcademy,
+    alt: "RWTH International Academy",
+    label: "RWTH International Academy",
+    sub: "RWTH Aachen University",
+  },
 ];
 
 export function TrustStrip() {
   return (
-    <section className="relative border-y border-border bg-surface/30 py-10">
+    <section className="relative bg-white dark:bg-surface/50 border-y border-border py-14 lg:py-16">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-7"
+          className="text-center mb-10"
         >
-          <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
-            Supported by
+          <div className="text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-3">
+            Backed by
           </div>
+          <h2 className="font-display font-bold text-2xl lg:text-3xl text-foreground">
+            Europe's deep-tech robotics ecosystem.
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
           {items.map((it, i) => (
             <motion.div
               key={it.label}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.05, duration: 0.4 }}
-              className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-background/60 hover:border-accent-blue/40 transition-colors min-h-[68px]"
+              transition={{ delay: i * 0.07, duration: 0.45 }}
+              className="group flex flex-col items-center justify-center text-center gap-4 px-6 py-8 rounded-2xl border border-border bg-background hover:border-accent-blue/50 hover:shadow-lg transition-all min-h-[160px]"
             >
               {it.kind === "image" ? (
-                <>
-                  <div className="w-14 h-10 shrink-0 flex items-center justify-center">
-                    <img
-                      src={it.src}
-                      alt={it.alt}
-                      className={`max-h-10 max-w-full object-contain ${it.invert ? "dark:invert" : ""}`}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-semibold text-foreground truncate">{it.label}</div>
-                    <div className="text-[10px] font-mono text-muted-foreground/80 truncate">{it.sub}</div>
-                  </div>
-                </>
+                <div className="h-16 flex items-center justify-center">
+                  <img
+                    src={it.src}
+                    alt={it.alt}
+                    className={`max-h-16 max-w-[180px] object-contain ${it.invert ? "dark:invert" : ""}`}
+                    loading="lazy"
+                  />
+                </div>
               ) : (
-                <>
-                  <div className="w-10 h-10 rounded-md border border-dashed border-border bg-surface/50 text-muted-foreground/60 flex items-center justify-center shrink-0">
-                    <it.icon size={16} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-semibold text-foreground/80 truncate">{it.label}</div>
-                    <div className="text-[10px] font-mono text-muted-foreground/60 truncate">{it.sub}</div>
-                  </div>
-                </>
+                <div className="w-14 h-14 rounded-xl border border-accent-blue/30 bg-accent-blue/5 text-accent-blue flex items-center justify-center">
+                  <it.icon size={26} />
+                </div>
               )}
+              <div>
+                <div className="text-sm lg:text-base font-display font-semibold text-foreground leading-tight">{it.label}</div>
+                <div className="text-[11px] font-mono text-muted-foreground mt-1">{it.sub}</div>
+              </div>
             </motion.div>
           ))}
         </div>
