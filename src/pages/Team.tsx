@@ -7,7 +7,8 @@ import { PageShell } from "@/components/PageShell";
 import mayurImg from "@/assets/mayur.png";
 import madhavaImg from "@/assets/madhava.png";
 
-const team = [
+type Member = { name: string; role: string; image: string | null; email?: string; linkedin: string | null; description: string; expertise: string[] };
+const team: Member[] = [
   {
     name: "Mayur Waghchoure",
     role: "Founder & CEO",
