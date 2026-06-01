@@ -171,14 +171,14 @@ export function HeroSection() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 mb-8">
             <Link to="/contact" className="btn-pilot text-base px-7 py-3">
-              Request a Pilot
+              Schedule a Demo
               <ArrowRight size={16} />
             </Link>
             <Link
               to="/product"
               className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-sm border border-accent-blue/40 text-foreground hover:bg-accent-blue/10 hover:border-accent-blue/70 transition-all bg-background/40 backdrop-blur"
             >
-              Explore the Product
+              Explore Platform
             </Link>
           </div>
 
