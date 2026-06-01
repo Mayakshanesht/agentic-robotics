@@ -15,17 +15,26 @@ const team = [
     email: "mayurwaghchoure1995@gmail.com",
     linkedin: "https://www.linkedin.com/in/mayurwaghchoure/",
     description:
-      "Robotics and AI engineer with hands-on experience in autonomous systems, robotic learning, and AI infrastructure at scale. M.Sc. Robotic Systems Engineering, RWTH Aachen.",
-    expertise: ["Agentic AI", "Robotic Foundation Models", "Sim-to-Real", "Systems Architecture"],
+      "Robotics and AI engineer with hands-on experience in autonomous systems, robotic learning, and AI infrastructure at scale. M.Sc. Robotic Systems Engineering, RWTH Aachen University.",
+    expertise: ["Robotics", "Physical AI", "Autonomous Systems", "Industrial AI"],
   },
   {
     name: "Madhava Pandiyan",
-    role: "Co-founder · Simulation Engineer",
+    role: "Robotics & Simulation Engineer",
     image: madhavaImg,
     linkedin: "https://www.linkedin.com/in/madhava-pandiyan/",
     description:
-      "Physics-based simulation, sim-to-real transfer, and deployment of learned policies on physical robots. M.Sc. Robotic Systems Engineering, RWTH Aachen.",
-    expertise: ["Physics Simulation", "Sim-to-Real Transfer", "Policy Deployment", "ROS 2"],
+      "Physics-based simulation, sim-to-real transfer, and deployment of learned policies on physical robots. M.Sc. Robotic Systems Engineering, RWTH Aachen University.",
+    expertise: ["Isaac Sim", "ROS 2", "Synthetic Data", "Robot Learning"],
+  },
+  {
+    name: "Doniyor Tropmann",
+    role: "Web & Cloud Infrastructure",
+    image: null as string | null,
+    linkedin: null,
+    description:
+      "Cloud and web infrastructure engineer building the scalable platforms behind CloudBee — from deployment pipelines to customer-facing experiences.",
+    expertise: ["Cloud Architecture", "Web Infrastructure", "Scalable Systems", "Deployment Platforms"],
   },
 ];
 
