@@ -87,7 +87,7 @@ export default function Team() {
             <h2 className="font-display font-bold text-3xl lg:text-4xl">Built by engineers who ship systems.</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((m, i) => (
               <motion.div
                 key={m.name}
@@ -95,11 +95,17 @@ export default function Team() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="glass-card p-7"
+                className="glass-card p-7 hover:-translate-y-1 transition-transform duration-300"
               >
                 <div className="flex gap-5 mb-5">
-                  <div className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-accent-blue/30 shrink-0">
-                    <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+                  <div className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-accent-blue/30 shrink-0 bg-gradient-to-br from-accent-blue/10 to-accent-green/10 flex items-center justify-center">
+                    {m.image ? (
+                      <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="font-display font-bold text-3xl text-accent-blue">
+                        {m.name.split(" ").map(n => n[0]).join("")}
+                      </span>
+                    )}
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-display font-bold text-xl text-foreground">{m.name}</h3>
