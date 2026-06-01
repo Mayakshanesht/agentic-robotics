@@ -31,8 +31,10 @@ const Index = () => {
     >
       <HeroSection />
       <TrustStrip />
+      <CapabilityFlow />
       <ProblemStrip />
       <PlatformOverview />
+      <WhyCloudBee />
       <MissionVision />
       <SkillMarketplace />
       <Timeline />
