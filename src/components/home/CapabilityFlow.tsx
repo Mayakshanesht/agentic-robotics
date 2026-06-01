@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { MessageSquare, Sparkles, BrainCircuit, Rocket, RefreshCcw, ArrowRight } from "lucide-react";
 
 const steps = [
-  { icon: MessageSquare, label: "Capability Request", sub: "Describe the task", color: "accent-blue" },
-  { icon: Sparkles, label: "Synthetic Experience", sub: "Multimodal 4D worlds", color: "accent-blue" },
-  { icon: BrainCircuit, label: "Training", sub: "Foundation models · VLA", color: "orange-accent" },
-  { icon: Rocket, label: "Deployment", sub: "ROS 2 capability", color: "accent-green" },
-  { icon: RefreshCcw, label: "Continuous Improvement", sub: "Closed-loop learning", color: "accent-green" },
+  { icon: MessageSquare, label: "Capability Request", sub: "Describe the task", icon_cls: "text-accent-blue", bg_cls: "bg-accent-blue/10" },
+  { icon: Sparkles, label: "Synthetic Experience", sub: "Multimodal 4D worlds", icon_cls: "text-accent-blue", bg_cls: "bg-accent-blue/10" },
+  { icon: BrainCircuit, label: "Training", sub: "Foundation models · VLA", icon_cls: "text-orange-accent", bg_cls: "bg-orange-accent/10" },
+  { icon: Rocket, label: "Deployment", sub: "ROS 2 capability", icon_cls: "text-accent-green", bg_cls: "bg-accent-green/10" },
+  { icon: RefreshCcw, label: "Continuous Improvement", sub: "Closed-loop learning", icon_cls: "text-accent-green", bg_cls: "bg-accent-green/10" },
 ];
 
 export function CapabilityFlow() {
