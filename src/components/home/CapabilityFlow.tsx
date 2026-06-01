@@ -50,8 +50,8 @@ export function CapabilityFlow() {
                   className="relative flex flex-col items-center text-center"
                 >
                   <div className={`relative w-24 h-24 rounded-2xl bg-background border border-border shadow-md flex items-center justify-center mb-4 group hover:-translate-y-1 transition-transform`}>
-                    <div className={`absolute inset-0 rounded-2xl bg-${s.color}/10 opacity-0 group-hover:opacity-100 transition-opacity`} />
-                    <Icon className={`text-${s.color} relative z-10`} size={36} />
+                    <div className={`absolute inset-0 rounded-2xl ${s.bg_cls} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                    <Icon className={`${s.icon_cls} relative z-10`} size={36} />
                     <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-foreground text-background text-[10px] font-mono font-bold flex items-center justify-center">
                       {i + 1}
                     </span>
