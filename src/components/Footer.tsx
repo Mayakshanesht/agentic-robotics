@@ -62,6 +62,19 @@ export function Footer() {
           </div>
         </div>
 
+        <div className="mt-10 pt-8 border-t border-border">
+          <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-4">Backed by</div>
+          <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-foreground/80">
+            <span>Collective Incubator</span>
+            <span className="text-muted-foreground/40">·</span>
+            <span>EXIST Funding</span>
+            <span className="text-muted-foreground/40">·</span>
+            <span>RWTH Aachen University</span>
+            <span className="text-muted-foreground/40">·</span>
+            <span>RWTH International Academy</span>
+          </div>
+        </div>
+
         <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <div>© 2026 CloudBee Robotics GmbH (i.G.). All rights reserved.</div>
           <div className="font-mono">Built at RWTH Aachen · Collective Incubator, Aachen, Germany</div>
