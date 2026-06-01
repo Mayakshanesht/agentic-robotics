@@ -7,7 +7,8 @@ import { PageShell } from "@/components/PageShell";
 import mayurImg from "@/assets/mayur.png";
 import madhavaImg from "@/assets/madhava.png";
 
-const team = [
+type Member = { name: string; role: string; image: string | null; email?: string; linkedin: string | null; description: string; expertise: string[] };
+const team: Member[] = [
   {
     name: "Mayur Waghchoure",
     role: "Founder & CEO",
@@ -15,17 +16,26 @@ const team = [
     email: "mayurwaghchoure1995@gmail.com",
     linkedin: "https://www.linkedin.com/in/mayurwaghchoure/",
     description:
-      "Robotics and AI engineer with hands-on experience in autonomous systems, robotic learning, and AI infrastructure at scale. M.Sc. Robotic Systems Engineering, RWTH Aachen.",
-    expertise: ["Agentic AI", "Robotic Foundation Models", "Sim-to-Real", "Systems Architecture"],
+      "Robotics and AI engineer with hands-on experience in autonomous systems, robotic learning, and AI infrastructure at scale. M.Sc. Robotic Systems Engineering, RWTH Aachen University.",
+    expertise: ["Robotics", "Physical AI", "Autonomous Systems", "Industrial AI"],
   },
   {
     name: "Madhava Pandiyan",
-    role: "Co-founder · Simulation Engineer",
+    role: "Robotics & Simulation Engineer",
     image: madhavaImg,
     linkedin: "https://www.linkedin.com/in/madhava-pandiyan/",
     description:
-      "Physics-based simulation, sim-to-real transfer, and deployment of learned policies on physical robots. M.Sc. Robotic Systems Engineering, RWTH Aachen.",
-    expertise: ["Physics Simulation", "Sim-to-Real Transfer", "Policy Deployment", "ROS 2"],
+      "Physics-based simulation, sim-to-real transfer, and deployment of learned policies on physical robots. M.Sc. Robotic Systems Engineering, RWTH Aachen University.",
+    expertise: ["Isaac Sim", "ROS 2", "Synthetic Data", "Robot Learning"],
+  },
+  {
+    name: "Doniyor Tropmann",
+    role: "Web & Cloud Infrastructure",
+    image: null as string | null,
+    linkedin: null,
+    description:
+      "Cloud and web infrastructure engineer building the scalable platforms behind CloudBee — from deployment pipelines to customer-facing experiences.",
+    expertise: ["Cloud Architecture", "Web Infrastructure", "Scalable Systems", "Deployment Platforms"],
   },
 ];
 
@@ -78,7 +88,7 @@ export default function Team() {
             <h2 className="font-display font-bold text-3xl lg:text-4xl">Built by engineers who ship systems.</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((m, i) => (
               <motion.div
                 key={m.name}
@@ -86,11 +96,17 @@ export default function Team() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="glass-card p-7"
+                className="glass-card p-7 hover:-translate-y-1 transition-transform duration-300"
               >
                 <div className="flex gap-5 mb-5">
-                  <div className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-accent-blue/30 shrink-0">
-                    <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+                  <div className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-accent-blue/30 shrink-0 bg-gradient-to-br from-accent-blue/10 to-accent-green/10 flex items-center justify-center">
+                    {m.image ? (
+                      <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="font-display font-bold text-3xl text-accent-blue">
+                        {m.name.split(" ").map(n => n[0]).join("")}
+                      </span>
+                    )}
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-display font-bold text-xl text-foreground">{m.name}</h3>

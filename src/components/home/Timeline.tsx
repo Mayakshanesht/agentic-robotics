@@ -13,7 +13,7 @@ const events: { date: string; title: string; body: string; status: Status }[] = 
   {
     date: "Dec 2025",
     title: "Industry Letters of Intent",
-    body: "Signed LOIs from FEV Europe, Haver & Boecker, and Dorle Controls — covering manipulation, inspection, and logistics use cases.",
+    body: "Signed LOIs with a Tier-1 Automotive Partner, an Industrial Automation Partner, and a European Manufacturing Partner — covering manipulation, inspection, and logistics.",
     status: "done",
   },
   {
