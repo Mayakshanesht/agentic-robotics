@@ -59,11 +59,11 @@ export function TrustStrip() {
               className="group flex flex-col items-center justify-center text-center gap-3 px-4 py-6 rounded-xl border border-border bg-background/60 backdrop-blur hover:border-accent-blue/40 hover:bg-background/80 transition-all min-h-[150px]"
             >
               {it.kind === "image" ? (
-                <div className="h-12 flex items-center justify-center">
+                <div className="h-14 w-full flex items-center justify-center rounded-md bg-white/95 px-3 py-2">
                   <img
                     src={it.src}
                     alt={it.alt}
-                    className="max-h-12 max-w-[160px] object-contain opacity-90 group-hover:opacity-100 transition-opacity invert brightness-200"
+                    className="max-h-10 max-w-[150px] object-contain"
                     loading="lazy"
                   />
                 </div>
