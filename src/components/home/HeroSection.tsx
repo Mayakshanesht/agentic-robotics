@@ -1,235 +1,139 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
-import robotHumanoid from "@/assets/hero/robot-humanoid.jpg";
-import robotArm from "@/assets/hero/robot-arm.jpg";
-import robotAmr from "@/assets/hero/robot-amr.jpg";
-import teamWorkshop from "@/assets/hero/team-workshop.jpeg";
-import pitchIncubator from "@/assets/hero/pitch-incubator.jpeg";
+import agentVideo from "@/assets/hero/humanoid-pallet.mp4";
+import sceneVideo from "@/assets/scene_generation_demo.mp4";
+import humanoidPallet2 from "@/assets/videos/humanoid-pallet-2.mp4.asset.json";
 
+type Reel = { src: string; eyebrow: string; caption: string };
 
-type Slide = {
-  image: string;
-  /** CSS object-position to keep faces out of frame */
-  position?: string;
-  eyebrow: string;
-  title: React.ReactNode;
-  body: string;
-  tag: string;
-};
-
-const slides: Slide[] = [
-  {
-    image: robotHumanoid,
-    position: "center 30%",
-    eyebrow: "Capability Factory",
-    title: (
-      <>
-        Building the Capability Factory for{" "}
-        <span className="text-gradient-blue">Physical AI.</span>
-      </>
-    ),
-    body: "We transform robotic tasks into deployable capabilities — synthetic experience, world models, foundation models, continuous learning.",
-    tag: "CloudBee Robotics · Aachen, Germany",
-  },
-  {
-    image: robotArm,
-    position: "center center",
-    eyebrow: "Synthetic Experience",
-    title: (
-      <>
-        Skip months of teleoperation.{" "}
-        <span className="text-gradient-green">Generate it instead.</span>
-      </>
-    ),
-    body: "Multimodal 4D worlds — auto-annotated, physics-accurate, ready to train.",
-    tag: "DataForge · Synthetic experience engine",
-  },
-  {
-    image: robotAmr,
-    position: "center center",
-    eyebrow: "Hardware Agnostic",
-    title: (
-      <>
-        Humanoids, arms, AMRs —{" "}
-        <span className="text-gradient-blue">one platform.</span>
-      </>
-    ),
-    body: "Agentic ROS 2 runtime. Bring the robot, describe the task, deploy the capability.",
-    tag: "AgentOS · Fleet orchestration",
-  },
-  {
-    image: pitchIncubator,
-    position: "center 22%",
-    eyebrow: "European Deep Tech",
-    title: (
-      <>
-        Built at RWTH Aachen.{" "}
-        <span className="text-gradient-green">EXIST funded.</span>
-      </>
-    ),
-    body: "Safety-aware infrastructure for embodied AI — engineered in Europe.",
-    tag: "Collective Incubator · RWTH Innovation",
-  },
-  {
-    image: teamWorkshop,
-    position: "center 18%",
-    eyebrow: "Capability Store",
-    title: (
-      <>
-        Describe a task.{" "}
-        <span className="text-gradient-blue">Deploy a capability.</span>
-      </>
-    ),
-    body: "Synthetic data → trained policy → ROS 2 node. Closed loop, continuously improving.",
-    tag: "Prompt → deployed autonomy",
-  },
+const reels: Reel[] = [
+  { src: agentVideo, eyebrow: "AgentOS", caption: "Humanoid executing long-horizon palletizing." },
+  { src: sceneVideo, eyebrow: "DataForge", caption: "Synthetic 4D scenario generation." },
+  { src: humanoidPallet2.url, eyebrow: "Teleop → Autonomy", caption: "From teleoperated demo to autonomous policy." },
 ];
 
-
-const AUTOPLAY_MS = 6500;
+const AUTOPLAY_MS = 7500;
 
 export function HeroSection() {
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const total = slides.length;
-
-  const go = useCallback((next: number) => setIndex((next + total) % total), [total]);
+  const [idx, setIdx] = useState(0);
+  const total = reels.length;
 
   useEffect(() => {
-    if (paused) return;
-    const t = setTimeout(() => setIndex((i) => (i + 1) % total), AUTOPLAY_MS);
+    const t = setTimeout(() => setIdx((i) => (i + 1) % total), AUTOPLAY_MS);
     return () => clearTimeout(t);
-  }, [index, paused, total]);
-
-  const slide = slides[index];
+  }, [idx, total]);
 
   return (
-    <section
-      className="relative min-h-[92vh] flex items-center overflow-hidden bg-hero-gradient"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      {/* Background image crossfade with Ken Burns */}
-      <div className="absolute inset-0">
-        <AnimatePresence mode="sync">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-hero-gradient pt-20">
+      {/* Ambient glow */}
+      <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-accent-blue/20 blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-[520px] h-[520px] rounded-full bg-accent-green/15 blur-[140px] pointer-events-none" />
+
+      <div className="section-container relative z-10 py-16 lg:py-24 w-full">
+        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+          {/* Left — Headline */}
           <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 1.06 }}
-            animate={{ opacity: 1, scale: 1.0 }}
-            exit={{ opacity: 0, scale: 1.03 }}
-            transition={{ opacity: { duration: 1.1 }, scale: { duration: AUTOPLAY_MS / 1000, ease: "linear" } }}
-            className="absolute inset-0"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <img
-              src={slide.image}
-              alt=""
-              aria-hidden="true"
-              className="w-full h-full object-cover"
-              style={{ objectPosition: slide.position ?? "center center" }}
-              loading="eager"
-            />
-          </motion.div>
-        </AnimatePresence>
-        {/* Dark gradient overlays for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-        <div className="absolute inset-0 grid-bg opacity-20" />
-      </div>
-
-      {/* Content */}
-      <div className="section-container relative z-10 py-24 lg:py-28 w-full">
-        <div className="max-w-3xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.55, ease: "easeOut" }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-accent-blue/30 bg-background/60 backdrop-blur text-xs font-mono text-accent-blue">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-glow-pulse" />
-                {slide.eyebrow}
-              </div>
-
-              <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-5">
-                {slide.title}
-              </h1>
-
-              <p className="text-base lg:text-lg text-muted-foreground max-w-xl leading-relaxed mb-5">
-                {slide.body}
-              </p>
-
-              <div className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground/80 mb-7">
-                {slide.tag}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-8">
-            <Link to="/contact" className="btn-pilot text-base px-7 py-3">
-              Schedule a Demo
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              to="/product"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-sm border border-accent-blue/40 text-foreground hover:bg-accent-blue/10 hover:border-accent-blue/70 transition-all bg-background/40 backdrop-blur"
-            >
-              Explore Platform
-            </Link>
-          </div>
-
-          {/* Slide controls + progress */}
-          <div className="flex items-center gap-4">
-            <button
-              aria-label="Previous slide"
-              onClick={() => go(index - 1)}
-              className="w-9 h-9 rounded-full border border-accent-blue/40 bg-background/60 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent-blue/10 transition-colors"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              aria-label="Next slide"
-              onClick={() => go(index + 1)}
-              className="w-9 h-9 rounded-full border border-accent-blue/40 bg-background/60 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent-blue/10 transition-colors"
-            >
-              <ChevronRight size={16} />
-            </button>
-
-            <div className="flex items-center gap-2 ml-2">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  aria-label={`Go to slide ${i + 1}`}
-                  onClick={() => go(i)}
-                  className="group relative h-1.5 w-8 rounded-full bg-foreground/15 overflow-hidden"
-                >
-                  {i === index && !paused && (
-                    <motion.span
-                      key={`p-${index}`}
-                      initial={{ width: "0%" }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: AUTOPLAY_MS / 1000, ease: "linear" }}
-                      className="absolute inset-y-0 left-0 bg-accent-blue"
-                    />
-                  )}
-                  {i === index && paused && (
-                    <span className="absolute inset-y-0 left-0 w-full bg-accent-blue/70" />
-                  )}
-                </button>
-              ))}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-accent-blue/30 bg-background/60 backdrop-blur text-[11px] font-mono uppercase tracking-wider text-accent-blue">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-glow-pulse" />
+              Physical AI · Aachen, Germany
             </div>
 
-            <span className="ml-auto text-[11px] font-mono uppercase tracking-wider text-muted-foreground/80 hidden sm:block">
-              {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-            </span>
-          </div>
+            <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-6">
+              Build, Train and{" "}
+              <span className="text-gradient-blue">Deploy Physical AI.</span>
+            </h1>
+
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed mb-8">
+              Describe a task. CloudBee generates data, trains models, deploys agents, and continuously improves robotic systems.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link to="/contact" className="btn-pilot text-base px-7 py-3">
+                Book Demo <ArrowRight size={16} />
+              </Link>
+              <a
+                href="#demo-gallery"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-sm border border-accent-blue/40 text-foreground hover:bg-accent-blue/10 hover:border-accent-blue/70 transition-all bg-background/40 backdrop-blur"
+              >
+                <Play size={14} /> Watch Demo
+              </a>
+            </div>
+
+            <div className="mt-10 flex items-center gap-6 text-[11px] font-mono uppercase tracking-wider text-muted-foreground/80">
+              <span>Backed by EXIST · RWTH Aachen</span>
+              <span className="hidden sm:inline w-px h-3 bg-border" />
+              <span className="hidden sm:inline">Built at Collective Incubator</span>
+            </div>
+          </motion.div>
+
+          {/* Right — Video carousel */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            className="relative"
+          >
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-accent-blue/25 shadow-[0_30px_80px_-20px_hsl(210_100%_56%/0.4)] bg-surface">
+              <AnimatePresence mode="sync">
+                <motion.video
+                  key={idx}
+                  src={reels[idx].src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent pointer-events-none" />
+
+              {/* Eyebrow chip */}
+              <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/70 backdrop-blur text-[10px] font-mono uppercase tracking-wider text-accent-green border border-accent-green/30">
+                <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
+                Live · {reels[idx].eyebrow}
+              </div>
+
+              {/* Caption */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`cap-${idx}`}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute left-4 right-4 bottom-4"
+                >
+                  <div className="text-xs font-mono text-foreground/90">{reels[idx].caption}</div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Reel dots */}
+            <div className="flex items-center justify-center gap-2 mt-5">
+              {reels.map((r, i) => (
+                <button
+                  key={r.src}
+                  aria-label={`Show ${r.eyebrow} reel`}
+                  onClick={() => setIdx(i)}
+                  className={`h-1.5 rounded-full transition-all ${i === idx ? "w-10 bg-accent-blue" : "w-5 bg-foreground/20 hover:bg-foreground/40"}`}
+                />
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
-
     </section>
   );
 }

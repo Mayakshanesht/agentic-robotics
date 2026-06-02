@@ -3,13 +3,11 @@ import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { HeroSection } from "@/components/home/HeroSection";
 import { TrustStrip } from "@/components/home/TrustStrip";
-import { ProblemStrip } from "@/components/home/ProblemStrip";
-import { CapabilityFlow } from "@/components/home/CapabilityFlow";
 import { PlatformOverview } from "@/components/home/PlatformOverview";
+import { ProblemAdvantage } from "@/components/home/ProblemAdvantage";
+import { CapabilityFlow } from "@/components/home/CapabilityFlow";
 import { SkillMarketplace } from "@/components/home/SkillMarketplace";
-import { MissionVision } from "@/components/home/MissionVision";
-import { WhyCloudBee } from "@/components/home/WhyCloudBee";
-import { Timeline } from "@/components/home/Timeline";
+import { DemoGallery } from "@/components/home/DemoGallery";
 import { HomeNews } from "@/components/home/HomeNews";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { AskCloudBee } from "@/components/AskCloudBee";
@@ -25,19 +23,17 @@ const Index = () => {
 
   return (
     <PageShell
-      title="CloudBee Robotics — Autonomous OS for Embodied AI"
-      description="CloudBee Robotics builds the infrastructure layer for embodied AI. Synthetic 4D data, explainable VLA models, agentic ROS 2 runtime — deployable on any humanoid, arm, or AMR."
+      title="CloudBee Robotics — Build, Train and Deploy Physical AI"
+      description="Describe a task. CloudBee generates data, trains models, deploys agents and continuously improves robotic systems. Backed by EXIST, RWTH Aachen, Collective Incubator."
       path="/"
     >
       <HeroSection />
       <TrustStrip />
-      <CapabilityFlow />
-      <ProblemStrip />
       <PlatformOverview />
-      <WhyCloudBee />
-      <MissionVision />
+      <ProblemAdvantage />
+      <CapabilityFlow />
       <SkillMarketplace />
-      <Timeline />
+      <DemoGallery />
       <HomeNews />
       <FinalCTA />
       <AskCloudBee />
