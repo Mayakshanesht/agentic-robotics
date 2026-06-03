@@ -2,16 +2,38 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
-import agentVideo from "@/assets/hero/humanoid-pallet.mp4";
-import sceneVideo from "@/assets/scene_generation_demo.mp4";
-import humanoidPallet2 from "@/assets/videos/humanoid-pallet-2.mp4.asset.json";
+import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
+import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
+import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
+import video1 from "@/assets/videos/video_1.mp4.asset.json";
 
-type Reel = { src: string; eyebrow: string; caption: string };
+type Reel = { src: string; eyebrow: string; headline: string; caption: string };
 
 const reels: Reel[] = [
-  { src: agentVideo, eyebrow: "AgentOS", caption: "Humanoid executing long-horizon palletizing." },
-  { src: sceneVideo, eyebrow: "DataForge", caption: "Synthetic 4D scenario generation." },
-  { src: humanoidPallet2.url, eyebrow: "Teleop → Autonomy", caption: "From teleoperated demo to autonomous policy." },
+  {
+    src: dataforgeVideo.url,
+    eyebrow: "DataForge",
+    headline: "Synthetic scenarios. Infinite edge cases.",
+    caption: "Scalable 4D world generation — the long tail, solved before deployment.",
+  },
+  {
+    src: modellabVideo.url,
+    eyebrow: "ModelLab",
+    headline: "Multimodal datasets. Embodied models.",
+    caption: "RGB · Depth · Tactile · F/T · LiDAR — fused into VLA and world models.",
+  },
+  {
+    src: agentOsVideo.url,
+    eyebrow: "AgentOS",
+    headline: "Autonomous capability execution OS.",
+    caption: "Long-horizon tasks, failure recovery, continuous re-planning at runtime.",
+  },
+  {
+    src: video1.url,
+    eyebrow: "Safety",
+    headline: "EU AI Act compliance, built in.",
+    caption: "Explainable policies, safety contracts, audit trails — by construction.",
+  },
 ];
 
 const AUTOPLAY_MS = 7500;
@@ -27,7 +49,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-hero-gradient pt-20">
-      {/* Ambient glow */}
       <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
       <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-accent-blue/20 blur-[120px] pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-[520px] h-[520px] rounded-full bg-accent-green/15 blur-[140px] pointer-events-none" />
@@ -97,7 +118,7 @@ export function HeroSection() {
                 />
               </AnimatePresence>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-background/10 pointer-events-none" />
 
               {/* Eyebrow chip */}
               <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/70 backdrop-blur text-[10px] font-mono uppercase tracking-wider text-accent-green border border-accent-green/30">
@@ -105,17 +126,22 @@ export function HeroSection() {
                 Live · {reels[idx].eyebrow}
               </div>
 
-              {/* Caption */}
+              {/* Caption block */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`cap-${idx}`}
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute left-4 right-4 bottom-4"
+                  transition={{ duration: 0.45 }}
+                  className="absolute left-5 right-5 bottom-5"
                 >
-                  <div className="text-xs font-mono text-foreground/90">{reels[idx].caption}</div>
+                  <div className="font-display font-bold text-lg lg:text-2xl leading-tight text-foreground drop-shadow mb-1.5">
+                    {reels[idx].headline}
+                  </div>
+                  <div className="text-xs lg:text-sm text-foreground/80 leading-snug max-w-md">
+                    {reels[idx].caption}
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>
