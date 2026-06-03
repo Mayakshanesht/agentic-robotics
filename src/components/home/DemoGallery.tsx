@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import agentVideo from "@/assets/hero/humanoid-pallet.mp4";
-import sceneVideo from "@/assets/scene_generation_demo.mp4";
+import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
+import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
+import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
+import video1 from "@/assets/videos/video_1.mp4.asset.json";
 import humanoidPallet2 from "@/assets/videos/humanoid-pallet-2.mp4.asset.json";
 import robotArm from "@/assets/hero/robot-arm.jpg";
-import robotAmr from "@/assets/hero/robot-amr.jpg";
 import robotHumanoid from "@/assets/hero/robot-humanoid.jpg";
 
 type Tile =
@@ -11,12 +12,13 @@ type Tile =
   | { kind: "image"; src: string; eyebrow: string; title: string; position?: string; span?: string };
 
 const tiles: Tile[] = [
-  { kind: "video", src: agentVideo, eyebrow: "AgentOS", title: "Long-horizon palletizing", span: "lg:col-span-2 lg:row-span-2" },
-  { kind: "video", src: sceneVideo, eyebrow: "DataForge", title: "Synthetic scenario generation" },
-  { kind: "video", src: humanoidPallet2.url, eyebrow: "Teleop → Autonomy", title: "From demo to policy" },
+  { kind: "video", src: agentOsVideo.url, eyebrow: "AgentOS", title: "Autonomous execution & failure recovery", span: "lg:col-span-2 lg:row-span-2" },
+  { kind: "video", src: dataforgeVideo.url, eyebrow: "DataForge", title: "Synthetic scenarios at scale" },
+  { kind: "video", src: modellabVideo.url, eyebrow: "ModelLab", title: "Multimodal model training" },
+  { kind: "video", src: video1.url, eyebrow: "Safety", title: "EU AI Act compliant policies" },
+  { kind: "video", src: humanoidPallet2.url, eyebrow: "Humanoid", title: "Long-horizon palletizing" },
   { kind: "image", src: robotArm, eyebrow: "Manipulation", title: "Precision arm control" },
-  { kind: "image", src: robotAmr, eyebrow: "Mobility", title: "Autonomous AMR fleet", position: "center 30%" },
-  { kind: "image", src: robotHumanoid, eyebrow: "Humanoid", title: "Bipedal embodiment", position: "center 25%" },
+  { kind: "image", src: robotHumanoid, eyebrow: "Embodiment", title: "Any robot, one OS", position: "center 25%" },
 ];
 
 export function DemoGallery() {
