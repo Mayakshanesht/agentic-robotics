@@ -162,6 +162,49 @@ export default function Product() {
         })}
       </section>
 
+      {/* Skill Store */}
+      <section className="section-spacing border-t border-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-mesh opacity-50" />
+        <div className="section-container relative z-10">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full border border-accent-green/30 bg-accent-green/10 text-xs font-mono text-accent-green">
+              <Store size={12} /> The Future · Skill Store for Robots
+            </div>
+            <h2 className="font-display font-bold text-3xl lg:text-5xl mb-4 leading-tight">
+              Connect your robot. Ask for a task.{" "}
+              <span className="text-gradient-blue">Get a skill.</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              A closed loop from task prompt to a downloadable, safety-validated ROS 2 skill running on your robot.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {skillFlow.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <motion.div
+                  key={f.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.5 }}
+                  className="glass-card p-6 relative"
+                >
+                  <div className="absolute top-4 right-4 text-[10px] font-mono text-accent-blue/50">{f.step}</div>
+                  <div className="w-11 h-11 rounded-lg bg-accent-blue/10 text-accent-blue flex items-center justify-center mb-4">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="font-display font-semibold text-base mb-2 text-foreground">{f.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{f.body}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+
       {/* How it works */}
       <section className="section-spacing">
         <div className="section-container">
