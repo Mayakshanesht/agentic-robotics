@@ -1,20 +1,23 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Bot, Cpu, Wrench, Truck, Factory, Car, HeartPulse, Database } from "lucide-react";
+import { ArrowRight, Bot, Cpu, Wrench, Truck, Factory, Car, HeartPulse, Database, CheckCircle2 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
+import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
+import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 
 const hardware = [
   {
     icon: Bot,
     name: "Humanoids",
-    body: "Unitree, Figure, and custom humanoid platforms — onboarded via ROS 2 for rapid task development and autonomous deployment.",
-    tags: ["Unitree", "Figure", "Bipedal"],
+    body: "Unitree G1 and other humanoid platforms — onboarded via ROS 2 for rapid task development and autonomous deployment.",
+    tags: ["Unitree G1", "Bipedal", "Whole-body control"],
   },
   {
     icon: Wrench,
     name: "Robotic Arms",
-    body: "From low-cost SO-101 prototyping to production 6/7-DoF arms (UR, Franka, KUKA) — pick-and-place, assembly, tool-use, quality inspection.",
-    tags: ["UR", "Franka", "KUKA", "SO-101"],
+    body: "Universal Robots cobots, Franka research arms, and production 6/7-DoF manipulators — pick-and-place, assembly, tool-use, inspection.",
+    tags: ["UR Cobots", "Franka", "6/7-DoF"],
   },
   {
     icon: Truck,
@@ -22,6 +25,12 @@ const hardware = [
     body: "Autonomous mobile robots for intralogistics, warehousing, and factory floor automation — long-horizon planning with safety constraints.",
     tags: ["Logistics", "Indoor", "Outdoor"],
   },
+];
+
+const supported = [
+  { name: "Universal Robots", sub: "Collaborative arms (UR3e / UR5e / UR10e / UR20)" },
+  { name: "Franka Robotics", sub: "Franka Research 3 / FR3 manipulators" },
+  { name: "Unitree G1", sub: "Humanoid whole-body control" },
 ];
 
 const industries = [
@@ -32,6 +41,13 @@ const industries = [
   { icon: HeartPulse, name: "Healthcare & Assisted Living", body: "Safe, explainable behavior for service-grade physical assistance in regulated environments." },
   { icon: Database, name: "Computer Vision & AI R&D", body: "DataForge synthetic 4D data is reusable for perception, detection, and foundation-model training far beyond robotics." },
 ];
+
+const solutionReels = [
+  { src: dataforgeVideo.url, label: "DataForge", caption: "Synthetic 4D worlds — train the long tail." },
+  { src: modellabVideo.url, label: "ModelLab", caption: "VLA + world models on multimodal data." },
+  { src: agentOsVideo.url, label: "AgentOS", caption: "Autonomous execution with failure recovery." },
+];
+
 
 export default function Solution() {
   return (
@@ -52,6 +68,64 @@ export default function Solution() {
               One OS across humanoids, robotic arms, and AMRs — deployed across automotive, manufacturing, logistics, healthcare, and AI research.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Solution videos */}
+      <section className="section-spacing border-t border-border bg-surface/30">
+        <div className="section-container">
+          <div className="max-w-3xl mb-10">
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-3">The Stack in Motion</div>
+            <h2 className="font-display font-bold text-3xl lg:text-4xl">One OS, three layers — working live.</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {solutionReels.map((r, i) => (
+              <motion.div
+                key={r.label}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="relative rounded-xl overflow-hidden border border-border bg-surface aspect-[16/10]"
+              >
+                <video src={r.src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent pointer-events-none" />
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-background/70 backdrop-blur text-[10px] font-mono uppercase tracking-wider text-accent-green border border-accent-green/30">
+                  <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" /> {r.label}
+                </div>
+                <div className="absolute left-4 right-4 bottom-4 text-sm font-display font-semibold text-foreground">{r.caption}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Supported robots */}
+      <section className="section-spacing border-t border-border">
+        <div className="section-container">
+          <div className="max-w-3xl mb-10">
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-3">Supported Robots</div>
+            <h2 className="font-display font-bold text-3xl lg:text-4xl">Out-of-the-box support for leading platforms.</h2>
+            <p className="text-muted-foreground mt-3">Day-one support for Universal Robots cobots, Franka research arms, and the Unitree G1 humanoid — with more platforms onboarded continuously.</p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {supported.map((s, i) => (
+              <motion.div
+                key={s.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07, duration: 0.45 }}
+                className="glass-card p-6 flex items-start gap-3"
+              >
+                <CheckCircle2 className="text-accent-green shrink-0 mt-0.5" size={20} />
+                <div>
+                  <div className="font-display font-semibold text-foreground">{s.name}</div>
+                  <div className="text-xs font-mono text-muted-foreground mt-1">{s.sub}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

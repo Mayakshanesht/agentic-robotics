@@ -8,7 +8,7 @@ const credibility = [
   { icon: Beaker, title: "IGMR Institute", body: "Research collaboration with the Institute of Mechanism Theory, Machine Dynamics and Robotics — validating CloudBee's platform through pilot and research projects." },
   { icon: Award, title: "EXIST Gründerstipendium", body: "Awarded the German federal startup grant — validating commercial and technical potential." },
   { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator." },
-  { icon: Briefcase, title: "Industrial Traction", body: "Letter of Intent — FEV Group." },
+  { icon: Briefcase, title: "Industrial Traction", body: "Letter of Intent with a leading automotive Tier 1 partner." },
 ];
 
 export default function Research() {

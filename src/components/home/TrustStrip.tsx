@@ -80,39 +80,26 @@ export function TrustStrip() {
           ))}
         </div>
 
-        {/* EXIST — full-width striking row */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative max-w-6xl mx-auto rounded-2xl border border-accent-blue/30 bg-gradient-to-r from-accent-blue/10 via-background/80 to-accent-green/10 backdrop-blur overflow-hidden"
-        >
-          <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-accent-blue/15 blur-[100px] pointer-events-none" />
-          <div className="relative grid md:grid-cols-[1fr_auto] items-center gap-8 px-6 md:px-12 py-10 md:py-12">
-            <div>
-              <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-accent-blue mb-2">
-                Lead Federal Funding
-              </div>
-              <div className="font-display font-bold text-2xl md:text-4xl leading-tight text-foreground mb-2">
-                EXIST Gründerstipendium
-              </div>
-              <div className="text-sm md:text-base text-muted-foreground max-w-xl">
-                German Federal Ministry for Economic Affairs · ESF Plus — supporting CloudBee's research-to-market transfer.
-              </div>
-            </div>
-            <div className="h-24 md:h-32 w-full md:w-[360px] flex items-center justify-center rounded-xl bg-white px-6 py-4 shadow-lg">
-              <img
-                src={existFunding.url}
-                alt="EXIST Gründerstipendium — German Federal funding"
-                className="max-h-full max-w-full object-contain"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
+
+      {/* EXIST — full-bleed edge-to-edge */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative w-full mt-10 bg-white border-y border-border"
+      >
+        <div className="text-center pt-6 pb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-accent-blue">
+          Lead Federal Funding · EXIST Gründerstipendium
+        </div>
+        <img
+          src={existFunding.url}
+          alt="EXIST Gründerstipendium — German Federal Ministry for Economic Affairs · ESF Plus"
+          className="w-full h-auto object-contain px-4 md:px-10 pb-8"
+          loading="lazy"
+        />
+      </motion.div>
     </section>
   );
 }

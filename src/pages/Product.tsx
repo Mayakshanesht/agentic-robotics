@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Box, BrainCircuit, Network } from "lucide-react";
+import { ArrowRight, Box, BrainCircuit, Network, Store, Wifi, MessageSquare, Boxes, PackageCheck } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
-import demoVideo from "@/assets/hero/humanoid-pallet.mp4";
+import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
+import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
+import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
 
 const pillars = [
   {
@@ -11,24 +13,34 @@ const pillars = [
     color: "blue",
     title: "DataForge",
     subtitle: "Synthetic Multimodal World Generation",
-    body: "Most robotics teams spend 6–12 months collecting training data manually. DataForge programmatically generates high-fidelity 4D simulation worlds with multimodal sensor streams — vision, depth, tactile, force, LiDAR, proprioception. Production-quality training data in hours, not months. Reusable beyond robotics for general computer-vision and AI model training.",
-    video: demoVideo,
+    body: "Programmatically generated 4D simulation worlds with multimodal sensor streams — vision, depth, tactile, force, LiDAR. Production-quality training data in hours, not months.",
+    video: dataforgeVideo.url,
   },
   {
     icon: BrainCircuit,
     color: "green",
     title: "ModelLab",
     subtitle: "Explainable VLA & World-Model Training",
-    body: "ModelLab is a fine-tuning and evaluation environment for Vision-Language-Action models and world models — optimized for sim-to-real transfer and functional-safety validation. Teams ship robust, traceable policies without brittle task-specific engineering.",
+    body: "Fine-tuning and evaluation environment for Vision-Language-Action and world models — optimized for sim-to-real transfer and functional-safety validation.",
+    video: modellabVideo.url,
   },
   {
     icon: Network,
     color: "blue",
     title: "AgentOS",
     subtitle: "Autonomous Runtime & Orchestration",
-    body: "AgentOS is the runtime that powers deployed robots — long-horizon task planning, world-state memory, skill library, and safety-constrained execution. Composable, ROS 2-native, EU AI Act ready from day one.",
+    body: "The runtime that powers deployed robots — long-horizon planning, world-state memory, skill library, safety-constrained execution. ROS 2-native, EU AI Act ready.",
+    video: agentOsVideo.url,
   },
 ] as const;
+
+const skillFlow = [
+  { icon: Wifi, step: "01", title: "Connect Your Robot", body: "Plug any humanoid, arm or AMR into CloudBee over the internet. ROS 2 native." },
+  { icon: MessageSquare, step: "02", title: "Describe the Task", body: "Natural language in. AgentOS scopes the task and triggers the pipeline." },
+  { icon: Boxes, step: "03", title: "We Generate & Train", body: "DataForge synthesizes data; ModelLab trains and validates the policy." },
+  { icon: PackageCheck, step: "04", title: "Download as ROS 2 Skill", body: "Pushed directly to your robot with safety contracts, ready to run." },
+];
+
 
 
 const steps = [
@@ -149,6 +161,49 @@ export default function Product() {
           );
         })}
       </section>
+
+      {/* Skill Store */}
+      <section className="section-spacing border-t border-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-mesh opacity-50" />
+        <div className="section-container relative z-10">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full border border-accent-green/30 bg-accent-green/10 text-xs font-mono text-accent-green">
+              <Store size={12} /> The Future · Skill Store for Robots
+            </div>
+            <h2 className="font-display font-bold text-3xl lg:text-5xl mb-4 leading-tight">
+              Connect your robot. Ask for a task.{" "}
+              <span className="text-gradient-blue">Get a skill.</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              A closed loop from task prompt to a downloadable, safety-validated ROS 2 skill running on your robot.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {skillFlow.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <motion.div
+                  key={f.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.5 }}
+                  className="glass-card p-6 relative"
+                >
+                  <div className="absolute top-4 right-4 text-[10px] font-mono text-accent-blue/50">{f.step}</div>
+                  <div className="w-11 h-11 rounded-lg bg-accent-blue/10 text-accent-blue flex items-center justify-center mb-4">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="font-display font-semibold text-base mb-2 text-foreground">{f.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{f.body}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
 
       {/* How it works */}
       <section className="section-spacing">
