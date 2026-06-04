@@ -1,20 +1,23 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Bot, Cpu, Wrench, Truck, Factory, Car, HeartPulse, Database } from "lucide-react";
+import { ArrowRight, Bot, Cpu, Wrench, Truck, Factory, Car, HeartPulse, Database, CheckCircle2 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
+import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
+import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 
 const hardware = [
   {
     icon: Bot,
     name: "Humanoids",
-    body: "Unitree, Figure, and custom humanoid platforms — onboarded via ROS 2 for rapid task development and autonomous deployment.",
-    tags: ["Unitree", "Figure", "Bipedal"],
+    body: "Unitree G1 and other humanoid platforms — onboarded via ROS 2 for rapid task development and autonomous deployment.",
+    tags: ["Unitree G1", "Bipedal", "Whole-body control"],
   },
   {
     icon: Wrench,
     name: "Robotic Arms",
-    body: "From low-cost SO-101 prototyping to production 6/7-DoF arms (UR, Franka, KUKA) — pick-and-place, assembly, tool-use, quality inspection.",
-    tags: ["UR", "Franka", "KUKA", "SO-101"],
+    body: "Universal Robots cobots, Franka research arms, and production 6/7-DoF manipulators — pick-and-place, assembly, tool-use, inspection.",
+    tags: ["UR Cobots", "Franka", "6/7-DoF"],
   },
   {
     icon: Truck,
@@ -22,6 +25,12 @@ const hardware = [
     body: "Autonomous mobile robots for intralogistics, warehousing, and factory floor automation — long-horizon planning with safety constraints.",
     tags: ["Logistics", "Indoor", "Outdoor"],
   },
+];
+
+const supported = [
+  { name: "Universal Robots", sub: "Collaborative arms (UR3e / UR5e / UR10e / UR20)" },
+  { name: "Franka Robotics", sub: "Franka Research 3 / FR3 manipulators" },
+  { name: "Unitree G1", sub: "Humanoid whole-body control" },
 ];
 
 const industries = [
@@ -32,6 +41,13 @@ const industries = [
   { icon: HeartPulse, name: "Healthcare & Assisted Living", body: "Safe, explainable behavior for service-grade physical assistance in regulated environments." },
   { icon: Database, name: "Computer Vision & AI R&D", body: "DataForge synthetic 4D data is reusable for perception, detection, and foundation-model training far beyond robotics." },
 ];
+
+const solutionReels = [
+  { src: dataforgeVideo.url, label: "DataForge", caption: "Synthetic 4D worlds — train the long tail." },
+  { src: modellabVideo.url, label: "ModelLab", caption: "VLA + world models on multimodal data." },
+  { src: agentOsVideo.url, label: "AgentOS", caption: "Autonomous execution with failure recovery." },
+];
+
 
 export default function Solution() {
   return (

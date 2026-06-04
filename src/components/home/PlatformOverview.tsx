@@ -145,7 +145,7 @@ export function PlatformOverview() {
                 </div>
 
                 {c.media && (
-                  <div className="relative rounded-lg overflow-hidden border border-border mb-5 aspect-video bg-surface">
+                  <div className="relative rounded-lg overflow-hidden border border-border mb-5 aspect-[16/10] bg-surface">
                     <video
                       src={c.media.src}
                       autoPlay
@@ -158,9 +158,6 @@ export function PlatformOverview() {
                     <div className="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-background/80 backdrop-blur text-[9px] font-mono uppercase tracking-wider text-accent-green border border-accent-green/30">
                       <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
                       {c.media.openTag ?? "Live"}
-                    </div>
-                    <div className="absolute inset-x-0 bottom-0 px-2 py-1.5 bg-gradient-to-t from-background/90 to-transparent text-[10px] font-mono text-foreground/90">
-                      {c.media.caption}
                     </div>
                   </div>
                 )}
