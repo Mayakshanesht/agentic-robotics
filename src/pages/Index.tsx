@@ -28,7 +28,6 @@ const Index = () => {
       path="/"
     >
       <HeroSection />
-      <TrustStrip />
       <PlatformOverview />
       <ProblemAdvantage />
       <CapabilityFlow />
@@ -36,6 +35,7 @@ const Index = () => {
       <DemoGallery />
       <HomeNews />
       <FinalCTA />
+      <TrustStrip />
       <AskCloudBee />
     </PageShell>
   );
