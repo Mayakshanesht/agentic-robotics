@@ -99,8 +99,7 @@ export function TrustStrip() {
           className="w-full h-auto object-contain px-4 md:px-10 pb-8"
           loading="lazy"
         />
-        <div className="absolute inset-0 pointer-events-none" />
-      </div>
+      </motion.div>
     </section>
   );
 }
