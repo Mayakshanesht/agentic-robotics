@@ -71,6 +71,64 @@ export default function Solution() {
         </div>
       </section>
 
+      {/* Solution videos */}
+      <section className="section-spacing border-t border-border bg-surface/30">
+        <div className="section-container">
+          <div className="max-w-3xl mb-10">
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-3">The Stack in Motion</div>
+            <h2 className="font-display font-bold text-3xl lg:text-4xl">One OS, three layers — working live.</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {solutionReels.map((r, i) => (
+              <motion.div
+                key={r.label}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="relative rounded-xl overflow-hidden border border-border bg-surface aspect-[16/10]"
+              >
+                <video src={r.src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent pointer-events-none" />
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-background/70 backdrop-blur text-[10px] font-mono uppercase tracking-wider text-accent-green border border-accent-green/30">
+                  <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" /> {r.label}
+                </div>
+                <div className="absolute left-4 right-4 bottom-4 text-sm font-display font-semibold text-foreground">{r.caption}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Supported robots */}
+      <section className="section-spacing border-t border-border">
+        <div className="section-container">
+          <div className="max-w-3xl mb-10">
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-3">Supported Robots</div>
+            <h2 className="font-display font-bold text-3xl lg:text-4xl">Out-of-the-box support for leading platforms.</h2>
+            <p className="text-muted-foreground mt-3">Day-one support for Universal Robots cobots, Franka research arms, and the Unitree G1 humanoid — with more platforms onboarded continuously.</p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {supported.map((s, i) => (
+              <motion.div
+                key={s.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07, duration: 0.45 }}
+                className="glass-card p-6 flex items-start gap-3"
+              >
+                <CheckCircle2 className="text-accent-green shrink-0 mt-0.5" size={20} />
+                <div>
+                  <div className="font-display font-semibold text-foreground">{s.name}</div>
+                  <div className="text-xs font-mono text-muted-foreground mt-1">{s.sub}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Hardware coverage */}
       <section className="section-spacing border-t border-border">
         <div className="section-container">
