@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Box, BrainCircuit, Network } from "lucide-react";
+import { ArrowRight, Box, BrainCircuit, Network, Store, Wifi, MessageSquare, Boxes, PackageCheck } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
-import demoVideo from "@/assets/hero/humanoid-pallet.mp4";
+import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
+import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
+import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
 
 const pillars = [
   {
@@ -11,24 +13,34 @@ const pillars = [
     color: "blue",
     title: "DataForge",
     subtitle: "Synthetic Multimodal World Generation",
-    body: "Most robotics teams spend 6–12 months collecting training data manually. DataForge programmatically generates high-fidelity 4D simulation worlds with multimodal sensor streams — vision, depth, tactile, force, LiDAR, proprioception. Production-quality training data in hours, not months. Reusable beyond robotics for general computer-vision and AI model training.",
-    video: demoVideo,
+    body: "Programmatically generated 4D simulation worlds with multimodal sensor streams — vision, depth, tactile, force, LiDAR. Production-quality training data in hours, not months.",
+    video: dataforgeVideo.url,
   },
   {
     icon: BrainCircuit,
     color: "green",
     title: "ModelLab",
     subtitle: "Explainable VLA & World-Model Training",
-    body: "ModelLab is a fine-tuning and evaluation environment for Vision-Language-Action models and world models — optimized for sim-to-real transfer and functional-safety validation. Teams ship robust, traceable policies without brittle task-specific engineering.",
+    body: "Fine-tuning and evaluation environment for Vision-Language-Action and world models — optimized for sim-to-real transfer and functional-safety validation.",
+    video: modellabVideo.url,
   },
   {
     icon: Network,
     color: "blue",
     title: "AgentOS",
     subtitle: "Autonomous Runtime & Orchestration",
-    body: "AgentOS is the runtime that powers deployed robots — long-horizon task planning, world-state memory, skill library, and safety-constrained execution. Composable, ROS 2-native, EU AI Act ready from day one.",
+    body: "The runtime that powers deployed robots — long-horizon planning, world-state memory, skill library, safety-constrained execution. ROS 2-native, EU AI Act ready.",
+    video: agentOsVideo.url,
   },
 ] as const;
+
+const skillFlow = [
+  { icon: Wifi, step: "01", title: "Connect Your Robot", body: "Plug any humanoid, arm or AMR into CloudBee over the internet. ROS 2 native." },
+  { icon: MessageSquare, step: "02", title: "Describe the Task", body: "Natural language in. AgentOS scopes the task and triggers the pipeline." },
+  { icon: Boxes, step: "03", title: "We Generate & Train", body: "DataForge synthesizes data; ModelLab trains and validates the policy." },
+  { icon: PackageCheck, step: "04", title: "Download as ROS 2 Skill", body: "Pushed directly to your robot with safety contracts, ready to run." },
+];
+
 
 
 const steps = [
