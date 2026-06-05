@@ -86,11 +86,12 @@ export function HeroSection() {
           className="text-center max-w-4xl mx-auto mb-8 lg:mb-10"
         >
           <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-5">
-            Build, Train and{" "}
-            <span className="text-gradient-blue">Deploy Physical AI.</span>
+            The Autonomous{" "}
+            <span className="text-gradient-blue">Agentic OS</span>{" "}
+            for Physical AI.
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
-            Describe a task. CloudBee generates data, trains models, and deploys agents — continuously.
+            Long-horizon tasks, runtime failure recovery and validated execution — powered by synthetic data generation at scale with the long tail of edge cases.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/contact" className="btn-pilot text-base px-7 py-3">
