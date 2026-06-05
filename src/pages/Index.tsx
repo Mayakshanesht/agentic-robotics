@@ -34,6 +34,7 @@ const Index = () => {
       <CapabilityFlow />
       <SkillMarketplace />
       <DemoGallery />
+      <FounderKeynote />
       <HomeNews />
       <FinalCTA />
       <TrustStrip />
