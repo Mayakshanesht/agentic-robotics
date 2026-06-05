@@ -16,45 +16,45 @@ type Slide =
 const slides: Slide[] = [
   {
     kind: "video",
+    src: agentOsVideo.url,
+    eyebrow: "AgentOS",
+    headline: "The Autonomous Agentic OS for Physical AI.",
+    caption: "Long-horizon tasks solved end-to-end — runtime failure recovery, online re-planning, and continuous validation.",
+  },
+  {
+    kind: "video",
     src: dataforgeVideo.url,
     eyebrow: "DataForge",
-    headline: "Synthetic scenarios. Infinite edge cases.",
-    caption: "Scalable 4D world generation — the long tail, solved before deployment.",
+    headline: "Synthetic data at industrial scale.",
+    caption: "Programmatic 4D scenarios with the long tail of edge cases — generated, validated, and infinitely scalable.",
   },
   {
     kind: "image",
     src: robotHumanoid,
-    eyebrow: "Humanoids",
-    headline: "One OS. Any embodiment.",
-    caption: "From Unitree G1 humanoids to industrial arms — one runtime, one skill library.",
+    eyebrow: "Embodiments",
+    headline: "One OS. Any robot.",
+    caption: "Unitree G1 humanoids, UR cobots, Franka arms — orchestrated through a single autonomous runtime.",
   },
   {
     kind: "video",
     src: modellabVideo.url,
     eyebrow: "ModelLab",
-    headline: "Multimodal datasets. Embodied models.",
-    caption: "RGB · Depth · Tactile · F/T · LiDAR — fused into VLA and world models.",
+    headline: "VLA + World Models, validated for the real world.",
+    caption: "Multimodal training and closed-loop validation — sim-to-real transfer with EU AI Act-grade safety contracts.",
   },
   {
     kind: "image",
     src: robotArm,
     eyebrow: "Manipulation",
-    headline: "Dexterous, safety-aware, deployable.",
-    caption: "UR cobots, Franka arms, custom 6/7-DoF — onboarded via ROS 2.",
-  },
-  {
-    kind: "video",
-    src: agentOsVideo.url,
-    eyebrow: "AgentOS",
-    headline: "Autonomous capability execution OS.",
-    caption: "Long-horizon tasks, failure recovery, continuous re-planning at runtime.",
+    headline: "Complex skills. Reliable execution.",
+    caption: "Dexterous long-horizon manipulation backed by failure recovery and skill-level safety guarantees.",
   },
   {
     kind: "image",
     src: robotAmr,
-    eyebrow: "Mobility",
-    headline: "Heterogeneous fleets. One brain.",
-    caption: "AMRs, manipulators and humanoids coordinated through a single autonomous OS.",
+    eyebrow: "Fleets",
+    headline: "Heterogeneous fleets. One agentic brain.",
+    caption: "AMRs, manipulators and humanoids coordinated by AgentOS — autonomous, recoverable, validated.",
   },
 ];
 
@@ -86,11 +86,12 @@ export function HeroSection() {
           className="text-center max-w-4xl mx-auto mb-8 lg:mb-10"
         >
           <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-5">
-            Build, Train and{" "}
-            <span className="text-gradient-blue">Deploy Physical AI.</span>
+            The Autonomous{" "}
+            <span className="text-gradient-blue">Agentic OS</span>{" "}
+            for Physical AI.
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
-            Describe a task. CloudBee generates data, trains models, and deploys agents — continuously.
+            Long-horizon tasks, runtime failure recovery and validated execution — powered by synthetic data generation at scale with the long tail of edge cases.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/contact" className="btn-pilot text-base px-7 py-3">

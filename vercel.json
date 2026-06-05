@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/__l5e/:path*", "destination": "https://agentic-robot-mind.lovable.app/__l5e/:path*" },
+    { "source": "/((?!api/|__l5e/).*)", "destination": "/index.html" }
   ]
 }
