@@ -90,8 +90,8 @@ export function HeroSection() {
             <span className="text-gradient-blue">Agentic OS</span>{" "}
             for Physical AI.
           </h1>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
-            Long-horizon tasks, runtime failure recovery and validated execution — powered by synthetic data generation at scale with the long tail of edge cases.
+          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6">
+            Multimodal synthetic experience generation at scale — paired with multimodal training and fine-tuning of <span className="text-foreground font-medium">VLA, IL, RL, Reward and World/WAM models</span>. Long-horizon execution, runtime failure recovery and continuous validation, end-to-end.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/contact" className="btn-pilot text-base px-7 py-3">

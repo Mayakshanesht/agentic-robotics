@@ -25,7 +25,9 @@ const blogImages: Record<string, { src: string; position?: string }> = {
 
 export function HomeNews() {
   const featuredNews = news.slice(0, 3);
-  const featuredPosts = blogPosts.slice(0, 3);
+  const featuredPosts = blogPosts
+    .filter((p) => p.slug !== "/blog/introducing-cloudbee-robotics")
+    .slice(0, 3);
 
   return (
     <section className="section-spacing border-t border-border bg-surface/30" id="news">
