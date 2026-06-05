@@ -10,6 +10,7 @@ import { SkillMarketplace } from "@/components/home/SkillMarketplace";
 import { DemoGallery } from "@/components/home/DemoGallery";
 import { HomeNews } from "@/components/home/HomeNews";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { FounderKeynote } from "@/components/home/FounderKeynote";
 import { AskCloudBee } from "@/components/AskCloudBee";
 
 const Index = () => {
