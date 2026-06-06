@@ -3,14 +3,25 @@ import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { HeroSection } from "@/components/home/HeroSection";
 import { TrustStrip } from "@/components/home/TrustStrip";
-import { PlatformOverview } from "@/components/home/PlatformOverview";
+import { CapabilityStory } from "@/components/home/CapabilityStory";
+import { HumanVsCloudBee } from "@/components/home/HumanVsCloudBee";
 import { ProblemAdvantage } from "@/components/home/ProblemAdvantage";
-import { CapabilityFlow } from "@/components/home/CapabilityFlow";
-import { SkillMarketplace } from "@/components/home/SkillMarketplace";
+import { CapabilityCompiler } from "@/components/home/CapabilityCompiler";
+import { WorkforceAnalogy } from "@/components/home/WorkforceAnalogy";
+import { SafetyValidation } from "@/components/home/SafetyValidation";
+import { ComplianceIntelligence } from "@/components/home/ComplianceIntelligence";
+import { SyntheticExperience } from "@/components/home/SyntheticExperience";
+import { MultimodalLearning } from "@/components/home/MultimodalLearning";
+import { AutonomousOS } from "@/components/home/AutonomousOS";
+import { IndustrialFocus } from "@/components/home/IndustrialFocus";
+import { WhyCloudBee } from "@/components/home/WhyCloudBee";
+import { CapabilityIntelligence } from "@/components/home/CapabilityIntelligence";
+import { InvestorSection } from "@/components/home/InvestorSection";
+import { CapabilityMarketplace } from "@/components/home/CapabilityMarketplace";
 import { DemoGallery } from "@/components/home/DemoGallery";
+import { FounderKeynote } from "@/components/home/FounderKeynote";
 import { HomeNews } from "@/components/home/HomeNews";
 import { FinalCTA } from "@/components/home/FinalCTA";
-import { FounderKeynote } from "@/components/home/FounderKeynote";
 import { AskCloudBee } from "@/components/AskCloudBee";
 
 const Index = () => {
@@ -24,16 +35,27 @@ const Index = () => {
 
   return (
     <PageShell
-      title="CloudBee Robotics — Build, Train and Deploy Physical AI"
-      description="Describe a task. CloudBee generates data, trains models, deploys agents and continuously improves robotic systems. Backed by EXIST, RWTH Aachen, Collective Incubator."
+      title="CloudBee Robotics — The Capability Factory for Agentic Physical AI"
+      description="Transform industrial processes into validated capabilities. Generate multimodal synthetic experience, train foundation models and deploy self-improving autonomous systems for warehousing, manufacturing and industrial automation."
       path="/"
     >
       <HeroSection />
-      <PlatformOverview />
+      <CapabilityStory />
+      <HumanVsCloudBee />
       <ProblemAdvantage />
-      <CapabilityFlow />
-      <SkillMarketplace />
+      <CapabilityCompiler />
+      <WorkforceAnalogy />
+      <SafetyValidation />
+      <ComplianceIntelligence />
+      <SyntheticExperience />
+      <MultimodalLearning />
+      <AutonomousOS />
+      <IndustrialFocus />
       <DemoGallery />
+      <WhyCloudBee />
+      <CapabilityIntelligence />
+      <InvestorSection />
+      <CapabilityMarketplace />
       <FounderKeynote />
       <HomeNews />
       <FinalCTA />
