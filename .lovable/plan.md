@@ -1,70 +1,94 @@
-## CloudBee Robotics — Full Website Rebuild
+# Homepage Redesign — Capability Factory for Agentic Physical AI
 
-A complete production-ready rebuild aligning with the spec: dark cinematic design (navy/black + electric blue + bright green), 6 pages, glass cards, framer-motion animations, contact form with email delivery, Impressum, SEO. This is a large rebuild — the existing light-theme site will be replaced.
+Scope is **homepage only** (`src/pages/Index.tsx` and `src/components/home/*`). Product, Solution, Research, Team, Careers, Contact, Blog, News, Admin, Impressum stay untouched in this pass (legal fixes tracked separately at the bottom).
 
-### Design system (index.css + tailwind.config.ts)
-- Switch to **dark-first** theme: bg `#050810`, surface `#0A0F1E`, accent-blue `#00AEEF`, accent-green `#00E5A0`, text `#FFFFFF`/`#B0BEC5`
-- Fonts: Inter + Space Grotesk + JetBrains Mono via Google Fonts
-- Add semantic tokens: `--accent-blue`, `--accent-green`, `--glass-bg`, `--glass-border`, gradients (`--gradient-glow`, `--gradient-mesh`), shadows (glow blue/green)
-- Utility classes: `.glass-card`, `.text-gradient-blue`, `.mesh-bg`, `.particle-bg`
+All existing videos, demo assets, Backed By, News, and social-proof content are **kept** — only their presentation changes.
 
-### Global components
-- `Navbar` — redesigned: logo + wordmark left, links right (Platform, Hardware, Research, Careers, Contact), sticky glass blur, electric-blue "Request Pilot" pill. Mobile slide-in drawer.
-- `Footer` — redesigned with 4 columns + tagline + legal (Privacy, Impressum) + social placeholders.
-- `ParticleBackground` — lightweight animated mesh/dot canvas component for hero backgrounds.
+## New homepage section order
 
-### Pages & sections (all new/rewritten)
+1. **Hero** — headline, subheadline, value-flow chips, CTAs, cinematic carousel (rebuilt)
+2. **Trust strip** — existing logos, slimmer
+3. **Capability Story** — the 9-step primary story rendered as a scroll-anchored vertical flow (Process → … → Capability Intelligence)
+4. **How Capabilities Are Created** — Human Workforce vs CloudBee side-by-side comparison
+5. **Problem** — "Physical AI Development Is Broken" (rewrite of ProblemAdvantage)
+6. **Capability Compiler** (flagship) — inputs → interactive graph → outputs
+7. **Workforce Analogy** — vocational skills → capability graph
+8. **Safety & Validation** — flow diagram + copy
+9. **Compliance Intelligence** — bullet grid
+10. **Multimodal Synthetic Experience** — 4 source types × output modalities
+11. **Multimodal Learning** — VLA / World / RL / IL / Reward models
+12. **Autonomous OS** — Plan→Execute→Verify→Recover→Learn loop
+13. **Industrial Automation Focus** — Warehouse + Industrial Automation grids (keep existing videos here)
+14. **Why CloudBee** — 6 cards (Process First, Capability Engineering, Safety Built In, Validation First, Multimodal Experience, Continuous Improvement)
+15. **Capability Intelligence (Moat)** — single-statement section, no mention of KnowGraph
+16. **Investor section** — "Building the Infrastructure Layer for Physical AI"
+17. **Future Capability Marketplace** — package cards
+18. **Founder keynote** (keep)
+19. **News** (keep, unchanged)
+20. **Final CTA** (keep, restyled)
+21. **Backed By** (kept at bottom)
 
-**Home (`/`)**
-- `HeroSection` (rewritten): particle bg, headline "The Operating System for Autonomous Robots.", subhead, dual CTAs, trust row (EXIST · RWTH · Collective · FEV LOI)
-- `ProblemStrip`: 3 animated count-up stats (€100k–300k, 6–12 months, 70%+)
-- `PlatformOverview`: pipeline flow graphic + 3 glass cards (DataForge, ModelLab, AgentOS)
-- `WhyCloudBee`: 5-item value props row
-- `TargetIndustries`: 4-card icon grid
-- `Traction`: dark card grid with checkmarks
-- `FinalCTA`: large "Ready to deploy autonomous intelligence?" strip
+## Hero carousel rebuild
 
-**Platform (`/platform`)** — replaces existing
-- Hero, Platform Vision section with OS-stack diagram
-- 3 alternating deep-dive sections (DataForge / ModelLab / AgentOS)
-- 6-step "How It Works" flow
+Keep all 6 existing slides (videos + images already in `src/assets/videos/*` and `src/assets/hero/*`). New behavior:
+- True autoplay with `preload="metadata"`, `playsInline`, `muted`, `loop`
+- Lazy-load non-current slides; only the active `<video>` is mounted with `autoPlay`
+- Cinematic crossfade + subtle Ken-Burns scale on enter
+- Slide labels match the new story: Capability Compiler · Safety & Validation · Synthetic Experience · Foundation Models · Autonomous Deployment · Continuous Improvement
+- Larger, edge-to-edge framing on desktop; full-bleed on mobile with rounded corners only on lg+
+- Progress segments + 01/06 counter retained, restyled
+- Pause on tab blur (visibilitychange)
 
-**Hardware Partners (`/hardware`)** — new route
-- Hero + 2 partner cards (Unitree, Figure AI) + ROS2 custom onboarding CTA
+## Design system / feel
 
-**Research & Traction (`/research`)** — new route
-- Collaborations (RWTH, IGMR, EXIST, Collective, FEV), pull-quote, "Pilots Underway" CTA
+Stripe storytelling, OpenAI clarity, Vercel polish, Linear simplicity, Apple spacing.
+- Large display headlines (`text-5xl` → `text-7xl` for section H2s)
+- Generous vertical rhythm (`py-28 lg:py-40` between story acts)
+- Calm motion: `framer-motion` with `whileInView`, 0.6–0.8s ease-out, single direction
+- Use existing tokens only — `--background`, `--foreground`, `--accent-blue`, `--accent-green`, `--surface`, `--border`, `text-gradient-blue`
+- No emojis, no buzzword chips overload; copy is concise
 
-**Careers (`/careers`)** — new route
-- Hero, location sub-banner, 2 role cards (Research Scientist featured + open application), culture strip
+## Components to create
 
-**Contact (`/contact`)** — new route
-- Two-column: contact details left, form right (Name, Company, Email, Interest dropdown, Message)
-- Form submits to a Supabase edge function that emails `info@cloudbeerobotics.de` via Resend
+- `src/components/home/CapabilityStory.tsx` — 9-step vertical flow
+- `src/components/home/HumanVsCloudBee.tsx` — comparison
+- `src/components/home/CapabilityCompiler.tsx` — flagship inputs/outputs + animated graph
+- `src/components/home/WorkforceAnalogy.tsx`
+- `src/components/home/SafetyValidation.tsx`
+- `src/components/home/ComplianceIntelligence.tsx`
+- `src/components/home/SyntheticExperience.tsx`
+- `src/components/home/MultimodalLearning.tsx`
+- `src/components/home/AutonomousOS.tsx`
+- `src/components/home/IndustrialFocus.tsx` (wraps existing demo videos)
+- `src/components/home/WhyCloudBee.tsx` (rewrite existing)
+- `src/components/home/CapabilityIntelligence.tsx`
+- `src/components/home/InvestorSection.tsx`
+- `src/components/home/CapabilityMarketplace.tsx` (replaces current SkillMarketplace on home)
 
-**Impressum (`/impressum`)** — new route
-- Placeholder legal content the founder will fill in
+## Components to rewrite
 
-### Backend
-- Edge function `send-contact-email` using Resend connector for contact form delivery to `info@cloudbeerobotics.de`. Will require Resend connector setup — I'll wire the function and prompt for the connection.
-- Keep existing `ask-cloudbee` chat agent (still useful)
+- `HeroSection.tsx` — new headline + carousel behavior
+- `ProblemAdvantage.tsx` → renamed conceptually, "Physical AI Development Is Broken"
+- `Index.tsx` — new section ordering, Backed By moved to bottom
 
-### Routing (`App.tsx`)
-- Update `Index` → new home composition
-- Replace `/platform`, add `/hardware`, `/research`, `/careers`, `/contact`, `/impressum`
-- Keep existing `/blog`, `/admin*`, `/request-access` (still valid)
-- Drop Technology/UseCases/Team routes (subsumed into new pages); redirect or remove
+## Components left intact (still rendered)
 
-### SEO
-- Update `index.html` title/description to match new positioning
-- Add per-page `<Helmet>` via `react-helmet-async` (install) for title/description/canonical/og on each route
-- JSON-LD Organization in `index.html`
+- `DemoGallery`, `FounderKeynote`, `HomeNews`, `FinalCTA`, `TrustStrip`, `AskCloudBee`
 
-### Out of scope (kept as-is)
-- Existing `/blog`, `/blog/*`, `/admin*`, `/request-access` pages remain functional (visual restyle via new tokens will cascade where they use semantic tokens; deeper rework can follow if needed)
-- The `ask-cloudbee` floating chat stays on the home page
+## SEO / agent optimization
 
-### Notes / questions for after approval
-- Resend: I'll set up the connector via the connectors flow when we reach contact form delivery (you'll be prompted to authorize). Alternative: Formspree — let me know if you'd prefer it.
-- "Looping abstract 3D robot motion" video in hero: I'll use the animated particle/mesh bg only (no heavy video) unless you provide a clip — keeps perf high per the brief.
-- Partner logos for Unitree/Figure AI: I'll render clean wordmark placeholders (no scraping real logos — trademark/legal); swap to real assets if you upload them.
+- Update `index.html` `<title>` + meta description to "Capability Factory for Agentic Physical AI"
+- Add JSON-LD `Organization` + `SoftwareApplication` blocks in `index.html`
+- Add `public/llms.txt` with machine-readable summaries for: CloudBee Robotics, Capability Compiler, Safety & Validation Engine, Synthetic Experience Engine, Autonomous OS
+- `robots.txt` and `sitemap.xml` already correct — leave unchanged
+
+## Out of scope (explicitly NOT changed)
+
+- Product, Solution, Research, Team, Careers, Contact, Blog, BlogPost*, Admin, RequestAccess, UseCases, Technology, Home (legacy), NotFound
+- Impressum / Privacy legal copy — flagged for follow-up; will not touch without the actual company info you want inserted
+
+## Verification
+
+After edits: build runs automatically, then I'll open the preview and confirm hero carousel autoplays, sections render in order, and no console errors.
+
+Reply **approve** to build, or tell me what to cut/add.
