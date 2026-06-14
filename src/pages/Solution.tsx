@@ -1,8 +1,11 @@
+import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Bot, Cpu, Wrench, Truck, Factory, Car, HeartPulse, Database, CheckCircle2 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
+
+const HumanoidScene = lazy(() => import("@/components/three/HumanoidScene"));
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
@@ -57,15 +60,23 @@ export default function Solution() {
       description="Hardware-agnostic solutions for humanoids, robotic arms, and AMRs — across automotive, manufacturing, logistics, healthcare, and AI R&D."
       path="/solution"
     >
-      <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
+      <section className="relative pt-32 lg:pt-40 pb-16 lg:pb-24 bg-hero-gradient overflow-hidden">
         <HeroBackdrop accent="green" />
-        <div className="section-container relative z-10 max-w-4xl">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+
+        {/* humanoid 3D — right side on large screens */}
+        <div className="hidden lg:block absolute inset-y-0 right-0 w-[46%] pointer-events-none">
+          <Suspense fallback={null}>
+            <HumanoidScene className="w-full h-full opacity-95 [mask-image:radial-gradient(closest-side,#000_72%,transparent)]" />
+          </Suspense>
+        </div>
+
+        <div className="section-container relative z-10">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">Solutions</div>
             <h1 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-5">
               Bring Your Hardware. <br /> <span className="text-gradient-blue">We Bring the Intelligence.</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl">
+            <p className="text-lg text-muted-foreground max-w-xl">
               One OS across humanoids, robotic arms, and AMRs — deployed across automotive, manufacturing, logistics, healthcare, and AI research.
             </p>
           </motion.div>

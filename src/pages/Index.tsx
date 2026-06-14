@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/landing/Hero";
+import { ProblemSolution } from "@/components/landing/ProblemSolution";
 import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
 import { Grants } from "@/components/landing/Grants";
 import { Metrics } from "@/components/landing/Metrics";
@@ -9,7 +10,6 @@ import { FounderMoment } from "@/components/landing/FounderMoment";
 import { InvestorCTA } from "@/components/landing/InvestorCTA";
 import { FinalStatement } from "@/components/landing/FinalStatement";
 import { PartnerStrip } from "@/components/home/PartnerStrip";
-import { ProblemAdvantage } from "@/components/home/ProblemAdvantage";
 import { SelfImprovingLoop } from "@/components/home/SelfImprovingLoop";
 import { SixGNervousSystem } from "@/components/home/SixGNervousSystem";
 import { PlatformComingSoon } from "@/components/home/PlatformComingSoon";
@@ -33,7 +33,8 @@ const Index = () => {
     >
       <Hero />
       <PartnerStrip />
-      <ProblemAdvantage />
+      <PlatformComingSoon />
+      <ProblemSolution />
       <CapabilityCompilerFeature />
       <SelfImprovingLoop />
       <SixGNervousSystem />
@@ -41,7 +42,6 @@ const Index = () => {
       <Metrics />
       <FounderMoment />
       <InvestorCTA />
-      <PlatformComingSoon />
       <TrustStrip />
       <FinalStatement />
       <AskCloudBee />
