@@ -1,4 +1,4 @@
-import { ExternalLink, Calendar, Trophy, Rocket, Target, Award } from "lucide-react";
+import { ExternalLink, Calendar, Trophy, Rocket, Target, Award, Cpu } from "lucide-react";
 
 /**
  * ============================================================
@@ -38,6 +38,15 @@ export const blogPosts = [
  * ============================================================
  */
 export const news = [
+  {
+    icon: Cpu,
+    title: "CloudBee Robotics Secures WestAI Compute Grant",
+    date: "June 2026",
+    description:
+      "We're thrilled to announce that CloudBee Robotics has secured a compute grant from the WestAI AI Service Center. This compute will power the training of our multimodal synthetic experience and physical-AI-grounded real-world data, our multimodal AI models, and the Agentic OS — accelerating safety-validated capabilities for industrial robots, humanoids and mobile platforms. A huge thank you to the WestAI team for backing our research.",
+    link: "/research",
+    highlight: "WestAI Grant",
+  },
   {
     icon: Award,
     title: "CloudBee Robotics Awarded EXIST Funding",
