@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Box, BrainCircuit, Network, Store, Wifi, MessageSquare, Boxes, PackageCheck } from "lucide-react";
+import { ArrowRight, Box, BrainCircuit, Network, Store, Wifi, MessageSquare, Boxes, PackageCheck, Workflow } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
-import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
-import { SelfImprovingLoop } from "@/components/home/SelfImprovingLoop";
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
 
 const pillars = [
+  {
+    icon: Workflow,
+    color: "blue",
+    title: "Capability Compiler",
+    subtitle: "Process → Validated Capabilities",
+    body: "Turns SOPs, instructions and demonstrations into a validated, multi-agent capability graph — grounded in your real workspace, safety-checked against hardware docs and regulations, and simulation-validated before deployment.",
+    video: agentOsVideo.url,
+  },
   {
     icon: Box,
     color: "blue",
@@ -78,8 +84,6 @@ export default function Product() {
           </motion.div>
         </div>
       </section>
-
-      <CapabilityCompilerFeature />
 
       {/* Vision */}
       <section className="section-spacing border-t border-border">
@@ -209,8 +213,6 @@ export default function Product() {
         </div>
       </section>
 
-
-      <SelfImprovingLoop />
 
       {/* How it works */}
       <section className="section-spacing">

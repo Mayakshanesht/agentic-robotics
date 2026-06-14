@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Award, Beaker, Building2, Briefcase, CheckCircle2 } from "lucide-react";
+import { ArrowRight, GraduationCap, Award, Beaker, Building2, Briefcase, CheckCircle2, Cpu } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 
 const credibility = [
   { icon: GraduationCap, title: "RWTH Aachen University", body: "Part of one of Europe's leading technical university ecosystems." },
   { icon: Beaker, title: "IGMR Institute", body: "Research collaboration with the Institute of Mechanism Theory, Machine Dynamics and Robotics — validating CloudBee's platform through pilot and research projects." },
-  { icon: Award, title: "EXIST Gründerstipendium", body: "Awarded the German federal startup grant — validating commercial and technical potential." },
+  { icon: Award, title: "EXIST Grant", body: "Awarded the German federal startup grant — backing the research and validating commercial and technical potential." },
+  { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center to train and validate our multimodal robot foundation models at scale." },
   { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator." },
   { icon: Briefcase, title: "Industrial Traction", body: "Letter of Intent with a leading automotive Tier 1 partner." },
 ];

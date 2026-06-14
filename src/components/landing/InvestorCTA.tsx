@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { TrendingUp, ArrowRight } from "lucide-react";
 
 const points = [
-  "€multi-trillion physical-AI market forming now",
+  "Fast-growing physical-AI & industrial-robotics market",
   "Deep-tech moat: capability compiler + self-improving loop",
-  "RWTH-backed, EXIST-funded, early industrial LOIs",
+  "RWTH-backed · EXIST & WestAI grants · early industrial LOI",
 ];
 
 export function InvestorCTA() {

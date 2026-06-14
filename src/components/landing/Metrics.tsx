@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const metrics = [
   { big: "Days", small: "to onboard a new robot — not months" },
-  { big: "10×", small: "less real-world data via synthetic experience" },
+  { big: "Synthetic", small: "experience-first — minimal real-world data" },
   { big: "ROS 2", small: "native · hardware-agnostic by design" },
   { big: "24/7", small: "self-improving via the OTA loop" },
 ];

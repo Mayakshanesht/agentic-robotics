@@ -10,36 +10,12 @@ const CapabilityScene = lazy(() => import("@/components/three/CapabilityScene"))
 const inputs = ["Text", "Images", "Video", "SOPs", "Instructions", "Hardware Docs", "Regulations", "Demonstrations"];
 
 const stages = [
-  {
-    icon: FileText,
-    title: "Understands your process",
-    body: "Reads SOPs, process docs, work instructions and demonstrations — and turns raw work into a structured process graph.",
-  },
-  {
-    icon: Network,
-    title: "Compiles multi-agent capabilities",
-    body: "Decomposes complex tasks into a capability graph of primitives, assigned across robots and agents — executed by Agentic OS.",
-  },
-  {
-    icon: ScanEye,
-    title: "Grounds in the real world",
-    body: "From a video, an image, or just text, it builds a metric 3D scene graph of your actual workspace.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Runs safety analysis",
-    body: "Reasons over hardware documentation and regulations (ISO 10218, IEC 62061) to derive constraints, forbidden zones and force limits.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Generates & validates test cases",
-    body: "Auto-generates test cases and validates the built solution in closed-loop simulation before anything touches a real robot.",
-  },
-  {
-    icon: BrainCircuit,
-    title: "Multimodal experience & models",
-    body: "Produces multimodal experience and trains our own multimodal AI models for the task — vision, depth, force and tactile.",
-  },
+  { icon: FileText, title: "Understands your process", body: "Reads SOPs, instructions and demos." },
+  { icon: Network, title: "Compiles capabilities", body: "A multi-agent graph for Agentic OS." },
+  { icon: ScanEye, title: "Grounds in the real world", body: "From video, image, or just text." },
+  { icon: ShieldCheck, title: "Runs safety analysis", body: "Against hardware docs + regulations." },
+  { icon: FlaskConical, title: "Validates in simulation", body: "Auto test cases, closed-loop." },
+  { icon: BrainCircuit, title: "Experience & models", body: "Multimodal data + our own models." },
 ];
 
 export function CapabilityCompilerFeature() {
@@ -65,8 +41,8 @@ export function CapabilityCompilerFeature() {
             <span className="text-gradient-blue">Then it builds the capabilities.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            The Capability Compiler turns any process — described, demonstrated, or documented — into a
-            validated, multi-agent capability graph that Agentic OS can execute and keep improving.
+            Any process — described, demonstrated or documented — compiled into a validated,
+            multi-agent capability graph for Agentic OS.
           </p>
         </motion.div>
 
