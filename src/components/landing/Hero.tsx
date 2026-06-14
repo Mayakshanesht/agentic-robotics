@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense, lazy } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,8 +8,6 @@ import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 import humanoidPallet from "@/assets/videos/humanoid-pallet-2.mp4.asset.json";
 import robotArm from "@/assets/hero/robot-arm.jpg";
 import robotAmr from "@/assets/hero/robot-amr.jpg";
-
-const RobotArmScene = lazy(() => import("@/components/three/RobotArmScene"));
 
 type Slide =
   | { kind: "video"; src: string; tag: string }
