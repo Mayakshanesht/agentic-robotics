@@ -40,7 +40,7 @@ export function Navbar() {
           <Link to="/" className="flex items-center gap-2.5">
             <img src={logo} alt="CloudBee Robotics" className="h-8 w-auto" />
             <span className="font-display font-bold text-base lg:text-lg tracking-tight text-foreground">
-              CloudBee Robotics <span className="text-muted-foreground font-medium">Robotics</span>
+              CloudBee <span className="text-muted-foreground font-medium">Robotics</span>
             </span>
           </Link>
 

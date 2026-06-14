@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/landing/Hero";
+import { CapabilityPlayground } from "@/components/landing/CapabilityPlayground";
 import { ProblemSolution } from "@/components/landing/ProblemSolution";
 import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
 import { Grants } from "@/components/landing/Grants";
@@ -34,6 +35,7 @@ const Index = () => {
       <Hero />
       <PartnerStrip />
       <PlatformComingSoon />
+      <CapabilityPlayground />
       <ProblemSolution />
       <CapabilityCompilerFeature />
       <SelfImprovingLoop />

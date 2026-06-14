@@ -5,7 +5,7 @@ import internationalAcademy from "@/assets/partners/international-academy-rwth.p
 /**
  * Trusted-by logo marquee (upper-funnel social proof).
  * Permission granted for: Collective Incubator, RWTH International Academy,
- * Innovation Chair, IGMR, EXIST, WestAI.
+ * RWTH Aachen University, IGMR Institute, EXIST, WestAI.
  *
  * Each logo tries to load an image; if the file is missing it falls back to a
  * styled wordmark, so the strip always looks intentional.
@@ -19,8 +19,8 @@ type Item = { src: string; alt: string; label: string; chip: "light" | "dark" };
 const items: Item[] = [
   { src: collectiveIncubator, alt: "Collective Incubator", label: "Collective Incubator", chip: "light" },
   { src: internationalAcademy, alt: "RWTH International Academy", label: "RWTH International Academy", chip: "light" },
-  { src: "/partners/igmr.png", alt: "IGMR · RWTH Aachen", label: "IGMR · RWTH Aachen", chip: "light" },
-  { src: "/partners/innovation-chair.png", alt: "Innovation Chair", label: "Innovation Chair", chip: "light" },
+  { src: "/partners/igmr.png", alt: "IGMR Institute · RWTH Aachen", label: "IGMR Institute", chip: "light" },
+  { src: "/partners/rwth.png", alt: "RWTH Aachen University", label: "RWTH Aachen University", chip: "light" },
   { src: "/partners/westai.png", alt: "WEST AI · KI-Servicezentrum", label: "WEST AI", chip: "dark" },
   { src: "/partners/exist.png", alt: "EXIST — From Science to Business", label: "EXIST", chip: "light" },
 ];

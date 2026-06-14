@@ -51,15 +51,6 @@ const team: Member[] = [
       "Physics-based simulation, sim-to-real transfer, and deployment of learned policies on physical robots. M.Sc. Robotic Systems Engineering, RWTH Aachen University.",
     expertise: ["Isaac Sim", "ROS 2", "Synthetic Data", "Robot Learning"],
   },
-  {
-    name: "Doniyor Tropmann",
-    role: "Web & Cloud Infrastructure",
-    image: null as string | null,
-    linkedin: null,
-    description:
-      "Cloud and web infrastructure engineer building the scalable platforms behind CloudBee Robotics — from deployment pipelines to customer-facing experiences.",
-    expertise: ["Cloud Architecture", "Web Infrastructure", "Scalable Systems", "Deployment Platforms"],
-  },
 ];
 
 const advisor = {

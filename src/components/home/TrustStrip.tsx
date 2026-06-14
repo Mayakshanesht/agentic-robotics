@@ -40,7 +40,7 @@ const smallItems: SmallItem[] = [
     sub: "RWTH Aachen University",
   },
   { kind: "placeholder", icon: Cpu, label: "IGMR Institute", sub: "RWTH · Mechanism Theory" },
-  { kind: "placeholder", icon: GraduationCap, label: "Innovation Chair", sub: "RWTH Aachen" },
+  { kind: "placeholder", icon: GraduationCap, label: "RWTH Aachen University", sub: "Aachen, Germany" },
   { kind: "placeholder", icon: Cpu, label: "WestAI", sub: "AI Service Center" },
 ];
 

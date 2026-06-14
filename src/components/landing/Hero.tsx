@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,6 +8,8 @@ import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 import humanoidPallet from "@/assets/videos/humanoid-pallet-2.mp4.asset.json";
 import robotArm from "@/assets/hero/robot-arm.jpg";
 import robotAmr from "@/assets/hero/robot-amr.jpg";
+
+const RobotArmScene = lazy(() => import("@/components/three/RobotArmScene"));
 
 type Slide =
   | { kind: "video"; src: string; tag: string }
@@ -88,73 +90,85 @@ export function Hero() {
       </div>
 
       {/* legibility veils */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/35 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/45 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-background/60 pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-[0.05] pointer-events-none" />
 
-      {/* content */}
+      {/* content: 3D arm (left) + title (right) */}
       <div className="section-container relative z-10 w-full pt-28 pb-28">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent-blue/30 bg-background/40 backdrop-blur mb-7"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse" />
-          <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/85">
-            Physical AI · Autonomous Agentic OS
-          </span>
-        </motion.div>
+        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-10 items-center">
+          {/* 3D robot arm — left, floats over the carousel */}
+          <div className="hidden lg:block relative h-[460px] xl:h-[540px] pointer-events-none">
+            <Suspense fallback={null}>
+              <RobotArmScene className="absolute inset-0 w-full h-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]" />
+            </Suspense>
+          </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="font-display font-bold leading-[0.92] tracking-tight text-[3rem] sm:text-7xl lg:text-[6.2rem] max-w-5xl"
-        >
-          The <span className="text-gradient-blue">Capability Factory</span> for Agentic Physical AI.
-        </motion.h1>
+          {/* copy */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent-blue/30 bg-background/40 backdrop-blur mb-6"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/85">
+                Physical AI · Autonomous Agentic OS
+              </span>
+            </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.12 }}
-          className="mt-8 text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-        >
-          Turn any process into safety-validated capabilities — with multimodal synthetic
-          experience at scale, our own task AI models, and a self-improving, 6G-connected fleet
-          run by an autonomous agentic OS.
-        </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+              className="font-display font-bold leading-[0.94] tracking-tight text-[2.7rem] sm:text-6xl lg:text-7xl xl:text-[5rem]"
+            >
+              The <span className="text-gradient-blue">Capability Factory</span> for Agentic Physical AI.
+            </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9, delay: 0.25 }}
-          className="mt-8 flex flex-wrap gap-2 max-w-3xl"
-        >
-          {chips.map((c) => (
-            <span key={c} className="text-[11px] font-mono uppercase tracking-[0.12em] text-foreground/80 px-2.5 py-1 rounded-full border border-foreground/15 bg-background/40 backdrop-blur">
-              {c}
-            </span>
-          ))}
-        </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.12 }}
+              className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed"
+            >
+              Turn any process into safety-validated capabilities — with multimodal synthetic
+              experience at scale, our own task AI models, and a self-improving, 6G-connected fleet
+              run by an autonomous agentic OS.
+            </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.35 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
-          <Link to="/contact" className="btn-pilot text-base px-7 py-3.5">
-            Book a demo <ArrowRight size={16} />
-          </Link>
-          <Link
-            to="/product"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm border border-foreground/20 bg-background/40 backdrop-blur text-foreground hover:bg-foreground/5 transition-all"
-          >
-            See how it works <ArrowRight size={14} />
-          </Link>
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.9, delay: 0.25 }}
+              className="mt-7 flex flex-wrap gap-2 max-w-xl"
+            >
+              {chips.map((c) => (
+                <span key={c} className="text-[11px] font-mono uppercase tracking-[0.12em] text-foreground/80 px-2.5 py-1 rounded-full border border-foreground/15 bg-background/40 backdrop-blur">
+                  {c}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.35 }}
+              className="mt-9 flex flex-wrap items-center gap-4"
+            >
+              <Link to="/contact" className="btn-pilot text-base px-7 py-3.5">
+                Book a demo <ArrowRight size={16} />
+              </Link>
+              <Link
+                to="/product"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm border border-foreground/20 bg-background/40 backdrop-blur text-foreground hover:bg-foreground/5 transition-all"
+              >
+                See how it works <ArrowRight size={14} />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* slide indicator — bottom bar */}
