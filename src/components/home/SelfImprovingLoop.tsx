@@ -44,7 +44,7 @@ export function SelfImprovingLoop() {
           </p>
         </motion.div>
 
-        <div className="relative mx-auto w-[340px] h-[340px] sm:w-[420px] sm:h-[420px]">
+        <div className="hidden sm:block relative mx-auto w-[420px] h-[420px]">
           {/* rotating conic ring */}
           <div className="absolute inset-0 rounded-full conic-halo opacity-25 blur-md" />
           <div className="absolute inset-6 rounded-full border border-dashed border-accent-blue/20" />
@@ -96,7 +96,30 @@ export function SelfImprovingLoop() {
           })}
         </div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-3">
+        {/* mobile — vertical stepper (radial layout overflows narrow screens) */}
+        <div className="sm:hidden max-w-sm mx-auto">
+          <div className="relative">
+            <span className="absolute left-[18px] top-3 bottom-3 w-px bg-gradient-to-b from-accent-blue via-accent-green to-accent-blue opacity-40" />
+            <div className="space-y-3">
+              {phases.map((p, i) => {
+                const isActive = i === active;
+                return (
+                  <div key={p.label} className="flex items-center gap-3 relative">
+                    <div className={`shrink-0 w-9 h-9 rounded-xl flex items-center justify-center ring-4 ring-background z-10 transition-colors ${isActive ? "bg-accent-green/20 text-accent-green" : "bg-secondary text-muted-foreground"}`}>
+                      <p.icon size={16} />
+                    </div>
+                    <div className={`flex-1 rounded-xl border px-3.5 py-2.5 transition-colors ${isActive ? "border-accent-green/50 bg-accent-green/5" : "border-border bg-surface/40"}`}>
+                      <div className="text-sm font-display font-semibold text-foreground">{p.label}</div>
+                      <div className="text-xs text-muted-foreground">{p.desc}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 sm:mt-16 flex flex-wrap justify-center gap-3">
           {["Edge", "6G Real-Time", "Cloud"].map((m) => (
             <span key={m} className="px-4 py-1.5 rounded-full border border-accent-green/30 bg-accent-green/5 text-sm font-mono uppercase tracking-wider text-accent-green">
               {m}

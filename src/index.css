@@ -72,10 +72,16 @@
 @layer base {
   * { @apply border-border; }
   html { scroll-behavior: smooth; }
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
   }
+  /* keep media/embeds from forcing horizontal scroll on small screens */
+  img, video, canvas, svg { max-width: 100%; }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
     letter-spacing: -0.02em;

@@ -53,7 +53,7 @@ export function Hero() {
   const current = slides[idx];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen min-h-[100svh] flex items-center overflow-hidden">
       {/* full-bleed auto-sliding background */}
       <div className="absolute inset-0">
         <AnimatePresence mode="sync">
@@ -160,9 +160,9 @@ export function Hero() {
       </div>
 
       {/* slide indicator — bottom bar */}
-      <div className="absolute bottom-7 inset-x-0 z-10">
+      <div className="absolute bottom-5 sm:bottom-7 inset-x-0 z-10">
         <div className="section-container">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/60 backdrop-blur-md text-[10px] font-mono uppercase tracking-[0.22em] text-accent-green border border-accent-green/30 shrink-0">
               <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
               {current.tag}
@@ -190,7 +190,7 @@ export function Hero() {
                 </button>
               ))}
             </div>
-            <div className="text-[10px] font-mono tracking-wider text-foreground/70 shrink-0">
+            <div className="hidden sm:block text-[10px] font-mono tracking-wider text-foreground/70 shrink-0">
               {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
             </div>
           </div>
