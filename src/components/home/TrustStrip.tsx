@@ -1,8 +1,24 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Cpu } from "lucide-react";
 import internationalAcademy from "@/assets/partners/international-academy-rwth.png";
 import collectiveIncubator from "@/assets/partners/collective-incubator.svg";
 import existFunding from "@/assets/partners/exist-funding.png.asset.json";
+
+/** BMFTR federal-ministry funding logo. Drop file at public/partners/bmftr.png; hidden until present. */
+function BmftrLogo() {
+  const [broken, setBroken] = useState(false);
+  if (broken) return null;
+  return (
+    <img
+      src="/partners/bmftr.png"
+      alt="Gefördert durch das Bundesministerium für Forschung, Technologie und Raumfahrt"
+      onError={() => setBroken(true)}
+      className="mx-auto h-auto max-h-32 w-auto object-contain px-4 pb-10"
+      loading="lazy"
+    />
+  );
+}
 
 type SmallItem =
   | { kind: "image"; src: string; alt: string; label: string; sub: string }
@@ -100,6 +116,9 @@ export function TrustStrip() {
           className="w-full h-auto object-contain px-4 md:px-10 pb-8"
           loading="lazy"
         />
+        <div className="border-t border-border/60 pt-6">
+          <BmftrLogo />
+        </div>
       </motion.div>
     </section>
   );

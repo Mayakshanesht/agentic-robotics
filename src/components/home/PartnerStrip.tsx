@@ -1,39 +1,50 @@
+import { useState } from "react";
 import collectiveIncubator from "@/assets/partners/collective-incubator.svg";
 import internationalAcademy from "@/assets/partners/international-academy-rwth.png";
 
 /**
  * Trusted-by logo marquee (upper-funnel social proof).
- * Usage permission granted for: Collective Incubator, RWTH International Academy,
+ * Permission granted for: Collective Incubator, RWTH International Academy,
  * Innovation Chair, IGMR, EXIST, WestAI.
  *
- * Logos with image files render as images on a white chip; the rest render as
- * styled wordmarks. To add a real logo, drop the file in src/assets/partners/
- * and swap the `wordmark` entry for an `img` import below.
+ * Each logo tries to load an image; if the file is missing it falls back to a
+ * styled wordmark, so the strip always looks intentional.
+ *   • chip "light" → logo placed on a white chip (for dark/coloured logos)
+ *   • chip "dark"  → logo shown as-is (for white/light logos like WEST AI)
+ *
+ * To add a logo, drop the file at the path below (public/partners/...).
  */
-type Item =
-  | { kind: "img"; src: string; alt: string }
-  | { kind: "word"; label: string };
+type Item = { src: string; alt: string; label: string; chip: "light" | "dark" };
 
 const items: Item[] = [
-  { kind: "img", src: collectiveIncubator, alt: "Collective Incubator" },
-  { kind: "img", src: internationalAcademy, alt: "RWTH International Academy" },
-  { kind: "word", label: "IGMR · RWTH Aachen" },
-  { kind: "word", label: "Innovation Chair" },
-  { kind: "word", label: "EXIST" },
-  { kind: "word", label: "WestAI" },
+  { src: collectiveIncubator, alt: "Collective Incubator", label: "Collective Incubator", chip: "light" },
+  { src: internationalAcademy, alt: "RWTH International Academy", label: "RWTH International Academy", chip: "light" },
+  { src: "/partners/igmr.png", alt: "IGMR · RWTH Aachen", label: "IGMR · RWTH Aachen", chip: "light" },
+  { src: "/partners/innovation-chair.png", alt: "Innovation Chair", label: "Innovation Chair", chip: "light" },
+  { src: "/partners/westai.png", alt: "WEST AI · KI-Servicezentrum", label: "WEST AI", chip: "dark" },
+  { src: "/partners/exist.png", alt: "EXIST — From Science to Business", label: "EXIST", chip: "light" },
 ];
 
-function Cell({ item }: { item: Item }) {
+function Logo({ src, alt, label, chip }: Item) {
+  const [broken, setBroken] = useState(false);
   return (
-    <div className="flex items-center justify-center h-12 px-10 shrink-0">
-      {item.kind === "img" ? (
+    <div className="flex items-center justify-center h-12 px-9 shrink-0">
+      {broken ? (
+        <span className="font-display font-semibold text-base text-foreground/55 hover:text-foreground/90 transition-colors whitespace-nowrap">
+          {label}
+        </span>
+      ) : chip === "light" ? (
         <div className="h-9 flex items-center justify-center rounded-md bg-white/95 px-3 py-1.5">
-          <img src={item.src} alt={item.alt} className="max-h-6 max-w-[150px] object-contain" loading="lazy" />
+          <img src={src} alt={alt} onError={() => setBroken(true)} className="max-h-6 max-w-[150px] object-contain" loading="lazy" />
         </div>
       ) : (
-        <span className="font-display font-semibold text-base text-foreground/55 hover:text-foreground/90 transition-colors whitespace-nowrap">
-          {item.label}
-        </span>
+        <img
+          src={src}
+          alt={alt}
+          onError={() => setBroken(true)}
+          className="max-h-8 max-w-[160px] object-contain opacity-80 hover:opacity-100 transition-opacity"
+          loading="lazy"
+        />
       )}
     </div>
   );
@@ -50,7 +61,7 @@ export function PartnerStrip() {
       <div className="marquee-mask">
         <div className="marquee-track">
           {[...items, ...items].map((it, i) => (
-            <Cell key={i} item={it} />
+            <Logo key={`${it.label}-${i}`} {...it} />
           ))}
         </div>
       </div>
