@@ -20,7 +20,7 @@ export function FounderMoment() {
             <div className="card-3d border-gradient overflow-hidden">
               <img
                 src={founderImg}
-                alt="CloudBee founder presenting Physical AI at a pitch event"
+                alt="CloudBee Robotics founder presenting Physical AI at a pitch event"
                 className="w-full h-full object-cover aspect-[4/3]"
                 loading="lazy"
               />
@@ -46,7 +46,7 @@ export function FounderMoment() {
               <span className="text-gradient-green"> do the job — and get better at it.</span>"
             </blockquote>
             <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
-              CloudBee is a deep-tech spin-off out of RWTH Aachen, building the capability factory for
+              CloudBee Robotics is a deep-tech spin-off out of RWTH Aachen, building the capability factory for
               physical AI. From a sentence to a self-improving fleet — that's the mission.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">

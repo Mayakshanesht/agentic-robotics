@@ -97,7 +97,7 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
               <Field label="Portfolio / GitHub / Google Scholar">
                 <input className="input-base" placeholder="https://…" value={form.portfolio} onChange={(e) => setForm({ ...form, portfolio: e.target.value })} />
               </Field>
-              <Field label="Why you, why CloudBee? *">
+              <Field label="Why you, why CloudBee Robotics? *">
                 <textarea required rows={6} className="input-base resize-y" placeholder="Tell us about your background and what excites you about physical AI…" value={form.cover_letter} onChange={(e) => setForm({ ...form, cover_letter: e.target.value })} />
               </Field>
               <button type="submit" disabled={loading} className="btn-pilot w-full disabled:opacity-60">

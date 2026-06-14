@@ -40,7 +40,7 @@ export function ProblemSolution() {
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
             Teams burn months on the same broken loop — and most deployments still fail at the last mile.
-            CloudBee turns that loop into one continuous, self-improving pipeline.
+            CloudBee Robotics turns that loop into one continuous, self-improving pipeline.
           </p>
         </motion.div>
 
@@ -86,7 +86,7 @@ export function ProblemSolution() {
             <div className="hidden lg:block w-px h-16 bg-gradient-to-t from-transparent to-accent-green/40" />
           </div>
 
-          {/* The CloudBee way */}
+          {/* The CloudBee Robotics way */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -95,7 +95,7 @@ export function ProblemSolution() {
             className="card-3d border-gradient p-7 lg:p-8 relative"
           >
             <div className="flex items-center gap-2 mb-6">
-              <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-accent-green">The CloudBee way</span>
+              <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-accent-green">The CloudBee Robotics way</span>
               <span className="h-px flex-1 bg-accent-green/25" />
             </div>
             <ul className="space-y-3 relative">

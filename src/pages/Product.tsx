@@ -44,7 +44,7 @@ const pillars = [
 ] as const;
 
 const skillFlow = [
-  { icon: Wifi, step: "01", title: "Connect Your Robot", body: "Plug any humanoid, arm or AMR into CloudBee over the internet. ROS 2 native." },
+  { icon: Wifi, step: "01", title: "Connect Your Robot", body: "Plug any humanoid, arm or AMR into CloudBee Robotics over the internet. ROS 2 native." },
   { icon: MessageSquare, step: "02", title: "Describe the Task", body: "Natural language in. AgentOS scopes the task and triggers the pipeline." },
   { icon: Boxes, step: "03", title: "We Generate & Train", body: "DataForge synthesizes data; ModelLab trains and validates the policy." },
   { icon: PackageCheck, step: "04", title: "Download as ROS 2 Skill", body: "Pushed directly to your robot with safety contracts, ready to run." },
@@ -94,7 +94,7 @@ export default function Product() {
                 We're Building a <span className="text-gradient-blue">Platform</span>, Not Just a Product.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                CloudBee is an open platform. Customers can onboard any humanoid, robotic arm, or mobile robot quickly — define tasks, generate training data, train custom policies, and deploy them to production from a single integrated environment.
+                CloudBee Robotics is an open platform. Customers can onboard any humanoid, robotic arm, or mobile robot quickly — define tasks, generate training data, train custom policies, and deploy them to production from a single integrated environment.
               </p>
             </div>
 

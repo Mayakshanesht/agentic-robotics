@@ -38,7 +38,7 @@ const supported = [
 ];
 
 const industries = [
-  { icon: Car, name: "Automotive & Mobility", body: "Body shops, assembly cells, kitting, and quality inspection running CloudBee AgentOS with safety-constrained policies." },
+  { icon: Car, name: "Automotive & Mobility", body: "Body shops, assembly cells, kitting, and quality inspection running CloudBee Robotics AgentOS with safety-constrained policies." },
   { icon: Factory, name: "Industrial Manufacturing", body: "Flexible automation that adapts to new SKUs in days, not months — without retooling the line." },
   { icon: Truck, name: "Logistics & Warehousing", body: "Pick, pack, sort, and move — heterogeneous fleets coordinated through one autonomous OS." },
   { icon: Bot, name: "Humanoid Robotics", body: "Robotic foundation models tuned per platform, deployable as drop-in ROS 2 skills." },

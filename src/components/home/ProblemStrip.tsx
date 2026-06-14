@@ -81,7 +81,7 @@ export function ProblemStrip() {
 
         <p className="text-center text-lg lg:text-xl font-display font-medium text-foreground">
           One platform — from synthetic data to safe, explainable, deployable intelligence.{" "}
-          <span className="text-gradient-green">CloudBee closes the loop.</span>
+          <span className="text-gradient-green">CloudBee Robotics closes the loop.</span>
         </p>
       </div>
     </section>

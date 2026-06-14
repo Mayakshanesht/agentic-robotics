@@ -184,7 +184,7 @@ const RequestAccess = () => {
                         <Label htmlFor="use_case">Tell us about your use case</Label>
                         <Textarea
                           id="use_case"
-                          placeholder="Describe your robotics challenges and what you're hoping to achieve with CloudBee..."
+                          placeholder="Describe your robotics challenges and what you're hoping to achieve with CloudBee Robotics..."
                           rows={4}
                           {...register("use_case")}
                           className="bg-secondary/50 resize-none"

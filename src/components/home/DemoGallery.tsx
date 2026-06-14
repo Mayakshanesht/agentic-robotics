@@ -37,7 +37,7 @@ export function DemoGallery() {
               Demo Gallery
             </div>
             <h2 className="font-display font-bold text-3xl lg:text-5xl">
-              See CloudBee <span className="text-gradient-green">in action.</span>
+              See CloudBee Robotics <span className="text-gradient-green">in action.</span>
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">

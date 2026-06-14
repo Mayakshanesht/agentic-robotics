@@ -54,7 +54,7 @@ export function SolutionSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center text-muted-foreground max-w-2xl mx-auto mb-16 leading-relaxed"
         >
-          CloudBee provides unified infrastructure for building, training, and deploying 
+          CloudBee Robotics provides unified infrastructure for building, training, and deploying 
           agentic physical AI—from synthetic worlds to real robots.
         </motion.p>
 

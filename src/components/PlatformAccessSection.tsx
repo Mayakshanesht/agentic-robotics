@@ -30,7 +30,7 @@ export function PlatformAccessSection() {
 
               <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
                 Get Access to{" "}
-                <span className="text-gradient-teal">CloudBee Platform</span>
+                <span className="text-gradient-teal">CloudBee Robotics Platform</span>
               </h2>
 
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">

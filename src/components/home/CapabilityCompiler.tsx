@@ -42,7 +42,7 @@ export function CapabilityCompiler() {
             <span className="text-gradient-blue">capabilities.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            CloudBee understands processes before generating experience. The Capability Compiler converts raw work into a structured graph the rest of the platform can reason about.
+            CloudBee Robotics understands processes before generating experience. The Capability Compiler converts raw work into a structured graph the rest of the platform can reason about.
           </p>
         </motion.div>
 

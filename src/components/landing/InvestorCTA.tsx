@@ -47,7 +47,7 @@ export function InvestorCTA() {
                 Talk to us <ArrowRight size={16} />
               </Link>
               <a
-                href="mailto:info@cloudbeerobotics.de?subject=Investment%20Interest%20%E2%80%94%20CloudBee%20Robotics"
+                href="mailto:info@cloudbeerobotics.de?subject=Investment%20Interest%20%E2%80%94%20CloudBee Robotics%20Robotics"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm border border-foreground/15 text-foreground hover:bg-foreground/5 transition-all w-full"
               >
                 Request the deck

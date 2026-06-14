@@ -21,11 +21,11 @@ export function WhyCloudBee() {
           className="max-w-3xl mb-14"
         >
           <div className="text-[11px] font-mono uppercase tracking-[0.25em] text-accent-blue mb-4">
-            Why CloudBee
+            Why CloudBee Robotics
           </div>
           <h2 className="font-display font-bold text-4xl lg:text-6xl leading-[1.02] tracking-tight">
             Why teams choose{" "}
-            <span className="text-gradient-blue">CloudBee.</span>
+            <span className="text-gradient-blue">CloudBee Robotics.</span>
           </h2>
         </motion.div>
 

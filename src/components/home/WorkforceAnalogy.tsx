@@ -51,7 +51,7 @@ export function WorkforceAnalogy() {
         </div>
 
         <p className="mt-10 text-center text-muted-foreground max-w-2xl mx-auto">
-          CloudBee converts industrial workflows into reusable capability graphs that compose, validate and improve.
+          CloudBee Robotics converts industrial workflows into reusable capability graphs that compose, validate and improve.
         </p>
       </div>
     </section>

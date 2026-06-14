@@ -10,10 +10,10 @@ interface Message {
   content: string;
 }
 
-const SYSTEM_CONTEXT = `You are "Ask CloudBee", a technical guide for CloudBee Robotics. You provide high-level information about the company and platform.
+const SYSTEM_CONTEXT = `You are "Ask CloudBee Robotics", a technical guide for CloudBee Robotics. You provide high-level information about the company and platform.
 
 ABOUT CLOUDBEE ROBOTICS:
-- CloudBee builds infrastructure for agentic physical AI—from synthetic worlds to real robots
+- CloudBee Robotics builds infrastructure for agentic physical AI—from synthetic worlds to real robots
 - NOT a robot hardware company or robotics services provider
 - Builds infrastructure for training and deploying agentic physical AI
 
@@ -141,7 +141,7 @@ export function AskCloudBee() {
                   <Bot className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm text-foreground">Ask CloudBee</h3>
+                  <h3 className="font-semibold text-sm text-foreground">Ask CloudBee Robotics</h3>
                   <p className="text-xs text-muted-foreground">High-level info only</p>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export function AskCloudBee() {
               {messages.length === 0 && (
                 <div className="text-center text-muted-foreground text-sm py-8">
                   <Bot className="w-10 h-10 mx-auto mb-3 text-primary/50" />
-                  <p className="mb-2">Hi! I'm your CloudBee assistant.</p>
+                  <p className="mb-2">Hi! I'm your CloudBee Robotics assistant.</p>
                   <p className="text-xs">Ask me about our platform, technology, or use cases.</p>
                 </div>
               )}
@@ -205,7 +205,7 @@ export function AskCloudBee() {
                 <Input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask about CloudBee..."
+                  placeholder="Ask about CloudBee Robotics..."
                   className="flex-1 bg-background"
                   disabled={isLoading}
                 />

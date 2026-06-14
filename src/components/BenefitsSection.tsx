@@ -51,7 +51,7 @@ export function BenefitsSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Why CloudBee
+            Why CloudBee Robotics
           </span>
           <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6 text-foreground">
             Why Robotics Still Doesn't <span className="text-gradient-teal">Scale</span>
@@ -60,7 +60,7 @@ export function BenefitsSection() {
             Robotics development remains slow, expensive, and difficult to deploy at scale. Teams struggle with limited data, brittle systems, and long development cycles that delay real-world impact.
           </p>
           <p className="text-lg text-muted-foreground mt-4">
-            CloudBee addresses these challenges with a unified platform to generate scalable synthetic data, train better and explainable models, build novel agentic architectures, and deploy directly to robots.
+            CloudBee Robotics addresses these challenges with a unified platform to generate scalable synthetic data, train better and explainable models, build novel agentic architectures, and deploy directly to robots.
           </p>
         </motion.div>
 

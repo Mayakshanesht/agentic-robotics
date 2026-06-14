@@ -178,7 +178,7 @@ export function DemoShowcase() {
               Ready to See More?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Get exclusive access to our full demo suite and see how CloudBee can transform your robotics development pipeline.
+              Get exclusive access to our full demo suite and see how CloudBee Robotics can transform your robotics development pipeline.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/request-access">

@@ -57,7 +57,7 @@ const team: Member[] = [
     image: null as string | null,
     linkedin: null,
     description:
-      "Cloud and web infrastructure engineer building the scalable platforms behind CloudBee — from deployment pipelines to customer-facing experiences.",
+      "Cloud and web infrastructure engineer building the scalable platforms behind CloudBee Robotics — from deployment pipelines to customer-facing experiences.",
     expertise: ["Cloud Architecture", "Web Infrastructure", "Scalable Systems", "Deployment Platforms"],
   },
 ];

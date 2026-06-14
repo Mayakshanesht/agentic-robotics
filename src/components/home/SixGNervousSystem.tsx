@@ -32,7 +32,7 @@ export function SixGNervousSystem() {
               real-time robot intelligence.
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-              CloudBee streams multimodal sensor data over a 6G bearer (eMBB + URLLC) so the
+              CloudBee Robotics streams multimodal sensor data over a 6G bearer (eMBB + URLLC) so the
               self-improving loop runs live — failures are captured, analyzed and corrected in
               real time instead of waiting for batch uploads.
             </p>

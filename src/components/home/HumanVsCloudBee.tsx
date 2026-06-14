@@ -28,13 +28,13 @@ export function HumanVsCloudBee() {
             <span className="text-gradient-blue">Physical AI should too.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Human workers gain capabilities before experience. CloudBee applies the same principle to robots and agents.
+            Human workers gain capabilities before experience. CloudBee Robotics applies the same principle to robots and agents.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           <Column title="Human Workforce" steps={human} accent="muted" />
-          <Column title="CloudBee" steps={cloudbee} accent="blue" />
+          <Column title="CloudBee Robotics" steps={cloudbee} accent="blue" />
         </div>
 
         <motion.p
@@ -44,7 +44,7 @@ export function HumanVsCloudBee() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-12 text-center text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground"
         >
-          Before training begins, CloudBee understands the work itself.
+          Before training begins, CloudBee Robotics understands the work itself.
         </motion.p>
       </div>
     </section>

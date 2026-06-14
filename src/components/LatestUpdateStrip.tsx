@@ -17,7 +17,7 @@ export function LatestUpdateStrip() {
           <div className="relative aspect-[4/3] lg:aspect-[3/2] rounded-2xl overflow-hidden border border-border/50 shadow-lg">
             <img 
               src={ideationPitch} 
-              alt="CloudBee at RWTH Ideation Event"
+              alt="CloudBee Robotics at RWTH Ideation Event"
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-3 left-3 bg-background/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">

@@ -60,7 +60,7 @@ export function UseCasesSection() {
             <span className="text-gradient-teal">Industry Applications</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            From manufacturing floors to logistics centers, CloudBee powers the next generation of intelligent robotics.
+            From manufacturing floors to logistics centers, CloudBee Robotics powers the next generation of intelligent robotics.
           </p>
         </motion.div>
 

@@ -12,7 +12,7 @@ const problems = [
   {
     icon: Database,
     title: "Data Scarcity",
-    description: "Teleoperation-based data collection is costly and unscalable. CloudBee generates synthetic 4D, USD-native data to train robust VLA models at scale.",
+    description: "Teleoperation-based data collection is costly and unscalable. CloudBee Robotics generates synthetic 4D, USD-native data to train robust VLA models at scale.",
   },
   {
     icon: GitBranch,

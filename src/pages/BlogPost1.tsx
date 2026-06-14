@@ -55,7 +55,7 @@ export default function BlogPost1() {
                 to understand cause and effect.
               </p>
 
-              <h2 className="font-display text-2xl font-semibold mt-8 mb-4">The CloudBee Approach</h2>
+              <h2 className="font-display text-2xl font-semibold mt-8 mb-4">The CloudBee Robotics Approach</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 At CloudBee Robotics, we've built infrastructure that generates photorealistic, 
                 physics-accurate 4D training environments at scale. Our platform can create 

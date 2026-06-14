@@ -35,7 +35,7 @@ export function PlatformComingSoon() {
             <span className="text-gradient-mixed">in your browser.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            We're releasing the CloudBee cloud platform for teams to onboard new robots
+            We're releasing the CloudBee Robotics cloud platform for teams to onboard new robots
             in days, not months — type a task, generate synthetic experience, train policies
             and deploy a self-improving fleet end-to-end. No infrastructure to build.
           </p>

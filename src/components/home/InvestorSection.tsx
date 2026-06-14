@@ -33,7 +33,7 @@ export function InvestorSection() {
             </div>
           </div>
           <div className="rounded-2xl border border-accent-blue/30 bg-accent-blue/[0.04] p-8">
-            <div className="text-[11px] font-mono uppercase tracking-[0.25em] text-accent-blue mb-5">CloudBee focuses on capabilities</div>
+            <div className="text-[11px] font-mono uppercase tracking-[0.25em] text-accent-blue mb-5">CloudBee Robotics focuses on capabilities</div>
             <div className="flex flex-wrap gap-2">
               {cloudbee.map((c) => (
                 <span key={c} className="px-4 py-2 rounded-full border border-accent-blue/30 bg-background/60 font-display text-base text-foreground">{c}</span>

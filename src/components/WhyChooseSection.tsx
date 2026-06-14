@@ -28,11 +28,11 @@ export function WhyChooseSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Why CloudBee
+            Why CloudBee Robotics
           </span>
           <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
             Why Enterprises Choose{" "}
-            <span className="text-gradient-teal">CloudBee</span>
+            <span className="text-gradient-teal">CloudBee Robotics</span>
           </h2>
         </motion.div>
 

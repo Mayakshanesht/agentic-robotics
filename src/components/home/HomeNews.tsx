@@ -42,7 +42,7 @@ export function HomeNews() {
           <div className="max-w-xl">
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-3">News & Updates</div>
             <h2 className="font-display font-bold text-3xl lg:text-4xl">
-              The latest from <span className="text-gradient-blue">CloudBee.</span>
+              The latest from <span className="text-gradient-blue">CloudBee Robotics.</span>
             </h2>
           </div>
           <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-blue hover:gap-3 transition-all">

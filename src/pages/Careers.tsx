@@ -90,7 +90,7 @@ export default function Careers() {
             className="glass-card p-8 lg:p-10 mb-6 border-accent-green/40 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 px-3 py-1 text-xs font-mono uppercase tracking-wider bg-accent-green text-primary-foreground rounded-bl-lg">
-              Master Thesis · IGMR × CloudBee
+              Master Thesis · IGMR × CloudBee Robotics
             </div>
             <div className="flex items-start gap-4 mb-2">
               <FlaskConical className="text-accent-green mt-1" size={22} />
@@ -126,7 +126,7 @@ export default function Careers() {
               ))}
             </ul>
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6 border-t border-border">
-              <button onClick={() => setOpenRole("Master Thesis — Synthetic Multimodal Experience & Safety-Constrained Capability Execution (IGMR × CloudBee)")} className="btn-pilot">
+              <button onClick={() => setOpenRole("Master Thesis — Synthetic Multimodal Experience & Safety-Constrained Capability Execution (IGMR × CloudBee Robotics)")} className="btn-pilot">
                 Apply for this thesis
               </button>
               <div className="text-xs text-muted-foreground">

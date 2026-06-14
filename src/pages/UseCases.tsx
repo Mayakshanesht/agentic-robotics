@@ -53,7 +53,7 @@ const UseCases = () => {
                 Real-World <span className="text-gradient-teal">Applications</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                CloudBee supports robotics teams operating in complex, high-impact industrial environments.
+                CloudBee Robotics supports robotics teams operating in complex, high-impact industrial environments.
               </p>
             </motion.div>
           </div>
@@ -113,7 +113,7 @@ const UseCases = () => {
           </div>
         </section>
 
-        {/* Why CloudBee */}
+        {/* Why CloudBee Robotics */}
         <section className="py-20">
           <div className="section-container">
             <motion.div
@@ -129,7 +129,7 @@ const UseCases = () => {
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Traditional robotics pipelines struggle to scale across environments and use cases. 
-                  CloudBee enables faster iteration and deployment where reliability matters most.
+                  CloudBee Robotics enables faster iteration and deployment where reliability matters most.
                 </p>
               </div>
             </motion.div>

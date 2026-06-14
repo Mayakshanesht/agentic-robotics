@@ -73,7 +73,7 @@ export function HeroSection() {
             </div>
 
             <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-              CloudBee develops infrastructure for <span className="font-semibold text-foreground">agentic physical AI</span>—enabling world-aware robots and stronger VLA models to perform complex, real-world tasks reliably and at scale.
+              CloudBee Robotics develops infrastructure for <span className="font-semibold text-foreground">agentic physical AI</span>—enabling world-aware robots and stronger VLA models to perform complex, real-world tasks reliably and at scale.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
