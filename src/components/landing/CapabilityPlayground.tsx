@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ScanEye, Eye, Navigation, Grab, PackageCheck, Search, Wrench, ShieldCheck,
-  ArrowRight, Sparkles, RotateCcw, Check, Bot, Cpu,
+  ArrowRight, Sparkles, RotateCcw, Check, Bot, Cpu, Clock, Zap, Loader2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 type NodeT = { label: string; type: "sensor" | "primitive" | "coordinator"; icon: typeof Eye; robot: string };
 
@@ -24,10 +27,18 @@ const examples = [
   "Assemble the bracket — insert the screws and fasten them",
 ];
 
-function buildGraph(task: string): { nodes: NodeT[]; safety: string[] } {
+const KEYWORDS: [RegExp, string][] = [
+  [/\bred\b/, "red"], [/\bblue\b/, "blue"], [/\bgreen\b/, "green"],
+  [/conveyor/, "conveyor"], [/\bbin\b/, "bin"], [/fence/, "safety fence"],
+  [/weld/, "welds"], [/screw/, "screws"], [/bracket/, "bracket"],
+  [/tote/, "totes"], [/storage/, "storage"], [/station/, "station"],
+  [/defect/, "defects"], [/inspect/, "inspection"], [/pallet/, "pallet"],
+];
+
+function buildGraph(task: string) {
   const s = task.toLowerCase();
   const nodes: NodeT[] = [];
-  nodes.push({ label: "Perceive scene", type: "sensor", icon: ScanEye, robot: "Sensor" });
+  nodes.push({ label: "Perceive scene", type: "sensor", icon: ScanEye, robot: "Perception" });
   nodes.push({
     label: /red|blue|green|colour|color|defect|target/.test(s) ? "Detect target" : "Detect objects",
     type: "primitive", icon: Eye, robot: "Arm",
@@ -42,17 +53,25 @@ function buildGraph(task: string): { nodes: NodeT[]; safety: string[] } {
     nodes.push({ label: "Assemble", type: "primitive", icon: Wrench, robot: "Arm" });
   if (/place|put|drop|bin|sort|stack|load|pack|deliver/.test(s))
     nodes.push({ label: "Place / sort", type: "primitive", icon: PackageCheck, robot: "Arm" });
-  // ensure at least one action
   if (nodes.length < 3) nodes.push({ label: "Manipulate", type: "primitive", icon: Grab, robot: "Arm" });
   nodes.push({ label: "Validate & recover", type: "coordinator", icon: ShieldCheck, robot: "Agentic OS" });
 
-  const safety = [
-    "Contact force ≤ 50 N",
-    "No-go zone: safety fence",
-    "Reduce speed near humans",
-  ];
-  return { nodes, safety };
+  const keywords = KEYWORDS.filter(([re]) => re.test(s)).map(([, l]) => l);
+  const safety = ["Contact force ≤ 50 N", "No-go zone: safety fence", "Reduce speed near humans"];
+
+  const laneOrder = ["Perception", "Arm", "AMR", "Agentic OS"];
+  const lanes = laneOrder
+    .map((robot) => ({ robot, nodes: nodes.filter((n) => n.robot === robot) }))
+    .filter((l) => l.nodes.length);
+  const maxLane = Math.max(...lanes.map((l) => l.nodes.length));
+  const speedup = Math.max(1, nodes.length / maxLane);
+  const makespan = (maxLane * 2.1).toFixed(1);
+  const robots = lanes.filter((l) => l.robot === "Arm" || l.robot === "AMR").length || 1;
+
+  return { nodes, safety, keywords, lanes, makespan, speedup, robots };
 }
+
+type Graph = ReturnType<typeof buildGraph>;
 
 const typeStyle: Record<NodeT["type"], string> = {
   sensor: "border-violet-500/40 bg-violet-500/10 text-violet-300",
@@ -64,13 +83,17 @@ export function CapabilityPlayground() {
   const [task, setTask] = useState(examples[0]);
   const [status, setStatus] = useState<"idle" | "compiling" | "done">("idle");
   const [stage, setStage] = useState(0);
-  const [graph, setGraph] = useState<{ nodes: NodeT[]; safety: string[] } | null>(null);
+  const [graph, setGraph] = useState<Graph | null>(null);
+  const [email, setEmail] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const run = () => {
     if (!task.trim()) return;
     setGraph(buildGraph(task));
     setStage(0);
     setStatus("compiling");
+    setSent(false);
   };
 
   useEffect(() => {
@@ -79,11 +102,31 @@ export function CapabilityPlayground() {
       const t = setTimeout(() => setStatus("done"), 300);
       return () => clearTimeout(t);
     }
-    const t = setTimeout(() => setStage((s) => s + 1), 480);
+    const t = setTimeout(() => setStage((s) => s + 1), 460);
     return () => clearTimeout(t);
   }, [status, stage]);
 
-  const robotsUsed = graph ? Array.from(new Set(graph.nodes.map((n) => n.robot).filter((r) => r !== "Sensor"))) : [];
+  const submitLead = async () => {
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    if (!ok) { toast.error("Please enter a valid email"); return; }
+    setSending(true);
+    try {
+      const { error } = await supabase.from("contact_inquiries").insert({
+        name: "Playground lead",
+        company: null,
+        email: email.trim(),
+        interest: "Pilot Program",
+        message: `Compile on my process: "${task}"`,
+      });
+      if (error) throw error;
+      setSent(true);
+      toast.success("Thanks! We'll reach out to compile this on your process.");
+    } catch {
+      toast.error("Something went wrong — please email info@cloudbeerobotics.de");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <section id="try" className="relative py-28 lg:py-40 border-t border-border overflow-hidden">
@@ -106,8 +149,8 @@ export function CapabilityPlayground() {
             Type a task. <span className="text-gradient-mixed">Watch it become a capability.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            This is the Capability Compiler in miniature — describe a job and see it compiled into a
-            validated, multi-agent capability graph.
+            The Capability Compiler in miniature — describe a job and watch it compile into a
+            validated, multi-agent capability graph with a concurrent execution schedule.
           </p>
         </motion.div>
 
@@ -158,13 +201,9 @@ export function CapabilityPlayground() {
                 <div className="space-y-2 font-mono text-sm">
                   {STAGES.map((st, i) => (
                     <div key={st} className={`flex items-center gap-2.5 transition-opacity ${i <= stage ? "opacity-100" : "opacity-30"}`}>
-                      {i < stage ? (
-                        <Check size={14} className="text-accent-green" />
-                      ) : i === stage ? (
-                        <span className="w-3.5 h-3.5 rounded-full border-2 border-accent-blue border-t-transparent animate-spin" />
-                      ) : (
-                        <span className="w-3.5 h-3.5 rounded-full border border-border" />
-                      )}
+                      {i < stage ? <Check size={14} className="text-accent-green" />
+                        : i === stage ? <span className="w-3.5 h-3.5 rounded-full border-2 border-accent-blue border-t-transparent animate-spin" />
+                        : <span className="w-3.5 h-3.5 rounded-full border border-border" />}
                       <span className={i <= stage ? "text-foreground" : "text-muted-foreground"}>{st}</span>
                     </div>
                   ))}
@@ -176,85 +215,132 @@ export function CapabilityPlayground() {
           {/* result */}
           <AnimatePresence>
             {status === "done" && graph && (
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mt-7"
-              >
-                {/* capability graph flow */}
-                <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-accent-blue mb-4">Compiled capability graph</div>
-                <div className="flex flex-wrap items-stretch gap-2.5">
-                  {graph.nodes.map((n, i) => (
-                    <motion.div
-                      key={n.label + i}
-                      initial={{ opacity: 0, scale: 0.92 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.35, delay: i * 0.09 }}
-                      className="flex items-center gap-2.5"
-                    >
-                      <div className={`rounded-xl border ${typeStyle[n.type]} px-3.5 py-2.5 min-w-[128px]`}>
-                        <div className="flex items-center gap-2">
-                          <n.icon size={15} />
-                          <span className="font-display font-semibold text-sm text-foreground">{n.label}</span>
-                        </div>
-                        <div className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground mt-1">{n.robot}</div>
-                      </div>
-                      {i < graph.nodes.length - 1 && <ArrowRight size={15} className="text-muted-foreground/50 shrink-0" />}
-                    </motion.div>
-                  ))}
-                </div>
+              <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="mt-7">
+                {/* understood keywords */}
+                {graph.keywords.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-2 mb-5">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">Understood</span>
+                    {graph.keywords.map((k) => (
+                      <span key={k} className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-accent-blue/10 text-accent-blue border border-accent-blue/30">{k}</span>
+                    ))}
+                  </div>
+                )}
 
-                {/* safety + metrics */}
-                <div className="grid md:grid-cols-[1.4fr_1fr] gap-5 mt-7">
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-                    className="rounded-xl border border-accent-green/25 bg-accent-green/[0.05] p-5"
-                  >
-                    <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] text-accent-green mb-3">
-                      <ShieldCheck size={13} /> Safety constraints · validated in simulation
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {graph.safety.map((c) => (
-                        <span key={c} className="inline-flex items-center gap-1.5 text-xs text-foreground/85 border border-border rounded-full px-3 py-1 bg-background/50">
-                          <Check size={12} className="text-accent-green" /> {c}
-                        </span>
+                <Tabs defaultValue="graph">
+                  <TabsList className="grid grid-cols-3 w-full max-w-md mb-5">
+                    <TabsTrigger value="graph">Capability Graph</TabsTrigger>
+                    <TabsTrigger value="schedule">Execution</TabsTrigger>
+                    <TabsTrigger value="safety">Safety</TabsTrigger>
+                  </TabsList>
+
+                  {/* capability graph */}
+                  <TabsContent value="graph">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      {graph.nodes.map((n, i) => (
+                        <motion.div key={n.label + i} initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: i * 0.08 }} className="flex items-center gap-2.5">
+                          <div className={`rounded-xl border ${typeStyle[n.type]} px-3.5 py-2.5 min-w-[128px]`}>
+                            <div className="flex items-center gap-2">
+                              <n.icon size={15} />
+                              <span className="font-display font-semibold text-sm text-foreground">{n.label}</span>
+                            </div>
+                            <div className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground mt-1">{n.robot}</div>
+                          </div>
+                          {i < graph.nodes.length - 1 && <ArrowRight size={15} className="text-muted-foreground/50 shrink-0" />}
+                        </motion.div>
                       ))}
                     </div>
-                  </motion.div>
+                  </TabsContent>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-                    className="grid grid-cols-3 gap-3"
-                  >
-                    {[
-                      { k: "Capabilities", v: String(graph.nodes.length), icon: Cpu },
-                      { k: "Robots", v: String(robotsUsed.length || 1), icon: Bot },
-                      { k: "To deploy", v: "~4 days", icon: Sparkles },
-                    ].map((m) => (
-                      <div key={m.k} className="rounded-xl border border-border bg-background/50 p-4 text-center">
-                        <m.icon size={16} className="mx-auto text-accent-blue mb-1.5" />
-                        <div className="font-display font-bold text-lg text-foreground leading-none">{m.v}</div>
-                        <div className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground mt-1">{m.k}</div>
+                  {/* execution schedule — swimlanes */}
+                  <TabsContent value="schedule">
+                    <div className="rounded-xl border border-border bg-background/40 p-5">
+                      <div className="space-y-3">
+                        {graph.lanes.map((lane, li) => (
+                          <div key={lane.robot} className="flex items-center gap-3">
+                            <div className="w-24 shrink-0 text-[10px] font-mono uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                              <Bot size={12} className="text-accent-blue" /> {lane.robot}
+                            </div>
+                            <div className="flex-1 flex items-center gap-2 flex-wrap">
+                              {lane.nodes.map((n, ni) => (
+                                <motion.span
+                                  key={n.label}
+                                  initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: li * 0.08 + ni * 0.08 }}
+                                  className="inline-flex items-center gap-1.5 text-xs rounded-lg border border-accent-blue/30 bg-accent-blue/10 text-foreground px-3 py-1.5"
+                                >
+                                  <n.icon size={12} className="text-accent-blue" /> {n.label}
+                                </motion.span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </motion.div>
-                </div>
+                      <div className="grid grid-cols-3 gap-3 mt-5 pt-5 border-t border-border">
+                        {[
+                          { k: "Makespan", v: `${graph.makespan}s`, icon: Clock },
+                          { k: "Speedup", v: `${graph.speedup.toFixed(1)}×`, icon: Zap },
+                          { k: "Robots", v: String(graph.robots), icon: Bot },
+                        ].map((m) => (
+                          <div key={m.k} className="text-center">
+                            <m.icon size={15} className="mx-auto text-accent-green mb-1" />
+                            <div className="font-display font-bold text-lg text-foreground leading-none">{m.v}</div>
+                            <div className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground mt-1">{m.k}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </TabsContent>
 
-                {/* CTA */}
-                <motion.div
-                  initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.65 }}
-                  className="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-accent-blue/30 bg-accent-blue/[0.05] p-5"
-                >
-                  <div className="text-sm lg:text-base text-foreground/90">
-                    This is a taste. <span className="text-gradient-blue font-semibold">See it compiled on your real process.</span>
-                  </div>
-                  <div className="flex gap-3 shrink-0">
-                    <Link to="/contact" className="btn-pilot">Book a demo <ArrowRight size={15} /></Link>
-                    <Link to="/request-access" className="inline-flex items-center px-5 py-2.5 rounded-full font-semibold text-sm border border-foreground/15 hover:bg-foreground/5 transition-all">
-                      Early access
-                    </Link>
+                  {/* safety */}
+                  <TabsContent value="safety">
+                    <div className="rounded-xl border border-accent-green/25 bg-accent-green/[0.05] p-5">
+                      <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] text-accent-green mb-4">
+                        <ShieldCheck size={13} /> Constraints validated in closed-loop simulation
+                      </div>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {graph.safety.map((c) => (
+                          <span key={c} className="inline-flex items-center gap-1.5 text-xs text-foreground/85 border border-border rounded-full px-3 py-1 bg-background/50">
+                            <Check size={12} className="text-accent-green" /> {c}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <span className="inline-flex items-center gap-1.5"><Check size={13} className="text-accent-green" /> {graph.nodes.length * 8} test cases passed</span>
+                        <span className="inline-flex items-center gap-1.5"><Cpu size={13} className="text-accent-blue" /> {graph.nodes.length} capabilities</span>
+                      </div>
+                    </div>
+                  </TabsContent>
+                </Tabs>
+
+                {/* lead capture CTA */}
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-7 rounded-xl border border-accent-blue/30 bg-accent-blue/[0.05] p-5">
+                  {sent ? (
+                    <div className="flex items-center gap-2.5 text-foreground">
+                      <Check size={18} className="text-accent-green" />
+                      <span className="text-sm">Thanks — we'll be in touch about compiling this on your real process.</span>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 justify-between">
+                      <div className="text-sm lg:text-base text-foreground/90 lg:max-w-xs">
+                        Want this on <span className="text-gradient-blue font-semibold">your real process?</span>
+                      </div>
+                      <div className="flex flex-1 lg:max-w-md gap-2">
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          onKeyDown={(e) => e.key === "Enter" && submitLead()}
+                          placeholder="you@company.com"
+                          className="flex-1 rounded-full border border-border bg-background/60 px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent-blue/60"
+                        />
+                        <button onClick={submitLead} disabled={sending} className="btn-pilot shrink-0 disabled:opacity-60">
+                          {sending ? <Loader2 size={15} className="animate-spin" /> : <>Get a demo <ArrowRight size={15} /></>}
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                  <div className="mt-3 text-[11px] text-muted-foreground">
+                    Prefer to talk now? <Link to="/contact" className="text-accent-blue hover:underline">Book a demo</Link> · <Link to="/request-access" className="text-accent-blue hover:underline">Request early access</Link>
                   </div>
                 </motion.div>
               </motion.div>

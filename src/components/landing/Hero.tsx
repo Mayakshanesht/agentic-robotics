@@ -92,18 +92,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-background/60 pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-[0.05] pointer-events-none" />
 
-      {/* content: 3D arm (left) + title (right) */}
+      {/* content — title over the full-bleed carousel */}
       <div className="section-container relative z-10 w-full pt-28 pb-28">
-        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-10 items-center">
-          {/* 3D robot arm — left, floats over the carousel */}
-          <div className="hidden lg:block relative h-[460px] xl:h-[540px] pointer-events-none">
-            <Suspense fallback={null}>
-              <RobotArmScene className="absolute inset-0 w-full h-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]" />
-            </Suspense>
-          </div>
-
-          {/* copy */}
-          <div>
+        <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -165,7 +156,6 @@ export function Hero() {
                 See how it works <ArrowRight size={14} />
               </Link>
             </motion.div>
-          </div>
         </div>
       </div>
 
