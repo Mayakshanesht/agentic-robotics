@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -7,6 +8,27 @@ import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import mayurImg from "@/assets/mayur.png";
 import madhavaImg from "@/assets/madhava.png";
+
+/** Mentor headshot — drop the file at /public/team/mentor.jpg and it appears; until then a placeholder icon is shown. */
+function MentorPhoto() {
+  const [broken, setBroken] = useState(false);
+  if (broken) {
+    return (
+      <div className="w-full h-full bg-accent-blue/10 text-accent-blue flex items-center justify-center">
+        <GraduationCap size={44} />
+      </div>
+    );
+  }
+  return (
+    <img
+      src="/team/mentor.jpg"
+      onError={() => setBroken(true)}
+      alt="CloudBee Robotics academic mentor"
+      className="w-full h-full object-cover"
+      loading="lazy"
+    />
+  );
+}
 
 type Member = { name: string; role: string; image: string | null; email?: string; linkedin: string | null; description: string; expertise: string[] };
 const team: Member[] = [
@@ -147,14 +169,16 @@ export default function Team() {
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-3">Academic Mentor</div>
             <h2 className="font-display font-bold text-3xl lg:text-4xl">World-class research backing.</h2>
           </div>
-          <div className="glass-card p-7 max-w-3xl">
-            <div className="w-12 h-12 rounded-xl bg-accent-blue/10 text-accent-blue flex items-center justify-center mb-4">
-              <GraduationCap size={22} />
+          <div className="glass-card p-7 max-w-3xl grid sm:grid-cols-[160px_1fr] gap-6 items-start">
+            <div className="aspect-square w-full rounded-2xl overflow-hidden border border-accent-blue/30">
+              <MentorPhoto />
             </div>
-            <h3 className="font-display font-bold text-xl text-foreground mb-1">{advisor.name}</h3>
-            <div className="text-sm text-accent-blue font-medium mb-3">{advisor.role}</div>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">{advisor.description}</p>
-            <div className="text-xs font-mono text-muted-foreground/80 pt-3 border-t border-border">{advisor.affiliation}</div>
+            <div>
+              <h3 className="font-display font-bold text-xl text-foreground mb-1">{advisor.name}</h3>
+              <div className="text-sm text-accent-blue font-medium mb-3">{advisor.role}</div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{advisor.description}</p>
+              <div className="text-xs font-mono text-muted-foreground/80 pt-3 border-t border-border">{advisor.affiliation}</div>
+            </div>
           </div>
         </div>
       </section>

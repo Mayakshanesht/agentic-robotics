@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { z } from "zod";
 import { Mail, MapPin, Globe, Send, Loader2, CheckCircle2, Linkedin } from "lucide-react";
@@ -19,7 +20,11 @@ const interests = ["Pilot Program", "Partnership", "Investment", "Research Colla
 const linkedInUrl = "https://www.linkedin.com/company/cloudbeerobotics/";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", company: "", email: "", interest: "Pilot Program", message: "" });
+  const [params] = useSearchParams();
+  const initialInterest = (interests as readonly string[]).includes(params.get("interest") ?? "")
+    ? (params.get("interest") as string)
+    : "Pilot Program";
+  const [form, setForm] = useState({ name: "", company: "", email: "", interest: initialInterest, message: "" });
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 

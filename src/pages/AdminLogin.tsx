@@ -33,7 +33,7 @@ const AdminLogin = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({ resolver: zodResolver(schema) });
   const { register: registerReset, handleSubmit: handleResetSubmit, formState: { errors: resetErrors } } = useForm<ResetData>({
     resolver: zodResolver(resetSchema),
-    defaultValues: { email: "mayurwaghchoure1995@gmail.com" },
+    defaultValues: { email: "" },
   });
 
   const onSubmit = async (data: FormData) => {
@@ -95,21 +95,23 @@ const AdminLogin = () => {
                     <TabsContent value="signin" />
                     <TabsContent value="reset">
                       <p className="text-xs text-muted-foreground mt-2">
-                        This email already exists. Use this to receive a secure password setup link.
+                        Enter your admin email to receive a secure password reset link.
                       </p>
                     </TabsContent>
                   </Tabs>
 
                   {mode === "signin" ? (
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" autoComplete="off">
+                      {/* honeypot to discourage password managers / bots from autofilling the admin email */}
+                      <input type="text" name="prevent_autofill" className="hidden" tabIndex={-1} aria-hidden="true" autoComplete="off" />
                       <div className="space-y-2">
                         <Label htmlFor="email">Email</Label>
-                        <Input id="email" type="email" placeholder="mayurwaghchoure1995@gmail.com" {...register("email")} className="bg-secondary/50" />
+                        <Input id="email" type="email" placeholder="you@company.com" autoComplete="off" spellCheck={false} {...register("email")} className="bg-secondary/50" />
                         {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="password">Password</Label>
-                        <Input id="password" type="password" placeholder="••••••••" {...register("password")} className="bg-secondary/50" />
+                        <Input id="password" type="password" placeholder="••••••••" autoComplete="new-password" {...register("password")} className="bg-secondary/50" />
                         {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
                       </div>
                       <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
@@ -117,10 +119,10 @@ const AdminLogin = () => {
                       </Button>
                     </form>
                   ) : (
-                    <form onSubmit={handleResetSubmit(sendPasswordSetup)} className="space-y-6">
+                    <form onSubmit={handleResetSubmit(sendPasswordSetup)} className="space-y-6" autoComplete="off">
                       <div className="space-y-2">
                         <Label htmlFor="reset-email">Admin email</Label>
-                        <Input id="reset-email" type="email" {...registerReset("email")} className="bg-secondary/50" />
+                        <Input id="reset-email" type="email" placeholder="you@company.com" autoComplete="off" spellCheck={false} {...registerReset("email")} className="bg-secondary/50" />
                         {resetErrors.email && <p className="text-sm text-destructive">{resetErrors.email.message}</p>}
                       </div>
                       <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>

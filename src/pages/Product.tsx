@@ -4,6 +4,8 @@ import { ArrowRight, Box, BrainCircuit, Network, Store, Wifi, MessageSquare, Box
 import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
+import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
+import { SelfImprovingLoop } from "@/components/home/SelfImprovingLoop";
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
@@ -76,6 +78,8 @@ export default function Product() {
           </motion.div>
         </div>
       </section>
+
+      <CapabilityCompilerFeature />
 
       {/* Vision */}
       <section className="section-spacing border-t border-border">
@@ -205,6 +209,8 @@ export default function Product() {
         </div>
       </section>
 
+
+      <SelfImprovingLoop />
 
       {/* How it works */}
       <section className="section-spacing">

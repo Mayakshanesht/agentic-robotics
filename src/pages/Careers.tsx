@@ -87,6 +87,60 @@ export default function Careers() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="glass-card p-8 lg:p-10 mb-6 border-accent-green/40 relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 px-3 py-1 text-xs font-mono uppercase tracking-wider bg-accent-green text-primary-foreground rounded-bl-lg">
+              Master Thesis · IGMR × CloudBee
+            </div>
+            <div className="flex items-start gap-4 mb-2">
+              <FlaskConical className="text-accent-green mt-1" size={22} />
+              <div>
+                <h3 className="font-display font-bold text-2xl lg:text-3xl text-foreground">
+                  Synthetic Multimodal Experience &amp; Safety-Constrained Capability Execution
+                </h3>
+                <div className="text-sm text-muted-foreground mt-1">
+                  Robotic Motion in Unstructured Environments · Bachelor / Master Thesis
+                </div>
+                <div className="text-xs font-mono text-muted-foreground mt-2">
+                  RWTH Aachen · IGMR Institute · Joint with CloudBee Robotics
+                </div>
+              </div>
+            </div>
+            <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
+              A joint thesis with the IGMR Institute: investigate how synthetic multimodal experience reduces
+              real-world demonstrations for industrial robotics — navigation, trajectory planning and manipulation,
+              with safety-constrained, capability-oriented execution. Work hands-on with our DataForge, ModelLab and
+              AgentOS stack (UR manipulator, IGMR platforms), with the goal of a co-authored research paper.
+            </p>
+            <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-sm text-foreground/85">
+              {[
+                "M.Sc. in Mech. Eng., CS, EE or related",
+                "Strong robotics / control / ML background",
+                "ROS / ROS2, Python / C++",
+                "Motivation to publish (co-author)",
+              ].map((r) => (
+                <li key={r} className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent-green shrink-0" />
+                  {r}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6 border-t border-border">
+              <button onClick={() => setOpenRole("Master Thesis — Synthetic Multimodal Experience & Safety-Constrained Capability Execution (IGMR × CloudBee)")} className="btn-pilot">
+                Apply for this thesis
+              </button>
+              <div className="text-xs text-muted-foreground">
+                Or email Dr. Stefan Bezrucav (IGMR) ·{" "}
+                <a href="mailto:bezrucav@igmr.rwth-aachen.de" className="text-accent-green hover:underline">bezrucav@igmr.rwth-aachen.de</a>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="glass-card p-8"
           >
             <div className="flex items-start gap-4 mb-3">
