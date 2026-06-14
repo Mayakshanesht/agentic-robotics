@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Box, BrainCircuit, Network, Store, Wifi, MessageSquare, Boxes, PackageCheck } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
+import { HeroBackdrop } from "@/components/HeroBackdrop";
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
@@ -62,7 +63,7 @@ export default function Product() {
       {/* Hero */}
       <section className="relative pt-32 lg:pt-40 pb-20 overflow-hidden bg-hero-gradient">
         <ParticleBackground density={35} />
-        <div className="absolute inset-0 grid-bg opacity-40" />
+        <HeroBackdrop accent="blue" />
         <div className="section-container relative z-10 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">The Product</div>

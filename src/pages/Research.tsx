@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, GraduationCap, Award, Beaker, Building2, Briefcase, CheckCircle2 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { HeroBackdrop } from "@/components/HeroBackdrop";
 
 const credibility = [
   { icon: GraduationCap, title: "RWTH Aachen University", body: "Part of one of Europe's leading technical university ecosystems." },
@@ -19,7 +20,7 @@ export default function Research() {
       path="/research"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-40" />
+        <HeroBackdrop accent="green" />
         <div className="section-container relative z-10 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-4">Research & Traction</div>

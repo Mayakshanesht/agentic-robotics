@@ -13,6 +13,10 @@ import { ComplianceIntelligence } from "@/components/home/ComplianceIntelligence
 import { SyntheticExperience } from "@/components/home/SyntheticExperience";
 import { MultimodalLearning } from "@/components/home/MultimodalLearning";
 import { AutonomousOS } from "@/components/home/AutonomousOS";
+import { SelfImprovingLoop } from "@/components/home/SelfImprovingLoop";
+import { SixGNervousSystem } from "@/components/home/SixGNervousSystem";
+import { PlatformComingSoon } from "@/components/home/PlatformComingSoon";
+import { PartnerStrip } from "@/components/home/PartnerStrip";
 import { IndustrialFocus } from "@/components/home/IndustrialFocus";
 import { WhyCloudBee } from "@/components/home/WhyCloudBee";
 import { CapabilityIntelligence } from "@/components/home/CapabilityIntelligence";
@@ -40,6 +44,7 @@ const Index = () => {
       path="/"
     >
       <HeroSection />
+      <PartnerStrip />
       <CapabilityStory />
       <HumanVsCloudBee />
       <ProblemAdvantage />
@@ -50,10 +55,13 @@ const Index = () => {
       <SyntheticExperience />
       <MultimodalLearning />
       <AutonomousOS />
+      <SelfImprovingLoop />
+      <SixGNervousSystem />
       <IndustrialFocus />
       <DemoGallery />
       <WhyCloudBee />
       <CapabilityIntelligence />
+      <PlatformComingSoon />
       <InvestorSection />
       <CapabilityMarketplace />
       <FounderKeynote />

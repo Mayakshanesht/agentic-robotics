@@ -76,7 +76,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <div>© 2026 CloudBee Robotics GmbH (i.G.). All rights reserved.</div>
+          <div>© 2026 CloudBee Robotics. All rights reserved.</div>
           <div className="font-mono">Built at RWTH Aachen · Collective Incubator, Aachen, Germany</div>
         </div>
       </div>

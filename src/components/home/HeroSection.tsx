@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const CapabilityScene = lazy(() => import("@/components/three/CapabilityScene"));
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
@@ -58,6 +60,14 @@ export function HeroSection() {
       <div className="absolute inset-0 grid-bg opacity-[0.12] pointer-events-none" />
       <div className="absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full bg-accent-blue/20 blur-[140px] pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent-green/15 blur-[160px] pointer-events-none" />
+
+      {/* Live WebGL capability graph — cinematic backdrop behind the headline */}
+      <div className="absolute inset-x-0 top-0 h-[640px] flex items-center justify-center pointer-events-none">
+        <div className="conic-halo absolute w-[520px] h-[520px] rounded-full blur-[90px] opacity-30" />
+        <Suspense fallback={null}>
+          <CapabilityScene className="absolute inset-0 w-full h-full opacity-70 [mask-image:radial-gradient(closest-side,#000_55%,transparent)]" />
+        </Suspense>
+      </div>
 
       <div className="section-container relative z-10 w-full">
         {/* Eyebrow */}

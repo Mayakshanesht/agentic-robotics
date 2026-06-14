@@ -24,7 +24,8 @@ const smallItems: SmallItem[] = [
     sub: "RWTH Aachen University",
   },
   { kind: "placeholder", icon: Cpu, label: "IGMR Institute", sub: "RWTH · Mechanism Theory" },
-  { kind: "placeholder", icon: GraduationCap, label: "RWTH Innovation", sub: "Ideation programme" },
+  { kind: "placeholder", icon: GraduationCap, label: "Innovation Chair", sub: "RWTH Aachen" },
+  { kind: "placeholder", icon: Cpu, label: "WestAI", sub: "AI Service Center" },
 ];
 
 export function TrustStrip() {
@@ -48,7 +49,7 @@ export function TrustStrip() {
         </motion.div>
 
         {/* Top row — small partners */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 max-w-5xl mx-auto mb-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-4 max-w-6xl mx-auto mb-6">
           {smallItems.map((it, i) => (
             <motion.div
               key={it.label}

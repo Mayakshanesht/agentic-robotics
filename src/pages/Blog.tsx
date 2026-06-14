@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { blogPosts as staticPosts, news } from "@/data/blog";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -39,7 +40,7 @@ export default function Blog() {
       path="/blog"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-40" />
+        <HeroBackdrop accent="blue" />
         <div className="section-container relative z-10 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">Blog & News</div>

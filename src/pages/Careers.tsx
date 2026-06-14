@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Rocket, Brain, FlaskConical, Wrench, Globe2 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { JobApplicationDialog } from "@/components/JobApplicationDialog";
 
 const values = [
@@ -20,7 +21,7 @@ export default function Careers() {
       path="/careers"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-40" />
+        <HeroBackdrop accent="blue" />
         <div className="section-container relative z-10 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">Careers</div>
