@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 const items = [
-  "EXIST Research Transfer Grant - Secured, starts May 2026 (Federal Ministry of Economic Affairs)",
+  "EXIST Gründungsstipendium - Secured, starts May 2026 (Federal Ministry of Economic Affairs)",
   "Academic Mentor - Prof. Dr. Bastian Leibe, RWTH Aachen Computer Vision Group",
   "RWTH Innovation Ideation Program - Completed (March 2026)",
   "Deloitte Problem-Solution Fit - Completed",

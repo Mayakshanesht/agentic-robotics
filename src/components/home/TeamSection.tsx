@@ -24,7 +24,7 @@ const team = [
 ];
 
 const validation = [
-  { icon: Award, title: "EXIST Research Transfer Grant - Secured", description: "German Federal Ministry of Economic Affairs grant to build CloudBee Robotics out of RWTH Aachen." },
+  { icon: Award, title: "EXIST Gründungsstipendium - Secured", description: "German Federal Ministry of Economic Affairs grant to build CloudBee Robotics out of RWTH Aachen." },
   { icon: GraduationCap, title: "Academic Mentor - Prof. Dr. Bastian Leibe", description: "Head of the Computer Vision Group at RWTH Aachen - world-leading research in perception and learning." },
   { icon: Briefcase, title: "RWTH Ideation Program - Completed", description: "Full Deloitte Problem-Solution Fit and RWTH Innovation Ideation cycle - successfully graduated." },
 ];

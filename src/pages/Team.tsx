@@ -57,14 +57,14 @@ const advisor = {
   name: "Prof. Dr. Bastian Leibe",
   role: "Academic Mentor - RWTH Aachen",
   description:
-    "Head of the Computer Vision Group at RWTH Aachen University. Academic mentor for CloudBee Robotics under the EXIST Research Transfer Grant. World-leading research in computer vision, scene understanding, and learning for perception.",
+    "Head of the Computer Vision Group at RWTH Aachen University. Academic mentor for CloudBee Robotics under the EXIST Gründungsstipendium. World-leading research in computer vision, scene understanding, and learning for perception.",
   affiliation: "Computer Vision Group · RWTH Aachen",
   linkedin: "https://de.linkedin.com/in/bastian-leibe-76b515",
   profile: "https://www.vision.rwth-aachen.de/",
 };
 
 const credentials = [
-  { icon: Award, title: "EXIST Research Transfer Grant", desc: "Secured · German Federal Ministry for Economic Affairs and Climate Action." },
+  { icon: Award, title: "EXIST Gründungsstipendium", desc: "Secured · German Federal Ministry for Economic Affairs and Climate Action." },
   { icon: Briefcase, title: "Deloitte Problem-Solution Fit", desc: "Completed · Sept-Dec 2025." },
   { icon: GraduationCap, title: "RWTH Innovation Ideation", desc: "Completed · full cycle to graduation." },
 ];

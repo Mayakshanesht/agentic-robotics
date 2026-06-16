@@ -5,7 +5,7 @@ const milestones = [
   {
     icon: Award,
     color: "text-accent-green",
-    title: "EXIST Research Transfer Grant - Secured",
+    title: "EXIST Gründungsstipendium - Secured",
     desc: "German Federal Ministry funding - starting May 2026 - to build CloudBee Robotics from RWTH Aachen.",
   },
   {

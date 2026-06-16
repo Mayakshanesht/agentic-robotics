@@ -108,11 +108,11 @@ export function TrustStrip() {
         className="relative w-full mt-10 bg-white border-y border-border"
       >
         <div className="text-center pt-6 pb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-accent-blue">
-          Lead Federal Funding · EXIST Gründerstipendium
+          Lead Federal Funding · EXIST Gründungsstipendium
         </div>
         <img
           src={existFunding.url}
-          alt="EXIST Gründerstipendium - German Federal Ministry for Economic Affairs · ESF Plus"
+          alt="EXIST Gründungsstipendium - German Federal Ministry for Economic Affairs · ESF Plus"
           className="w-full h-auto object-contain px-4 md:px-10 pb-8"
           loading="lazy"
         />

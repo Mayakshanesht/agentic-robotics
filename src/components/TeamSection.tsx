@@ -33,7 +33,7 @@ const validation = [
   },
   {
     icon: Award,
-    title: "EXIST Research Transfer Grant",
+    title: "EXIST Gründungsstipendium",
     description: "Applying for EXIST funding with Prof. Dr. Bastian Leibe as academic mentor at RWTH Aachen University. Program period: May 1, 2026 onwards.",
   },
 ];
