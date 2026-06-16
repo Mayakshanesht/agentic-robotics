@@ -59,7 +59,8 @@ const advisor = {
   description:
     "Head of the Computer Vision Group at RWTH Aachen University. Academic mentor for CloudBee Robotics under the EXIST Research Transfer Grant. World-leading research in computer vision, scene understanding, and learning for perception.",
   affiliation: "Computer Vision Group · RWTH Aachen",
-  profile: "https://www.vision.rwth-aachen.de/person/leibe/",
+  linkedin: "https://de.linkedin.com/in/bastian-leibe-76b515",
+  profile: "https://www.vision.rwth-aachen.de/",
 };
 
 const credentials = [
@@ -150,6 +151,27 @@ export default function Team() {
                 </div>
               </motion.div>
             ))}
+
+            {/* Join the team */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.16, duration: 0.5 }}
+              className="rounded-2xl border border-dashed border-accent-blue/30 bg-accent-blue/[0.03] p-7 flex flex-col justify-center items-start hover:border-accent-blue/60 transition-colors"
+            >
+              <div className="w-12 h-12 rounded-xl bg-accent-blue/10 text-accent-blue flex items-center justify-center mb-4">
+                <ArrowRight size={20} />
+              </div>
+              <h3 className="font-display font-bold text-xl text-foreground mb-2">Your name here</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                We're growing the founding team across AI, robotics, simulation and platform. Build the
+                capability factory for physical AI with us.
+              </p>
+              <Link to="/careers" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-blue hover:gap-3 transition-all">
+                See open roles <ArrowRight size={14} />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -170,14 +192,24 @@ export default function Team() {
               <div className="text-sm text-accent-blue font-medium mb-3">{advisor.role}</div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{advisor.description}</p>
               <div className="text-xs font-mono text-muted-foreground/80 pt-3 border-t border-border">{advisor.affiliation}</div>
-              <a
-                href={advisor.profile}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-accent-blue hover:gap-2 transition-all"
-              >
-                View profile <ArrowRight size={14} />
-              </a>
+              <div className="flex flex-wrap items-center gap-4 mt-3">
+                <a
+                  href={advisor.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:text-accent-blue/80 transition-colors"
+                >
+                  <Linkedin size={14} /> LinkedIn
+                </a>
+                <a
+                  href={advisor.profile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Computer Vision Group <ArrowRight size={14} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

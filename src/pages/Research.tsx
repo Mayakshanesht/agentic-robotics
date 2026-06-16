@@ -5,11 +5,11 @@ import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 
 const credibility = [
-  { icon: GraduationCap, title: "RWTH Aachen University", body: "Part of one of Europe's leading technical university ecosystems." },
-  { icon: Beaker, title: "IGMR Institute", body: "Research collaboration with the Institute of Mechanism Theory, Machine Dynamics and Robotics - validating CloudBee's platform through pilot and research projects." },
-  { icon: Award, title: "EXIST Grant", body: "Awarded the German federal startup grant - backing the research and validating commercial and technical potential." },
-  { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center to train and validate our multimodal robot foundation models at scale." },
-  { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator." },
+  { icon: GraduationCap, title: "RWTH Aachen University", body: "Part of one of Europe's leading technical university ecosystems.", url: "https://www.rwth-aachen.de" },
+  { icon: Beaker, title: "IGMR Institute", body: "Research collaboration with the Institute of Mechanism Theory, Machine Dynamics and Robotics - validating CloudBee's platform through pilot and research projects.", url: "https://www.igmr.rwth-aachen.de" },
+  { icon: Award, title: "EXIST Grant", body: "Awarded the German federal startup grant - backing the research and validating commercial and technical potential.", url: "https://www.exist.de" },
+  { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center to train and validate our multimodal robot foundation models at scale.", url: "https://westai.de" },
+  { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator.", url: "https://www.collective-incubator.de" },
   { icon: Briefcase, title: "Industrial Traction", body: "Letter of Intent with a leading automotive Tier 1 partner." },
 ];
 
@@ -53,6 +53,16 @@ export default function Research() {
                   <div>
                     <h3 className="font-display font-semibold text-lg mb-1.5 text-foreground">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                    {"url" in c && c.url && (
+                      <a
+                        href={c.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 mt-2.5 text-xs font-semibold text-accent-blue hover:gap-2 transition-all"
+                      >
+                        Visit <ArrowRight size={12} />
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               );

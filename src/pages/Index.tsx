@@ -4,6 +4,7 @@ import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/landing/Hero";
 import { CapabilityPlayground } from "@/components/landing/CapabilityPlayground";
 import { ProblemSolution } from "@/components/landing/ProblemSolution";
+import { WhoWeServe } from "@/components/landing/WhoWeServe";
 import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
 import { PhysicsGrounding } from "@/components/landing/PhysicsGrounding";
 import { Grants } from "@/components/landing/Grants";
@@ -35,6 +36,7 @@ const Index = () => {
     >
       <Hero />
       <PartnerStrip />
+      <WhoWeServe />
       <PlatformComingSoon />
       <CapabilityPlayground />
       <ProblemSolution />
