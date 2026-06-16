@@ -7,7 +7,7 @@ const pipeline = [
   { name: "DataForge", desc: "Physics-accurate synthetic experience at scale", color: "from-cyan-400 to-accent-blue" },
   { name: "Model Lab", desc: "Train & evaluate multimodal foundation policies", color: "from-violet-500 to-fuchsia-500" },
   { name: "Agentic OS", desc: "Coordinate multi-robot fleets that self-improve", color: "from-orange-accent to-amber-400" },
-  { name: "Deploy", desc: "Edge or cloud — OTA self-improving loop", color: "from-accent-green to-emerald-400" },
+  { name: "Deploy", desc: "Edge or cloud - OTA self-improving loop", color: "from-accent-green to-emerald-400" },
 ];
 
 export function PlatformComingSoon() {
@@ -36,7 +36,7 @@ export function PlatformComingSoon() {
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
             We're releasing the CloudBee Robotics cloud platform for teams to onboard new robots
-            in days, not months — type a task, generate synthetic experience, train policies
+            in days, not months - type a task, generate synthetic experience, train policies
             and deploy a self-improving fleet end-to-end. No infrastructure to build.
           </p>
         </motion.div>

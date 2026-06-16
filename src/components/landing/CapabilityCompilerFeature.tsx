@@ -41,7 +41,7 @@ export function CapabilityCompilerFeature() {
             <span className="text-gradient-blue">Then it builds the capabilities.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Any process — described, demonstrated or documented — compiled into a validated,
+            Any process - described, demonstrated or documented - compiled into a validated,
             multi-agent capability graph for Agentic OS.
           </p>
         </motion.div>
@@ -109,7 +109,7 @@ export function CapabilityCompilerFeature() {
         >
           <p className="text-base lg:text-lg text-foreground/90 max-w-3xl leading-relaxed">
             <span className="text-gradient-green font-semibold">We don't stop at programmatic data generation.</span>{" "}
-            We scale scenarios so every capability is validated properly — and we train our own multimodal
+            We scale scenarios so every capability is validated properly - and we train our own multimodal
             AI models for the task, as planned.
           </p>
           <Link to="/product" className="btn-pilot shrink-0">

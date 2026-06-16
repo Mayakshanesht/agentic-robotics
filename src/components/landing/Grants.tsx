@@ -5,7 +5,7 @@ const grants = [
   {
     icon: Award,
     name: "EXIST Grant",
-    detail: "German federal startup grant — backing the research and the build.",
+    detail: "German federal startup grant - backing the research and the build.",
     tone: "blue" as const,
   },
   {

@@ -22,7 +22,7 @@ export function CapabilityMarketplace() {
             <span className="text-gradient-blue">capability marketplace.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Today, CloudBee Robotics is the capability engineering platform. Tomorrow, it's the marketplace — like software for Physical AI.
+            Today, CloudBee Robotics is the capability engineering platform. Tomorrow, it's the marketplace - like software for Physical AI.
           </p>
         </motion.div>
 

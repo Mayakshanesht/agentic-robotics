@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 export default function Impressum() {
   return (
     <PageShell
-      title="Impressum — CloudBee Robotics"
+      title="Impressum - CloudBee Robotics"
       description="Legal information / Impressum for CloudBee Robotics, Aachen, Germany."
       path="/impressum"
     >
@@ -12,7 +12,7 @@ export default function Impressum() {
           <h1 className="font-display font-bold text-4xl lg:text-5xl mb-8">Impressum</h1>
           <div className="prose prose-invert max-w-none space-y-6 text-muted-foreground">
             <p className="text-xs font-mono uppercase tracking-wider text-accent-blue">
-              Placeholder — to be completed by the founder per §5 TMG requirements.
+              Placeholder - to be completed by the founder per §5 TMG requirements.
             </p>
 
             <Section title="Angaben gemäß § 5 TMG">
@@ -26,7 +26,7 @@ export default function Impressum() {
             </Section>
 
             <Section title="Vertreten durch">
-              <p>Mayur Waghchoure — Founder & CEO</p>
+              <p>Mayur Waghchoure - Founder & CEO</p>
             </Section>
 
             <Section title="Kontakt">

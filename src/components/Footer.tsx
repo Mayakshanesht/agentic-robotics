@@ -10,9 +10,8 @@ export function Footer() {
       <div className="section-container py-14">
         <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-2 max-w-sm">
-            <Link to="/" className="flex items-center gap-2.5 mb-4">
-              <img src={logo} alt="CloudBee Robotics" className="h-8 w-auto" />
-              <span className="font-display font-bold text-lg">CloudBee Robotics</span>
+            <Link to="/" className="flex items-center mb-4" aria-label="CloudBee Robotics - home">
+              <img src={logo} alt="CloudBee Robotics" className="h-10 w-auto" />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               The Autonomous OS powering the next generation of embodied intelligence.
@@ -64,20 +63,31 @@ export function Footer() {
 
         <div className="mt-10 pt-8 border-t border-border">
           <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-4">Backed by</div>
-          <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-foreground/80">
-            <span>Collective Incubator</span>
-            <span className="text-muted-foreground/40">·</span>
-            <span>EXIST Funding</span>
-            <span className="text-muted-foreground/40">·</span>
-            <span>RWTH Aachen University</span>
-            <span className="text-muted-foreground/40">·</span>
-            <span>RWTH International Academy</span>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-foreground/80">
+            {[
+              { name: "EXIST Funding", url: "https://www.exist.de" },
+              { name: "WestAI", url: "https://westai.de" },
+              { name: "Collective Incubator", url: "https://www.collective-incubator.de" },
+              { name: "RWTH Aachen University", url: "https://www.rwth-aachen.de" },
+              { name: "IGMR Institute", url: "https://www.igmr.rwth-aachen.de" },
+              { name: "RWTH International Academy", url: "https://www.academy.rwth-aachen.de" },
+            ].map((s) => (
+              <a
+                key={s.name}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent-blue transition-colors underline-offset-4 hover:underline"
+              >
+                {s.name}
+              </a>
+            ))}
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <div>© 2026 CloudBee Robotics. All rights reserved.</div>
-          <div className="font-mono">Built at RWTH Aachen · Collective Incubator, Aachen, Germany</div>
+          <div className="font-mono">Built in Aachen, Germany</div>
         </div>
       </div>
     </footer>

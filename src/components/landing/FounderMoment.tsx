@@ -43,11 +43,11 @@ export function FounderMoment() {
             </div>
             <blockquote className="font-display font-bold text-2xl lg:text-4xl leading-[1.15] tracking-tight text-foreground">
               "Every factory has the work written down. We turn that knowledge into robots that
-              <span className="text-gradient-green"> do the job — and get better at it.</span>"
+              <span className="text-gradient-green"> do the job - and get better at it.</span>"
             </blockquote>
             <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
               CloudBee Robotics is a deep-tech spin-off out of RWTH Aachen, building the capability factory for
-              physical AI. From a sentence to a self-improving fleet — that's the mission.
+              physical AI. From a sentence to a self-improving fleet - that's the mission.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link to="/team" className="btn-pilot">

@@ -28,7 +28,7 @@ const Index = () => {
 
   return (
     <PageShell
-      title="CloudBee Robotics — The Capability Factory for Agentic Physical AI"
+      title="CloudBee Robotics - The Capability Factory for Agentic Physical AI"
       description="Turn any process into safety-validated robot capabilities. CloudBee Robotics compiles capabilities, generates multimodal synthetic experience at scale, trains our own task AI models, and deploys a self-improving, 6G-connected fleet run by an autonomous agentic OS."
       path="/"
     >

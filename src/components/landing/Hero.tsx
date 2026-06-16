@@ -66,6 +66,9 @@ export function Hero() {
               muted
               playsInline
               preload="metadata"
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              disablePictureInPicture
+              onContextMenu={(e) => e.preventDefault()}
               initial={{ opacity: 0, scale: 1.08 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
@@ -92,7 +95,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-background/60 pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-[0.05] pointer-events-none" />
 
-      {/* content — title over the full-bleed carousel */}
+      {/* content - title over the full-bleed carousel */}
       <div className="section-container relative z-10 w-full pt-28 pb-28">
         <div className="max-w-4xl">
             <motion.div
@@ -122,7 +125,7 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 0.12 }}
               className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed"
             >
-              Turn any process into safety-validated capabilities — with multimodal synthetic
+              Turn any process into safety-validated capabilities - with multimodal synthetic
               experience at scale, our own task AI models, and a self-improving, 6G-connected fleet
               run by an autonomous agentic OS.
             </motion.p>
@@ -159,7 +162,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* slide indicator — bottom bar */}
+      {/* slide indicator - bottom bar */}
       <div className="absolute bottom-5 sm:bottom-7 inset-x-0 z-10">
         <div className="section-container">
           <div className="flex items-center gap-3 sm:gap-4">

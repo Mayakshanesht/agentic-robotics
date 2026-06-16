@@ -4,7 +4,7 @@ import { Float, Line, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 
 /**
- * CapabilityScene — an interactive WebGL "capability graph": a slowly rotating
+ * CapabilityScene - an interactive WebGL "capability graph": a slowly rotating
  * network of glowing nodes (primitive capabilities) wired by dependency edges,
  * orbiting a wireframe core (the Capability Compiler). Pointer drives parallax.
  *
@@ -97,7 +97,7 @@ function Graph() {
 
   return (
     <group ref={group}>
-      {/* wireframe core — the Capability Compiler */}
+      {/* wireframe core - the Capability Compiler */}
       <mesh>
         <icosahedronGeometry args={[1.05, 1]} />
         <meshBasicMaterial

@@ -61,7 +61,7 @@ export function HeroSection() {
       <div className="absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full bg-accent-blue/20 blur-[140px] pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent-green/15 blur-[160px] pointer-events-none" />
 
-      {/* Live WebGL capability graph — cinematic backdrop behind the headline */}
+      {/* Live WebGL capability graph - cinematic backdrop behind the headline */}
       <div className="absolute inset-x-0 top-0 h-[640px] flex items-center justify-center pointer-events-none">
         <div className="conic-halo absolute w-[520px] h-[520px] rounded-full blur-[90px] opacity-30" />
         <Suspense fallback={null}>
@@ -145,7 +145,7 @@ export function HeroSection() {
           </Link>
         </motion.div>
 
-        {/* Carousel — cinematic, full-bleed feel */}
+        {/* Carousel - cinematic, full-bleed feel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

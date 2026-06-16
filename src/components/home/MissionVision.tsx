@@ -40,7 +40,7 @@ export function MissionVision() {
             <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent-blue mb-2">Mission</div>
             <h3 className="font-display font-bold text-2xl mb-4 text-foreground">What we are building today.</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Replace months of teleoperation with synthetic 4D data, explainable VLA models, and an agentic ROS 2 runtime — for any humanoid, arm, or AMR.
+              Replace months of teleoperation with synthetic 4D data, explainable VLA models, and an agentic ROS 2 runtime - for any humanoid, arm, or AMR.
             </p>
 
           </motion.div>
@@ -59,7 +59,7 @@ export function MissionVision() {
             <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent-green mb-2">Vision</div>
             <h3 className="font-display font-bold text-2xl mb-4 text-foreground">A skill economy for physical intelligence.</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Every robot — in every factory, lab, and home — downloading new skills from the internet the way software does today. Europe leading a safe, explainable, hardware-agnostic infrastructure layer for embodied AI.
+              Every robot - in every factory, lab, and home - downloading new skills from the internet the way software does today. Europe leading a safe, explainable, hardware-agnostic infrastructure layer for embodied AI.
             </p>
 
           </motion.div>

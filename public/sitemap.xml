@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://cloudbeerobotics.de/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://cloudbeerobotics.de/product</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://cloudbeerobotics.de/solution</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://cloudbeerobotics.de/research</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cloudbeerobotics.de/team</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cloudbeerobotics.de/careers</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cloudbeerobotics.de/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cloudbeerobotics.de/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cloudbeerobotics.de/impressum</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://cloudbeerobotics.de/blog/introducing-cloudbee-robotics</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cloudbeerobotics.de/blog/why-physical-ai-needs-4d-synthetic-data</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cloudbeerobotics.de/blog/sim-to-real-gap-solved</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>

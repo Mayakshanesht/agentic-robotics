@@ -6,7 +6,7 @@ import {
 import * as THREE from "three";
 
 /**
- * HumanoidScene — a stylised humanoid robot with a lifelike idle:
+ * HumanoidScene - a stylised humanoid robot with a lifelike idle:
  * breathing, weight-shift, head look-around and a periodic friendly wave.
  * Realistic look without external model files (CSP-safe): PBR shells,
  * in-scene image-based lighting and a reflective floor.

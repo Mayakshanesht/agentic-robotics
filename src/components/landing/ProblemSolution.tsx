@@ -39,7 +39,7 @@ export function ProblemSolution() {
             <span className="text-gradient-orange">the hard way.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Teams burn months on the same broken loop — and most deployments still fail at the last mile.
+            Teams burn months on the same broken loop - and most deployments still fail at the last mile.
             CloudBee Robotics turns that loop into one continuous, self-improving pipeline.
           </p>
         </motion.div>

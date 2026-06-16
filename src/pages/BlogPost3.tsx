@@ -33,7 +33,7 @@ export default function BlogPost3() {
 
             <div className="prose prose-lg max-w-none text-foreground">
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Today, we're excited to announce CloudBee Robotics — an end-to-end platform 
+                Today, we're excited to announce CloudBee Robotics - an end-to-end platform 
                 for building agentic physical AI. We're building the infrastructure that will 
                 power the next generation of intelligent robots.
               </p>

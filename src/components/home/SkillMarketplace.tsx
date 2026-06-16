@@ -7,7 +7,7 @@ const flow = [
     icon: Wifi,
     step: "01",
     title: "Connect Your Robot",
-    body: "Plug any humanoid, robotic arm, or AMR into CloudBee Robotics over the internet — Unitree, Figure, custom hardware. ROS 2 native.",
+    body: "Plug any humanoid, robotic arm, or AMR into CloudBee Robotics over the internet - Unitree, Figure, custom hardware. ROS 2 native.",
   },
   {
     icon: MessageSquare,
@@ -25,7 +25,7 @@ const flow = [
     icon: PackageCheck,
     step: "04",
     title: "Download as ROS 2 Skill",
-    body: "Get an agentic AI solution wrapped in a ROS 2 node — pushed directly to your robot, ready to run with safety contracts.",
+    body: "Get an agentic AI solution wrapped in a ROS 2 node - pushed directly to your robot, ready to run with safety contracts.",
   },
 ];
 
@@ -49,7 +49,7 @@ export function SkillMarketplace() {
             <span className="text-gradient-blue">Get a skill.</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            CloudBee Robotics becomes the skill store for embodied AI — a closed loop from task prompt to a downloadable,
+            CloudBee Robotics becomes the skill store for embodied AI - a closed loop from task prompt to a downloadable,
             safety-validated ROS 2 skill running on your robot.
           </p>
         </motion.div>

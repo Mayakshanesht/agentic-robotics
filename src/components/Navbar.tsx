@@ -37,11 +37,12 @@ export function Navbar() {
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link to="/" className="flex items-center gap-2.5">
-            <img src={logo} alt="CloudBee Robotics" className="h-8 w-auto" />
-            <span className="font-display font-bold text-base lg:text-lg tracking-tight text-foreground">
-              CloudBee <span className="text-muted-foreground font-medium">Robotics</span>
-            </span>
+          <Link to="/" className="flex items-center" aria-label="CloudBee Robotics home">
+            <img
+              src={logo}
+              alt="CloudBee Robotics"
+              className="h-11 lg:h-12 w-auto rounded-lg ring-1 ring-white/10 shadow-lg shadow-black/30"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">

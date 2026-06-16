@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 const items = [
-  "EXIST Research Transfer Grant — Secured, starts May 2026 (Federal Ministry of Economic Affairs)",
-  "Academic Mentor — Prof. Dr. Bastian Leibe, RWTH Aachen Computer Vision Group",
-  "RWTH Innovation Ideation Program — Completed (March 2026)",
-  "Deloitte Problem–Solution Fit — Completed",
-  "Research Collaboration — IGMR Institute, RWTH Aachen",
-  "Functional prototype operational — pilots underway",
+  "EXIST Research Transfer Grant - Secured, starts May 2026 (Federal Ministry of Economic Affairs)",
+  "Academic Mentor - Prof. Dr. Bastian Leibe, RWTH Aachen Computer Vision Group",
+  "RWTH Innovation Ideation Program - Completed (March 2026)",
+  "Deloitte Problem-Solution Fit - Completed",
+  "Research Collaboration - IGMR Institute, RWTH Aachen",
+  "Functional prototype operational - pilots underway",
 ];
 
 export function Traction() {
@@ -24,7 +24,7 @@ export function Traction() {
           <span className="text-gradient-green">Momentum</span>
         </motion.h2>
         <p className="text-center text-muted-foreground mb-12">
-          We're building in the open — with the right partners.
+          We're building in the open - with the right partners.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">

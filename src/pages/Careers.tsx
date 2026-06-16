@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Rocket, Brain, FlaskConical, Wrench, Globe2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, MapPin, Rocket, Brain, FlaskConical, Wrench, Globe2, ChevronDown } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { JobApplicationDialog } from "@/components/JobApplicationDialog";
@@ -11,13 +11,24 @@ const values = [
   { icon: Globe2, title: "Europe's physical AI hub", body: "Deep roots in Aachen's tech ecosystem." },
 ];
 
+const moreRoles = [
+  { title: "Robotics Software Engineer (ROS 2)", sub: "Runtime, controls & hardware integration" },
+  { title: "ML Engineer - VLA & World Models", sub: "Training, evaluation, sim-to-real" },
+  { title: "Simulation / Synthetic Data Engineer", sub: "Isaac Sim, 4D world generation" },
+  { title: "AI Solutions Consultant", sub: "Translate client processes into capabilities" },
+  { title: "Full-Stack / Platform Engineer", sub: "Cloud platform, APIs, developer experience" },
+  { title: "Working Student · AI & Robotics", sub: "Part-time, RWTH students welcome" },
+];
+
 export default function Careers() {
   const [openRole, setOpenRole] = useState<string | null>(null);
+  const [details, setDetails] = useState<Record<string, boolean>>({});
+  const toggle = (k: string) => setDetails((d) => ({ ...d, [k]: !d[k] }));
 
   return (
     <PageShell
-      title="Careers — CloudBee Robotics"
-      description="Join CloudBee Robotics — build the autonomous OS for embodied AI from Aachen, Germany. EXIST funded, RWTH-backed."
+      title="Careers - CloudBee Robotics"
+      description="Join CloudBee Robotics - build the autonomous OS for embodied AI from Aachen, Germany. EXIST funded, RWTH-backed."
       path="/careers"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
@@ -29,7 +40,7 @@ export default function Careers() {
               Join the team building the <span className="text-gradient-blue">future of physical AI.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              We're a small, senior team shipping a real product — synthetic 4D data, explainable VLA models, and an agentic runtime that deploys to any humanoid, arm, or AMR.
+              We're a small, senior team shipping a real product - synthetic 4D data, explainable VLA models, and an agentic runtime that deploys to any humanoid, arm, or AMR.
             </p>
             <div className="inline-flex items-center gap-2 text-sm font-mono text-muted-foreground px-3 py-2 mt-6 rounded-md border border-border bg-surface/60">
               <MapPin size={14} className="text-accent-blue" />
@@ -69,9 +80,20 @@ export default function Careers() {
                 </div>
               </div>
             </div>
-            <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
-              Join our core team at the intersection of robotics, synthetic data, embodied AI, and robotic foundation models. PhD-level or strong industry experience in generative AI, multimodal systems, or robotics simulation.
-            </p>
+            <button onClick={() => toggle("rs")} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:gap-2 transition-all">
+              {details.rs ? "Hide details" : "View details"}
+              <ChevronDown size={15} className={`transition-transform ${details.rs ? "rotate-180" : ""}`} />
+            </button>
+            <AnimatePresence initial={false}>
+              {details.rs && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}
+                  className="mt-4 text-sm text-muted-foreground leading-relaxed overflow-hidden"
+                >
+                  Join our core team at the intersection of robotics, synthetic data, embodied AI, and robotic foundation models. PhD-level or strong industry experience in generative AI, multimodal systems, or robotics simulation.
+                </motion.p>
+              )}
+            </AnimatePresence>
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6 border-t border-border">
               <button onClick={() => setOpenRole("Research Scientist / Founding AI Engineer")} className="btn-pilot">
                 Apply Now
@@ -106,27 +128,37 @@ export default function Careers() {
                 </div>
               </div>
             </div>
-            <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
-              A joint thesis with the IGMR Institute: investigate how synthetic multimodal experience reduces
-              real-world demonstrations for industrial robotics — navigation, trajectory planning and manipulation,
-              with safety-constrained, capability-oriented execution. Work hands-on with our DataForge, ModelLab and
-              AgentOS stack (UR manipulator, IGMR platforms), with the goal of a co-authored research paper.
-            </p>
-            <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-sm text-foreground/85">
-              {[
-                "M.Sc. in Mech. Eng., CS, EE or related",
-                "Strong robotics / control / ML background",
-                "ROS / ROS2, Python / C++",
-                "Motivation to publish (co-author)",
-              ].map((r) => (
-                <li key={r} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent-green shrink-0" />
-                  {r}
-                </li>
-              ))}
-            </ul>
+            <button onClick={() => toggle("th")} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-green hover:gap-2 transition-all">
+              {details.th ? "Hide details" : "View details"}
+              <ChevronDown size={15} className={`transition-transform ${details.th ? "rotate-180" : ""}`} />
+            </button>
+            <AnimatePresence initial={false}>
+              {details.th && (
+                <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
+                  <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                    A joint thesis with the IGMR Institute: investigate how synthetic multimodal experience reduces
+                    real-world demonstrations for industrial robotics - navigation, trajectory planning and manipulation,
+                    with safety-constrained, capability-oriented execution. Work hands-on with our DataForge, ModelLab and
+                    AgentOS stack (UR manipulator, IGMR platforms), with the goal of a co-authored research paper.
+                  </p>
+                  <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-sm text-foreground/85">
+                    {[
+                      "M.Sc. in Mech. Eng., CS, EE or related",
+                      "Strong robotics / control / ML background",
+                      "ROS / ROS2, Python / C++",
+                      "Motivation to publish (co-author)",
+                    ].map((r) => (
+                      <li key={r} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-green shrink-0" />
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6 border-t border-border">
-              <button onClick={() => setOpenRole("Master Thesis — Synthetic Multimodal Experience & Safety-Constrained Capability Execution (IGMR × CloudBee Robotics)")} className="btn-pilot">
+              <button onClick={() => setOpenRole("Master Thesis - Synthetic Multimodal Experience & Safety-Constrained Capability Execution (IGMR × CloudBee Robotics)")} className="btn-pilot">
                 Apply for this thesis
               </button>
               <div className="text-xs text-muted-foreground">
@@ -135,6 +167,34 @@ export default function Careers() {
               </div>
             </div>
           </motion.div>
+
+          {/* More roles */}
+          <div className="mb-6">
+            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4">We're also growing these teams</div>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {moreRoles.map((r) => (
+                <motion.div
+                  key={r.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-center justify-between gap-3 rounded-xl border border-border bg-surface/40 px-5 py-4 hover:border-accent-blue/40 transition-colors"
+                >
+                  <div>
+                    <div className="font-display font-semibold text-foreground">{r.title}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{r.sub}</div>
+                  </div>
+                  <button
+                    onClick={() => setOpenRole(r.title)}
+                    className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:gap-2 transition-all"
+                  >
+                    Apply <ArrowRight size={14} />
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -148,7 +208,7 @@ export default function Careers() {
               <div>
                 <h3 className="font-display font-bold text-xl text-foreground">Open Application</h3>
                 <p className="text-sm text-muted-foreground mt-2 max-w-2xl">
-                  Don't see a role that fits? We're always interested in exceptional people — simulation, embedded, full-stack, or research backgrounds welcome.
+                  Don't see a role that fits? We're always interested in exceptional people - simulation, embedded, full-stack, or research backgrounds welcome.
                 </p>
               </div>
             </div>

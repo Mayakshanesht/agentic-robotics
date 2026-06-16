@@ -5,19 +5,19 @@ const milestones = [
   {
     icon: Award,
     color: "text-accent-green",
-    title: "EXIST Research Transfer Grant — Secured",
-    desc: "German Federal Ministry funding — starting May 2026 — to build CloudBee Robotics from RWTH Aachen.",
+    title: "EXIST Research Transfer Grant - Secured",
+    desc: "German Federal Ministry funding - starting May 2026 - to build CloudBee Robotics from RWTH Aachen.",
   },
   {
     icon: Lightbulb,
     color: "text-accent-green",
-    title: "RWTH Ideation Program — Completed (March 2026)",
-    desc: "Graduated from RWTH Innovation Ideation — from problem-fit through halftime to final pitch.",
+    title: "RWTH Ideation Program - Completed (March 2026)",
+    desc: "Graduated from RWTH Innovation Ideation - from problem-fit through halftime to final pitch.",
   },
   {
     icon: Briefcase,
     color: "text-accent-blue",
-    title: "Deloitte Problem–Solution Fit — Completed",
+    title: "Deloitte Problem-Solution Fit - Completed",
     desc: "Full validation cycle with Deloitte: problem definition and solution direction signed off.",
   },
 ];

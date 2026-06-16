@@ -8,13 +8,13 @@ const hardware = [
 ];
 
 const industries = [
-  { icon: Car, title: "Automotive & Mobility", body: "Robotic cells for assembly, kitting, and inline QA — including arm-based stations and AMR-fed lines." },
+  { icon: Car, title: "Automotive & Mobility", body: "Robotic cells for assembly, kitting, and inline QA - including arm-based stations and AMR-fed lines." },
   { icon: Factory, title: "Industrial Manufacturing", body: "Automate complex assembly, material handling, and inspection across humanoids, arms, and AMRs." },
   { icon: Boxes, title: "Logistics & Warehousing", body: "AMR fleets and pick-and-place arms orchestrated through one autonomous runtime." },
   { icon: Bot, title: "Humanoid Robotics", body: "Onboard humanoids fast with custom skill stacks and safety constraints." },
-  { icon: HeartPulse, title: "Healthcare & Assisted Living", body: "Reliable, safe robots — mobile and manipulator — in sensitive environments." },
+  { icon: HeartPulse, title: "Healthcare & Assisted Living", body: "Reliable, safe robots - mobile and manipulator - in sensitive environments." },
   { icon: Database, title: "Computer Vision & AI R&D", body: "Reuse our 4D synthetic datasets for perception, detection, and foundation-model training beyond robotics." },
-  { icon: Sparkles, title: "Service Robotics", body: "From task spec to live deployment, autonomously — across form factors." },
+  { icon: Sparkles, title: "Service Robotics", body: "From task spec to live deployment, autonomously - across form factors." },
 ];
 
 export function TargetIndustries() {
@@ -35,7 +35,7 @@ export function TargetIndustries() {
             Built for <span className="text-gradient-blue">Real-World Deployments</span>
           </h2>
           <p className="text-muted-foreground text-base">
-            One operating system across humanoids, robotic arms, and autonomous mobile robots — with datasets reusable for broader CV and AI work.
+            One operating system across humanoids, robotic arms, and autonomous mobile robots - with datasets reusable for broader CV and AI work.
           </p>
         </motion.div>
 

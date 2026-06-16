@@ -2,7 +2,7 @@ import { ExternalLink, Calendar, Trophy, Rocket, Target, Award, Cpu } from "luci
 
 /**
  * ============================================================
- * BLOG POSTS  —  add new entries by pushing to this array
+ * BLOG POSTS  -  add new entries by pushing to this array
  * ============================================================
  * Each post needs: slug (route after /blog/), title, excerpt,
  * date, category. Full article lives in src/pages/BlogPost*.tsx
@@ -34,7 +34,7 @@ export const blogPosts = [
 
 /**
  * ============================================================
- * ANNOUNCEMENTS / NEWS  —  add new entries by pushing here
+ * ANNOUNCEMENTS / NEWS  -  add new entries by pushing here
  * ============================================================
  */
 export const news = [
@@ -43,16 +43,16 @@ export const news = [
     title: "CloudBee Robotics Secures WestAI Compute Grant",
     date: "June 2026",
     description:
-      "We're thrilled to announce that CloudBee Robotics has secured a compute grant from the WestAI AI Service Center. This compute will power the training of our multimodal synthetic experience and physical-AI-grounded real-world data, our multimodal AI models, and the Agentic OS — accelerating safety-validated capabilities for industrial robots, humanoids and mobile platforms. A huge thank you to the WestAI team for backing our research.",
+      "We're thrilled to announce that CloudBee Robotics has secured a compute grant from the WestAI AI Service Center. This compute will power the training of our multimodal synthetic experience and physical-AI-grounded real-world data, our multimodal AI models, and the Agentic OS - accelerating safety-validated capabilities for industrial robots, humanoids and mobile platforms. A huge thank you to the WestAI team for backing our research.",
     link: "/research",
     highlight: "WestAI Grant",
   },
   {
     icon: Award,
     title: "CloudBee Robotics Awarded EXIST Funding",
-    date: "May 2026 — Present",
+    date: "May 2026 - Present",
     description:
-      "We're excited to share that CloudBee Robotics has been awarded EXIST funding from the German Federal Government — a major milestone as we continue building in the agentic physical AI space, bringing state-of-the-art AI models into industrial robotics, robotic arms, humanoids, AGVs, healthcare, home care, and agriculture. Huge thanks to RWTH Collective Incubator, RWTH Innovation, Therese Liegmann, Hanna, Dr. Tobias Recker, and our academic mentor Dr. Bastian Leibe.",
+      "We're excited to share that CloudBee Robotics has been awarded EXIST funding from the German Federal Government - a major milestone as we continue building in the agentic physical AI space, bringing state-of-the-art AI models into industrial robotics, robotic arms, humanoids, AGVs, healthcare, home care, and agriculture. Huge thanks to RWTH Collective Incubator, RWTH Innovation, Therese Liegmann, Hanna, Dr. Tobias Recker, and our academic mentor Dr. Bastian Leibe.",
     link: "https://www.linkedin.com/posts/mayur-waghchoure-a5aba5ab_cloudbeerobotics-existfunding-startupfunding-share-7454759287098191872-71IS",
     highlight: "EXIST Grant",
   },

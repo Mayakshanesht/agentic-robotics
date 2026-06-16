@@ -30,7 +30,7 @@ export function SafetyValidation() {
             <span className="text-gradient-blue">before deployment.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Engineering review before autonomy. Every capability is paired with the scenarios that prove it works — and the constraints that prove it's safe.
+            Engineering review before autonomy. Every capability is paired with the scenarios that prove it works - and the constraints that prove it's safe.
           </p>
         </motion.div>
 

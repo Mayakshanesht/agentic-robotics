@@ -21,7 +21,7 @@ const cards: Card[] = [
     icon: Cpu,
     sub: "Orchestration · Runtime",
     title: "AgentOS",
-    body: "Agentic ROS 2 runtime that plans, executes, and recovers long-horizon tasks across robot fleets — with safety contracts and continuous monitoring.",
+    body: "Agentic ROS 2 runtime that plans, executes, and recovers long-horizon tasks across robot fleets - with safety contracts and continuous monitoring.",
     features: [
       "Robot orchestration & fleet management",
       "Agentic execution with world-state reasoning",
@@ -37,7 +37,7 @@ const cards: Card[] = [
     icon: Database,
     sub: "Synthetic Experience Engine",
     title: "DataForge",
-    body: "Turn a natural-language task into a multimodal 4D world — digital twins, randomized scenarios, sim-to-real ready.",
+    body: "Turn a natural-language task into a multimodal 4D world - digital twins, randomized scenarios, sim-to-real ready.",
     features: [
       "Synthetic experience generation at scale",
       "Multimodal: RGB · Depth · Tactile · F/T · LiDAR",
@@ -53,7 +53,7 @@ const cards: Card[] = [
     icon: BrainCircuit,
     sub: "Foundation Models · VLA",
     title: "ModelLab",
-    body: "Adapt foundation models, train VLAs and world models on multimodal experience — explainable, evaluable, safety-aware.",
+    body: "Adapt foundation models, train VLAs and world models on multimodal experience - explainable, evaluable, safety-aware.",
     features: [
       "Foundation model adaptation",
       "VLA & world model training",
@@ -116,7 +116,7 @@ export function PlatformOverview() {
             What We <span className="text-gradient-blue">Provide</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            One autonomous OS. Three integrated layers — from a task description all the way to a deployed robot policy.
+            One autonomous OS. Three integrated layers - from a task description all the way to a deployed robot policy.
           </p>
         </motion.div>
 

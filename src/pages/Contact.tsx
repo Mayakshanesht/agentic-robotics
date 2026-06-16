@@ -60,7 +60,7 @@ export default function Contact() {
 
   return (
     <PageShell
-      title="Contact — CloudBee Robotics"
+      title="Contact - CloudBee Robotics"
       description="Get in touch with CloudBee Robotics. Pilot partnerships, research collaboration, and investment inquiries welcome."
       path="/contact"
     >
@@ -73,7 +73,7 @@ export default function Contact() {
               Let's <span className="text-gradient-blue">Build Together.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Whether you're looking to run a pilot, explore a partnership, or just want to learn more — we'd love to hear from you.
+              Whether you're looking to run a pilot, explore a partnership, or just want to learn more - we'd love to hear from you.
             </p>
           </motion.div>
         </div>
@@ -95,7 +95,7 @@ export default function Contact() {
                     <Mail size={16} className="text-accent-green" />
                     <span>
                       mayurwaghchoure1995@gmail.com
-                      <span className="block text-xs text-muted-foreground/70 font-mono">Founder & CEO — Mayur Waghchoure</span>
+                      <span className="block text-xs text-muted-foreground/70 font-mono">Founder & CEO - Mayur Waghchoure</span>
                     </span>
                   </a>
                   <div className="flex items-center gap-3 text-muted-foreground">
@@ -126,7 +126,7 @@ export default function Contact() {
               <div className="glass-card p-6">
                 <h3 className="font-display font-semibold text-base mb-2 text-foreground">Want to talk?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Interested in a 20–30 min intro call? Reach out and let's schedule something.
+                  Interested in a 20-30 min intro call? Reach out and let's schedule something.
                 </p>
               </div>
             </div>

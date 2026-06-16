@@ -17,7 +17,7 @@ const solutions = [
   {
     icon: Layers,
     title: "World Models & Foundation Models",
-    description: "Better world models emerge from better worlds—not from more teleoperation.",
+    description: "Better world models emerge from better worlds-not from more teleoperation.",
   },
   {
     icon: Rocket,
@@ -55,7 +55,7 @@ export function SolutionSection() {
           className="text-center text-muted-foreground max-w-2xl mx-auto mb-16 leading-relaxed"
         >
           CloudBee Robotics provides unified infrastructure for building, training, and deploying 
-          agentic physical AI—from synthetic worlds to real robots.
+          agentic physical AI-from synthetic worlds to real robots.
         </motion.p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

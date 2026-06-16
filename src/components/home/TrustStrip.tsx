@@ -64,7 +64,7 @@ export function TrustStrip() {
           </h2>
         </motion.div>
 
-        {/* Top row — small partners */}
+        {/* Top row - small partners */}
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-4 max-w-6xl mx-auto mb-6">
           {smallItems.map((it, i) => (
             <motion.div
@@ -99,7 +99,7 @@ export function TrustStrip() {
 
       </div>
 
-      {/* EXIST — full-bleed edge-to-edge */}
+      {/* EXIST - full-bleed edge-to-edge */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export function TrustStrip() {
         </div>
         <img
           src={existFunding.url}
-          alt="EXIST Gründerstipendium — German Federal Ministry for Economic Affairs · ESF Plus"
+          alt="EXIST Gründerstipendium - German Federal Ministry for Economic Affairs · ESF Plus"
           className="w-full h-auto object-contain px-4 md:px-10 pb-8"
           loading="lazy"
         />

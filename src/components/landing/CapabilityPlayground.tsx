@@ -24,7 +24,7 @@ const examples = [
   "Pick red parts off the conveyor and place them in the bin, avoid the safety fence",
   "Inspect welds on the chassis and flag any defects",
   "Fetch totes from storage and deliver them to the packing station",
-  "Assemble the bracket — insert the screws and fasten them",
+  "Assemble the bracket - insert the screws and fasten them",
 ];
 
 const KEYWORDS: [RegExp, string][] = [
@@ -111,18 +111,21 @@ export function CapabilityPlayground() {
     if (!ok) { toast.error("Please enter a valid email"); return; }
     setSending(true);
     try {
-      const { error } = await supabase.from("contact_inquiries").insert({
+      const payload = {
         name: "Playground lead",
-        company: null,
+        company: "",
         email: email.trim(),
-        interest: "Pilot Program",
+        interest: "Pilot Program" as const,
         message: `Compile on my process: "${task}"`,
-      });
+      };
+      const { error } = await supabase.from("contact_inquiries").insert({ ...payload, company: null });
       if (error) throw error;
+      // best-effort email notification (same edge function as the contact form)
+      supabase.functions.invoke("send-contact-email", { body: payload }).catch(() => {});
       setSent(true);
       toast.success("Thanks! We'll reach out to compile this on your process.");
     } catch {
-      toast.error("Something went wrong — please email info@cloudbeerobotics.de");
+      toast.error("Something went wrong - please email info@cloudbeerobotics.de");
     } finally {
       setSending(false);
     }
@@ -149,8 +152,11 @@ export function CapabilityPlayground() {
             Type a task. <span className="text-gradient-mixed">Watch it become a capability.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            The Capability Compiler in miniature — describe a job and watch it compile into a
+            The Capability Compiler in miniature - describe a job and watch it compile into a
             validated, multi-agent capability graph with a concurrent execution schedule.
+          </p>
+          <p className="mt-3 text-xs font-mono text-muted-foreground/70">
+            Illustrative preview - your real process is compiled privately, not in the browser.
           </p>
         </motion.div>
 
@@ -251,7 +257,7 @@ export function CapabilityPlayground() {
                     </div>
                   </TabsContent>
 
-                  {/* execution schedule — swimlanes */}
+                  {/* execution schedule - swimlanes */}
                   <TabsContent value="schedule">
                     <div className="rounded-xl border border-border bg-background/40 p-5">
                       <div className="space-y-3">
@@ -317,7 +323,7 @@ export function CapabilityPlayground() {
                   {sent ? (
                     <div className="flex items-center gap-2.5 text-foreground">
                       <Check size={18} className="text-accent-green" />
-                      <span className="text-sm">Thanks — we'll be in touch about compiling this on your real process.</span>
+                      <span className="text-sm">Thanks - we'll be in touch about compiling this on your real process.</span>
                     </div>
                   ) : (
                     <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 justify-between">

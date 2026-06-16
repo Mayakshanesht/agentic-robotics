@@ -70,7 +70,7 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
           <div className="py-10 text-center">
             <CheckCircle2 size={48} className="text-accent-green mx-auto mb-4" />
             <h3 className="font-display font-bold text-2xl mb-2">Application received</h3>
-            <p className="text-muted-foreground text-sm mb-6">We review every application and will get back to you within 1–2 weeks.</p>
+            <p className="text-muted-foreground text-sm mb-6">We review every application and will get back to you within 1-2 weeks.</p>
             <button onClick={onClose} className="btn-pilot">Close</button>
           </div>
         ) : (

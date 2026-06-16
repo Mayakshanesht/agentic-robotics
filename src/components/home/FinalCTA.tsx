@@ -39,7 +39,7 @@ export function FinalCTA() {
                 <span className="text-gradient-blue">autonomous intelligence?</span>
               </h2>
               <p className="text-muted-foreground text-base lg:text-lg max-w-xl">
-                Whether you're scaling a fleet of humanoids or automating an industrial line — we work
+                Whether you're scaling a fleet of humanoids or automating an industrial line - we work
                 directly with select partners to ship production-grade autonomy.
               </p>
               <ul className="mt-6 space-y-2">

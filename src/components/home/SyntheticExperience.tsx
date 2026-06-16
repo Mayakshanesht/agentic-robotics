@@ -30,7 +30,7 @@ export function SyntheticExperience() {
             Generate <span className="text-gradient-blue">training-ready experience.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Not synthetic data. Experience — grounded in capabilities and validation scenarios, generated across modalities.
+            Not synthetic data. Experience - grounded in capabilities and validation scenarios, generated across modalities.
           </p>
         </motion.div>
 

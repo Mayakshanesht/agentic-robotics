@@ -3,7 +3,7 @@ import { Radio, Cloud, Cpu, Zap, Activity } from "lucide-react";
 
 const specs = [
   { icon: Zap, label: "Sub-ms URLLC", desc: "Ultra-reliable low-latency control loop closes in real time." },
-  { icon: Activity, label: "eMBB Telemetry", desc: "High-bandwidth multimodal sensor streams — vision, force, tactile." },
+  { icon: Activity, label: "eMBB Telemetry", desc: "High-bandwidth multimodal sensor streams - vision, force, tactile." },
   { icon: Cpu, label: "Edge ↔ Cloud", desc: "Inference splits dynamically between on-device and the cloud brain." },
 ];
 
@@ -33,7 +33,7 @@ export function SixGNervousSystem() {
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl">
               CloudBee Robotics streams multimodal sensor data over a 6G bearer (eMBB + URLLC) so the
-              self-improving loop runs live — failures are captured, analyzed and corrected in
+              self-improving loop runs live - failures are captured, analyzed and corrected in
               real time instead of waiting for batch uploads.
             </p>
 

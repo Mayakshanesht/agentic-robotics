@@ -22,7 +22,7 @@ const items: Item[] = [
   { src: "/partners/igmr.png", alt: "IGMR Institute · RWTH Aachen", label: "IGMR Institute", chip: "light" },
   { src: "/partners/rwth.png", alt: "RWTH Aachen University", label: "RWTH Aachen University", chip: "light" },
   { src: "/partners/westai.png", alt: "WEST AI · KI-Servicezentrum", label: "WEST AI", chip: "dark" },
-  { src: "/partners/exist.png", alt: "EXIST — From Science to Business", label: "EXIST", chip: "light" },
+  { src: "/partners/exist.png", alt: "EXIST - From Science to Business", label: "EXIST", chip: "light" },
 ];
 
 function Logo({ src, alt, label, chip }: Item) {

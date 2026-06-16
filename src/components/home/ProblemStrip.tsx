@@ -6,14 +6,14 @@ const items = [
     icon: Database,
     title: "Data Bottleneck",
     metric: "Teleoperation",
-    desc: "Teams burn months collecting human-teleoperated demos per task. We replace it with synthetic, multimodal 4D data — vision, tactile, force, LiDAR, proprioception — generated at scale.",
+    desc: "Teams burn months collecting human-teleoperated demos per task. We replace it with synthetic, multimodal 4D data - vision, tactile, force, LiDAR, proprioception - generated at scale.",
     color: "text-accent-blue",
   },
   {
     icon: ShieldAlert,
     title: "Black-Box Models",
     metric: "Unsafe to Ship",
-    desc: "Most VLA stacks can't pass functional-safety validation. We build explainable models with traceable decisions — engineered for certification, not just demos.",
+    desc: "Most VLA stacks can't pass functional-safety validation. We build explainable models with traceable decisions - engineered for certification, not just demos.",
     color: "text-accent-green",
   },
   {
@@ -27,7 +27,7 @@ const items = [
     icon: Rocket,
     title: "Deployment Friction",
     metric: "Months → Days",
-    desc: "Bespoke integration per robot kills velocity. Our runtime ships agentic policies as ROS 2 nodes — seamless deployment on any humanoid, arm, or AMR.",
+    desc: "Bespoke integration per robot kills velocity. Our runtime ships agentic policies as ROS 2 nodes - seamless deployment on any humanoid, arm, or AMR.",
     color: "text-accent-green",
   },
 ];
@@ -51,7 +51,7 @@ export function ProblemStrip() {
             Four walls between robots and <span className="text-gradient-blue">real-world autonomy.</span>
           </h2>
           <p className="text-muted-foreground text-base mt-3">
-            Data · safety · reasoning · integration — all solved in one platform.
+            Data · safety · reasoning · integration - all solved in one platform.
           </p>
 
         </motion.div>
@@ -80,7 +80,7 @@ export function ProblemStrip() {
         </div>
 
         <p className="text-center text-lg lg:text-xl font-display font-medium text-foreground">
-          One platform — from synthetic data to safe, explainable, deployable intelligence.{" "}
+          One platform - from synthetic data to safe, explainable, deployable intelligence.{" "}
           <span className="text-gradient-green">CloudBee Robotics closes the loop.</span>
         </p>
       </div>

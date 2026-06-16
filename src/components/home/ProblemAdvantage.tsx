@@ -35,7 +35,7 @@ export function ProblemAdvantage() {
             <span className="text-gradient-blue">broken.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Teams spend months on the same loop — and most deployments still fail at the last mile.
+            Teams spend months on the same loop - and most deployments still fail at the last mile.
           </p>
         </motion.div>
 

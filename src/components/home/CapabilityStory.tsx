@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 const steps = [
   { t: "Industrial Process", d: "Real work in warehouses, factories and lines." },
   { t: "Capability Graph", d: "Decompose work into reusable, composable capabilities." },
-  { t: "Safety Graph", d: "Constraints, hazards and engineering review — before training." },
+  { t: "Safety Graph", d: "Constraints, hazards and engineering review - before training." },
   { t: "Validation Graph", d: "Scenarios, edge cases and acceptance tests, generated." },
   { t: "Multimodal Synthetic Experience", d: "Training-ready experience across modalities." },
-  { t: "Foundation Models", d: "VLA, world, RL, IL and reward models — trained together." },
+  { t: "Foundation Models", d: "VLA, world, RL, IL and reward models - trained together." },
   { t: "Autonomous Systems", d: "Plan, execute, verify and recover at runtime." },
   { t: "Continuous Improvement", d: "Every deployment makes the next one better." },
   { t: "Capability Intelligence", d: "A graph that compounds with every workflow." },
@@ -32,7 +32,7 @@ export function CapabilityStory() {
             <span className="text-gradient-blue">capability intelligence.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            One continuous pipeline. Every layer builds on the one before — and feeds the next deployment.
+            One continuous pipeline. Every layer builds on the one before - and feeds the next deployment.
           </p>
         </motion.div>
 

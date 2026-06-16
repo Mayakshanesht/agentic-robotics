@@ -6,7 +6,7 @@ import {
 import * as THREE from "three";
 
 /**
- * RobotArmScene — a stylised-realistic 6-axis industrial arm performing a
+ * RobotArmScene - a stylised-realistic 6-axis industrial arm performing a
  * continuous pick-and-place loop (reach → grip → lift → swing → place).
  *
  * Realism without external model files (CSP-safe):

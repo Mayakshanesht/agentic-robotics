@@ -40,7 +40,7 @@ export function SelfImprovingLoop() {
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
             Every deployment runs a continuous OTA improvement cycle. Failures become training
             data, policies are retrained automatically, and better models are pushed back to the
-            fleet — no engineer in the loop.
+            fleet - no engineer in the loop.
           </p>
         </motion.div>
 
@@ -96,7 +96,7 @@ export function SelfImprovingLoop() {
           })}
         </div>
 
-        {/* mobile — vertical stepper (radial layout overflows narrow screens) */}
+        {/* mobile - vertical stepper (radial layout overflows narrow screens) */}
         <div className="sm:hidden max-w-sm mx-auto">
           <div className="relative">
             <span className="absolute left-[18px] top-3 bottom-3 w-px bg-gradient-to-b from-accent-blue via-accent-green to-accent-blue opacity-40" />

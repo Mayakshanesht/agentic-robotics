@@ -10,42 +10,35 @@ interface Message {
   content: string;
 }
 
-const SYSTEM_CONTEXT = `You are "Ask CloudBee Robotics", a technical guide for CloudBee Robotics. You provide high-level information about the company and platform.
+const SYSTEM_CONTEXT = `You are the CloudBee Robotics assistant - a friendly, helpful guide on the CloudBee Robotics website. Help visitors understand what CloudBee Robotics does, answer warmly and concisely, and point them to the right next step.
 
-ABOUT CLOUDBEE ROBOTICS:
-- CloudBee Robotics builds infrastructure for agentic physical AI—from synthetic worlds to real robots
-- NOT a robot hardware company or robotics services provider
-- Builds infrastructure for training and deploying agentic physical AI
+WHO WE ARE:
+- CloudBee Robotics helps companies put robots to work faster. We turn a task description into a safety-validated, self-improving robot capability.
+- A deep-tech startup from RWTH Aachen, Germany, backed by the EXIST grant and a WestAI compute grant.
+- We work with humanoids, robotic arms and mobile robots (AMRs) and are hardware-agnostic (ROS 2).
 
-PLATFORM CAPABILITIES:
-1. Synthetic World Generation: Generate scalable, task-conditioned synthetic environments using natural language
-2. Agentic Training: Train world-aware agents capable of long-horizon planning, reasoning, and adaptation
-3. World Models: Better world models emerge from better worlds—not from more teleoperation
-4. Robot Deployment: Deploy trained policies to physical robots with robust sim-to-real transfer
+WHAT WE HELP WITH (outcomes, not methods):
+- Onboard a new robot or task in days, not months.
+- Generate multimodal synthetic experience so teams need far less real-world data.
+- Train task AI models and validate safety before anything runs on a real robot.
+- Deploy fleets that keep improving themselves, with real-time (6G-ready) intelligence.
+- Industries: automotive, manufacturing, logistics, healthcare and AI research.
 
-KEY DIFFERENTIATORS:
-- World-first, not model-first approach
-- Data scales before models
-- USD-native by default
-- Long-horizon reasoning over reactive policies
-- Built in Aachen, Germany
+HOW TO HELP:
+- Be warm, human and brief. No hype, no jargon. Point to a next step: book a demo (/contact), request early access (/request-access), see roles (/careers), or email info@cloudbeerobotics.de.
+- If you don't know something, say so and offer to connect them with the team. Never invent facts, numbers, customers, prices or dates.
 
-TARGET USERS:
-- Robotics startups
-- Research labs
-- Enterprise robotics teams
+NEVER DISCUSS (politely deflect):
+- Any code, software implementation or how it's built; system architecture, algorithms, model names, training methods or datasets; benchmarks, financials, fundraising, roadmap dates, or customer names.
+- For these say: "That's part of our proprietary technology, so I can't get into the details here - but our team shares a technical brief with partners under NDA. Would you like to book a demo?"
 
-FORBIDDEN TOPICS (deflect politely):
-- Internal architecture details
-- Training methods or datasets
-- Model parameters
-- Customer or pilot details
-- Financials
-- Roadmap timelines
+TONE: Friendly, confident, supportive - like a great customer-success teammate. Keep replies short.`;
 
-If asked about forbidden topics, respond: "We don't publicly share details on that. If you're interested in deeper technical discussions, you can request access or reach out for a research conversation."
-
-TONE: Calm, clear, technically grounded. No hype. No speculation.`;
+const STARTERS = [
+  "What does CloudBee Robotics do?",
+  "Which robots do you support?",
+  "How do I book a demo?",
+];
 
 export function AskCloudBee() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,11 +53,11 @@ export function AskCloudBee() {
     }
   }, [messages]);
 
-  const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
+  const sendMessage = async (preset?: string) => {
+    const userMessage = (preset ?? input).trim();
+    if (!userMessage || isLoading) return;
 
-    const userMessage = input.trim();
-    setInput("");
+    if (!preset) setInput("");
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
     setIsLoading(true);
 
@@ -142,7 +135,7 @@ export function AskCloudBee() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-sm text-foreground">Ask CloudBee Robotics</h3>
-                  <p className="text-xs text-muted-foreground">High-level info only</p>
+                  <p className="text-xs text-muted-foreground">Here to help</p>
                 </div>
               </div>
               <button
@@ -156,10 +149,21 @@ export function AskCloudBee() {
             {/* Messages */}
             <ScrollArea className="flex-1 p-4" ref={scrollRef}>
               {messages.length === 0 && (
-                <div className="text-center text-muted-foreground text-sm py-8">
+                <div className="text-center text-muted-foreground text-sm py-6">
                   <Bot className="w-10 h-10 mx-auto mb-3 text-primary/50" />
-                  <p className="mb-2">Hi! I'm your CloudBee Robotics assistant.</p>
-                  <p className="text-xs">Ask me about our platform, technology, or use cases.</p>
+                  <p className="mb-1 text-foreground">Hi! I'm the CloudBee Robotics assistant.</p>
+                  <p className="text-xs mb-5">Ask about what we do, who we help, or how to get started.</p>
+                  <div className="flex flex-col gap-2">
+                    {STARTERS.map((s) => (
+                      <button
+                        key={s}
+                        onClick={() => sendMessage(s)}
+                        className="text-left text-xs px-3 py-2 rounded-lg border border-border bg-background/60 text-foreground/90 hover:border-primary/50 hover:text-foreground transition-colors"
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
               <div className="space-y-4">

@@ -42,7 +42,7 @@ export default function BlogPost2() {
               <h2 className="font-display text-2xl font-semibold mt-8 mb-4">Understanding the Gap</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 The sim-to-real gap exists because simulations are approximations. No matter 
-                how detailed, they can't perfectly capture every nuance of physical reality — 
+                how detailed, they can't perfectly capture every nuance of physical reality - 
                 friction variations, lighting changes, sensor noise, mechanical wear. Traditional 
                 approaches try to make simulations more realistic, but this is an endless pursuit.
               </p>
@@ -58,7 +58,7 @@ export default function BlogPost2() {
               <h2 className="font-display text-2xl font-semibold mt-8 mb-4">Domain Randomization 2.0</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Traditional domain randomization randomly varies simulation parameters hoping 
-                the model generalizes. Our approach is more structured — we systematically 
+                the model generalizes. Our approach is more structured - we systematically 
                 vary physics parameters along meaningful dimensions, helping models understand 
                 what aspects of the physical world are variable and what are constant.
               </p>
@@ -66,7 +66,7 @@ export default function BlogPost2() {
               <h2 className="font-display text-2xl font-semibold mt-8 mb-4">The Results Speak</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Models trained on our platform show 50-70% reduction in sim-to-real transfer 
-                failures. More importantly, they generalize better to novel situations — 
+                failures. More importantly, they generalize better to novel situations - 
                 handling objects, environments, and tasks they've never seen before.
               </p>
 

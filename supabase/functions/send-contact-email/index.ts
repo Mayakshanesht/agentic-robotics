@@ -2,7 +2,10 @@ import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { z } from 'npm:zod@3.23.8';
 
 const TO_EMAIL = 'info@cloudbeerobotics.de';
-const FROM_EMAIL = 'CloudBee Website <onboarding@resend.dev>'; // swap to verified domain after DNS setup
+// IMPORTANT: this address's domain (cloudbeerobotics.de) must be VERIFIED in Resend
+// (Resend → Domains → add cloudbeerobotics.de → add the DNS records). Until then,
+// fall back to 'onboarding@resend.dev' which only delivers to your own Resend account.
+const FROM_EMAIL = 'CloudBee Robotics <noreply@cloudbeerobotics.de>';
 
 const BodySchema = z.object({
   name: z.string().trim().min(1).max(100),
@@ -44,7 +47,7 @@ Deno.serve(async (req) => {
         <p style="color:#B0BEC5;margin:0 0 20px;font-size:14px">Interest: <strong style="color:#fff">${esc(interest)}</strong></p>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr><td style="padding:8px 0;color:#B0BEC5;width:120px">Name</td><td>${esc(name)}</td></tr>
-          <tr><td style="padding:8px 0;color:#B0BEC5">Company</td><td>${esc(company || '—')}</td></tr>
+          <tr><td style="padding:8px 0;color:#B0BEC5">Company</td><td>${esc(company || '-')}</td></tr>
           <tr><td style="padding:8px 0;color:#B0BEC5">Email</td><td><a style="color:#00AEEF" href="mailto:${esc(email)}">${esc(email)}</a></td></tr>
         </table>
         <hr style="border:none;border-top:1px solid #1a2238;margin:20px 0"/>
@@ -67,7 +70,7 @@ Deno.serve(async (req) => {
         <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0"/>
         <div style="font-size:12px;color:#94a3b8">
           CloudBee Robotics · Collective Incubator, Aachen, Germany<br/>
-          This is an automated confirmation — replies go straight to our team.
+          This is an automated confirmation - replies go straight to our team.
         </div>
       </div>`;
 
@@ -83,14 +86,14 @@ Deno.serve(async (req) => {
         from: FROM_EMAIL,
         to: [TO_EMAIL],
         reply_to: email,
-        subject: `[CloudBee] ${interest} — ${name}${company ? ` · ${company}` : ''}`,
+        subject: `[CloudBee] ${interest} - ${name}${company ? ` · ${company}` : ''}`,
         html: internalHtml,
       }),
       send({
         from: FROM_EMAIL,
         to: [email],
         reply_to: TO_EMAIL,
-        subject: `We received your message — CloudBee Robotics`,
+        subject: `We received your message - CloudBee Robotics`,
         html: confirmationHtml,
       }),
     ]);

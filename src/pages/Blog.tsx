@@ -35,7 +35,7 @@ export default function Blog() {
   }, []);
   return (
     <PageShell
-      title="Blog & News — CloudBee Robotics"
+      title="Blog & News - CloudBee Robotics"
       description="Technical insights, research updates, and milestones from CloudBee Robotics."
       path="/blog"
     >

@@ -94,7 +94,7 @@ const Technology = () => {
                 A Unified Physical AI <span className="text-gradient-teal">Infrastructure</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                CloudBee Robotics provides a single infrastructure layer that supports the full lifecycle of intelligent robotic systems—from development to deployment.
+                CloudBee Robotics provides a single infrastructure layer that supports the full lifecycle of intelligent robotic systems-from development to deployment.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Rather than stitching together disconnected tools, teams can focus on building reliable robotic behavior at scale.

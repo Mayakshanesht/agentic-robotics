@@ -4,6 +4,7 @@ import { ArrowRight, Box, BrainCircuit, Network, Store, Wifi, MessageSquare, Box
 import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
+import { DemoVideo } from "@/components/DemoVideo";
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
@@ -14,23 +15,23 @@ const pillars = [
     color: "blue",
     title: "Capability Compiler",
     subtitle: "Process → Validated Capabilities",
-    body: "Turns SOPs, instructions and demonstrations into a validated, multi-agent capability graph — grounded in your real workspace, safety-checked against hardware docs and regulations, and simulation-validated before deployment.",
+    body: "Turns SOPs, instructions and demonstrations into a validated, multi-agent capability graph - grounded in your real workspace, safety-checked against hardware docs and regulations, and simulation-validated before deployment.",
     video: agentOsVideo.url,
   },
   {
     icon: Box,
     color: "blue",
     title: "DataForge",
-    subtitle: "Synthetic Multimodal World Generation",
-    body: "Programmatically generated 4D simulation worlds with multimodal sensor streams — vision, depth, tactile, force, LiDAR. Production-quality training data in hours, not months.",
+    subtitle: "Synthetic Multimodal Experience",
+    body: "Production-quality multimodal training data - vision, depth, tactile and force - in hours, not months. Stop collecting real-world data by hand.",
     video: dataforgeVideo.url,
   },
   {
     icon: BrainCircuit,
     color: "green",
     title: "ModelLab",
-    subtitle: "Explainable VLA & World-Model Training",
-    body: "Fine-tuning and evaluation environment for Vision-Language-Action and world models — optimized for sim-to-real transfer and functional-safety validation.",
+    subtitle: "Task Model Training & Validation",
+    body: "Trains and validates the AI models that run your tasks - optimized for sim-to-real transfer and functional-safety validation.",
     video: modellabVideo.url,
   },
   {
@@ -38,7 +39,7 @@ const pillars = [
     color: "blue",
     title: "AgentOS",
     subtitle: "Autonomous Runtime & Orchestration",
-    body: "The runtime that powers deployed robots — long-horizon planning, world-state memory, skill library, safety-constrained execution. ROS 2-native, EU AI Act ready.",
+    body: "The runtime that powers deployed robots - long-horizon planning, safe execution and continuous improvement. ROS 2-native, EU AI Act ready.",
     video: agentOsVideo.url,
   },
 ] as const;
@@ -64,8 +65,8 @@ const steps = [
 export default function Product() {
   return (
     <PageShell
-      title="Product — CloudBee Robotics"
-      description="The autonomous OS for agentic physical AI. DataForge, ModelLab, and AgentOS — one modular platform from synthetic data to deployed intelligence."
+      title="Product - CloudBee Robotics"
+      description="The autonomous OS for agentic physical AI. DataForge, ModelLab, and AgentOS - one modular platform from synthetic data to deployed intelligence."
       path="/product"
     >
       {/* Hero */}
@@ -79,7 +80,7 @@ export default function Product() {
               The Autonomous OS for <span className="text-gradient-blue">Physical AI</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              A unified, modular system that takes any robot from task description to deployed intelligence — in a couple of days.
+              A unified, modular system that takes any robot from task description to deployed intelligence - in a couple of days.
             </p>
           </motion.div>
         </div>
@@ -94,7 +95,7 @@ export default function Product() {
                 We're Building a <span className="text-gradient-blue">Platform</span>, Not Just a Product.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                CloudBee Robotics is an open platform. Customers can onboard any humanoid, robotic arm, or mobile robot quickly — define tasks, generate training data, train custom policies, and deploy them to production from a single integrated environment.
+                CloudBee Robotics is an open platform. Customers can onboard any humanoid, robotic arm, or mobile robot quickly - define tasks, generate training data, train custom policies, and deploy them to production from a single integrated environment.
               </p>
             </div>
 
@@ -140,20 +141,12 @@ export default function Product() {
                 <div className={reverse ? "lg:col-start-1 lg:row-start-1" : ""}>
                   {"video" in p && p.video ? (
                     <div className="relative rounded-2xl overflow-hidden border border-accent-blue/30 shadow-2xl shadow-accent-blue/10 bg-surface max-w-md mx-auto aspect-video">
-                      <video
-                        src={p.video}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                        aria-label={`${p.title} demo`}
-                      />
-                      <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-full bg-background/80 backdrop-blur text-[10px] font-mono uppercase tracking-wider text-accent-green border border-accent-green/30">
+                      <DemoVideo src={p.video} label={`${p.title} demo`} />
+                      <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2 py-1 rounded-full bg-background/80 backdrop-blur text-[10px] font-mono uppercase tracking-wider text-accent-green border border-accent-green/30">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse" />
                         Live demo
                       </div>
-                      <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-background/90 to-transparent text-[11px] font-mono text-foreground/90">
+                      <div className="absolute inset-x-0 bottom-0 z-10 p-2.5 pr-14 bg-gradient-to-t from-background/90 to-transparent text-[11px] font-mono text-foreground/90 pointer-events-none">
                         {p.title} · multimodal synthetic capture
                       </div>
                     </div>
@@ -214,6 +207,24 @@ export default function Product() {
       </section>
 
 
+      {/* Technical brief — gated under NDA */}
+      <section className="section-spacing border-t border-border">
+        <div className="section-container">
+          <div className="card-3d border-gradient p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 max-w-5xl mx-auto">
+            <div>
+              <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-accent-blue mb-2">Under NDA</div>
+              <h3 className="font-display font-bold text-2xl lg:text-3xl">Want the architecture and benchmarks?</h3>
+              <p className="text-muted-foreground mt-2 max-w-xl">
+                The deep technical brief - system design, evaluation results and integration details - is shared with serious partners and investors under NDA.
+              </p>
+            </div>
+            <Link to="/contact?interest=Partnership" className="btn-pilot shrink-0">
+              Request technical brief <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* How it works */}
       <section className="section-spacing">
         <div className="section-container">
@@ -221,7 +232,7 @@ export default function Product() {
             <h2 className="font-display font-bold text-3xl lg:text-4xl mb-3">
               How It <span className="text-gradient-blue">Works</span>
             </h2>
-            <p className="text-muted-foreground">From task spec to deployed autonomy — in one continuous loop.</p>
+            <p className="text-muted-foreground">From task spec to deployed autonomy - in one continuous loop.</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">

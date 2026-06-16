@@ -20,7 +20,7 @@ export function HeroDemoCard() {
           muted
           playsInline
           className="w-full h-full object-cover"
-          aria-label="CloudBee Robotics — autonomous humanoid palletizing a box"
+          aria-label="CloudBee Robotics - autonomous humanoid palletizing a box"
         />
         {/* Top-left chrome */}
         <div className="absolute top-3 left-3 flex items-center gap-2">

@@ -9,7 +9,7 @@ import { HeroBackdrop } from "@/components/HeroBackdrop";
 import mayurImg from "@/assets/mayur.png";
 import madhavaImg from "@/assets/madhava.png";
 
-/** Mentor headshot — drop the file at /public/team/mentor.jpg and it appears; until then a placeholder icon is shown. */
+/** Mentor headshot - drop the file at /public/team/mentor.jpg and it appears; until then a placeholder icon is shown. */
 function MentorPhoto() {
   const [broken, setBroken] = useState(false);
   if (broken) {
@@ -55,23 +55,24 @@ const team: Member[] = [
 
 const advisor = {
   name: "Prof. Dr. Bastian Leibe",
-  role: "Academic Mentor — RWTH Aachen",
+  role: "Academic Mentor - RWTH Aachen",
   description:
     "Head of the Computer Vision Group at RWTH Aachen University. Academic mentor for CloudBee Robotics under the EXIST Research Transfer Grant. World-leading research in computer vision, scene understanding, and learning for perception.",
   affiliation: "Computer Vision Group · RWTH Aachen",
+  profile: "https://www.vision.rwth-aachen.de/person/leibe/",
 };
 
 const credentials = [
   { icon: Award, title: "EXIST Research Transfer Grant", desc: "Secured · German Federal Ministry for Economic Affairs and Climate Action." },
-  { icon: Briefcase, title: "Deloitte Problem–Solution Fit", desc: "Completed · Sept–Dec 2025." },
+  { icon: Briefcase, title: "Deloitte Problem-Solution Fit", desc: "Completed · Sept-Dec 2025." },
   { icon: GraduationCap, title: "RWTH Innovation Ideation", desc: "Completed · full cycle to graduation." },
 ];
 
 export default function Team() {
   return (
     <PageShell
-      title="Team — CloudBee Robotics"
-      description="Meet the CloudBee Robotics founding team and academic mentor — robotics engineers from RWTH Aachen, Germany."
+      title="Team - CloudBee Robotics"
+      description="Meet the CloudBee Robotics founding team and academic mentor - robotics engineers from RWTH Aachen, Germany."
       path="/team"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
@@ -83,7 +84,7 @@ export default function Team() {
               The engineers <span className="text-gradient-blue">building the layer.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Robotics engineers and simulation specialists shipping the autonomous OS for embodied AI — out of RWTH Aachen, Germany.
+              Robotics engineers and simulation specialists shipping the autonomous OS for embodied AI - out of RWTH Aachen, Germany.
             </p>
             <div className="flex flex-wrap gap-4 mt-6 text-xs font-mono text-muted-foreground">
               <span className="inline-flex items-center gap-1.5"><MapPin size={12} /> Aachen, Germany</span>
@@ -169,6 +170,14 @@ export default function Team() {
               <div className="text-sm text-accent-blue font-medium mb-3">{advisor.role}</div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{advisor.description}</p>
               <div className="text-xs font-mono text-muted-foreground/80 pt-3 border-t border-border">{advisor.affiliation}</div>
+              <a
+                href={advisor.profile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-accent-blue hover:gap-2 transition-all"
+              >
+                View profile <ArrowRight size={14} />
+              </a>
             </div>
           </div>
         </div>
@@ -205,7 +214,7 @@ export default function Team() {
 
           <div className="text-center mt-12">
             <Link to="/careers" className="inline-flex items-center gap-2 text-accent-blue font-semibold hover:gap-3 transition-all">
-              We're hiring — see open roles <ArrowRight size={14} />
+              We're hiring - see open roles <ArrowRight size={14} />
             </Link>
           </div>
         </div>

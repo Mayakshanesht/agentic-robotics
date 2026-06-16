@@ -6,14 +6,14 @@ type Status = "done" | "active" | "next";
 const events: { date: string; title: string; body: string; status: Status }[] = [
   {
     date: "Sep 2025",
-    title: "Deloitte Problem–Solution Fit · RWTH Innovation Ideation",
+    title: "Deloitte Problem-Solution Fit · RWTH Innovation Ideation",
     body: "Full PSF cycle completed with Deloitte mentors. Validated infrastructure-layer positioning with industry partners.",
     status: "done",
   },
   {
     date: "Dec 2025",
     title: "Industry Letters of Intent",
-    body: "Signed LOIs with a Tier-1 Automotive Partner, an Industrial Automation Partner, and a European Manufacturing Partner — covering manipulation, inspection, and logistics.",
+    body: "Signed LOIs with a Tier-1 Automotive Partner, an Industrial Automation Partner, and a European Manufacturing Partner - covering manipulation, inspection, and logistics.",
     status: "done",
   },
   {
@@ -31,7 +31,7 @@ const events: { date: string; title: string; body: string; status: Status }[] = 
   {
     date: "Q3 2026",
     title: "First pilot deployments",
-    body: "Closed pilots with industrial partners. ModelLab beta — explainable VLA training on multimodal pilot data.",
+    body: "Closed pilots with industrial partners. ModelLab beta - explainable VLA training on multimodal pilot data.",
     status: "next",
   },
   {
@@ -65,7 +65,7 @@ export function Timeline() {
             From research to <span className="text-gradient-blue">deployed product.</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            From PSF validation to EXIST funding and pilot-ready runtime — here is exactly where we are.
+            From PSF validation to EXIST funding and pilot-ready runtime - here is exactly where we are.
           </p>
 
         </motion.div>

@@ -41,7 +41,7 @@ export function DemoGallery() {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">
-            Live captures from AgentOS, DataForge, and our research lab — running on real robots and in synthetic worlds.
+            Live captures from AgentOS, DataForge, and our research lab - running on real robots and in synthetic worlds.
           </p>
         </motion.div>
 

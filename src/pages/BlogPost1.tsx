@@ -50,7 +50,7 @@ export default function BlogPost1() {
               <h2 className="font-display text-2xl font-semibold mt-8 mb-4">What is 4D World Generation?</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 4D world generation creates synthetic environments that evolve over time. Unlike 
-                static 3D scenes, 4D worlds capture temporal dynamics — how objects move, deform, 
+                static 3D scenes, 4D worlds capture temporal dynamics - how objects move, deform, 
                 and interact. This temporal dimension is critical for training robots that need 
                 to understand cause and effect.
               </p>
@@ -72,7 +72,7 @@ export default function BlogPost1() {
               </p>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The future of robotics isn't about collecting more real-world data — it's about 
+                The future of robotics isn't about collecting more real-world data - it's about 
                 generating better synthetic worlds. That's the infrastructure we're building.
               </p>
             </div>

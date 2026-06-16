@@ -28,7 +28,7 @@ export function AutonomousOS() {
             <span className="text-gradient-blue">autonomous systems.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            One runtime for robots, AI agents and human operators — long-horizon tasks with built-in recovery.
+            One runtime for robots, AI agents and human operators - long-horizon tasks with built-in recovery.
           </p>
         </motion.div>
 

@@ -23,8 +23,8 @@ const team = [
 const validation = [
   {
     icon: Briefcase,
-    title: "Deloitte Problem–Solution Fit",
-    description: "Successfully completed Sept – Dec 2025 with Jo (Manager), validating problem definition and solution direction.",
+    title: "Deloitte Problem-Solution Fit",
+    description: "Successfully completed Sept - Dec 2025 with Jo (Manager), validating problem definition and solution direction.",
   },
   {
     icon: GraduationCap,
