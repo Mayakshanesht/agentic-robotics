@@ -5,6 +5,7 @@ import { Hero } from "@/components/landing/Hero";
 import { CapabilityPlayground } from "@/components/landing/CapabilityPlayground";
 import { ProblemSolution } from "@/components/landing/ProblemSolution";
 import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
+import { PhysicsGrounding } from "@/components/landing/PhysicsGrounding";
 import { Grants } from "@/components/landing/Grants";
 import { Metrics } from "@/components/landing/Metrics";
 import { FounderMoment } from "@/components/landing/FounderMoment";
@@ -38,6 +39,7 @@ const Index = () => {
       <CapabilityPlayground />
       <ProblemSolution />
       <CapabilityCompilerFeature />
+      <PhysicsGrounding />
       <SelfImprovingLoop />
       <SixGNervousSystem />
       <Grants />
