@@ -7,6 +7,7 @@ import { ProblemSolution } from "@/components/landing/ProblemSolution";
 import { WhoWeServe } from "@/components/landing/WhoWeServe";
 import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
 import { PhysicsGrounding } from "@/components/landing/PhysicsGrounding";
+import { OnboardingPaths } from "@/components/landing/OnboardingPaths";
 import { Grants } from "@/components/landing/Grants";
 import { Metrics } from "@/components/landing/Metrics";
 import { FounderMoment } from "@/components/landing/FounderMoment";
@@ -42,6 +43,7 @@ const Index = () => {
       <ProblemSolution />
       <CapabilityCompilerFeature />
       <PhysicsGrounding />
+      <OnboardingPaths />
       <SelfImprovingLoop />
       <SixGNervousSystem />
       <Grants />
