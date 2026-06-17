@@ -6,7 +6,7 @@ const pipeline = [
   { name: "Capability Compiler", desc: "Natural language → validated capability graph", color: "from-accent-blue to-violet-500" },
   { name: "DataForge", desc: "Physics-accurate synthetic experience at scale", color: "from-cyan-400 to-accent-blue" },
   { name: "Model Lab", desc: "Train & evaluate multimodal foundation policies", color: "from-violet-500 to-fuchsia-500" },
-  { name: "Agentic OS", desc: "Coordinate multi-robot fleets that self-improve", color: "from-orange-accent to-amber-400" },
+  { name: "AgenticOS", desc: "Coordinate multi-robot fleets that self-improve", color: "from-orange-accent to-amber-400" },
   { name: "Deploy", desc: "Edge or cloud - OTA self-improving loop", color: "from-accent-green to-emerald-400" },
 ];
 

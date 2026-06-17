@@ -54,12 +54,12 @@ function buildGraph(task: string) {
   if (/place|put|drop|bin|sort|stack|load|pack|deliver/.test(s))
     nodes.push({ label: "Place / sort", type: "primitive", icon: PackageCheck, robot: "Arm" });
   if (nodes.length < 3) nodes.push({ label: "Manipulate", type: "primitive", icon: Grab, robot: "Arm" });
-  nodes.push({ label: "Validate & recover", type: "coordinator", icon: ShieldCheck, robot: "Agentic OS" });
+  nodes.push({ label: "Validate & recover", type: "coordinator", icon: ShieldCheck, robot: "AgenticOS" });
 
   const keywords = KEYWORDS.filter(([re]) => re.test(s)).map(([, l]) => l);
   const safety = ["Contact force ≤ 50 N", "No-go zone: safety fence", "Reduce speed near humans"];
 
-  const laneOrder = ["Perception", "Arm", "AMR", "Agentic OS"];
+  const laneOrder = ["Perception", "Arm", "AMR", "AgenticOS"];
   const lanes = laneOrder
     .map((robot) => ({ robot, nodes: nodes.filter((n) => n.robot === robot) }))
     .filter((l) => l.nodes.length);

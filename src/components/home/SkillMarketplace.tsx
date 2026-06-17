@@ -13,7 +13,7 @@ const flow = [
     icon: MessageSquare,
     step: "02",
     title: "Describe the Task",
-    body: "Ask in natural language. AgentOS scopes the task, identifies missing skills, and triggers the pipeline automatically.",
+    body: "Ask in natural language. AgenticOS scopes the task, identifies missing skills, and triggers the pipeline automatically.",
   },
   {
     icon: Boxes,

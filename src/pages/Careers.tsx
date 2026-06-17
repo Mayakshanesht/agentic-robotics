@@ -139,7 +139,7 @@ export default function Careers() {
                     A joint thesis with the IGMR Institute: investigate how synthetic multimodal experience reduces
                     real-world demonstrations for industrial robotics - navigation, trajectory planning and manipulation,
                     with safety-constrained, capability-oriented execution. Work hands-on with our DataForge, ModelLab and
-                    AgentOS stack (UR manipulator, IGMR platforms), with the goal of a co-authored research paper.
+                    AgenticOS stack (UR manipulator, IGMR platforms), with the goal of a co-authored research paper.
                   </p>
                   <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-sm text-foreground/85">
                     {[

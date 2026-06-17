@@ -20,7 +20,7 @@ const items = [
     icon: GitBranch,
     title: "Long-Horizon Tasks",
     metric: "Breaks at Scale",
-    desc: "Stitching primitives breaks on multi-step, real-world goals. AgentOS plans, reasons, and recovers across long-horizon tasks with world-state memory.",
+    desc: "Stitching primitives breaks on multi-step, real-world goals. AgenticOS plans, reasons, and recovers across long-horizon tasks with world-state memory.",
     color: "text-accent-blue",
   },
   {

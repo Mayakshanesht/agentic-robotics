@@ -37,7 +37,7 @@ const pillars = [
   {
     icon: Network,
     color: "blue",
-    title: "AgentOS",
+    title: "AgenticOS",
     subtitle: "Autonomous Runtime & Orchestration",
     body: "The runtime that powers deployed robots - long-horizon planning, safe execution and continuous improvement. ROS 2-native, EU AI Act ready.",
     video: agentOsVideo.url,
@@ -46,7 +46,7 @@ const pillars = [
 
 const skillFlow = [
   { icon: Wifi, step: "01", title: "Connect Your Robot", body: "Plug any humanoid, arm or AMR into CloudBee Robotics over the internet. ROS 2 native." },
-  { icon: MessageSquare, step: "02", title: "Describe the Task", body: "Natural language in. AgentOS scopes the task and triggers the pipeline." },
+  { icon: MessageSquare, step: "02", title: "Describe the Task", body: "Natural language in. AgenticOS scopes the task and triggers the pipeline." },
   { icon: Boxes, step: "03", title: "We Generate & Train", body: "DataForge synthesizes data; ModelLab trains and validates the policy." },
   { icon: PackageCheck, step: "04", title: "Download as ROS 2 Skill", body: "Pushed directly to your robot with safety contracts, ready to run." },
 ];
@@ -58,7 +58,7 @@ const steps = [
   "DataForge generates synthetic training worlds",
   "Multimodal data is collected at scale",
   "ModelLab trains and validates robot policies",
-  "AgentOS deploys and orchestrates live execution",
+  "AgenticOS deploys and orchestrates live execution",
   "Continuous learning feeds back into the loop",
 ];
 
@@ -66,7 +66,7 @@ export default function Product() {
   return (
     <PageShell
       title="Product - CloudBee Robotics"
-      description="The autonomous OS for agentic physical AI. DataForge, ModelLab, and AgentOS - one modular platform from synthetic data to deployed intelligence."
+      description="The autonomous OS for agentic physical AI. DataForge, ModelLab, and AgenticOS - one modular platform from synthetic data to deployed intelligence."
       path="/product"
     >
       {/* Hero */}
@@ -102,7 +102,7 @@ export default function Product() {
             <div className="glass-card p-6 space-y-2">
               {[
                 { label: "Custom Skills / Tasks", color: "accent-green", sub: "Application layer" },
-                { label: "DataForge · ModelLab · AgentOS", color: "accent-blue", sub: "Intelligence layer" },
+                { label: "DataForge · ModelLab · AgenticOS", color: "accent-blue", sub: "Intelligence layer" },
                 { label: "Hardware · Humanoids · Arms · AMRs", color: "muted-foreground", sub: "Physical layer" },
               ].map((row) => (
                 <div key={row.label} className="rounded-lg border border-border bg-surface/60 px-4 py-4">

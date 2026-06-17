@@ -20,7 +20,7 @@ const cards: Card[] = [
   {
     icon: Cpu,
     sub: "Orchestration · Runtime",
-    title: "AgentOS",
+    title: "AgenticOS",
     body: "Agentic ROS 2 runtime that plans, executes, and recovers long-horizon tasks across robot fleets - with safety contracts and continuous monitoring.",
     features: [
       "Robot orchestration & fleet management",
@@ -31,7 +31,7 @@ const cards: Card[] = [
     badge: "Available Now",
     cta: { label: "Schedule a Demo", to: "/contact" },
     accent: "orange",
-    media: { kind: "video", src: agentOsVideo.url, caption: "AgentOS · long-horizon execution with failure recovery" },
+    media: { kind: "video", src: agentOsVideo.url, caption: "AgenticOS · long-horizon execution with failure recovery" },
   },
   {
     icon: Database,

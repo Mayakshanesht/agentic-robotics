@@ -18,7 +18,7 @@ const slides: Slide[] = [
   { kind: "image", src: robotArm, tag: "Safety Validation" },
   { kind: "video", src: dataforgeVideo.url, tag: "Synthetic Experience" },
   { kind: "video", src: modellabVideo.url, tag: "Multimodal AI Models" },
-  { kind: "video", src: humanoidPallet.url, tag: "Autonomous Agentic OS" },
+  { kind: "video", src: humanoidPallet.url, tag: "Autonomous AgenticOS" },
   { kind: "image", src: robotAmr, tag: "Self-Improving Fleet" },
 ];
 
@@ -106,7 +106,7 @@ export function Hero() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse" />
               <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/85">
-                Physical AI · Autonomous Agentic OS
+                Physical AI · Autonomous AgenticOS
               </span>
             </motion.div>
 

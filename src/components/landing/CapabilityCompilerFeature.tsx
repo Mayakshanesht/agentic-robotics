@@ -11,7 +11,7 @@ const inputs = ["Text", "Images", "Video", "SOPs", "Instructions", "Hardware Doc
 
 const stages = [
   { icon: FileText, title: "Understands your process", body: "Reads SOPs, instructions and demos." },
-  { icon: Network, title: "Compiles capabilities", body: "A multi-agent graph for Agentic OS." },
+  { icon: Network, title: "Compiles capabilities", body: "A multi-agent graph for AgenticOS." },
   { icon: ScanEye, title: "Grounds in the real world", body: "From video, image, or just text." },
   { icon: ShieldCheck, title: "Runs safety analysis", body: "Against hardware docs + regulations." },
   { icon: FlaskConical, title: "Validates in simulation", body: "Auto test cases, closed-loop." },
@@ -42,7 +42,7 @@ export function CapabilityCompilerFeature() {
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
             Any process - described, demonstrated or documented - compiled into a validated,
-            multi-agent capability graph for Agentic OS.
+            multi-agent capability graph for AgenticOS.
           </p>
         </motion.div>
 

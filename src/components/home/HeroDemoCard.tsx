@@ -33,7 +33,7 @@ export function HeroDemoCard() {
         <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-background/90 to-transparent">
           <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground">
             <span className="text-foreground/90">Humanoid · palletize box</span>
-            <span>AgentOS · ROS 2 skill</span>
+            <span>AgenticOS · ROS 2 skill</span>
           </div>
         </div>
       </div>

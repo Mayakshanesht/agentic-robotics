@@ -12,7 +12,7 @@ type Tile =
   | { kind: "image"; src: string; eyebrow: string; title: string; position?: string; span?: string };
 
 const tiles: Tile[] = [
-  { kind: "video", src: agentOsVideo.url, eyebrow: "AgentOS", title: "Autonomous execution & failure recovery", span: "lg:col-span-2 lg:row-span-2" },
+  { kind: "video", src: agentOsVideo.url, eyebrow: "AgenticOS", title: "Autonomous execution & failure recovery", span: "lg:col-span-2 lg:row-span-2" },
   { kind: "video", src: dataforgeVideo.url, eyebrow: "DataForge", title: "Synthetic scenarios at scale" },
   { kind: "video", src: modellabVideo.url, eyebrow: "ModelLab", title: "Multimodal model training" },
   { kind: "video", src: video1.url, eyebrow: "Safety", title: "EU AI Act compliant policies" },
@@ -41,7 +41,7 @@ export function DemoGallery() {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">
-            Live captures from AgentOS, DataForge, and our research lab - running on real robots and in synthetic worlds.
+            Live captures from AgenticOS, DataForge, and our research lab - running on real robots and in synthetic worlds.
           </p>
         </motion.div>
 

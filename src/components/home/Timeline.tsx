@@ -24,8 +24,8 @@ const events: { date: string; title: string; body: string; status: Status }[] = 
   },
   {
     date: "Q2 2026",
-    title: "DataForge v0.1 · AgentOS preview",
-    body: "Text-to-4D synthetic data generation MVP. AgentOS runtime running long-horizon tasks on Unitree, custom arms, and AMRs.",
+    title: "DataForge v0.1 · AgenticOS preview",
+    body: "Text-to-4D synthetic data generation MVP. AgenticOS runtime running long-horizon tasks on Unitree, custom arms, and AMRs.",
     status: "active",
   },
   {
