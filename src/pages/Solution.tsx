@@ -44,13 +44,13 @@ const industries = [
   { icon: Truck, name: "Logistics & Warehousing", body: "Pick, pack, sort, and move - heterogeneous fleets coordinated through one autonomous OS." },
   { icon: Bot, name: "Humanoid Robotics", body: "Robotic foundation models tuned per platform, deployable as drop-in ROS 2 skills." },
   { icon: HeartPulse, name: "Healthcare & Assisted Living", body: "Safe, explainable behavior for service-grade physical assistance in regulated environments." },
-  { icon: Database, name: "Computer Vision & AI R&D", body: "DataForge synthetic 4D data is reusable for perception, detection, and foundation-model training far beyond robotics." },
+  { icon: Database, name: "Computer Vision & AI R&D", body: "DataForge synthetic data is reusable for perception, detection, and model training far beyond robotics." },
 ];
 
 const solutionReels = [
-  { src: dataforgeVideo.url, label: "DataForge", caption: "Synthetic 4D worlds - train the long tail." },
-  { src: modellabVideo.url, label: "ModelLab", caption: "VLA + world models on multimodal data." },
-  { src: agentOsVideo.url, label: "AgenticOS", caption: "Autonomous execution with failure recovery." },
+  { src: dataforgeVideo.url, label: "DataForge", caption: "Synthetic experience at scale - cover the long tail." },
+  { src: modellabVideo.url, label: "ModelLab", caption: "Task models, trained & validated on multimodal data." },
+  { src: agentOsVideo.url, label: "AgenticOS", caption: "Autonomous execution with built-in recovery." },
 ];
 
 
