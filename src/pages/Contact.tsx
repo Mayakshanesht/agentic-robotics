@@ -169,7 +169,8 @@ export default function Contact() {
                   <Field label="Message *">
                     <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="input-base resize-y" placeholder="Tell us about your use case, robot platform, or what you'd like to explore..." />
                   </Field>
-                  <button type="submit" disabled={loading} className="btn-pilot w-full sm:w-auto disabled:opacity-60">
+                  <GdprConsent checked={gdpr} onChange={setGdpr} />
+                  <button type="submit" disabled={loading || !gdpr} className="btn-pilot w-full sm:w-auto disabled:opacity-60">
                     {loading ? <><Loader2 size={16} className="animate-spin" /> Sending…</> : <><Send size={16} /> Send Message</>}
                   </button>
                 </>
