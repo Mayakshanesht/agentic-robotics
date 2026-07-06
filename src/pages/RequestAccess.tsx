@@ -28,6 +28,7 @@ type FormData = z.infer<typeof formSchema>;
 const RequestAccess = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [gdpr, setGdpr] = useState(false);
   const { toast } = useToast();
 
   const {
