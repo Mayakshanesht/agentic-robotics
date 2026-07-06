@@ -152,7 +152,7 @@ export function HeroSection() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          <div className="relative aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/9] rounded-2xl lg:rounded-3xl overflow-hidden border border-accent-blue/20 shadow-[0_60px_140px_-40px_hsl(210_100%_56%/0.55)] bg-surface">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] sm:rounded-2xl lg:rounded-3xl overflow-hidden border-y sm:border border-accent-blue/20 shadow-[0_40px_100px_-40px_hsl(210_100%_56%/0.45)] sm:shadow-[0_60px_140px_-40px_hsl(210_100%_56%/0.55)] bg-surface">
             <AnimatePresence mode="sync">
               {current.kind === "video" ? (
                 <motion.video
