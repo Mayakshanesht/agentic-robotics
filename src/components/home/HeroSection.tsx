@@ -56,10 +56,10 @@ export function HeroSection() {
   const current = slides[idx];
 
   return (
-    <section className="relative overflow-hidden bg-hero-gradient pt-28 lg:pt-32 pb-20 lg:pb-28">
+    <section className="relative overflow-hidden bg-hero-gradient pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-20 lg:pb-28">
       <div className="absolute inset-0 grid-bg opacity-[0.12] pointer-events-none" />
-      <div className="absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full bg-accent-blue/20 blur-[140px] pointer-events-none" />
-      <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent-green/15 blur-[160px] pointer-events-none" />
+      <div className="absolute -top-40 -left-40 w-[320px] sm:w-[560px] h-[320px] sm:h-[560px] rounded-full bg-accent-blue/20 blur-[100px] sm:blur-[140px] pointer-events-none" />
+      <div className="absolute -bottom-40 -right-40 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] rounded-full bg-accent-green/15 blur-[120px] sm:blur-[160px] pointer-events-none" />
 
       {/* Live WebGL capability graph - cinematic backdrop behind the headline */}
       <div className="absolute inset-x-0 top-0 h-[640px] flex items-center justify-center pointer-events-none">
