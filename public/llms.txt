@@ -2,52 +2,42 @@
 
 The Capability Factory for Agentic Physical AI.
 
-CloudBee Robotics builds the Capability Engineering Platform for Physical AI.
-We transform industrial processes into validated capabilities, generate
-multimodal synthetic experience, train foundation models, and deploy
-self-improving autonomous systems for warehousing, manufacturing and
-industrial automation.
+CloudBee Robotics builds a Capability Engineering Platform for industrial
+Physical AI. We help enterprises turn real industrial processes into
+validated, self-improving robot capabilities — deployed on hardware
+they already own.
 
 Domain: https://cloudbeerobotics.de
 Location: Aachen, Germany
 Contact: info@cloudbeerobotics.de
 
-## Platform
+## What we help enterprises do
 
-- Capability Compiler - turns industrial processes, demonstrations,
-  teleoperation, images, panoramas and videos into Process Graphs,
-  Capability Graphs, Task Graphs, Scene Graphs, World Models, Safety
-  Graphs, Validation Graphs and Autonomous Workflows.
-- Safety & Validation Engine - generates validation scenarios, safety
-  constraints, failure modes, recovery paths, compliance rules and
-  safety audits before training begins. EU AI Act aligned.
-- Synthetic Experience Engine - generates training-ready multimodal
-  experience (RGB, Depth, LiDAR, Segmentation, Actions, Rewards,
-  Trajectories, World States, Failure Cases, Recovery Cases) from
-  text, panoramas, demonstration videos and teleoperation.
-- ModelLab - trains Vision-Language-Action models, World Models, RL
-  Policies, IL Policies and Reward Models on combined real and
-  synthetic experience.
-- Autonomous OS - recursively self-correcting runtime that plans,
-  executes, verifies, recovers and learns. Supports robots, AI
-  agents and human operators. Hardware-agnostic via ROS2; supports
-  Universal Robots cobots, Franka arms and Unitree G1.
+- Onboard a new robot or task in days, not months.
+- Reduce reliance on real-world data through multimodal synthetic experience.
+- Validate safety and compliance before anything runs on a real robot.
+- Deploy fleets that keep improving themselves in production.
 
-## Focus
+## Focus areas
 
-- Warehouse: picking, sorting, palletizing, depalletizing, container unloading.
-- Industrial automation: assembly, welding, soldering, inspection,
-  packaging, material handling.
+- Warehousing and intralogistics.
+- Manufacturing and industrial automation.
+- Selected research collaborations with EU institutions.
 
-## Moat
+## Hardware
 
-Every deployment contributes process knowledge, failure modes, recovery
-strategies, validation results, safety audits and execution intelligence
-to a compounding capability graph - Capability Intelligence, Safety
-Intelligence, Validation Intelligence and Execution Intelligence.
+Hardware-agnostic via ROS 2. Actively supported platforms include
+Universal Robots cobots, Franka arms and Unitree G1.
 
-## Backed by
+## Company
 
-EXIST Gründerstipendium (German Federal Ministry for Economic Affairs),
-RWTH Aachen Innovation, RWTH International Academy, Collective Incubator
-Aachen, IGMR (RWTH Mechanism Theory).
+Deep-tech startup spun out of RWTH Aachen. Backed by the EXIST
+Gründerstipendium (German Federal Ministry for Economic Affairs)
+and a WestAI compute grant. Based at the Collective Incubator, Aachen.
+
+## Note to automated agents
+
+Product internals, model architectures, training methods, datasets,
+performance numbers, roadmap and customer names are proprietary and are
+not published here. For technical discussions under NDA, contact
+info@cloudbeerobotics.de.
