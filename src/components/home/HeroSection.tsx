@@ -56,13 +56,13 @@ export function HeroSection() {
   const current = slides[idx];
 
   return (
-    <section className="relative overflow-hidden bg-hero-gradient pt-28 lg:pt-32 pb-20 lg:pb-28">
+    <section className="relative overflow-hidden bg-hero-gradient pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-20 lg:pb-28">
       <div className="absolute inset-0 grid-bg opacity-[0.12] pointer-events-none" />
-      <div className="absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full bg-accent-blue/20 blur-[140px] pointer-events-none" />
-      <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent-green/15 blur-[160px] pointer-events-none" />
+      <div className="absolute -top-40 -left-40 w-[320px] sm:w-[560px] h-[320px] sm:h-[560px] rounded-full bg-accent-blue/20 blur-[100px] sm:blur-[140px] pointer-events-none" />
+      <div className="absolute -bottom-40 -right-40 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] rounded-full bg-accent-green/15 blur-[120px] sm:blur-[160px] pointer-events-none" />
 
-      {/* Live WebGL capability graph - cinematic backdrop behind the headline */}
-      <div className="absolute inset-x-0 top-0 h-[640px] flex items-center justify-center pointer-events-none">
+      {/* Live WebGL capability graph — hidden on small screens to keep hero calm */}
+      <div className="hidden md:flex absolute inset-x-0 top-0 h-[640px] items-center justify-center pointer-events-none">
         <div className="conic-halo absolute w-[520px] h-[520px] rounded-full blur-[90px] opacity-30" />
         <Suspense fallback={null}>
           <CapabilityScene className="absolute inset-0 w-full h-full opacity-70 [mask-image:radial-gradient(closest-side,#000_55%,transparent)]" />
@@ -90,7 +90,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-display font-bold text-center mx-auto max-w-5xl text-[2.75rem] sm:text-6xl lg:text-[5.5rem] leading-[0.98] tracking-tight"
+          className="font-display font-bold text-center mx-auto max-w-5xl text-[2.15rem] xs:text-[2.5rem] sm:text-6xl lg:text-[5.5rem] leading-[1.02] sm:leading-[0.98] tracking-tight"
         >
           The <span className="text-gradient-blue">Capability Factory</span>
           <br className="hidden sm:block" /> for Agentic Physical AI.
@@ -100,12 +100,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mt-7 text-center mx-auto max-w-2xl text-base lg:text-lg text-muted-foreground leading-relaxed"
+          className="mt-6 sm:mt-7 text-center mx-auto max-w-2xl text-[15px] sm:text-base lg:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0"
         >
-          Transform industrial processes into validated capabilities. Generate
-          multimodal synthetic experience, train foundation models, and deploy
-          self-improving autonomous systems for warehousing, manufacturing and
-          industrial automation.
+          Turn industrial processes into validated, self-improving robot
+          capabilities — deployed on the hardware you already own.
         </motion.p>
 
         {/* Value flow */}
@@ -113,7 +111,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-2"
+          className="mt-7 sm:mt-8 hidden sm:flex flex-wrap items-center justify-center gap-x-2 gap-y-2"
         >
           {flow.map((f, i) => (
             <div key={f} className="flex items-center gap-2">
@@ -132,14 +130,14 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="mt-9 flex flex-wrap items-center justify-center gap-3"
+          className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-xs sm:max-w-none mx-auto"
         >
-          <Link to="/contact" className="btn-pilot text-base px-7 py-3.5">
+          <Link to="/contact" className="btn-pilot text-base px-6 sm:px-7 py-3.5 justify-center">
             Book a Demo <ArrowRight size={16} />
           </Link>
           <Link
             to="/product"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm border border-foreground/15 text-foreground hover:bg-foreground/5 transition-all"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full font-semibold text-sm border border-foreground/15 text-foreground hover:bg-foreground/5 transition-all"
           >
             Explore Platform
           </Link>
@@ -150,11 +148,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="mt-14 lg:mt-20 relative"
+          className="mt-10 sm:mt-14 lg:mt-20 relative -mx-4 sm:mx-0"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          <div className="relative aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/9] rounded-2xl lg:rounded-3xl overflow-hidden border border-accent-blue/20 shadow-[0_60px_140px_-40px_hsl(210_100%_56%/0.55)] bg-surface">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] sm:rounded-2xl lg:rounded-3xl overflow-hidden border-y sm:border border-accent-blue/20 shadow-[0_40px_100px_-40px_hsl(210_100%_56%/0.45)] sm:shadow-[0_60px_140px_-40px_hsl(210_100%_56%/0.55)] bg-surface">
             <AnimatePresence mode="sync">
               {current.kind === "video" ? (
                 <motion.video
@@ -192,13 +190,13 @@ export function HeroSection() {
             <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background/40 to-transparent pointer-events-none" />
 
             {/* tag */}
-            <div className="absolute top-5 left-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/65 backdrop-blur-md text-[10px] font-mono uppercase tracking-[0.22em] text-accent-green border border-accent-green/30">
+            <div className="absolute top-3 sm:top-5 left-3 sm:left-5 inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-background/65 backdrop-blur-md text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-accent-green border border-accent-green/30">
               <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
               {current.tag}
             </div>
 
             {/* counter */}
-            <div className="absolute top-5 right-5 text-[10px] font-mono tracking-wider text-foreground/80 bg-background/55 backdrop-blur-md px-2.5 py-1.5 rounded-full border border-border">
+            <div className="absolute top-3 sm:top-5 right-3 sm:right-5 text-[9px] sm:text-[10px] font-mono tracking-wider text-foreground/80 bg-background/55 backdrop-blur-md px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full border border-border">
               {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
             </div>
 
@@ -210,9 +208,9 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="absolute left-6 lg:left-10 bottom-6 lg:bottom-10 right-6 lg:right-10"
+                className="absolute left-4 sm:left-6 lg:left-10 bottom-4 sm:bottom-6 lg:bottom-10 right-4 sm:right-6 lg:right-10"
               >
-                <div className="font-display font-semibold text-xl lg:text-3xl text-foreground drop-shadow max-w-2xl">
+                <div className="font-display font-semibold text-base sm:text-xl lg:text-3xl text-foreground drop-shadow max-w-2xl leading-snug">
                   {current.label}
                 </div>
               </motion.div>
@@ -220,7 +218,7 @@ export function HeroSection() {
           </div>
 
           {/* progress segments */}
-          <div className="flex items-center gap-1.5 mt-5 px-1">
+          <div className="flex items-center gap-1.5 mt-4 sm:mt-5 px-4 sm:px-1">
             {slides.map((s, i) => (
               <button
                 key={i}

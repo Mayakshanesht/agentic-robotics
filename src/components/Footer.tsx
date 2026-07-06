@@ -43,7 +43,7 @@ export function Footer() {
             <h4 className="font-display font-semibold text-sm text-foreground mb-3">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/impressum" className="hover:text-foreground">Impressum</Link></li>
-              <li><a href="#" className="hover:text-foreground">Privacy Policy</a></li>
+              <li><Link to="/privacy" className="hover:text-foreground">Privacy Notice (GDPR)</Link></li>
             </ul>
             <div className="mt-5 text-xs text-muted-foreground leading-relaxed">
               <div>info@cloudbeerobotics.de</div>

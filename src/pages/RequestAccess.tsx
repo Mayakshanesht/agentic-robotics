@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { GdprConsent } from "@/components/GdprConsent";
 
 const formSchema = z.object({
   full_name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
@@ -27,6 +28,7 @@ type FormData = z.infer<typeof formSchema>;
 const RequestAccess = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [gdpr, setGdpr] = useState(false);
   const { toast } = useToast();
 
   const {
@@ -38,6 +40,10 @@ const RequestAccess = () => {
   });
 
   const onSubmit = async (data: FormData) => {
+    if (!gdpr) {
+      toast({ title: "Please accept the data-processing notice (GDPR) to continue.", variant: "destructive" });
+      return;
+    }
     setIsLoading(true);
     try {
       const { error } = await supabase.from("beta_access_requests").insert({
@@ -194,12 +200,14 @@ const RequestAccess = () => {
                         )}
                       </div>
 
+                      <GdprConsent checked={gdpr} onChange={setGdpr} />
+
                       <Button
                         type="submit"
                         variant="hero"
                         size="xl"
                         className="w-full"
-                        disabled={isLoading}
+                        disabled={isLoading || !gdpr}
                       >
                         {isLoading ? (
                           "Submitting..."

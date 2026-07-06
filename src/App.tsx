@@ -12,6 +12,7 @@ import Team from "./pages/Team";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
+import Privacy from "./pages/Privacy";
 import Blog from "./pages/Blog";
 import BlogPost1 from "./pages/BlogPost1";
 import BlogPost2 from "./pages/BlogPost2";
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/privacy" element={<Privacy />} />
           {/* Legacy redirects */}
           <Route path="/platform" element={<Navigate to="/product" replace />} />
           <Route path="/hardware" element={<Navigate to="/solution" replace />} />

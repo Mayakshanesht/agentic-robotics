@@ -7,6 +7,7 @@ import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { GdprConsent } from "@/components/GdprConsent";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -27,9 +28,14 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", company: "", email: "", interest: initialInterest, message: "" });
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const [gdpr, setGdpr] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!gdpr) {
+      toast.error("Please accept the data-processing notice (GDPR) to continue.");
+      return;
+    }
     const parsed = contactSchema.safeParse(form);
     if (!parsed.success) {
       const first = Object.values(parsed.error.flatten().fieldErrors)[0]?.[0];
@@ -163,7 +169,8 @@ export default function Contact() {
                   <Field label="Message *">
                     <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="input-base resize-y" placeholder="Tell us about your use case, robot platform, or what you'd like to explore..." />
                   </Field>
-                  <button type="submit" disabled={loading} className="btn-pilot w-full sm:w-auto disabled:opacity-60">
+                  <GdprConsent checked={gdpr} onChange={setGdpr} />
+                  <button type="submit" disabled={loading || !gdpr} className="btn-pilot w-full sm:w-auto disabled:opacity-60">
                     {loading ? <><Loader2 size={16} className="animate-spin" /> Sending…</> : <><Send size={16} /> Send Message</>}
                   </button>
                 </>

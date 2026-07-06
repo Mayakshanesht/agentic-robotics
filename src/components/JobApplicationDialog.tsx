@@ -3,6 +3,7 @@ import { z } from "zod";
 import { Loader2, Send, CheckCircle2, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { GdprConsent } from "@/components/GdprConsent";
 
 const schema = z.object({
   full_name: z.string().trim().min(2, "Name is required").max(120),
@@ -25,11 +26,16 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
   });
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const [gdpr, setGdpr] = useState(false);
 
   if (!open) return null;
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!gdpr) {
+      toast.error("Please accept the data-processing notice (GDPR) to continue.");
+      return;
+    }
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       toast.error(Object.values(parsed.error.flatten().fieldErrors)[0]?.[0] ?? "Please review the form");
@@ -100,7 +106,10 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
               <Field label="Why you, why CloudBee Robotics? *">
                 <textarea required rows={6} className="input-base resize-y" placeholder="Tell us about your background and what excites you about physical AI…" value={form.cover_letter} onChange={(e) => setForm({ ...form, cover_letter: e.target.value })} />
               </Field>
-              <button type="submit" disabled={loading} className="btn-pilot w-full disabled:opacity-60">
+              <div className="pt-1">
+                <GdprConsent checked={gdpr} onChange={setGdpr} />
+              </div>
+              <button type="submit" disabled={loading || !gdpr} className="btn-pilot w-full disabled:opacity-60">
                 {loading ? <><Loader2 size={16} className="animate-spin" /> Submitting…</> : <><Send size={16} /> Submit Application</>}
               </button>
               <p className="text-xs text-muted-foreground text-center">
