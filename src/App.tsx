@@ -42,6 +42,7 @@ const App = () => (
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/privacy" element={<Privacy />} />
           {/* Legacy redirects */}
           <Route path="/platform" element={<Navigate to="/product" replace />} />
           <Route path="/hardware" element={<Navigate to="/solution" replace />} />
