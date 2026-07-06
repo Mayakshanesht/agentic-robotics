@@ -28,9 +28,14 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", company: "", email: "", interest: initialInterest, message: "" });
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const [gdpr, setGdpr] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!gdpr) {
+      toast.error("Please accept the data-processing notice (GDPR) to continue.");
+      return;
+    }
     const parsed = contactSchema.safeParse(form);
     if (!parsed.success) {
       const first = Object.values(parsed.error.flatten().fieldErrors)[0]?.[0];
