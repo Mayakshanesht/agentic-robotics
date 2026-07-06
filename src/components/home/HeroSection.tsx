@@ -111,7 +111,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-2"
+          className="mt-7 sm:mt-8 hidden sm:flex flex-wrap items-center justify-center gap-x-2 gap-y-2"
         >
           {flow.map((f, i) => (
             <div key={f} className="flex items-center gap-2">
@@ -130,14 +130,14 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="mt-9 flex flex-wrap items-center justify-center gap-3"
+          className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-xs sm:max-w-none mx-auto"
         >
-          <Link to="/contact" className="btn-pilot text-base px-7 py-3.5">
+          <Link to="/contact" className="btn-pilot text-base px-6 sm:px-7 py-3.5 justify-center">
             Book a Demo <ArrowRight size={16} />
           </Link>
           <Link
             to="/product"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm border border-foreground/15 text-foreground hover:bg-foreground/5 transition-all"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full font-semibold text-sm border border-foreground/15 text-foreground hover:bg-foreground/5 transition-all"
           >
             Explore Platform
           </Link>
