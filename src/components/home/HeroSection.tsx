@@ -208,9 +208,9 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="absolute left-6 lg:left-10 bottom-6 lg:bottom-10 right-6 lg:right-10"
+                className="absolute left-4 sm:left-6 lg:left-10 bottom-4 sm:bottom-6 lg:bottom-10 right-4 sm:right-6 lg:right-10"
               >
-                <div className="font-display font-semibold text-xl lg:text-3xl text-foreground drop-shadow max-w-2xl">
+                <div className="font-display font-semibold text-base sm:text-xl lg:text-3xl text-foreground drop-shadow max-w-2xl leading-snug">
                   {current.label}
                 </div>
               </motion.div>
