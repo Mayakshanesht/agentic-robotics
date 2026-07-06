@@ -2,23 +2,15 @@ import { motion } from "framer-motion";
 
 const inputs = [
   "Task Descriptions",
-  "Workflows",
+  "Workflows & SOPs",
   "Demonstrations",
-  "Teleoperation Logs",
-  "Images",
-  "Panoramas",
-  "Videos",
-  "SOPs (optional)",
+  "Images & Video",
 ];
 
 const outputs = [
-  "Process Graphs",
-  "Capability Graphs",
-  "Task Graphs",
-  "Scene Graphs",
-  "World Models",
-  "Safety Graphs",
-  "Validation Graphs",
+  "Structured Process Understanding",
+  "Executable Capabilities",
+  "Safety & Validation Envelope",
   "Autonomous Workflows",
 ];
 
