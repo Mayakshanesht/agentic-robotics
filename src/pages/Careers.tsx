@@ -136,15 +136,17 @@ export default function Careers() {
               {details.th && (
                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                   <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                    A joint thesis with the IGMR Institute: investigate how synthetic multimodal experience reduces
-                    real-world demonstrations for industrial robotics - navigation, trajectory planning and manipulation,
-                    with safety-constrained, capability-oriented execution. Work hands-on with our DataForge, ModelLab and
-                    AgenticOS stack (UR manipulator, IGMR platforms), with the goal of a co-authored research paper.
+                    Open to <strong className="text-foreground">Bachelor&apos;s and Master&apos;s thesis</strong> candidates. This
+                    position is <strong className="text-foreground">jointly supervised with the IGMR Institute</strong> (Institute
+                    of Mechanism Theory, Machine Dynamics and Robotics, RWTH Aachen) and CloudBee Robotics. You&apos;ll work
+                    hands-on with our platform on industrial robotics research — navigation, planning and
+                    manipulation with safety-constrained, capability-oriented execution — targeting a
+                    co-authored publication.
                   </p>
                   <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-sm text-foreground/85">
                     {[
-                      "M.Sc. in Mech. Eng., CS, EE or related",
-                      "Strong robotics / control / ML background",
+                      "B.Sc. / M.Sc. in Mech. Eng., CS, EE or related",
+                      "Solid robotics / control / ML background",
                       "ROS / ROS2, Python / C++",
                       "Motivation to publish (co-author)",
                     ].map((r) => (
@@ -154,17 +156,45 @@ export default function Careers() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-5 rounded-lg border border-border bg-surface/50 p-4 text-sm text-muted-foreground leading-relaxed">
+                    <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-2">
+                      How to apply
+                    </div>
+                    Send your CV, transcript and a short motivation to
+                    {" "}
+                    <a href="mailto:bezrucav@igmr.rwth-aachen.de" className="text-accent-green hover:underline font-medium">
+                      Dr. Stefan Bezrucav
+                    </a>
+                    {" "}at IGMR. Full topic description on the RWTH advertisement:
+                    {" "}
+                    <a
+                      href="https://web.zhv.rwth-aachen.de/dia/abschlussarbeiten:42790.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent-blue hover:underline break-all"
+                    >
+                      RWTH thesis advertisement (PDF)
+                    </a>
+                    .
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6 border-t border-border">
-              <button onClick={() => setOpenRole("Master Thesis - Synthetic Multimodal Experience & Safety-Constrained Capability Execution (IGMR × CloudBee Robotics)")} className="btn-pilot">
-                Apply for this thesis
-              </button>
-              <div className="text-xs text-muted-foreground">
-                Or email Dr. Stefan Bezrucav (IGMR) ·{" "}
-                <a href="mailto:bezrucav@igmr.rwth-aachen.de" className="text-accent-green hover:underline">bezrucav@igmr.rwth-aachen.de</a>
-              </div>
+              <a
+                href="mailto:bezrucav@igmr.rwth-aachen.de?subject=Bachelor%2FMaster%20Thesis%20Application%20-%20IGMR%20%C3%97%20CloudBee%20Robotics"
+                className="btn-pilot"
+              >
+                Email Dr. Stefan (IGMR)
+              </a>
+              <a
+                href="https://web.zhv.rwth-aachen.de/dia/abschlussarbeiten:42790.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-accent-blue hover:underline"
+              >
+                View topic (PDF) →
+              </a>
             </div>
           </motion.div>
 
