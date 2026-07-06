@@ -121,7 +121,7 @@ export default function Careers() {
                   Synthetic Multimodal Experience &amp; Safety-Constrained Capability Execution
                 </h3>
                 <div className="text-sm text-muted-foreground mt-1">
-                  Robotic Motion in Unstructured Environments · Bachelor / Master Thesis
+                  Robotic Motion in Unstructured Environments · Bachelor / Master Thesis · Jointly supervised with IGMR
                 </div>
                 <div className="text-xs font-mono text-muted-foreground mt-2">
                   RWTH Aachen · IGMR Institute · Joint with CloudBee Robotics
