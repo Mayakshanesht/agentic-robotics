@@ -26,11 +26,16 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
   });
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const [gdpr, setGdpr] = useState(false);
 
   if (!open) return null;
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!gdpr) {
+      toast.error("Please accept the data-processing notice (GDPR) to continue.");
+      return;
+    }
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       toast.error(Object.values(parsed.error.flatten().fieldErrors)[0]?.[0] ?? "Please review the form");
