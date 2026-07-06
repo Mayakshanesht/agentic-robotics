@@ -90,7 +90,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-display font-bold text-center mx-auto max-w-5xl text-[2.75rem] sm:text-6xl lg:text-[5.5rem] leading-[0.98] tracking-tight"
+          className="font-display font-bold text-center mx-auto max-w-5xl text-[2.15rem] xs:text-[2.5rem] sm:text-6xl lg:text-[5.5rem] leading-[1.02] sm:leading-[0.98] tracking-tight"
         >
           The <span className="text-gradient-blue">Capability Factory</span>
           <br className="hidden sm:block" /> for Agentic Physical AI.
