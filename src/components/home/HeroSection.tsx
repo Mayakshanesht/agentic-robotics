@@ -190,13 +190,13 @@ export function HeroSection() {
             <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background/40 to-transparent pointer-events-none" />
 
             {/* tag */}
-            <div className="absolute top-5 left-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/65 backdrop-blur-md text-[10px] font-mono uppercase tracking-[0.22em] text-accent-green border border-accent-green/30">
+            <div className="absolute top-3 sm:top-5 left-3 sm:left-5 inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-background/65 backdrop-blur-md text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-accent-green border border-accent-green/30">
               <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
               {current.tag}
             </div>
 
             {/* counter */}
-            <div className="absolute top-5 right-5 text-[10px] font-mono tracking-wider text-foreground/80 bg-background/55 backdrop-blur-md px-2.5 py-1.5 rounded-full border border-border">
+            <div className="absolute top-3 sm:top-5 right-3 sm:right-5 text-[9px] sm:text-[10px] font-mono tracking-wider text-foreground/80 bg-background/55 backdrop-blur-md px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full border border-border">
               {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
             </div>
 
