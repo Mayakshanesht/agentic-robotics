@@ -200,12 +200,14 @@ const RequestAccess = () => {
                         )}
                       </div>
 
+                      <GdprConsent checked={gdpr} onChange={setGdpr} />
+
                       <Button
                         type="submit"
                         variant="hero"
                         size="xl"
                         className="w-full"
-                        disabled={isLoading}
+                        disabled={isLoading || !gdpr}
                       >
                         {isLoading ? (
                           "Submitting..."
