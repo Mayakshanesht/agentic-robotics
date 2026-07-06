@@ -61,8 +61,8 @@ export function HeroSection() {
       <div className="absolute -top-40 -left-40 w-[320px] sm:w-[560px] h-[320px] sm:h-[560px] rounded-full bg-accent-blue/20 blur-[100px] sm:blur-[140px] pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] rounded-full bg-accent-green/15 blur-[120px] sm:blur-[160px] pointer-events-none" />
 
-      {/* Live WebGL capability graph - cinematic backdrop behind the headline */}
-      <div className="absolute inset-x-0 top-0 h-[640px] flex items-center justify-center pointer-events-none">
+      {/* Live WebGL capability graph — hidden on small screens to keep hero calm */}
+      <div className="hidden md:flex absolute inset-x-0 top-0 h-[640px] items-center justify-center pointer-events-none">
         <div className="conic-halo absolute w-[520px] h-[520px] rounded-full blur-[90px] opacity-30" />
         <Suspense fallback={null}>
           <CapabilityScene className="absolute inset-0 w-full h-full opacity-70 [mask-image:radial-gradient(closest-side,#000_55%,transparent)]" />
