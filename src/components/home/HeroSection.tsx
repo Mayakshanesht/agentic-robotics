@@ -218,7 +218,7 @@ export function HeroSection() {
           </div>
 
           {/* progress segments */}
-          <div className="flex items-center gap-1.5 mt-5 px-1">
+          <div className="flex items-center gap-1.5 mt-4 sm:mt-5 px-4 sm:px-1">
             {slides.map((s, i) => (
               <button
                 key={i}
