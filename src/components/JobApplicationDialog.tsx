@@ -3,6 +3,7 @@ import { z } from "zod";
 import { Loader2, Send, CheckCircle2, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { GdprConsent } from "@/components/GdprConsent";
 
 const schema = z.object({
   full_name: z.string().trim().min(2, "Name is required").max(120),
