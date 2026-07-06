@@ -40,6 +40,10 @@ const RequestAccess = () => {
   });
 
   const onSubmit = async (data: FormData) => {
+    if (!gdpr) {
+      toast({ title: "Please accept the data-processing notice (GDPR) to continue.", variant: "destructive" });
+      return;
+    }
     setIsLoading(true);
     try {
       const { error } = await supabase.from("beta_access_requests").insert({
