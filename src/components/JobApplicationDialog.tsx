@@ -106,7 +106,10 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
               <Field label="Why you, why CloudBee Robotics? *">
                 <textarea required rows={6} className="input-base resize-y" placeholder="Tell us about your background and what excites you about physical AI…" value={form.cover_letter} onChange={(e) => setForm({ ...form, cover_letter: e.target.value })} />
               </Field>
-              <button type="submit" disabled={loading} className="btn-pilot w-full disabled:opacity-60">
+              <div className="pt-1">
+                <GdprConsent checked={gdpr} onChange={setGdpr} />
+              </div>
+              <button type="submit" disabled={loading || !gdpr} className="btn-pilot w-full disabled:opacity-60">
                 {loading ? <><Loader2 size={16} className="animate-spin" /> Submitting…</> : <><Send size={16} /> Submit Application</>}
               </button>
               <p className="text-xs text-muted-foreground text-center">
