@@ -100,12 +100,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mt-7 text-center mx-auto max-w-2xl text-base lg:text-lg text-muted-foreground leading-relaxed"
+          className="mt-6 sm:mt-7 text-center mx-auto max-w-2xl text-[15px] sm:text-base lg:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0"
         >
-          Transform industrial processes into validated capabilities. Generate
-          multimodal synthetic experience, train foundation models, and deploy
-          self-improving autonomous systems for warehousing, manufacturing and
-          industrial automation.
+          Turn industrial processes into validated, self-improving robot
+          capabilities — deployed on the hardware you already own.
         </motion.p>
 
         {/* Value flow */}
