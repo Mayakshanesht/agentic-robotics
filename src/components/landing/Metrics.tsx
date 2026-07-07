@@ -9,9 +9,9 @@ const metrics = [
 
 export function Metrics() {
   return (
-    <section className="relative py-24 lg:py-32 border-t border-border">
+    <section className="relative py-20 lg:py-28 border-t border-border">
       <div className="section-container">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-x-8 sm:gap-y-12">
           {metrics.map((m, i) => (
             <motion.div
               key={m.big}
@@ -19,12 +19,12 @@ export function Metrics() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="text-center lg:text-left"
+              className="text-center sm:text-left min-w-0"
             >
-              <div className="font-display font-bold text-5xl lg:text-6xl tracking-tight text-gradient-blue">
+              <div className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-gradient-blue leading-none break-words">
                 {m.big}
               </div>
-              <div className="mt-3 text-sm text-muted-foreground max-w-[16rem] mx-auto lg:mx-0">
+              <div className="mt-3 text-sm text-muted-foreground leading-relaxed">
                 {m.small}
               </div>
             </motion.div>
