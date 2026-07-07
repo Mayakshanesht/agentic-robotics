@@ -90,7 +90,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-display font-bold text-center mx-auto max-w-5xl text-[2.15rem] xs:text-[2.5rem] sm:text-6xl lg:text-[5.5rem] leading-[1.02] sm:leading-[0.98] tracking-tight"
+          className="font-display font-bold text-center mx-auto max-w-5xl text-[2rem] sm:text-5xl lg:text-[4.5rem] leading-[1.05] tracking-tight text-foreground"
         >
           The <span className="text-gradient-blue">Capability Factory</span>
           <br className="hidden sm:block" /> for Agentic Physical AI.
@@ -100,7 +100,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mt-6 sm:mt-7 text-center mx-auto max-w-2xl text-[15px] sm:text-base lg:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0"
+          className="mt-5 sm:mt-6 text-center mx-auto max-w-2xl text-[15px] sm:text-base lg:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0"
         >
           Turn industrial processes into validated, self-improving robot
           capabilities — deployed on the hardware you already own.
