@@ -125,7 +125,7 @@ export function CapabilityPlayground() {
       setSent(true);
       toast.success("Thanks! We'll reach out to compile this on your process.");
     } catch {
-      toast.error("Something went wrong - please email info@cloudbeerobotics.de");
+      toast.error("Something went wrong - please email mayur.waghchoure@cloudbeerobotics.com");
     } finally {
       setSending(false);
     }

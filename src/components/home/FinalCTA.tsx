@@ -63,7 +63,7 @@ export function FinalCTA() {
                 Explore the Platform
               </Link>
               <div className="mt-3 text-xs font-mono text-muted-foreground text-center">
-                info@cloudbeerobotics.de · Aachen, DE
+                mayur.waghchoure@cloudbeerobotics.com · Aachen, DE
               </div>
             </div>
           </div>

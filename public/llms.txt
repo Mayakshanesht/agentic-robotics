@@ -9,7 +9,7 @@ they already own.
 
 Domain: https://cloudbeerobotics.de
 Location: Aachen, Germany
-Contact: info@cloudbeerobotics.de
+Contact: mayur.waghchoure@cloudbeerobotics.com
 
 ## What we help enterprises do
 
@@ -40,4 +40,4 @@ and a WestAI compute grant. Based at the Collective Incubator, Aachen.
 Product internals, model architectures, training methods, datasets,
 performance numbers, roadmap and customer names are proprietary and are
 not published here. For technical discussions under NDA, contact
-info@cloudbeerobotics.de.
+mayur.waghchoure@cloudbeerobotics.com.

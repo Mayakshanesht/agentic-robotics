@@ -36,7 +36,7 @@ const team: Member[] = [
     name: "Mayur Waghchoure",
     role: "Founder & CEO",
     image: mayurImg,
-    email: "mayurwaghchoure1995@gmail.com",
+    email: "mayur.waghchoure@cloudbeerobotics.com",
     linkedin: "https://www.linkedin.com/in/mayurwaghchoure/",
     description:
       "Robotics and AI engineer with hands-on experience in autonomous systems, robotic learning, and AI infrastructure at scale. M.Sc. Robotic Systems Engineering, RWTH Aachen University.",
