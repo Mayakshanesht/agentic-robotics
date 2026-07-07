@@ -31,10 +31,10 @@ export function GdprConsent({ checked, onChange, id = "gdpr-consent" }: Props) {
         information I submit in this form for the sole purpose of responding to my
         request. I understand I can request deletion at any time by emailing{" "}
         <a
-          href="mailto:info@cloudbeerobotics.de"
+          href="mailto:mayur.waghchoure@cloudbeerobotics.com"
           className="text-accent-blue hover:underline"
         >
-          info@cloudbeerobotics.de
+          mayur.waghchoure@cloudbeerobotics.com
         </a>
         . See our{" "}
         <Link to="/privacy" className="text-accent-blue hover:underline">

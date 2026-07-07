@@ -58,7 +58,7 @@ export default function Contact() {
       toast.success("Message sent. We'll be in touch shortly.");
       setForm({ name: "", company: "", email: "", interest: "Pilot Program", message: "" });
     } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : "Failed to send. Please email info@cloudbeerobotics.de directly.");
+      toast.error(err instanceof Error ? err.message : "Failed to send. Please email mayur.waghchoure@cloudbeerobotics.com directly.");
     } finally {
       setLoading(false);
     }
@@ -93,14 +93,14 @@ export default function Contact() {
               <div className="glass-card p-6">
                 <h3 className="font-display font-semibold text-lg mb-5 text-foreground">Reach Out</h3>
                 <div className="space-y-4 text-sm">
-                  <a href="mailto:info@cloudbeerobotics.de" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+                  <a href="mailto:mayur.waghchoure@cloudbeerobotics.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                     <Mail size={16} className="text-accent-blue" />
-                    info@cloudbeerobotics.de
+                    mayur.waghchoure@cloudbeerobotics.com
                   </a>
-                  <a href="mailto:mayurwaghchoure1995@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+                  <a href="mailto:mayur.waghchoure@cloudbeerobotics.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                     <Mail size={16} className="text-accent-green" />
                     <span>
-                      mayurwaghchoure1995@gmail.com
+                      mayur.waghchoure@cloudbeerobotics.com
                       <span className="block text-xs text-muted-foreground/70 font-mono">Founder & CEO - Mayur Waghchoure</span>
                     </span>
                   </a>

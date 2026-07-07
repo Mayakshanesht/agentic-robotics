@@ -31,7 +31,7 @@ export default function Impressum() {
 
             <Section title="Kontakt">
               <p>
-                E-Mail: info@cloudbeerobotics.de<br />
+                E-Mail: mayur.waghchoure@cloudbeerobotics.com<br />
                 Web: cloudbeerobotics.de
               </p>
             </Section>
