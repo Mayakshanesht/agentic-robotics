@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import capabilityVideo from "@/assets/videos/capability-compiler.mp4.asset.json";
+
 
 const inputs = [
   "Task Descriptions",
@@ -36,6 +38,33 @@ export function CapabilityCompiler() {
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
             CloudBee Robotics understands processes before generating experience. The Capability Compiler converts raw work into a structured graph the rest of the platform can reason about.
           </p>
+        </motion.div>
+
+        {/* Demo video */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+          className="relative mb-14 rounded-2xl overflow-hidden border border-border shadow-[0_30px_80px_-30px_hsl(210_90%_50%/0.35)] bg-surface"
+        >
+          <video
+            src={capabilityVideo.url}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            controlsList="nodownload noremoteplayback noplaybackrate"
+            disablePictureInPicture
+            onContextMenu={(e) => e.preventDefault()}
+            className="w-full h-auto aspect-video object-cover pointer-events-none select-none"
+            aria-label="Capability Compiler demonstration"
+          />
+          <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur border border-accent-blue/30 text-[10px] font-mono uppercase tracking-[0.22em] text-accent-blue">
+            <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
+            Capability Compiler · Live
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-[1fr_auto_1fr] items-stretch gap-8 lg:gap-12">

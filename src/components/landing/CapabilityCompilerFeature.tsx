@@ -98,24 +98,6 @@ export function CapabilityCompilerFeature() {
             ))}
           </div>
         </div>
-
-        {/* positioning callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-14 card-3d border-gradient p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center gap-6 justify-between"
-        >
-          <p className="text-base lg:text-lg text-foreground/90 max-w-3xl leading-relaxed">
-            <span className="text-gradient-green font-semibold">We don't stop at programmatic data generation.</span>{" "}
-            We scale scenarios so every capability is validated properly - and we train our own multimodal
-            AI models for the task, as planned.
-          </p>
-          <Link to="/product" className="btn-pilot shrink-0">
-            Explore the platform <ArrowRight size={16} />
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
