@@ -17,7 +17,7 @@ export function FinalStatement() {
           transition={{ duration: 0.6 }}
           className="text-[10px] font-mono uppercase tracking-[0.35em] text-accent-blue mb-8"
         >
-          The Capability Factory for Physical AI
+          Our vision · The AWS of Robotics
         </motion.div>
 
         <motion.h2
@@ -27,9 +27,20 @@ export function FinalStatement() {
           transition={{ duration: 0.8 }}
           className="font-display font-bold mx-auto max-w-4xl text-5xl sm:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-tight"
         >
-          Put your robots in a{" "}
-          <span className="text-gradient-green">self-improving loop.</span>
+          Describe the task.{" "}
+          <span className="text-gradient-green">Get a deployed robot.</span>
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mt-8 mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed"
+        >
+          In ten years, ordering a robot capability will be as easy as spinning up a server.
+          We're building the infrastructure to make that ordinary.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
