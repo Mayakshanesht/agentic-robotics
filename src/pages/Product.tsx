@@ -8,6 +8,7 @@ import { DemoVideo } from "@/components/DemoVideo";
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
+import capabilityVideo from "@/assets/videos/capability-compiler.mp4.asset.json";
 
 const pillars = [
   {
@@ -15,8 +16,8 @@ const pillars = [
     color: "blue",
     title: "Capability Compiler",
     subtitle: "Process → Validated Capabilities",
-    body: "Turns SOPs, instructions and demonstrations into a validated, multi-agent capability graph - grounded in your real workspace, safety-checked against hardware docs and regulations, and simulation-validated before deployment.",
-    video: agentOsVideo.url,
+    body: "Turns SOPs, instructions and demonstrations into a grounded semantic scene graph, safety-assessed and simulation-validated in KineBridge — then one-click deployed to real hardware.",
+    video: capabilityVideo.url,
   },
   {
     icon: Box,
