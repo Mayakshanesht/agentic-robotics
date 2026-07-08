@@ -1,28 +1,21 @@
-import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
-import {
-  FileText, Network, ScanEye, ShieldCheck, FlaskConical, BrainCircuit, ArrowRight,
-} from "lucide-react";
+import { FileText, Sparkles, ShieldCheck, Rocket, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import capabilityVideo from "@/assets/videos/capability-compiler.mp4.asset.json";
 
-const CapabilityScene = lazy(() => import("@/components/three/CapabilityScene"));
-
-const inputs = ["Text", "Images", "Video", "SOPs", "Instructions", "Hardware Docs", "Regulations", "Demonstrations"];
+const inputs = ["Text", "Video", "SOPs", "Demonstrations"];
 
 const stages = [
-  { icon: FileText, title: "Understands your process", body: "Reads SOPs, instructions and demos." },
-  { icon: Network, title: "Compiles capabilities", body: "A multi-agent graph for AgenticOS." },
-  { icon: ScanEye, title: "Grounds in the real world", body: "From video, image, or just text." },
-  { icon: ShieldCheck, title: "Runs safety analysis", body: "Against hardware docs + regulations." },
-  { icon: FlaskConical, title: "Validates in simulation", body: "Auto test cases, closed-loop." },
-  { icon: BrainCircuit, title: "Experience & models", body: "Multimodal data + our own models." },
+  { icon: FileText, title: "Understands your process", body: "From documents, video, or a short demo." },
+  { icon: Sparkles, title: "Compiles capabilities", body: "A structured graph the platform can act on." },
+  { icon: ShieldCheck, title: "Validated for safety", body: "Every capability comes with a safety envelope." },
+  { icon: Rocket, title: "Deployed & improving", body: "Runs on your hardware, learns from every shift." },
 ];
 
 export function CapabilityCompilerFeature() {
   return (
-    <section id="capability-compiler" className="relative py-28 lg:py-40 border-t border-border overflow-hidden">
-      <div className="absolute inset-0 aurora opacity-40 pointer-events-none" />
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[760px] h-[760px] rounded-full bg-accent-blue/10 blur-[170px] pointer-events-none" />
+    <section id="capability-compiler" className="relative py-24 lg:py-32 border-t border-border overflow-hidden">
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[720px] rounded-full bg-accent-blue/10 blur-[160px] pointer-events-none" />
 
       <div className="section-container relative">
         <motion.div
@@ -30,25 +23,51 @@ export function CapabilityCompilerFeature() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mb-14"
+          className="max-w-3xl mb-12"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-blue/40 bg-accent-blue/10 backdrop-blur mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse" />
             <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-accent-blue">Flagship · Capability Compiler</span>
           </div>
-          <h2 className="font-display font-bold text-4xl lg:text-6xl leading-[1.0] tracking-tight">
-            It understands the work.{" "}
-            <span className="text-gradient-blue">Then it builds the capabilities.</span>
+          <h2 className="font-display font-bold text-4xl lg:text-6xl leading-[1.02] tracking-tight">
+            Describe the work.{" "}
+            <span className="text-gradient-blue">Get a working capability.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Any process - described, demonstrated or documented - compiled into a validated,
-            multi-agent capability graph for AgenticOS.
+            Turn any process into a safety-validated capability your robots can run — without writing custom code for every task.
           </p>
         </motion.div>
 
+        {/* Video */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+          className="relative mb-16 rounded-2xl overflow-hidden border border-border shadow-[0_30px_80px_-30px_hsl(210_90%_50%/0.35)] bg-surface"
+        >
+          <video
+            src={capabilityVideo.url}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            controlsList="nodownload noremoteplayback noplaybackrate"
+            disablePictureInPicture
+            onContextMenu={(e) => e.preventDefault()}
+            className="w-full h-auto aspect-video object-cover pointer-events-none select-none"
+            aria-label="Capability Compiler demonstration"
+          />
+          <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur border border-accent-blue/30 text-[10px] font-mono uppercase tracking-[0.22em] text-accent-blue">
+            <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
+            Capability Compiler · Live
+          </div>
+        </motion.div>
+
         {/* input chips */}
-        <div className="flex flex-wrap gap-2 mb-12">
-          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground self-center mr-2">Grounds from</span>
+        <div className="flex flex-wrap gap-2 mb-10">
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground self-center mr-2">Works from</span>
           {inputs.map((c) => (
             <span key={c} className="px-3 py-1.5 rounded-full border border-border bg-surface/50 text-xs font-mono text-foreground/80">
               {c}
@@ -56,47 +75,33 @@ export function CapabilityCompilerFeature() {
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-          {/* 3D capability graph */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="card-3d border-gradient relative aspect-square lg:sticky lg:top-28 overflow-hidden"
-          >
-            <Suspense fallback={null}>
-              <CapabilityScene className="absolute inset-0 w-full h-full" />
-            </Suspense>
-            <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
-              <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-accent-blue px-2.5 py-1 rounded-full bg-background/60 backdrop-blur border border-accent-blue/30">
-                Live capability graph
-              </span>
-              <span className="text-[10px] font-mono text-muted-foreground">multi-agent · validated</span>
-            </div>
-          </motion.div>
+        {/* stages */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {stages.map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.06 }}
+              className="rounded-2xl border border-border bg-surface/40 p-5 hover:border-accent-blue/40 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-xl border border-accent-blue/30 bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-4">
+                <s.icon size={18} />
+              </div>
+              <div className="font-display font-semibold text-lg text-foreground leading-tight">{s.title}</div>
+              <div className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.body}</div>
+            </motion.div>
+          ))}
+        </div>
 
-          {/* stages */}
-          <div className="space-y-3">
-            {stages.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, x: 16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.06 }}
-                className="flex gap-4 rounded-2xl border border-border bg-surface/40 p-5 hover:border-accent-blue/40 transition-colors"
-              >
-                <div className="shrink-0 w-10 h-10 rounded-xl border border-accent-blue/30 bg-accent-blue/10 flex items-center justify-center text-accent-blue">
-                  <s.icon size={18} />
-                </div>
-                <div>
-                  <div className="font-display font-semibold text-lg text-foreground leading-tight">{s.title}</div>
-                  <div className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{s.body}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="mt-12">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-[0.2em] text-accent-blue hover:gap-3 transition-all"
+          >
+            See it on your process <ArrowRight size={14} />
+          </Link>
         </div>
       </div>
     </section>
