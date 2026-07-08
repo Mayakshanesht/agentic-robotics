@@ -152,7 +152,9 @@ export function HeroSection() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] sm:rounded-2xl lg:rounded-3xl overflow-hidden border-y sm:border border-accent-blue/20 shadow-[0_40px_100px_-40px_hsl(210_100%_56%/0.45)] sm:shadow-[0_60px_140px_-40px_hsl(210_100%_56%/0.55)] bg-surface">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] sm:rounded-2xl lg:rounded-3xl overflow-hidden sm:border border-accent-blue/10 shadow-[0_40px_100px_-40px_hsl(210_100%_56%/0.25)] bg-transparent">
+            {/* subtle inner frame */}
+            <div className="absolute inset-0 rounded-inherit ring-1 ring-inset ring-foreground/5 pointer-events-none z-10" />
             <AnimatePresence mode="sync">
               {current.kind === "video" ? (
                 <motion.video
@@ -185,9 +187,9 @@ export function HeroSection() {
               )}
             </AnimatePresence>
 
-            {/* gradient veils */}
-            <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-background/85 via-background/30 to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background/40 to-transparent pointer-events-none" />
+            {/* soft gradient veils — lighter so bg shows through */}
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/60 via-background/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-background/20 to-transparent pointer-events-none" />
 
             {/* tag */}
             <div className="absolute top-3 sm:top-5 left-3 sm:left-5 inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-background/65 backdrop-blur-md text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-accent-green border border-accent-green/30">
