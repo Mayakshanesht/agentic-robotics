@@ -90,25 +90,33 @@ export function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* legibility veils */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/45 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-background/60 pointer-events-none" />
-      <div className="absolute inset-0 grid-bg opacity-[0.05] pointer-events-none" />
+      {/* legibility veils — lighter so background carousel breathes through */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/45 to-background/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-background/35 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,hsl(var(--accent-blue)/0.10),transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-[0.04] pointer-events-none" />
 
       {/* content - title over the full-bleed carousel */}
       <div className="section-container relative z-10 w-full pt-28 pb-28">
         <div className="max-w-4xl">
-            <motion.div
+            <motion.a
+              href="https://www.linkedin.com/posts/mayur-waghchoure_founders-startup-week-share-7478130538252484609-KSGr/"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent-blue/30 bg-background/40 backdrop-blur mb-6"
+              className="group inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-accent-green/40 bg-background/50 backdrop-blur-md mb-6 hover:border-accent-green/70 transition-colors"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/85">
-                Physical AI · Autonomous AgenticOS
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-70 animate-ping" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-green" />
               </span>
-            </motion.div>
+              <span className="text-[10px] font-mono uppercase tracking-[0.28em] text-foreground/90">
+                Live · Meet us at founders.festival
+              </span>
+              <ArrowRight size={12} className="text-accent-green transition-transform group-hover:translate-x-0.5" />
+            </motion.a>
 
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
