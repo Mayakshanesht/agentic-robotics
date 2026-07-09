@@ -271,33 +271,95 @@ export default function Careers() {
             </div>
           </motion.div>
 
-          {/* More roles */}
+          {/* Working student / part-time research engineer roles */}
           <div className="mb-6">
-            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4">We're also growing these teams</div>
-            <div className="grid sm:grid-cols-2 gap-3">
-              {moreRoles.map((r) => (
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                Working Student · Part-Time · 10 hrs/week · 3 months · Germany (Aachen preferred)
+              </div>
+            </div>
+            <div className="grid gap-4">
+              {workingStudentRoles.map((r) => (
                 <motion.div
-                  key={r.title}
+                  key={r.id}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4 }}
-                  className="flex items-center justify-between gap-3 rounded-xl border border-border bg-surface/40 px-5 py-4 hover:border-accent-blue/40 transition-colors"
+                  transition={{ duration: 0.45 }}
+                  className="glass-card p-6 lg:p-7"
                 >
-                  <div>
-                    <div className="font-display font-semibold text-foreground">{r.title}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">{r.sub}</div>
+                  <div className="flex items-start gap-4">
+                    <FlaskConical className="text-accent-blue mt-1 shrink-0" size={20} />
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-display font-bold text-lg lg:text-xl text-foreground leading-snug">
+                        {r.title}
+                      </h3>
+                      <div className="text-sm text-muted-foreground mt-1">{r.focus}</div>
+                      <div className="text-xs font-mono text-muted-foreground mt-2">
+                        Germany · Aachen preferred · 10 hrs/week · 3 months · Working Student or Part-Time Freelancer
+                      </div>
+                    </div>
                   </div>
                   <button
-                    onClick={() => setOpenRole(r.title)}
-                    className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:gap-2 transition-all"
+                    onClick={() => toggle(r.id)}
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:gap-2 transition-all"
                   >
-                    Apply <ArrowRight size={14} />
+                    {details[r.id] ? "Hide details" : "View details"}
+                    <ChevronDown size={15} className={`transition-transform ${details[r.id] ? "rotate-180" : ""}`} />
                   </button>
+                  <AnimatePresence initial={false}>
+                    {details[r.id] && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-5 grid md:grid-cols-2 gap-6">
+                          <div>
+                            <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-2">What you'll work on</div>
+                            <ul className="space-y-1.5 text-sm text-foreground/85">
+                              {r.workOn.map((w) => (
+                                <li key={w} className="flex gap-2">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-green shrink-0" />
+                                  <span>{w}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">Your profile</div>
+                            <ul className="space-y-1.5 text-sm text-foreground/85">
+                              {r.profile.map((p) => (
+                                <li key={p} className="flex gap-2">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-blue shrink-0" />
+                                  <span>{p}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="mt-5 rounded-lg border border-border bg-surface/50 p-4 text-sm text-muted-foreground leading-relaxed">
+                          <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">What we offer</div>
+                          Work on challenging Physical AI problems · significant technical ownership · direct collaboration with the founding team · access to advanced compute · flexible working arrangements · possible continued collaboration based on mutual fit.
+                        </div>
+                        <div className="mt-4 text-xs text-muted-foreground">
+                          <strong className="text-foreground">How to apply:</strong> send your CV, GitHub/portfolio/publications, a short description of your most relevant project, and your availability via the form.
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  <div className="mt-6 flex items-center gap-4 pt-5 border-t border-border">
+                    <button onClick={() => setOpenRole(r.title)} className="btn-pilot">
+                      Apply Now
+                    </button>
+                    <span className="text-xs text-muted-foreground">GDPR-compliant application form</span>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
