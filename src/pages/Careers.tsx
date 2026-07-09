@@ -11,13 +11,86 @@ const values = [
   { icon: Globe2, title: "Europe's physical AI hub", body: "Deep roots in Aachen's tech ecosystem." },
 ];
 
-const moreRoles = [
-  { title: "Robotics Software Engineer (ROS 2)", sub: "Runtime, controls & hardware integration" },
-  { title: "ML Engineer - VLA & World Models", sub: "Training, evaluation, sim-to-real" },
-  { title: "Simulation / Synthetic Data Engineer", sub: "Isaac Sim, 4D world generation" },
-  { title: "AI Solutions Consultant", sub: "Translate client processes into capabilities" },
-  { title: "Full-Stack / Platform Engineer", sub: "Cloud platform, APIs, developer experience" },
-  { title: "Working Student · AI & Robotics", sub: "Part-time, RWTH students welcome" },
+type WSRole = {
+  id: string;
+  title: string;
+  focus: string;
+  workOn: string[];
+  profile: string[];
+};
+
+const workingStudentRoles: WSRole[] = [
+  {
+    id: "ws-humanoid",
+    title: "Working Student / Part-Time Research Engineer — Humanoid Robot Learning",
+    focus: "Applied R&D in humanoid robot learning",
+    workOn: [
+      "Multimodal demonstration and robotics data collection",
+      "Human motion processing and retargeting for humanoid robots",
+      "Synthetic data and scenario generation",
+      "Reinforcement learning, imitation learning, and robot locomotion",
+      "Vision-Language-Action models and robotics foundation models",
+      "Simulation-based training and evaluation",
+      "Developing generalized and scalable robot-learning approaches",
+    ],
+    profile: [
+      "Pursuing / recently completed a degree in Robotics, AI, CS, or related field",
+      "Strong Python and ML fundamentals",
+      "Experience with robotics, deep learning, or simulation",
+      "Familiarity with RL, imitation learning, humanoids, or VLA models is a plus",
+      "Comfortable reading and implementing research papers & OSS",
+      "Independent, research-oriented problem solver",
+      "Based in Germany, preferably Aachen or surrounding region",
+    ],
+  },
+  {
+    id: "ws-manipulation",
+    title: "Working Student / Part-Time Research Engineer — Robot Learning & Manipulation",
+    focus: "Robot learning, manipulation, and multimodal AI",
+    workOn: [
+      "Multimodal demonstration and robotics data collection",
+      "Robot manipulation and learning from demonstrations",
+      "Trajectory adaptation and retargeting",
+      "Synthetic robotics data and scenario generation",
+      "Reinforcement learning and imitation learning",
+      "Vision-Language-Action models and robotics foundation models",
+      "Simulation-based training and evaluation",
+      "Generalized approaches across robotic systems and tasks",
+    ],
+    profile: [
+      "Pursuing / recently completed a degree in Robotics, AI, CS, or related field",
+      "Strong Python and ML fundamentals",
+      "Good understanding of robotics, kinematics, control, or robot learning",
+      "Experience with manipulation, simulation, RL, imitation, or VLA models is a plus",
+      "Can read and implement research papers & OSS",
+      "Strong independent problem-solving and experimentation skills",
+      "Based in Germany, preferably Aachen or surrounding region",
+    ],
+  },
+  {
+    id: "ws-embodied",
+    title: "Working Student / Part-Time Research Engineer — Embodied AI & Agentic Robotics",
+    focus: "Embodied AI, spatial intelligence, world models, AI agents, robotics software",
+    workOn: [
+      "Open-source world models and robotics foundation models",
+      "Spatial and temporal scene understanding",
+      "Multimodal perception and reasoning",
+      "Memory systems for embodied intelligence",
+      "Agentic architectures for robotics",
+      "Planning, reasoning, and intelligent task execution",
+      "Scalable robotics and AI software systems",
+      "Integration and simulation-based evaluation of emerging tech",
+    ],
+    profile: [
+      "Pursuing / recently completed a degree in Robotics, AI, CS, SE, or related field",
+      "Strong programming and software-engineering skills",
+      "Good understanding of AI, robotics, or distributed software systems",
+      "Experience with world models, spatial AI, CV, AI agents, ROS, containers, or distributed systems is a plus",
+      "Can evaluate & implement academic research and OSS",
+      "Strong systems thinking and independent problem-solving",
+      "Based in Germany, preferably Aachen or surrounding region",
+    ],
+  },
 ];
 
 export default function Careers() {
