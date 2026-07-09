@@ -26,7 +26,7 @@ const news = [
     title: "Meet us at founders.festival",
     body: "CloudBee Robotics has a booth — come see live capability compilation and talk Physical AI with the founders.",
     href: "https://www.linkedin.com/posts/mayur-waghchoure_founders-startup-week-share-7478130538252484609-KSGr/",
-    color: "accent-green",
+    color: "text-accent-green",
   },
   {
     tag: "RWTH Ideation",
