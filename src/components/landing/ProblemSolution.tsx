@@ -192,7 +192,7 @@ export function ProblemSolution() {
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
                   className="group rounded-2xl border border-border/70 bg-surface/40 p-4 lg:p-5 hover:border-accent-blue/40 hover:bg-surface/70 transition-all"
                 >
-                  <div className={`text-[10px] font-mono uppercase tracking-[0.22em] text-${n.color} mb-1.5`}>
+                  <div className={`text-[10px] font-mono uppercase tracking-[0.22em] ${n.color} mb-1.5`}>
                     {n.tag}
                   </div>
                   <div className="font-display font-semibold text-base text-foreground group-hover:text-accent-blue transition-colors">
