@@ -33,7 +33,7 @@ const news = [
     title: "Pitched CloudBee at RWTH Innovation",
     body: "Founder Mayur Waghchoure presented CloudBee's Capability Factory to the RWTH Aachen innovation community.",
     href: "https://www.rwth-innovation.de/",
-    color: "accent-blue",
+    color: "text-accent-blue",
   },
 ];
 
