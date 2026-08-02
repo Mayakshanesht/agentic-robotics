@@ -53,6 +53,10 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
         portfolio: parsed.data.portfolio || null,
       });
       if (error) throw error;
+      // Best-effort email notification (won't block UX if not configured)
+      supabase.functions
+        .invoke("send-application-email", { body: { role, ...parsed.data } })
+        .catch(() => {});
       setDone(true);
       toast.success("Application submitted. Thank you!");
     } catch (err: unknown) {

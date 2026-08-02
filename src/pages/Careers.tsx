@@ -19,34 +19,11 @@ type WSRole = {
   profile: string[];
 };
 
-const workingStudentRoles: WSRole[] = [
+const freelanceRoles: WSRole[] = [
   {
-    id: "ws-humanoid",
-    title: "Working Student / Part-Time Research Engineer — Humanoid Robot Learning",
-    focus: "Applied R&D in humanoid robot learning",
-    workOn: [
-      "Multimodal demonstration and robotics data collection",
-      "Human motion processing and retargeting for humanoid robots",
-      "Synthetic data and scenario generation",
-      "Reinforcement learning, imitation learning, and robot locomotion",
-      "Vision-Language-Action models and robotics foundation models",
-      "Simulation-based training and evaluation",
-      "Developing generalized and scalable robot-learning approaches",
-    ],
-    profile: [
-      "Pursuing / recently completed a degree in Robotics, AI, CS, or related field",
-      "Strong Python and ML fundamentals",
-      "Experience with robotics, deep learning, or simulation",
-      "Familiarity with RL, imitation learning, humanoids, or VLA models is a plus",
-      "Comfortable reading and implementing research papers & OSS",
-      "Independent, research-oriented problem solver",
-      "Based in Germany, preferably Aachen or surrounding region",
-    ],
-  },
-  {
-    id: "ws-manipulation",
-    title: "Working Student / Part-Time Research Engineer — Robot Learning & Manipulation",
-    focus: "Robot learning, manipulation, and multimodal AI",
+    id: "fl-manipulation",
+    title: "Freelancer — Robot Learning & Manipulation",
+    focus: "Freelance / contract engagement · robot learning, manipulation, multimodal AI",
     workOn: [
       "Multimodal demonstration and robotics data collection",
       "Robot manipulation and learning from demonstrations",
@@ -55,43 +32,39 @@ const workingStudentRoles: WSRole[] = [
       "Reinforcement learning and imitation learning",
       "Vision-Language-Action models and robotics foundation models",
       "Simulation-based training and evaluation",
-      "Generalized approaches across robotic systems and tasks",
     ],
     profile: [
-      "Pursuing / recently completed a degree in Robotics, AI, CS, or related field",
+      "Pursuing / completed a degree in Robotics, AI, CS, or related field",
       "Strong Python and ML fundamentals",
       "Good understanding of robotics, kinematics, control, or robot learning",
       "Experience with manipulation, simulation, RL, imitation, or VLA models is a plus",
       "Can read and implement research papers & OSS",
-      "Strong independent problem-solving and experimentation skills",
-      "Based in Germany, preferably Aachen or surrounding region",
+      "Able to invoice as a freelancer (self-employed) in Germany / EU",
     ],
   },
   {
-    id: "ws-embodied",
-    title: "Working Student / Part-Time Research Engineer — Embodied AI & Agentic Robotics",
-    focus: "Embodied AI, spatial intelligence, world models, AI agents, robotics software",
+    id: "fl-humanoid",
+    title: "Freelancer — Humanoid Robot Learning",
+    focus: "Freelance / contract engagement · applied R&D in humanoid robot learning",
     workOn: [
-      "Open-source world models and robotics foundation models",
-      "Spatial and temporal scene understanding",
-      "Multimodal perception and reasoning",
-      "Memory systems for embodied intelligence",
-      "Agentic architectures for robotics",
-      "Planning, reasoning, and intelligent task execution",
-      "Scalable robotics and AI software systems",
-      "Integration and simulation-based evaluation of emerging tech",
+      "Multimodal demonstration and robotics data collection",
+      "Human motion processing and retargeting for humanoid robots",
+      "Synthetic data and scenario generation",
+      "Reinforcement learning, imitation learning, and locomotion",
+      "Vision-Language-Action models and robotics foundation models",
+      "Simulation-based training and evaluation",
     ],
     profile: [
-      "Pursuing / recently completed a degree in Robotics, AI, CS, SE, or related field",
-      "Strong programming and software-engineering skills",
-      "Good understanding of AI, robotics, or distributed software systems",
-      "Experience with world models, spatial AI, CV, AI agents, ROS, containers, or distributed systems is a plus",
-      "Can evaluate & implement academic research and OSS",
-      "Strong systems thinking and independent problem-solving",
-      "Based in Germany, preferably Aachen or surrounding region",
+      "Pursuing / completed a degree in Robotics, AI, CS, or related field",
+      "Strong Python and ML fundamentals",
+      "Experience with robotics, deep learning, or simulation",
+      "Familiarity with RL, imitation learning, humanoids, or VLA models is a plus",
+      "Comfortable reading and implementing research papers & OSS",
+      "Able to invoice as a freelancer (self-employed) in Germany / EU",
     ],
   },
 ];
+
 
 export default function Careers() {
   const [openRole, setOpenRole] = useState<string | null>(null);
@@ -209,22 +182,43 @@ export default function Careers() {
               {details.th && (
                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                   <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                    Open to <strong className="text-foreground">Bachelor&apos;s and Master&apos;s thesis</strong> candidates. This
-                    position is <strong className="text-foreground">jointly supervised with the IGMR Institute</strong> (Institute
-                    of Mechanism Theory, Machine Dynamics and Robotics, RWTH Aachen) and CloudBee Robotics. You&apos;ll work
-                    hands-on with our platform on industrial robotics research — navigation, planning and
-                    manipulation with safety-constrained, capability-oriented execution — targeting a
-                    co-authored publication.
+                    Joint Master&apos;s thesis with <strong className="text-foreground">IGMR — RWTH Aachen University</strong> and
+                    CloudBee Robotics, in Aachen.
                   </p>
-                  <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-sm text-foreground/85">
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    Real-world demonstrations are the bottleneck in industrial robotics. You&apos;d test how far synthetic
+                    multimodal experience can replace them, whether tactile beats vision-only for manipulation, and whether
+                    VLAs can match MoveIt2, OMPL and Nav2 on success rate and compute.
+                  </p>
+                  <p className="mt-3 text-sm text-foreground/90 leading-relaxed">
+                    Experiments on real hardware — not a literature review. You build a real system that works in the real world.
+                  </p>
+                  <div className="mt-5 text-xs font-mono uppercase tracking-wider text-accent-green mb-2">Hard requirements</div>
+                  <ul className="grid sm:grid-cols-2 gap-2 text-sm text-foreground/85">
                     {[
-                      "B.Sc. / M.Sc. in Mech. Eng., CS, EE or related",
-                      "Solid robotics / control / ML background",
-                      "ROS / ROS2, Python / C++",
-                      "Motivation to publish (co-author)",
+                      "Enrolled at RWTH Aachen (Master's)",
+                      "Average grade of 1.5 or better",
+                      "Solid 3D computer vision & spatial intelligence",
+                      "Robot foundation models / VLAs and robotic arms",
+                      "MuJoCo & Isaac Sim",
+                      "ROS2, Python, C++",
                     ].map((r) => (
-                      <li key={r} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent-green shrink-0" />
+                      <li key={r} className="flex items-start gap-2">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-green shrink-0" />
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-5 text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">What you get</div>
+                  <ul className="grid sm:grid-cols-2 gap-2 text-sm text-foreground/85">
+                    {[
+                      "Joint IGMR–CloudBee supervision",
+                      "Robotic manipulator and lab access",
+                      "Our DataForge / Model Lab / Agentic OS stack",
+                      "GPU compute",
+                    ].map((r) => (
+                      <li key={r} className="flex items-start gap-2">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-blue shrink-0" />
                         {r}
                       </li>
                     ))}
@@ -233,12 +227,17 @@ export default function Careers() {
                     <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-2">
                       How to apply
                     </div>
-                    Send your CV, transcript and a short motivation to
+                    Apply via the official RWTH posting:
                     {" "}
-                    <a href="mailto:bezrucav@igmr.rwth-aachen.de" className="text-accent-green hover:underline font-medium">
-                      Dr. Stefan Bezrucav
+                    <a
+                      href="https://lnkd.in/eUhUwYdV"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent-blue hover:underline break-all"
+                    >
+                      Application link
                     </a>
-                    {" "}at IGMR. Full topic description on the RWTH advertisement:
+                    . Full description in the
                     {" "}
                     <a
                       href="https://web.zhv.rwth-aachen.de/dia/abschlussarbeiten:42790.pdf"
@@ -246,19 +245,25 @@ export default function Careers() {
                       rel="noopener noreferrer"
                       className="text-accent-blue hover:underline break-all"
                     >
-                      RWTH thesis advertisement (PDF)
+                      thesis advertisement (PDF)
                     </a>
-                    .
+                    . Contact: {" "}
+                    <a href="mailto:bezrucav@igmr.rwth-aachen.de" className="text-accent-green hover:underline font-medium">
+                      Dr. Stefan-Octavian Bezrucav
+                    </a>
+                    , IGMR — RWTH Aachen University.
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6 border-t border-border">
               <a
-                href="mailto:bezrucav@igmr.rwth-aachen.de?subject=Bachelor%2FMaster%20Thesis%20Application%20-%20IGMR%20%C3%97%20CloudBee%20Robotics"
+                href="https://lnkd.in/eUhUwYdV"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-pilot"
               >
-                Email Dr. Stefan (IGMR)
+                Apply for the thesis
               </a>
               <a
                 href="https://web.zhv.rwth-aachen.de/dia/abschlussarbeiten:42790.pdf"
@@ -269,17 +274,18 @@ export default function Careers() {
                 View topic (PDF) →
               </a>
             </div>
+
           </motion.div>
 
-          {/* Working student / part-time research engineer roles */}
+          {/* Freelance roles */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
               <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                Working Student · Part-Time · 10 hrs/week · 3 months · Germany (Aachen preferred)
+                Freelance · Project-based · Remote-friendly · Germany / EU (Aachen preferred)
               </div>
             </div>
             <div className="grid gap-4">
-              {workingStudentRoles.map((r) => (
+              {freelanceRoles.map((r) => (
                 <motion.div
                   key={r.id}
                   initial={{ opacity: 0, y: 12 }}
@@ -296,7 +302,7 @@ export default function Careers() {
                       </h3>
                       <div className="text-sm text-muted-foreground mt-1">{r.focus}</div>
                       <div className="text-xs font-mono text-muted-foreground mt-2">
-                        Germany · Aachen preferred · 10 hrs/week · 3 months · Working Student or Part-Time Freelancer
+                        Freelancer (self-employed) · Project-based scope · Germany / EU · Aachen preferred
                       </div>
                     </div>
                   </div>
@@ -340,20 +346,24 @@ export default function Careers() {
                           </div>
                         </div>
                         <div className="mt-5 rounded-lg border border-border bg-surface/50 p-4 text-sm text-muted-foreground leading-relaxed">
-                          <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">What we offer</div>
-                          Work on challenging Physical AI problems · significant technical ownership · direct collaboration with the founding team · access to advanced compute · flexible working arrangements · possible continued collaboration based on mutual fit.
+                          <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">Engagement &amp; bidding</div>
+                          This is a <strong className="text-foreground">freelance engagement</strong>, not employment. Shortlisted
+                          freelancers are <strong className="text-foreground">invited to submit a bid proposal</strong> (scope,
+                          day/hourly rate, timeline and availability) for the specific work package. You invoice us directly.
                         </div>
                         <div className="mt-4 text-xs text-muted-foreground">
-                          <strong className="text-foreground">How to apply:</strong> send your CV, GitHub/portfolio/publications, a short description of your most relevant project, and your availability via the form.
+                          <strong className="text-foreground">How to apply:</strong> submit your CV, GitHub/portfolio/publications,
+                          your most relevant project and your availability via the form. Do not send a rate yet — we&apos;ll invite
+                          you to bid after review.
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                  <div className="mt-6 flex items-center gap-4 pt-5 border-t border-border">
+                  <div className="mt-6 flex flex-wrap items-center gap-4 pt-5 border-t border-border">
                     <button onClick={() => setOpenRole(r.title)} className="btn-pilot">
-                      Apply Now
+                      Apply as Freelancer
                     </button>
-                    <span className="text-xs text-muted-foreground">GDPR-compliant application form</span>
+                    <span className="text-xs text-muted-foreground">GDPR-compliant application form · bid requested on invitation</span>
                   </div>
                 </motion.div>
               ))}
