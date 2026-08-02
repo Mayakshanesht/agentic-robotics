@@ -277,15 +277,15 @@ export default function Careers() {
 
           </motion.div>
 
-          {/* Working student / part-time research engineer roles */}
+          {/* Freelance roles */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
               <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                Working Student · Part-Time · 10 hrs/week · 3 months · Germany (Aachen preferred)
+                Freelance · Project-based · Remote-friendly · Germany / EU (Aachen preferred)
               </div>
             </div>
             <div className="grid gap-4">
-              {workingStudentRoles.map((r) => (
+              {freelanceRoles.map((r) => (
                 <motion.div
                   key={r.id}
                   initial={{ opacity: 0, y: 12 }}
