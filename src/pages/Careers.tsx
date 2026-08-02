@@ -346,20 +346,24 @@ export default function Careers() {
                           </div>
                         </div>
                         <div className="mt-5 rounded-lg border border-border bg-surface/50 p-4 text-sm text-muted-foreground leading-relaxed">
-                          <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">What we offer</div>
-                          Work on challenging Physical AI problems · significant technical ownership · direct collaboration with the founding team · access to advanced compute · flexible working arrangements · possible continued collaboration based on mutual fit.
+                          <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">Engagement &amp; bidding</div>
+                          This is a <strong className="text-foreground">freelance engagement</strong>, not employment. Shortlisted
+                          freelancers are <strong className="text-foreground">invited to submit a bid proposal</strong> (scope,
+                          day/hourly rate, timeline and availability) for the specific work package. You invoice us directly.
                         </div>
                         <div className="mt-4 text-xs text-muted-foreground">
-                          <strong className="text-foreground">How to apply:</strong> send your CV, GitHub/portfolio/publications, a short description of your most relevant project, and your availability via the form.
+                          <strong className="text-foreground">How to apply:</strong> submit your CV, GitHub/portfolio/publications,
+                          your most relevant project and your availability via the form. Do not send a rate yet — we&apos;ll invite
+                          you to bid after review.
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                  <div className="mt-6 flex items-center gap-4 pt-5 border-t border-border">
+                  <div className="mt-6 flex flex-wrap items-center gap-4 pt-5 border-t border-border">
                     <button onClick={() => setOpenRole(r.title)} className="btn-pilot">
-                      Apply Now
+                      Apply as Freelancer
                     </button>
-                    <span className="text-xs text-muted-foreground">GDPR-compliant application form</span>
+                    <span className="text-xs text-muted-foreground">GDPR-compliant application form · bid requested on invitation</span>
                   </div>
                 </motion.div>
               ))}
