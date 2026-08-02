@@ -302,7 +302,7 @@ export default function Careers() {
                       </h3>
                       <div className="text-sm text-muted-foreground mt-1">{r.focus}</div>
                       <div className="text-xs font-mono text-muted-foreground mt-2">
-                        Germany · Aachen preferred · 10 hrs/week · 3 months · Working Student or Part-Time Freelancer
+                        Freelancer (self-employed) · Project-based scope · Germany / EU · Aachen preferred
                       </div>
                     </div>
                   </div>
