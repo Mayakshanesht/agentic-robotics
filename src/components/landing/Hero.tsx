@@ -99,25 +99,6 @@ export function Hero() {
       {/* content - title over the full-bleed carousel */}
       <div className="section-container relative z-10 w-full pt-28 pb-28">
         <div className="max-w-4xl">
-            <motion.a
-              href="https://www.linkedin.com/posts/mayur-waghchoure_founders-startup-week-share-7478130538252484609-KSGr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="group inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-accent-green/40 bg-background/50 backdrop-blur-md mb-6 hover:border-accent-green/70 transition-colors"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-70 animate-ping" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-green" />
-              </span>
-              <span className="text-[10px] font-mono uppercase tracking-[0.28em] text-foreground/90">
-                Live · Meet us at founders.festival
-              </span>
-              <ArrowRight size={12} className="text-accent-green transition-transform group-hover:translate-x-0.5" />
-            </motion.a>
-
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
