@@ -5,6 +5,7 @@ import { PageShell } from "@/components/PageShell";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { DemoVideo } from "@/components/DemoVideo";
+import { AgenticDemoHighlight } from "@/components/home/AgenticDemoHighlight";
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
@@ -86,6 +87,11 @@ export default function Product() {
           </motion.div>
         </div>
       </section>
+
+      {/* Flagship demo highlight */}
+      <AgenticDemoHighlight />
+
+
 
       {/* Vision */}
       <section className="section-spacing border-t border-border">
