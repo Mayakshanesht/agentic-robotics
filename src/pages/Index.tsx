@@ -5,6 +5,7 @@ import { Hero } from "@/components/landing/Hero";
 import { ProblemSolution } from "@/components/landing/ProblemSolution";
 import { WhoWeServe } from "@/components/landing/WhoWeServe";
 import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
+import { AgenticDemoHighlight } from "@/components/home/AgenticDemoHighlight";
 import { OnboardingPaths } from "@/components/landing/OnboardingPaths";
 import { Metrics } from "@/components/landing/Metrics";
 import { InvestorCTA } from "@/components/landing/InvestorCTA";
@@ -32,6 +33,7 @@ const Index = () => {
       <PartnerStrip />
       <ProblemSolution />
       <CapabilityCompilerFeature />
+      <AgenticDemoHighlight />
       <WhoWeServe />
       <OnboardingPaths />
       <Metrics />

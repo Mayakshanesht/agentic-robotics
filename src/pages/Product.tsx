@@ -16,7 +16,7 @@ const pillars = [
     color: "blue",
     title: "Capability Compiler",
     subtitle: "Process → Validated Capabilities",
-    body: "Turns SOPs, instructions and demonstrations into a grounded semantic scene graph, safety-assessed and simulation-validated in KineBridge — then one-click deployed to real hardware.",
+    body: "Turns SOPs, instructions and demonstrations into a validated, deployable capability — safety-assessed and simulation-tested in KineBridge, then one-click deployed to real hardware.",
     video: capabilityVideo.url,
   },
   {
@@ -24,7 +24,7 @@ const pillars = [
     color: "blue",
     title: "DataForge",
     subtitle: "Synthetic Multimodal Experience",
-    body: "Production-quality multimodal training data - vision, depth, tactile and force - in hours, not months. Stop collecting real-world data by hand.",
+    body: "Production-quality multimodal training data in hours, not months. Stop collecting real-world data by hand.",
     video: dataforgeVideo.url,
   },
   {
@@ -32,7 +32,7 @@ const pillars = [
     color: "green",
     title: "ModelLab",
     subtitle: "Task Model Training & Validation",
-    body: "Trains and validates the AI models that run your tasks - optimized for sim-to-real transfer and functional-safety validation.",
+    body: "Trains and validates the AI models that run your tasks — tuned for reliable transfer from simulation to the real world.",
     video: modellabVideo.url,
   },
   {
@@ -40,15 +40,15 @@ const pillars = [
     color: "blue",
     title: "AgenticOS",
     subtitle: "Autonomous Runtime & Orchestration",
-    body: "The runtime that powers deployed robots - long-horizon planning, safe execution and continuous improvement. ROS 2-native, EU AI Act ready.",
+    body: "The runtime that powers deployed robots — long-horizon execution, autonomous recovery and continuous improvement. ROS 2-native, EU AI Act ready.",
     video: agentOsVideo.url,
   },
 ] as const;
 
 const skillFlow = [
   { icon: Wifi, step: "01", title: "Connect Your Robot", body: "Plug any humanoid, arm or AMR into CloudBee Robotics over the internet. ROS 2 native." },
-  { icon: MessageSquare, step: "02", title: "Describe the Task", body: "Natural language in. AgenticOS scopes the task and triggers the pipeline." },
-  { icon: Boxes, step: "03", title: "We Generate & Train", body: "DataForge synthesizes data; ModelLab trains and validates the policy." },
+  { icon: MessageSquare, step: "02", title: "Describe the Task", body: "Natural language in. AgenticOS scopes the task and starts the work." },
+  { icon: Boxes, step: "03", title: "We Generate & Train", body: "We build the experience and train the task model for you." },
   { icon: PackageCheck, step: "04", title: "Download as ROS 2 Skill", body: "Pushed directly to your robot with safety contracts, ready to run." },
 ];
 
@@ -56,11 +56,11 @@ const skillFlow = [
 
 const steps = [
   "Describe your task in natural language",
-  "DataForge generates synthetic training worlds",
-  "Multimodal data is collected at scale",
-  "ModelLab trains and validates robot policies",
-  "AgenticOS deploys and orchestrates live execution",
-  "Continuous learning feeds back into the loop",
+  "We generate the synthetic experience it needs",
+  "Task models are trained and validated",
+  "Safety-assessed and validated in simulation",
+  "Deployed and orchestrated live on your hardware",
+  "Continuous improvement feeds back into the loop",
 ];
 
 export default function Product() {
