@@ -18,9 +18,22 @@ interface Props {
   role: string;
   open: boolean;
   onClose: () => void;
+  /** Line under the role title. Defaults to the standard full-time job line. */
+  meta?: string;
+  /** Label for the free-text field. */
+  promptLabel?: string;
+  /** Placeholder for the free-text field. */
+  promptPlaceholder?: string;
 }
 
-export function JobApplicationDialog({ role, open, onClose }: Props) {
+export function JobApplicationDialog({
+  role,
+  open,
+  onClose,
+  meta = "Aachen, Germany · Full-time",
+  promptLabel = "Why you, why CloudBee Robotics? *",
+  promptPlaceholder = "Tell us about your background and what excites you about physical AI…",
+}: Props) {
   const [form, setForm] = useState({
     full_name: "", email: "", location: "", linkedin: "", portfolio: "", cover_letter: "",
   });
@@ -87,7 +100,7 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
           <>
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">Apply</div>
             <h3 className="font-display font-bold text-2xl mb-1">{role}</h3>
-            <p className="text-sm text-muted-foreground mb-6">Aachen, Germany · Full-time</p>
+            <p className="text-sm text-muted-foreground mb-6">{meta}</p>
 
             <form onSubmit={submit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
@@ -107,8 +120,8 @@ export function JobApplicationDialog({ role, open, onClose }: Props) {
               <Field label="Portfolio / GitHub / Google Scholar">
                 <input className="input-base" placeholder="https://…" value={form.portfolio} onChange={(e) => setForm({ ...form, portfolio: e.target.value })} />
               </Field>
-              <Field label="Why you, why CloudBee Robotics? *">
-                <textarea required rows={6} className="input-base resize-y" placeholder="Tell us about your background and what excites you about physical AI…" value={form.cover_letter} onChange={(e) => setForm({ ...form, cover_letter: e.target.value })} />
+              <Field label={promptLabel}>
+                <textarea required rows={6} className="input-base resize-y" placeholder={promptPlaceholder} value={form.cover_letter} onChange={(e) => setForm({ ...form, cover_letter: e.target.value })} />
               </Field>
               <div className="pt-1">
                 <GdprConsent checked={gdpr} onChange={setGdpr} />
