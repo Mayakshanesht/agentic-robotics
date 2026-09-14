@@ -4,6 +4,7 @@ import { z } from 'npm:zod@3.23.8';
 const TO_EMAIL = 'mayurwaghchoure1995@gmail.com';
 // IMPORTANT: the FROM domain (cloudbeerobotics.de) must be verified in Resend.
 const FROM_EMAIL = 'CloudBee Robotics <noreply@cloudbeerobotics.de>';
+const THESIS_EMAIL = 'mayur.waghchoure@cloudbeerobotics.de';
 
 const BodySchema = z.object({
   role: z.string().trim().min(1).max(200),
@@ -55,15 +56,25 @@ Deno.serve(async (req) => {
         <div style="white-space:pre-wrap;line-height:1.55;color:#fff">${esc(cover_letter)}</div>
       </div>`;
 
+    const isThesis = role.startsWith("Master's Thesis");
+    const nextSteps = isThesis
+      ? `
+        <p style="margin:0 0 16px;color:#475569;font-size:14px;line-height:1.55">
+          <strong style="color:#0F172A">Next step:</strong> if you haven't already, email your CV and transcript to
+          <a href="mailto:${THESIS_EMAIL}" style="color:#00AEEF;text-decoration:none">${THESIS_EMAIL}</a>, with the topic in the subject line.
+        </p>
+        <p style="margin:0 0 16px;color:#475569;font-size:14px;line-height:1.55">
+          <strong style="color:#0F172A">Start talking to professors at your university now.</strong> Your university supervises and examines the thesis, and you register it with your examination office during October. No supervisor yet? We will provide a written topic proposal you can take to a professor.
+        </p>`
+      : '';
+
     const confirmationHtml = `
       <div style="font-family:Inter,system-ui,sans-serif;background:#fafbfc;color:#0F172A;padding:32px;border-radius:12px;max-width:560px;margin:auto;border:1px solid #e2e8f0">
         <h2 style="margin:0 0 12px;font-size:22px">Application received, ${esc(full_name)} 👋</h2>
         <p style="margin:0 0 16px;color:#475569;font-size:14px;line-height:1.55">
           Thanks for applying to <strong>${esc(role)}</strong> at CloudBee Robotics. The founding team reviews every application personally and will get back to you within 1–2 weeks.
         </p>
-        <p style="margin:0 0 16px;color:#475569;font-size:14px;line-height:1.55">
-          If this is a freelance role, we'll invite you to submit a bid proposal (scope, day rate, availability) once your profile is shortlisted.
-        </p>
+        ${nextSteps}
         <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0"/>
         <div style="font-size:12px;color:#94a3b8">
           CloudBee Robotics · Collective Incubator, Aachen, Germany<br/>

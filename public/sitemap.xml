@@ -6,6 +6,9 @@
   <url><loc>https://cloudbeerobotics.de/research</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cloudbeerobotics.de/team</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cloudbeerobotics.de/careers</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cloudbeerobotics.de/careers/thesis-video-to-part-level-3d-scenes</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cloudbeerobotics.de/careers/thesis-contact-rich-manipulation-data</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cloudbeerobotics.de/careers/thesis-multimodal-foundation-model-adaptation</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cloudbeerobotics.de/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cloudbeerobotics.de/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cloudbeerobotics.de/impressum</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>

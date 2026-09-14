@@ -11,6 +11,7 @@ import Solution from "./pages/Solution";
 import Research from "./pages/Research";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
+import ThesisDetail from "./pages/ThesisDetail";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import Privacy from "./pages/Privacy";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/research" element={<Research />} />
           <Route path="/team" element={<Team />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/careers/:slug" element={<ThesisDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/privacy" element={<Privacy />} />
