@@ -9,7 +9,7 @@
 
 -- Note: The actual user creation in auth.users needs to be done via:
 -- 1. Supabase Dashboard Authentication section, or
--- 2. Supabase CLI: supabase auth user create mayurwaghchoure1995@gmail.com --password 'Sarah@1995'
+-- 2. Supabase CLI: supabase auth user create mayurwaghchoure1995@gmail.com --password '<CHOOSE-A-STRONG-PASSWORD>'
 
 -- After creating the user, get their UUID and run:
 INSERT INTO public.user_roles (user_id, role)

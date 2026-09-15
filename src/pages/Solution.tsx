@@ -8,7 +8,7 @@ import { DemoVideo } from "@/components/DemoVideo";
 
 const HumanoidScene = lazy(() => import("@/components/three/HumanoidScene"));
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
-import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
+import { MEDIA } from "@/data/company";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
 
 const hardware = [
@@ -50,7 +50,7 @@ const industries = [
 const solutionReels = [
   { src: dataforgeVideo.url, label: "DataForge", caption: "Synthetic experience at scale - cover the long tail." },
   { src: modellabVideo.url, label: "ModelLab", caption: "Task models, trained & validated on multimodal data." },
-  { src: agentOsVideo.url, label: "AgenticOS", caption: "Autonomous execution with built-in recovery." },
+  { src: MEDIA.robotDemo, label: "AgenticOS", caption: "Autonomous execution with built-in recovery." },
 ];
 
 

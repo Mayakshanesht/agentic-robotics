@@ -55,14 +55,14 @@ export const theses: Thesis[] = [
     title: "Contact-Rich Robot Data from Human Video",
     focus: "Video understanding · physics simulation · force and tactile data",
     intro: [
-      "Robot policies are trained on teleoperated demonstrations, which scale linearly with human hours and are the dominant cost in robot learning. Video is far cheaper — but it carries only motion, and the manipulation that matters industrially is decided by force. So the force has to be generated, by replaying the recovered motion in simulation with the contact instrumented.",
+      "Robot policies are trained on teleoperated demonstrations, which scale linearly with human hours and are the dominant cost in robot learning. Video is far cheaper — but it carries only motion, and the manipulation that matters industrially is decided by force.",
     ],
     question:
-      "How reliably can a manipulation task be recovered from ordinary third-person video — what happened, when each phase began and ended, along what trajectory — and does replaying it in simulation produce force and tactile data good enough to train on?",
+      "How reliably can a manipulation task be recovered from ordinary third-person video — what happened, when each phase began and ended, along what trajectory — and can force and tactile training data derived from it be good enough to train on?",
     bring: [
       "Computer vision for manipulation — 6-DoF object tracking, video understanding, or hand–object interaction",
       "Robot kinematics and rigid-body dynamics",
-      "Hands-on physics simulation — working inside Isaac Sim or MuJoCo and extending it, because you will be writing sensor models",
+      "Hands-on physics simulation in Isaac Sim or MuJoCo, including extending the simulator",
       "Signal processing for time series",
       "Strong Python and PyTorch",
       "Experimental discipline",
@@ -86,7 +86,7 @@ export const theses: Thesis[] = [
       "Open robot foundation models see camera and language — not geometry, not force. Adapting one to consume them is a search over a large design space, run today on expert intuition, re-done by hand at every deployment, leaving nothing transferable behind.",
     ],
     question:
-      "Can an open pretrained model be extended to consume 3D geometry, force and contact pressure well enough to work on a real arm — and did the assisted procedure that chose the configuration beat an expert on the same compute budget?",
+      "Can an open pretrained model be extended to consume 3D geometry, force and contact pressure well enough to work on a real arm — and can that adaptation be made systematic instead of hand-tuned for every deployment?",
     bring: [
       "Real projects on robotic arms or humanoids using robot foundation models — a policy you trained, deployed on hardware and debugged when it failed, not coursework",
       "Hands-on experience with the LeRobot ecosystem and SO-101-class arms",

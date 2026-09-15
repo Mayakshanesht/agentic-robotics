@@ -41,7 +41,7 @@ export default function Careers() {
               Join the team building the <span className="text-gradient-blue">future of physical AI.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              We're a small, senior team shipping a real product - synthetic 4D data, explainable VLA models, and an agentic runtime that deploys to any humanoid, arm, or AMR.
+              We're a small, senior team shipping a real product — contact-rich manipulation data, robot foundation models adapted to real hardware, and an agentic runtime that recovers on its own.
             </p>
             <div className="inline-flex items-center gap-2 text-sm font-mono text-muted-foreground px-3 py-2 mt-6 rounded-md border border-border bg-surface/60">
               <MapPin size={14} className="text-accent-blue" />

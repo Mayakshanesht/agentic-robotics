@@ -6,10 +6,9 @@ import { ParticleBackground } from "@/components/ParticleBackground";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { DemoVideo } from "@/components/DemoVideo";
 import { HardwareBus, SafetyChecks } from "@/components/landing/PipelineAnimations";
-import { pilotRobots, products, safetyLayer, type ProductKey } from "@/data/company";
-import videoToMotionVideo from "@/assets/videos/capability-compiler.mp4.asset.json";
+import { BusinessModel } from "@/components/landing/BusinessModel";
+import { MEDIA, pilotRobots, products, safetyLayer, type ProductKey } from "@/data/company";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
-import realRobotDemo from "@/assets/videos/cloudbee-demo.mp4.asset.json";
 
 type Detail = {
   problem: string;
@@ -23,7 +22,7 @@ const details: Record<ProductKey, Detail> = {
     problem: "Teleoperation scales with human hours, and most robot datasets carry no force or touch — the signals contact-rich tasks depend on.",
     inputs: ["Task description", "Video of your scene", "A few video demonstrations"],
     outputs: ["Simulation of your work cell", "4D multimodal dataset with force and tactile channels"],
-    video: { src: videoToMotionVideo.url, caption: "Human video → tracked 3D object motion" },
+    video: { src: MEDIA.videoToMotion, caption: "Human video → tracked hands and objects" },
   },
   modellab: {
     problem: "Open foundation models see camera and language. Your robot has its own sensors, actuators and compute budget.",
@@ -35,7 +34,7 @@ const details: Record<ProductKey, Detail> = {
     problem: "Long tasks fail mid-way. Without recovery, one slipped grasp stops the cell until an engineer steps in.",
     inputs: ["Your task", "Validated capabilities"],
     outputs: ["Long-horizon execution on real robots", "Closed-loop recovery when a step fails"],
-    video: { src: realRobotDemo.url, caption: "Real hardware · one task across several arms" },
+    video: { src: MEDIA.robotDemo, caption: "Real hardware · one task across several arms" },
   },
   kinebridge: {
     problem: "Every new robot or sensor means another custom integration before any useful work starts.",
@@ -248,6 +247,8 @@ export default function Product() {
           </div>
         </div>
       </section>
+
+      <BusinessModel />
 
       {/* Public vs NDA */}
       <section className="section-spacing border-t border-border">

@@ -10,7 +10,7 @@ const credibility = [
   { icon: Award, title: "EXIST Grant", body: "Awarded the German federal startup grant - backing the research and validating commercial and technical potential.", url: "https://www.exist.de" },
   { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center to train and validate our multimodal robot foundation models at scale.", url: "https://westai.de" },
   { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator.", url: "https://www.collective-incubator.de" },
-  { icon: Briefcase, title: "Industrial Traction", body: "Letter of Intent with a leading automotive Tier 1 partner." },
+  { icon: Briefcase, title: "Industrial Traction", body: "Pilots running with industrial customers." },
 ];
 
 export default function Research() {

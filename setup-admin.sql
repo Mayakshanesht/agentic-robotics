@@ -3,7 +3,7 @@
 
 -- Step 1: Create admin user (run this in Supabase Dashboard Authentication section)
 -- Email: mayurwaghchoure1995@gmail.com
--- Password: Sarah@1995
+-- Password: <CHOOSE-A-STRONG-PASSWORD>
 
 -- Step 2: Get the user ID and assign admin role
 -- Run this query after creating the user:

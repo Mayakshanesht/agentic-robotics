@@ -20,7 +20,7 @@ BEGIN
         RAISE NOTICE '1. Go to Authentication → Users';
         RAISE NOTICE '2. Click "Add user"';
         RAISE NOTICE '3. Email: mayurwaghchoure1995@gmail.com';
-        RAISE NOTICE '4. Password: Sarah@1995';
+        RAISE NOTICE '4. Password: <CHOOSE-A-STRONG-PASSWORD>';
         RAISE NOTICE '5. Run this script again after creating the user';
     ELSE
         RAISE NOTICE 'User found. Proceeding with admin setup...';

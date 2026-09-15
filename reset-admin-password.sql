@@ -16,7 +16,7 @@
 DO $$
 DECLARE
   v_email    text := 'mayurwaghchoure1995@gmail.com';
-  v_password text := 'Sarah@1995';
+  v_password text := '<CHOOSE-A-STRONG-PASSWORD>';
   v_user_id  uuid;
 BEGIN
   CREATE EXTENSION IF NOT EXISTS pgcrypto;

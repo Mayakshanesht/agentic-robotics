@@ -22,10 +22,10 @@ export const products: Product[] = [
     name: "DataForge",
     tagline: "4D multimodal manipulation data",
     summary:
-      "From a task description, a video of your scene and a few video demonstrations, DataForge builds a simulation of your work cell and generates contact-rich training data — vision, depth, force and touch, over time.",
+      "DataForge lets you generate a 4D replica of your own work cell — from a task description, a video of the scene and a few demonstrations — and then generate contact-rich synthetic data on it: vision, depth, force and touch, over time.",
     youGet: [
-      "A simulation-ready replica of your work cell",
-      "Synthetic 4D datasets with force and tactile channels",
+      "A 4D replica of your own work cell",
+      "Synthetic contact-rich datasets generated on that replica",
       "Human video demonstrations turned into robot motion",
     ],
   },
@@ -113,7 +113,7 @@ export const targets = [
 export const preSeedUseOfFunds = [
   {
     title: "Convert pilots into paid deployments",
-    body: "Take the pilots running today on Unitree G1, Unitree H2, OpenArm 2 and SO-101 to paid work-cell deployments.",
+    body: "Take the pilots running today on Unitree G1, Unitree H2, OpenArm 2 and SO-101 to paid deployments — GPU-credit usage to build, per-robot subscriptions to run.",
   },
   {
     title: "Harden the four products",
@@ -134,4 +134,39 @@ export const preSeedMilestones = [
   "KineBridge support for additional robot platforms",
   "A repeatable path from task and video to deployed capability",
   "The traction to raise a seed round",
+];
+
+/**
+ * Sanitised, self-hosted product footage (public/videos). The original Lovable-hosted clips
+ * (agentOS, capability-compiler, cloudbee-demo, humanoid-pallet-2) show internal tooling,
+ * pipeline names and policy labels — don't reintroduce them on the site.
+ */
+export const MEDIA = {
+  robotDemo: "/videos/robot-demo.mp4",
+  videoToMotion: "/videos/video-to-motion.mp4",
+};
+
+/** How customers pay. The model is public; rates are never published — pricing is on request. */
+export const pricingModel = [
+  {
+    step: "Start",
+    title: "Free pilot demo",
+    scope: "On a task similar to yours",
+    body: "See a capability working on a small task close to your use case before you commit to anything.",
+    billing: "Free",
+  },
+  {
+    step: "Build",
+    title: "DataForge + ModelLab",
+    scope: "Your 4D work cell, data and models",
+    body: "Generate your work cell and synthetic data on it, then adapt and train models for your robot.",
+    billing: "Usage-based · GPU credits used",
+  },
+  {
+    step: "Run",
+    title: "AgenticOS + KineBridge",
+    scope: "Execution on your robots",
+    body: "Run capabilities with closed-loop self-recovery and one-click deployment to any robot.",
+    billing: "Subscription · per robot, per year",
+  },
 ];

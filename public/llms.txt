@@ -12,8 +12,9 @@ Contact: mayur.waghchoure@cloudbeerobotics.de
 
 ## Products
 
-- DataForge — 4D multimodal manipulation data (vision, depth, force, touch)
-  for a work cell, built from a task, a scene video and a few video demonstrations.
+- DataForge — generate a 4D replica of your own work cell and contact-rich
+  synthetic data on it (vision, depth, force, touch), from a task, a scene video
+  and a few video demonstrations.
 - ModelLab with Copilot — adapts frontier robot foundation models to a robot's
   sensors, actuators, compute and task.
 - AgenticOS — long-horizon task execution with closed-loop self-recovery.
@@ -22,6 +23,14 @@ Contact: mayur.waghchoure@cloudbeerobotics.de
 
 Every capability goes through safety analysis, validation test cases and
 verification in simulation before it reaches real hardware.
+
+## Pricing model
+
+- Free small pilot demo on a task similar to the customer's.
+- DataForge and ModelLab: usage-based, billed by GPU credits used.
+- AgenticOS and KineBridge: annual subscription per robot.
+
+Rates are not published. Contact mayur.waghchoure@cloudbeerobotics.de.
 
 ## Hardware
 

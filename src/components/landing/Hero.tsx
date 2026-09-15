@@ -2,25 +2,21 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
-import sceneGenerationVideo from "@/assets/videos/humanoid-pallet-2.mp4.asset.json";
-import videoToMotionVideo from "@/assets/videos/capability-compiler.mp4.asset.json";
-import realRobotDemo from "@/assets/videos/cloudbee-demo.mp4.asset.json";
+import { MEDIA } from "@/data/company";
 
 type Slide =
   | { kind: "video"; src: string; tag: string }
   | { kind: "image"; src: string; tag: string };
 
 // Real product footage only. Tags describe what each clip actually shows.
+// Robot demo and video-to-motion use sanitised copies (see MEDIA in src/data/company.ts).
 const slides: Slide[] = [
-  { kind: "video", src: realRobotDemo.url, tag: "AgenticOS · live on real robot arms" },
-  { kind: "video", src: videoToMotionVideo.url, tag: "DataForge · human video → 3D object motion" },
-  { kind: "video", src: sceneGenerationVideo.url, tag: "DataForge · task → simulation scene" },
+  { kind: "video", src: MEDIA.robotDemo, tag: "AgenticOS · live on real robot arms" },
+  { kind: "video", src: MEDIA.videoToMotion, tag: "DataForge · human video → tracked hands and objects" },
   { kind: "video", src: dataforgeVideo.url, tag: "DataForge · scene variations at scale" },
   { kind: "video", src: modellabVideo.url, tag: "ModelLab · policy rollout in simulation" },
-  { kind: "video", src: agentOsVideo.url, tag: "AgenticOS · task → execution graph" },
 ];
 
 const AUTOPLAY_MS = 5200;
@@ -119,9 +115,9 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 0.12 }}
               className="mt-7 text-lg text-foreground/80 max-w-2xl leading-relaxed"
             >
-              Give us the task and a video of your work cell. We generate 4D multimodal training data, adapt
-              frontier foundation models to your robot, and run them on a self-recovering agentic OS — deployed
-              to any robot through one hardware standard.
+              Generate a 4D replica of your own work cell and contact-rich synthetic data on it. Then adapt and
+              train frontier foundation models for your robot, and run them on a self-recovering agentic OS —
+              deployed to any robot through one hardware standard.
             </motion.p>
 
             <motion.div
@@ -144,7 +140,7 @@ export function Hero() {
               className="mt-9 flex flex-wrap items-center gap-4"
             >
               <Link to="/contact?interest=Pilot%20Program" className="btn-pilot text-base px-7 py-3.5">
-                Start a pilot <ArrowRight size={16} />
+                Get a free pilot demo <ArrowRight size={16} />
               </Link>
               <Link
                 to="/product"

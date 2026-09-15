@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { DemoVideo } from "@/components/DemoVideo";
-import demoVideo from "@/assets/videos/cloudbee-demo.mp4.asset.json";
+import { MEDIA } from "@/data/company";
 
 const highlights = [
   {
@@ -48,7 +48,7 @@ export function AgenticDemoHighlight() {
           transition={{ duration: 0.7 }}
           className="relative rounded-2xl overflow-hidden border border-accent-blue/30 bg-surface shadow-[0_40px_100px_-40px_hsl(210_90%_50%/0.4)] aspect-video"
         >
-          <DemoVideo src={demoVideo.url} label="CloudBee Robotics AgenticOS and KineBridge demo" />
+          <DemoVideo src={MEDIA.robotDemo} label="CloudBee Robotics AgenticOS and KineBridge demo" />
           <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur border border-accent-green/30 text-[10px] font-mono uppercase tracking-[0.22em] text-accent-green">
             <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
             Real hardware · AgenticOS · KineBridge
