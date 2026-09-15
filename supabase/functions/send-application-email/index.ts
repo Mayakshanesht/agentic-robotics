@@ -1,7 +1,7 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { z } from 'npm:zod@3.23.8';
 
-const TO_EMAIL = 'mayurwaghchoure1995@gmail.com';
+const TO_EMAIL = 'mayur.waghchoure@cloudbeerobotics.de';
 // IMPORTANT: the FROM domain (cloudbeerobotics.de) must be verified in Resend.
 const FROM_EMAIL = 'CloudBee Robotics <noreply@cloudbeerobotics.de>';
 const THESIS_EMAIL = 'mayur.waghchoure@cloudbeerobotics.de';

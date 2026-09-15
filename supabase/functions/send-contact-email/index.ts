@@ -1,7 +1,7 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { z } from 'npm:zod@3.23.8';
 
-const TO_EMAIL = 'info@cloudbeerobotics.de';
+const TO_EMAIL = 'mayur.waghchoure@cloudbeerobotics.de';
 // IMPORTANT: this address's domain (cloudbeerobotics.de) must be VERIFIED in Resend
 // (Resend → Domains → add cloudbeerobotics.de → add the DNS records). Until then,
 // fall back to 'onboarding@resend.dev' which only delivers to your own Resend account.
