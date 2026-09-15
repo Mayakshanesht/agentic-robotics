@@ -5,19 +5,21 @@ import founderKeynote from "@/assets/founder-keynote.jpeg.asset.json";
 import ideationPitch from "@/assets/ideation-pitch.jpg";
 
 const hardWay = [
-  { icon: Clock, t: "Months collecting real-world data" },
-  { icon: Workflow, t: "Hand-teleoperating every new task" },
-  { icon: Boxes, t: "Bespoke simulators, no reuse" },
-  { icon: RefreshCw, t: "Endless retraining, brittle policies" },
-  { icon: ShieldCheck, t: "Safety bolted on at the end" },
+  { icon: Clock, t: "Months of teleoperation for every new task" },
+  { icon: Boxes, t: "Vision-only data — no force, no touch" },
+  { icon: Workflow, t: "Foundation models that don't fit your sensors or compute" },
+  { icon: RefreshCw, t: "Agents that stop the cell when a step fails" },
+  { icon: Rocket, t: "Custom integration for every new robot" },
+  { icon: ShieldCheck, t: "Safety checked at the end, if at all" },
 ];
 
 const cloudbeeWay = [
-  { icon: Workflow, t: "Capabilities compiled from your process" },
-  { icon: Boxes, t: "Multimodal synthetic experience at scale" },
-  { icon: ShieldCheck, t: "Safety-validated in closed-loop sim" },
-  { icon: Rocket, t: "One-click deploy on ROS 2, any robot" },
-  { icon: RefreshCw, t: "Self-improves autonomously in the field" },
+  { icon: Boxes, t: "4D contact-rich data from task + scene video — DataForge" },
+  { icon: Workflow, t: "Frontier models adapted to your robot — ModelLab Copilot" },
+  { icon: ShieldCheck, t: "Safety analysis and verification in simulation" },
+  { icon: RefreshCw, t: "Closed-loop self-recovery — AgenticOS" },
+  { icon: Rocket, t: "One-click deploy on any robot — KineBridge" },
+  { icon: Clock, t: "Target: weeks per task, not months" },
 ];
 
 const news = [
@@ -53,9 +55,9 @@ export function ProblemSolution() {
             <span className="text-gradient-orange">the hard way.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Teams burn months on the same broken loop — data collection, teleop, bespoke sims,
-            retraining, then safety at the end. CloudBee Robotics collapses that into one
-            continuous, self-improving pipeline.
+            Contact-rich manipulation stalls on the same loop: teleoperating every task, training on
+            data without force or touch, forcing models onto hardware they weren't built for, then
+            integrating each robot by hand. CloudBee Robotics replaces that loop with one pipeline.
           </p>
         </motion.div>
 
@@ -74,7 +76,7 @@ export function ProblemSolution() {
                 <div className="text-[10px] font-mono uppercase tracking-[0.28em] text-destructive/80 mb-2">Status quo</div>
                 <div className="font-display font-bold text-2xl text-foreground/90">The hard way</div>
               </div>
-              <div className="text-[10px] font-mono text-muted-foreground">6–18 months</div>
+              <div className="text-[10px] font-mono text-muted-foreground">Months per task</div>
             </div>
             <ul className="space-y-2.5">
               {hardWay.map((p, i) => (
@@ -108,7 +110,7 @@ export function ProblemSolution() {
                 <div className="text-[10px] font-mono uppercase tracking-[0.28em] text-accent-green mb-2">The CloudBee way</div>
                 <div className="font-display font-bold text-2xl text-foreground">The Capability Factory</div>
               </div>
-              <div className="text-[10px] font-mono text-accent-blue">3–4 weeks · 1 engineer</div>
+              <div className="text-[10px] font-mono text-accent-blue">Target: 3–4 weeks · 1 engineer</div>
             </div>
             <ul className="space-y-2.5 relative">
               <span className="absolute left-[15px] top-4 bottom-4 w-px bg-gradient-to-b from-accent-blue via-accent-green to-accent-blue opacity-30" />
@@ -129,7 +131,7 @@ export function ProblemSolution() {
               ))}
             </ul>
             <div className="mt-7 pt-6 border-t border-border/60 flex items-center justify-between gap-4">
-              <div className="text-xs text-muted-foreground">5× cheaper · deployed in weeks</div>
+              <div className="text-xs text-muted-foreground">Target: 5× lower data cost · deployed in weeks</div>
               <Link to="/product" className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:gap-2 transition-all">
                 See how it works <ArrowRight size={14} />
               </Link>

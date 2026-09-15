@@ -10,7 +10,7 @@ const team = [
     name: "Mayur Waghchoure",
     role: "Founder & CEO",
     image: mayurImg,
-    email: "mayur.waghchoure@cloudbeerobotics.com",
+    email: "mayur.waghchoure@cloudbeerobotics.de",
     description:
       "Robotics and AI engineer with experience in autonomous systems, robotic learning, and large-scale AI infrastructure. M.Sc. Robotic Systems Engineering, RWTH Aachen.",
   },

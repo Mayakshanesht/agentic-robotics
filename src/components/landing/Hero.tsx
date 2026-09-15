@@ -5,33 +5,27 @@ import { Link } from "react-router-dom";
 import agentOsVideo from "@/assets/videos/agentOS.mp4.asset.json";
 import dataforgeVideo from "@/assets/videos/dataforge.mp4.asset.json";
 import modellabVideo from "@/assets/videos/modellab.mp4.asset.json";
-import humanoidPallet from "@/assets/videos/humanoid-pallet-2.mp4.asset.json";
-import robotArm from "@/assets/hero/robot-arm.jpg";
-import robotAmr from "@/assets/hero/robot-amr.jpg";
+import sceneGenerationVideo from "@/assets/videos/humanoid-pallet-2.mp4.asset.json";
+import videoToMotionVideo from "@/assets/videos/capability-compiler.mp4.asset.json";
+import realRobotDemo from "@/assets/videos/cloudbee-demo.mp4.asset.json";
 
 type Slide =
   | { kind: "video"; src: string; tag: string }
   | { kind: "image"; src: string; tag: string };
 
+// Real product footage only. Tags describe what each clip actually shows.
 const slides: Slide[] = [
-  { kind: "video", src: agentOsVideo.url, tag: "Capability Compiler" },
-  { kind: "image", src: robotArm, tag: "Safety Validation" },
-  { kind: "video", src: dataforgeVideo.url, tag: "Synthetic Experience" },
-  { kind: "video", src: modellabVideo.url, tag: "Multimodal AI Models" },
-  { kind: "video", src: humanoidPallet.url, tag: "Autonomous AgenticOS" },
-  { kind: "image", src: robotAmr, tag: "Self-Improving Fleet" },
+  { kind: "video", src: realRobotDemo.url, tag: "AgenticOS · live on real robot arms" },
+  { kind: "video", src: videoToMotionVideo.url, tag: "DataForge · human video → 3D object motion" },
+  { kind: "video", src: sceneGenerationVideo.url, tag: "DataForge · task → simulation scene" },
+  { kind: "video", src: dataforgeVideo.url, tag: "DataForge · scene variations at scale" },
+  { kind: "video", src: modellabVideo.url, tag: "ModelLab · policy rollout in simulation" },
+  { kind: "video", src: agentOsVideo.url, tag: "AgenticOS · task → execution graph" },
 ];
 
 const AUTOPLAY_MS = 5200;
 
-const chips = [
-  "Capability Compiler",
-  "Synthetic Experience",
-  "Multimodal Models",
-  "Safety Validation",
-  "Self-Improving Loop",
-  "6G",
-];
+const chips = ["DataForge", "ModelLab Copilot", "AgenticOS", "KineBridge", "Safety & validation"];
 
 export function Hero() {
   const [idx, setIdx] = useState(0);
@@ -98,32 +92,43 @@ export function Hero() {
 
       {/* content - title over the full-bleed carousel */}
       <div className="section-container relative z-10 w-full pt-28 pb-28">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-blue/30 bg-background/60 backdrop-blur text-[11px] font-mono uppercase tracking-[0.22em] text-accent-blue"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse" />
+              The Capability Factory for Physical AI
+            </motion.div>
+
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: "easeOut" }}
-              className="font-display font-bold leading-[0.94] tracking-tight text-[2.7rem] sm:text-6xl lg:text-7xl xl:text-[5rem]"
+              className="font-display font-bold leading-[0.98] tracking-tight text-[2.4rem] sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
             >
-              The <span className="text-gradient-blue">Capability Factory</span> for Agentic Physical AI.
+              Contact-rich manipulation,{" "}
+              <span className="text-gradient-blue">from video to deployed robot.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.12 }}
-              className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed"
+              className="mt-7 text-lg text-foreground/80 max-w-2xl leading-relaxed"
             >
-              Turn any process into safety-validated capabilities - with multimodal synthetic
-              experience at scale, our own task AI models, and a self-improving, 6G-connected fleet
-              run by an autonomous agentic OS.
+              Give us the task and a video of your work cell. We generate 4D multimodal training data, adapt
+              frontier foundation models to your robot, and run them on a self-recovering agentic OS — deployed
+              to any robot through one hardware standard.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.9, delay: 0.25 }}
-              className="mt-7 flex flex-wrap gap-2 max-w-xl"
+              className="mt-7 flex flex-wrap gap-2 max-w-2xl"
             >
               {chips.map((c) => (
                 <span key={c} className="text-[11px] font-mono uppercase tracking-[0.12em] text-foreground/80 px-2.5 py-1 rounded-full border border-foreground/15 bg-background/40 backdrop-blur">
@@ -138,14 +143,20 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 0.35 }}
               className="mt-9 flex flex-wrap items-center gap-4"
             >
-              <Link to="/contact" className="btn-pilot text-base px-7 py-3.5">
-                Book a demo <ArrowRight size={16} />
+              <Link to="/contact?interest=Pilot%20Program" className="btn-pilot text-base px-7 py-3.5">
+                Start a pilot <ArrowRight size={16} />
               </Link>
               <Link
                 to="/product"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm border border-foreground/20 bg-background/40 backdrop-blur text-foreground hover:bg-foreground/5 transition-all"
               >
-                See how it works <ArrowRight size={14} />
+                See the platform <ArrowRight size={14} />
+              </Link>
+              <Link
+                to="/#investors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:gap-2 transition-all"
+              >
+                Raising pre-seed · for investors <ArrowRight size={14} />
               </Link>
             </motion.div>
         </div>

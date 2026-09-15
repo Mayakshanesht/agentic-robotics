@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/landing/Hero";
+import { ProofBar } from "@/components/landing/ProofBar";
 import { ProblemSolution } from "@/components/landing/ProblemSolution";
-import { WhoWeServe } from "@/components/landing/WhoWeServe";
-import { CapabilityCompilerFeature } from "@/components/landing/CapabilityCompilerFeature";
+import { PlatformPipeline } from "@/components/landing/PlatformPipeline";
 import { AgenticDemoHighlight } from "@/components/home/AgenticDemoHighlight";
+import { WhoWeServe } from "@/components/landing/WhoWeServe";
 import { OnboardingPaths } from "@/components/landing/OnboardingPaths";
+import { LabAndPilots } from "@/components/landing/LabAndPilots";
 import { Metrics } from "@/components/landing/Metrics";
-import { InvestorCTA } from "@/components/landing/InvestorCTA";
+import { PreSeed } from "@/components/landing/PreSeed";
 import { FinalStatement } from "@/components/landing/FinalStatement";
 import { PartnerStrip } from "@/components/home/PartnerStrip";
 import { TrustStrip } from "@/components/home/TrustStrip";
@@ -25,20 +27,22 @@ const Index = () => {
 
   return (
     <PageShell
-      title="CloudBee Robotics — The Capability Factory for Physical AI"
-      description="Turn any industrial process into safety-validated, self-improving robot capabilities — deployed on the hardware you already own."
+      title="CloudBee Robotics — Contact-Rich Manipulation, From Video to Deployed Robot"
+      description="4D multimodal manipulation data, frontier models adapted to your robot, a self-recovering agentic OS and one hardware standard for any robot. Pilots running on Unitree G1, Unitree H2, OpenArm 2 and SO-101."
       path="/"
     >
       <Hero />
+      <ProofBar />
       <PartnerStrip />
       <ProblemSolution />
-      <CapabilityCompilerFeature />
+      <PlatformPipeline />
       <AgenticDemoHighlight />
       <WhoWeServe />
       <OnboardingPaths />
+      <LabAndPilots />
       <Metrics />
+      <PreSeed />
       <TrustStrip />
-      <InvestorCTA />
       <FinalStatement />
       <AskCloudBee />
     </PageShell>

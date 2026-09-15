@@ -61,7 +61,7 @@ export function FinalStatement() {
         </motion.div>
 
         <div className="mt-10 text-xs font-mono text-muted-foreground">
-          mayur.waghchoure@cloudbeerobotics.com · Aachen, Germany
+          mayur.waghchoure@cloudbeerobotics.de · Aachen, Germany
         </div>
       </div>
     </section>

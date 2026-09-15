@@ -58,10 +58,10 @@ export default function Privacy() {
                 port your personal data, and to withdraw consent at any time. Requests can
                 be sent to{" "}
                 <a
-                  href="mailto:mayur.waghchoure@cloudbeerobotics.com"
+                  href="mailto:mayur.waghchoure@cloudbeerobotics.de"
                   className="text-accent-blue hover:underline"
                 >
-                  mayur.waghchoure@cloudbeerobotics.com
+                  mayur.waghchoure@cloudbeerobotics.de
                 </a>
                 . You may also lodge a complaint with the competent data-protection authority.
               </p>

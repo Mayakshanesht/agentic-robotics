@@ -52,7 +52,7 @@ export const theses: Thesis[] = [
   {
     slug: "thesis-contact-rich-manipulation-data",
     number: 2,
-    title: "From Third-Person Video to Contact-Rich Manipulation Data",
+    title: "Contact-Rich Robot Data from Human Video",
     focus: "Video understanding · physics simulation · force and tactile data",
     intro: [
       "Robot policies are trained on teleoperated demonstrations, which scale linearly with human hours and are the dominant cost in robot learning. Video is far cheaper — but it carries only motion, and the manipulation that matters industrially is decided by force. So the force has to be generated, by replaying the recovered motion in simulation with the contact instrumented.",

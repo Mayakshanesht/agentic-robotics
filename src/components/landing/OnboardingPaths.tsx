@@ -1,15 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Boxes, Video, Glasses, Eye, Box, Activity, Hand, BrainCircuit, ArrowRight, Check } from "lucide-react";
-import humanoidImg from "@/assets/hero/robot-humanoid.jpg";
-import armImg from "@/assets/hero/robot-arm.jpg";
-import amrImg from "@/assets/hero/robot-amr.jpg";
-
-const robots = [
-  { img: humanoidImg, name: "Humanoids", sub: "Unitree G1 & more" },
-  { img: armImg, name: "Robotic Arms", sub: "UR · Franka · 6/7-DoF" },
-  { img: amrImg, name: "Mobile Robots", sub: "AMRs · intralogistics" },
-];
 
 const sensors = [
   { icon: Eye, label: "Vision" },
@@ -44,7 +35,7 @@ function SyntheticAnim() {
           </motion.span>
         ))}
       </div>
-      <span className="absolute top-3 right-3 text-[10px] font-mono text-accent-blue/80">×1000s</span>
+      <span className="absolute top-3 right-3 text-[10px] font-mono text-accent-blue/80">at scale</span>
     </div>
   );
 }
@@ -112,7 +103,7 @@ function TeleopAnim() {
             transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.18 }} />
         ))}
       </svg>
-      <span className="absolute top-3 right-3 text-[10px] font-mono text-violet-300/80">10 demos → 200</span>
+      <span className="absolute top-3 right-3 text-[10px] font-mono text-violet-500/80">demos → dataset</span>
     </div>
   );
 }
@@ -133,7 +124,7 @@ const paths = [
     icon: Boxes,
     tone: "blue",
     title: "Synthetic multimodal data",
-    body: "Generate physics-accurate multimodal experience - vision, depth, force and touch - at scale, with no real-world data collection.",
+    body: "From your task and a video of the scene, generate multimodal experience — vision, depth, force and touch — at scale in simulation.",
     anim: <SyntheticAnim />,
   },
   {
@@ -168,36 +159,15 @@ export function OnboardingPaths() {
             Onboarding · DataForge × ModelLab
           </div>
           <h2 className="font-display font-bold text-4xl lg:text-6xl leading-[1.0] tracking-tight">
-            Onboard any robot for your task -{" "}
+            Teach the task{" "}
             <span className="text-gradient-blue">your way.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Bring a humanoid or a robotic arm. Choose how you teach it: generate synthetic multimodal
-            experience at scale, or simply show it a video. Either way, we train the multimodal AI
-            models that run the task.
+            Generate experience from your scene, show the task on video, or teleoperate a few
+            demonstrations. DataForge turns any of them into contact-rich training data, and ModelLab
+            trains the model that runs the task.
           </p>
         </motion.div>
-
-        {/* robot types */}
-        <div className="grid grid-cols-3 gap-3 lg:gap-4 mb-10">
-          {robots.map((r, i) => (
-            <motion.div
-              key={r.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="relative rounded-2xl overflow-hidden border border-border aspect-[4/3] group"
-            >
-              <img src={r.img} alt={r.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute left-3 bottom-3 right-3">
-                <div className="font-display font-semibold text-sm lg:text-base text-foreground">{r.name}</div>
-                <div className="text-[10px] font-mono text-muted-foreground hidden sm:block">{r.sub}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
         {/* data paths */}
         <div className="grid md:grid-cols-3 gap-5 lg:gap-6">

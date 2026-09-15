@@ -46,8 +46,8 @@ export function Footer() {
               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Notice (GDPR)</Link></li>
             </ul>
             <div className="mt-5 text-xs text-white/60 leading-relaxed">
-              <a href="mailto:mayur.waghchoure@cloudbeerobotics.com" className="hover:text-white transition-colors">
-                mayur.waghchoure@cloudbeerobotics.com
+              <a href="mailto:mayur.waghchoure@cloudbeerobotics.de" className="hover:text-white transition-colors">
+                mayur.waghchoure@cloudbeerobotics.de
               </a>
               <a
                 href="https://www.google.com/maps/place/Collective+Incubator/@50.7850548,6.1073097,17z/data=!4m6!3m5!1s0x47c09b20c34800b5:0x40128dcd06f393a0!8m2!3d50.7856865!4d6.1087014"

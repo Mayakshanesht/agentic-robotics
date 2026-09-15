@@ -7,13 +7,13 @@ import demoVideo from "@/assets/videos/cloudbee-demo.mp4.asset.json";
 const highlights = [
   {
     tag: "AgenticOS",
-    title: "Long-horizon work, executed autonomously",
-    body: "Complex multi-step tasks run end to end — with autonomous recovery when reality does not match the plan.",
+    title: "Long-horizon work that recovers on its own",
+    body: "Multi-step tasks run end to end. When a step fails, AgenticOS detects it and recovers in closed loop instead of stopping the cell.",
   },
   {
     tag: "KineBridge",
-    title: "Validated in simulation, deployed in one click",
-    body: "Every capability is safety-assessed and validated before it ever touches your hardware.",
+    title: "One hardware standard, one-click deploy",
+    body: "KineBridge connects robots and sensors through one standard, so validated capabilities reach real hardware in one click.",
   },
 ];
 
@@ -37,7 +37,7 @@ export function AgenticDemoHighlight() {
             <span className="text-gradient-blue">run itself.</span>
           </h2>
           <p className="mt-5 text-base lg:text-lg text-muted-foreground max-w-2xl">
-            From task request to validated execution on real hardware — one continuous loop.
+            Real footage from our system: one task split across several robot arms, executed and monitored live.
           </p>
         </motion.div>
 
@@ -51,7 +51,7 @@ export function AgenticDemoHighlight() {
           <DemoVideo src={demoVideo.url} label="CloudBee Robotics AgenticOS and KineBridge demo" />
           <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur border border-accent-green/30 text-[10px] font-mono uppercase tracking-[0.22em] text-accent-green">
             <span className="w-1 h-1 rounded-full bg-accent-green animate-pulse" />
-            AgenticOS · KineBridge · Live
+            Real hardware · AgenticOS · KineBridge
           </div>
         </motion.div>
 

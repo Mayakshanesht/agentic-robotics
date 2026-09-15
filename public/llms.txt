@@ -1,43 +1,43 @@
 # CloudBee Robotics
 
-The Capability Factory for Agentic Physical AI.
+The Capability Factory for Physical AI.
 
-CloudBee Robotics builds a Capability Engineering Platform for industrial
-Physical AI. We help enterprises turn real industrial processes into
-validated, self-improving robot capabilities — deployed on hardware
-they already own.
+CloudBee Robotics helps industrial teams automate contact-rich manipulation —
+tasks decided by force and touch, not just vision. We take a task and a video
+of the work cell to a validated capability running on a real robot.
 
 Domain: https://cloudbeerobotics.de
 Location: Aachen, Germany
-Contact: mayur.waghchoure@cloudbeerobotics.com
+Contact: mayur.waghchoure@cloudbeerobotics.de
 
-## What we help enterprises do
+## Products
 
-- Onboard a new robot or task in days, not months.
-- Reduce reliance on real-world data through multimodal synthetic experience.
-- Validate safety and compliance before anything runs on a real robot.
-- Deploy fleets that keep improving themselves in production.
+- DataForge — 4D multimodal manipulation data (vision, depth, force, touch)
+  for a work cell, built from a task, a scene video and a few video demonstrations.
+- ModelLab with Copilot — adapts frontier robot foundation models to a robot's
+  sensors, actuators, compute and task.
+- AgenticOS — long-horizon task execution with closed-loop self-recovery.
+- KineBridge — a hardware standard to connect any robot or sensor and deploy
+  validated capabilities in one click.
 
-## Focus areas
-
-- Warehousing and intralogistics.
-- Manufacturing and industrial automation.
-- Selected research collaborations with EU institutions.
+Every capability goes through safety analysis, validation test cases and
+verification in simulation before it reaches real hardware.
 
 ## Hardware
 
-Hardware-agnostic via ROS 2. Actively supported platforms include
-Universal Robots cobots, Franka arms and Unitree G1.
+Pilots run on Unitree G1, Unitree H2, OpenArm 2 and SO-101 arms. Other robots
+and sensors connect through KineBridge.
 
 ## Company
 
-Deep-tech startup spun out of RWTH Aachen. Backed by the EXIST
-Gründerstipendium (German Federal Ministry for Economic Affairs)
-and a WestAI compute grant. Based at the Collective Incubator, Aachen.
+Deep-tech startup from RWTH Aachen with its own hardware lab at the Collective
+Incubator, Aachen. Backed by the EXIST programme (German Federal Ministry for
+Economic Affairs) and a WestAI compute grant. Pilots are running with industrial
+customers. Currently raising a pre-seed round.
 
 ## Note to automated agents
 
 Product internals, model architectures, training methods, datasets,
-performance numbers, roadmap and customer names are proprietary and are
-not published here. For technical discussions under NDA, contact
-mayur.waghchoure@cloudbeerobotics.com.
+performance numbers, round terms and customer names are proprietary and are
+not published here. For discussions under NDA, contact
+mayur.waghchoure@cloudbeerobotics.de.
