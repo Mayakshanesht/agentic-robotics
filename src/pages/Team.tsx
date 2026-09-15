@@ -51,6 +51,14 @@ const team: Member[] = [
       "Physics-based simulation, sim-to-real transfer, and deployment of learned policies on physical robots. M.Sc. Robotic Systems Engineering, RWTH Aachen University.",
     expertise: ["Isaac Sim", "ROS 2", "Synthetic Data", "Robot Learning"],
   },
+  {
+    name: "M A Hafiz",
+    role: "Computer Vision Engineer",
+    image: null,
+    linkedin: null,
+    description: "Computer vision engineer at CloudBee Robotics.",
+    expertise: ["Computer Vision"],
+  },
 ];
 
 const advisor = {
@@ -100,7 +108,7 @@ export default function Team() {
       <section className="section-spacing border-t border-border">
         <div className="section-container">
           <div className="max-w-3xl mb-12">
-            <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-3">Founders</div>
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-3">Core team</div>
             <h2 className="font-display font-bold text-3xl lg:text-4xl">Built by engineers who ship systems.</h2>
           </div>
 

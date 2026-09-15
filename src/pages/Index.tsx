@@ -10,12 +10,11 @@ import { WhoWeServe } from "@/components/landing/WhoWeServe";
 import { OnboardingPaths } from "@/components/landing/OnboardingPaths";
 import { LabAndPilots } from "@/components/landing/LabAndPilots";
 import { Metrics } from "@/components/landing/Metrics";
-import { BusinessModel } from "@/components/landing/BusinessModel";
 import { PreSeed } from "@/components/landing/PreSeed";
 import { FinalStatement } from "@/components/landing/FinalStatement";
 import { PartnerStrip } from "@/components/home/PartnerStrip";
 import { TrustStrip } from "@/components/home/TrustStrip";
-import { AskCloudBee } from "@/components/AskCloudBee";
+import { FaqWidget } from "@/components/FaqWidget";
 
 const Index = () => {
   const location = useLocation();
@@ -42,11 +41,10 @@ const Index = () => {
       <OnboardingPaths />
       <LabAndPilots />
       <Metrics />
-      <BusinessModel />
       <PreSeed />
       <TrustStrip />
       <FinalStatement />
-      <AskCloudBee />
+      <FaqWidget />
     </PageShell>
   );
 };

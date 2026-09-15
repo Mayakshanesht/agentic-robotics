@@ -30,7 +30,8 @@ verification in simulation before it reaches real hardware.
 - DataForge and ModelLab: usage-based, billed by GPU credits used.
 - AgenticOS and KineBridge: annual subscription per robot.
 
-Rates are not published. Contact mayur.waghchoure@cloudbeerobotics.de.
+Details: https://cloudbeerobotics.de/pricing. Rates are not published —
+contact mayur.waghchoure@cloudbeerobotics.de.
 
 ## Hardware
 

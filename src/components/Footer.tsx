@@ -31,6 +31,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-white/70">
               <li><Link to="/product" className="hover:text-white transition-colors">Product</Link></li>
               <li><Link to="/solution" className="hover:text-white transition-colors">Solution</Link></li>
+              <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
               <li><Link to="/research" className="hover:text-white transition-colors">Research</Link></li>
               <li><Link to="/team" className="hover:text-white transition-colors">Team</Link></li>
               <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
