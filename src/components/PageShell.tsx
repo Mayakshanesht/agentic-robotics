@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
 
 const SITE_URL = "https://cloudbeerobotics.de";
 
@@ -30,6 +31,7 @@ export function PageShell({ title, description, path, children }: PageShellProps
         <link rel="canonical" href={`${SITE_URL}${path}`} />
       </Helmet>
       <Navbar />
+      <ScrollProgress />
       <main>{children}</main>
       <Footer />
     </div>

@@ -4,10 +4,10 @@ import { ArrowRight, GraduationCap, Award, Beaker, Building2, Briefcase, CheckCi
 import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { EventGallery } from "@/components/site/EventGallery";
+import { FundingStrip } from "@/components/site/FundingStrip";
 
 const credibility = [
   { icon: GraduationCap, title: "RWTH Aachen University", body: "Part of one of Europe's leading technical university ecosystems.", url: "https://www.rwth-aachen.de" },
-  { icon: Beaker, title: "IGMR Institute", body: "Research collaboration with the Institute of Mechanism Theory, Machine Dynamics and Robotics - validating CloudBee's platform through pilot and research projects.", url: "https://www.igmr.rwth-aachen.de" },
   { icon: Award, title: "EXIST Grant", body: "Awarded the German federal startup grant - backing the research and validating commercial and technical potential.", url: "https://www.exist.de" },
   { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center.", url: "https://westai.de" },
   { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator.", url: "https://www.collective-incubator.de" },
@@ -18,7 +18,7 @@ export default function Research() {
   return (
     <PageShell
       title="Research & Traction - CloudBee Robotics"
-      description="Grounded in science. Validated in the field. Collaborations with RWTH Aachen, IGMR Institute, EXIST grant, Collective Incubator, and industry partners."
+      description="Grounded in science. Validated in the field. An RWTH Aachen spin-off backed by the EXIST grant, a WestAI compute grant and the Collective Incubator, with pilots running at industrial companies."
       path="/research"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
@@ -80,7 +80,7 @@ export default function Research() {
           >
             <div className="text-5xl text-accent-blue/40 mb-2 font-display leading-none">"</div>
             <p className="font-display text-xl lg:text-2xl text-foreground leading-relaxed">
-              Our research collaboration with IGMR at RWTH Aachen gives us access to world-class robotics validation infrastructure and academic rigor at every stage.
+              Being part of the RWTH Aachen ecosystem gives us access to world-class robotics validation infrastructure and academic rigour at every stage.
             </p>
           </motion.blockquote>
 
@@ -99,6 +99,8 @@ export default function Research() {
           </div>
         </div>
       </section>
+      <FundingStrip />
+
       <EventGallery title="Our lab, our events, our people" />
 
     </PageShell>

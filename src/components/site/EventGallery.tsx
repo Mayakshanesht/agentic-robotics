@@ -17,7 +17,7 @@ const photos = [
 
 export function EventGallery({ title = "Where we build and who we meet" }: { title?: string }) {
   return (
-    <Section className="border-t border-border">
+    <Section id="lab" className="border-t border-border">
       <FadeUp className="max-w-3xl">
         <Kicker>Lab and events</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">{title}</h2>

@@ -11,7 +11,7 @@ const cards = [
 
 export function ExploreTeasers() {
   return (
-    <Section className="border-t border-border bg-white">
+    <Section id="explore" className="border-t border-border bg-white">
       <FadeUp className="max-w-3xl">
         <Kicker>Explore</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">

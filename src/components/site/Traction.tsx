@@ -1,4 +1,5 @@
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
+import { CountUp } from "@/components/site/CountUp";
 
 const tiles = [
   { big: "2", label: "pilots running", detail: "Tier-1 automotive (humanoids) · Medical-device testing" },
@@ -21,7 +22,9 @@ export function Traction() {
         {tiles.map((t, i) => (
           <FadeUp key={t.label} delay={i * 0.07}>
             <div className="h-full rounded-2xl border border-border bg-white p-7 shadow-[var(--shadow-card)]">
-              <div className="text-2xl font-extrabold leading-tight text-primary lg:text-3xl">{t.big}</div>
+              <div className="text-2xl font-extrabold leading-tight text-primary lg:text-3xl">
+                <CountUp value={t.big} />
+              </div>
               <div className="mt-2 font-semibold text-foreground">{t.label}</div>
               <div className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.detail}</div>
             </div>

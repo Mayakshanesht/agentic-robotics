@@ -4,6 +4,7 @@ import { PageShell } from "@/components/PageShell";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { Traction } from "@/components/site/Traction";
 import { TeamStrip } from "@/components/site/TeamStrip";
+import { FundingStrip } from "@/components/site/FundingStrip";
 import { CONTACT_EMAIL } from "@/data/company";
 
 const deckMailto = `mailto:${CONTACT_EMAIL}?subject=CloudBee%20investor%20deck`;
@@ -79,6 +80,7 @@ export default function InvestorsPage() {
         </div>
       </Section>
 
+      <FundingStrip />
       <TeamStrip />
     </PageShell>
   );

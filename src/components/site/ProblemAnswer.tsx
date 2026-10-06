@@ -58,7 +58,7 @@ function Column({ data, tone }: { data: typeof today; tone: "amber" | "teal" }) 
 
 export function ProblemAnswer() {
   return (
-    <Section className="border-t border-border">
+    <Section id="problem" className="border-t border-border">
       <FadeUp className="max-w-3xl">
         <Kicker>The problem</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">

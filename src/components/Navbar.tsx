@@ -9,7 +9,9 @@ const navLinks = [
   { label: "How it works", to: "/how-it-works" },
   { label: "Why CloudBee", to: "/why-cloudbee" },
   { label: "Pilots", to: "/pilots" },
+  { label: "Research", to: "/research" },
   { label: "Team", to: "/team" },
+  { label: "Careers", to: "/careers" },
   { label: "Blog", to: "/blog" },
   { label: "Investors", to: "/investors" },
 ];
@@ -45,7 +47,7 @@ export function Navbar() {
                 key={l.to}
                 to={l.to}
                 className={({ isActive }) =>
-                  `rounded-md px-3 py-2 text-sm font-medium transition-colors ${isActive ? "text-primary" : "text-muted-foreground hover:text-primary"}`
+                  `rounded-md px-2.5 py-2 text-[13px] font-medium transition-colors ${isActive ? "text-primary" : "text-muted-foreground hover:text-primary"}`
                 }
               >
                 {l.label}

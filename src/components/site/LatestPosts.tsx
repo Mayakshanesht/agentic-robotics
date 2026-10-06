@@ -32,7 +32,7 @@ export function LatestPosts({ limit = 3 }: { limit?: number }) {
   }, [limit]);
 
   return (
-    <Section className="border-t border-border bg-white">
+    <Section id="blog" className="border-t border-border bg-white">
       <FadeUp className="flex flex-wrap items-end justify-between gap-4">
         <div className="max-w-2xl">
           <Kicker>From the blog</Kicker>
