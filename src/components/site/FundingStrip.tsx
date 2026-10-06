@@ -37,8 +37,8 @@ export function FundingStrip() {
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
             CloudBee Robotics is funded by the EXIST Gründungsstipendium of the German Federal Ministry and by a WestAI
-            compute grant: <strong className="text-foreground">€104.5k and 10,000 GPU hours of non-dilutive funding</strong>,
-            with no equity given up.
+            compute grant: <strong className="text-foreground">non-dilutive funding and GPU compute</strong>, with no
+            equity given up.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {["Non-dilutive", "EXIST Gründungsstipendium", "WestAI compute grant", "RWTH Aachen spin-off"].map((t) => (

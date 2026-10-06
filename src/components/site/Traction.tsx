@@ -5,7 +5,7 @@ const tiles = [
   { big: "2", label: "pilots running", detail: "Tier-1 automotive (humanoids) · Medical-device testing" },
   { big: "2", label: "pilots in negotiation", detail: "Packaging & bulk handling · Mobile robotics" },
   { big: "1", label: "letter of intent", detail: "Automotive controls" },
-  { big: "€104.5k + 10,000 GPU hours", label: "non-dilutive funding", detail: "from EXIST and WestAI" },
+  { big: "Non-dilutive", label: "grant funded", detail: "EXIST Gründungsstipendium · WestAI compute grant" },
 ];
 
 export function Traction() {

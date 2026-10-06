@@ -1,6 +1,5 @@
 import { PageShell } from "@/components/PageShell";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
-import { ProblemAnswer } from "@/components/site/ProblemAnswer";
 import { WhyCloudBee } from "@/components/site/WhyCloudBee";
 import { FasterCheaper } from "@/components/site/anim/FasterCheaper";
 import { BOOK_A_PILOT_MAILTO, robotFamilies } from "@/data/company";
@@ -36,7 +35,6 @@ export default function WhyCloudBeePage() {
         </div>
       </section>
 
-      <ProblemAnswer />
       <WhyCloudBee />
 
       <Section className="border-t border-border bg-white">
