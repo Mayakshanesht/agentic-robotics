@@ -1,4 +1,3 @@
-Drop booth and event photos here, named exactly:
-  founders-festival.jpg   (Founders Festival, Aachen)
-  start-and-scale.jpg     (Start and Scale event)
-They replace the placeholders on the homepage and research page automatically.
+Drop event photos here, named exactly:
+  deloitte-final.jpg   (pitching as a finalist at the Deloitte Problem-Solution Fit final)
+They replace the placeholder on the homepage and research page automatically.
