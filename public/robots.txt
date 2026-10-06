@@ -36,3 +36,4 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://cloudbeerobotics.de/sitemap.xml
+# Plain-text summary for AI agents: https://cloudbeerobotics.de/llms.txt

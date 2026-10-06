@@ -5,7 +5,7 @@ import { Eye, Box, Activity, Hand, Check, X } from "lucide-react";
  * Illustrative, IP-safe animation: a vision-only VLA "predicts success" and
  * drops the part (no physical grounding), while a model trained on multimodal
  * experience (vision + depth + force + touch) builds a physics-aware latent
- * world model and actually holds on. Conceptual only — no methods revealed.
+ * world model and actually holds on. Conceptual only - no methods revealed.
  */
 
 const T = [0, 0.22, 0.42, 0.68, 0.86, 1];

@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
+const SITE_URL = "https://cloudbeerobotics.de";
+
 interface PageShellProps {
   title: string;
   description: string;
@@ -16,10 +18,16 @@ export function PageShell({ title, description, path, children }: PageShellProps
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="CloudBee Robotics" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={path} />
-        <link rel="canonical" href={path} />
+        <meta property="og:url" content={`${SITE_URL}${path}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <link rel="canonical" href={`${SITE_URL}${path}`} />
       </Helmet>
       <Navbar />
       <main>{children}</main>

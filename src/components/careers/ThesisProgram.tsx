@@ -4,9 +4,9 @@ import { THESIS_CONTACT_EMAIL, thesisDates, type Thesis } from "@/data/theses";
 const payIn = [
   { lead: "Robot hardware", rest: " you would otherwise wait months for a slot to touch" },
   { lead: "GPU compute", rest: ", on a grant from the WestAI AI service centre" },
-  { lead: "A system that already runs", rest: " — not an empty repository and a reading list" },
+  { lead: "A system that already runs", rest: " - not an empty repository and a reading list" },
   { lead: "A named technical supervisor", rest: ", one scheduled hour with you every week, plus code review and pair debugging" },
-  { lead: "First authorship", rest: ", with our support on the writing — and negative results are publishable results here" },
+  { lead: "First authorship", rest: ", with our support on the writing - and negative results are publishable results here" },
 ];
 
 const timeline = [
@@ -25,7 +25,7 @@ const timeline = [
   {
     icon: FlaskConical,
     what: "Thesis runs",
-    when: `${thesisDates.start} – ${thesisDates.end}`,
+    when: `${thesisDates.start} - ${thesisDates.end}`,
     detail: "Six months, full time, on-site in Aachen. Later starts are possible by agreement.",
   },
 ];
@@ -44,14 +44,14 @@ export function SupervisorCallout() {
       <div className="flex items-start gap-4">
         <GraduationCap className="text-accent-green mt-1 shrink-0" size={26} />
         <div>
-          <SectionLabel>Before you apply — do this first</SectionLabel>
+          <SectionLabel>Before you apply - do this first</SectionLabel>
           <h3 className="font-display font-bold text-xl lg:text-2xl text-foreground leading-snug">
             Start looking for your supervising professor now.
           </h3>
           <p className="mt-3 text-sm lg:text-base text-foreground/90 leading-relaxed">
             These are <strong>external theses</strong>. A professor at <strong>your own university</strong> must supervise
             and examine the thesis, and you register it with your examination office{" "}
-            <strong>during {thesisDates.registration}</strong>. Do not wait for our reply — start approaching professors in
+            <strong>during {thesisDates.registration}</strong>. Do not wait for our reply - start approaching professors in
             your field now and tell them about the topic.
           </p>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
@@ -124,7 +124,7 @@ export function ThesisTimeline() {
 
 export function ThesisProgramDetails() {
   const supervisionMailto = `mailto:${THESIS_CONTACT_EMAIL}?subject=${encodeURIComponent(
-    "Thesis supervision — CloudBee Robotics",
+    "Thesis supervision - CloudBee Robotics",
   )}`;
 
   return (
@@ -186,14 +186,14 @@ export function ThesisProgramDetails() {
           {thesisDates.start} to {thesisDates.end}. Later starts are possible by agreement.
         </p>
         <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-          Preference for candidates already in Aachen — but if your profile is strong and you can organise supervision at
+          Preference for candidates already in Aachen - but if your profile is strong and you can organise supervision at
           your own university, we are open to it.
         </p>
         <ol className="mt-4 space-y-3 text-sm text-muted-foreground leading-relaxed">
           <li className="flex gap-3">
             <span className="font-mono text-accent-blue shrink-0">1.</span>
             <span>
-              <strong className="text-foreground">Apply for a topic with the form</strong> — two or three sentences on why
+              <strong className="text-foreground">Apply for a topic with the form</strong> - two or three sentences on why
               this topic and which side of it you come from, whether you have a potential supervisor in mind, your
               earliest start date, and a link to <strong className="text-foreground">something you have built</strong>: a
               repository, project report or paper.
@@ -219,7 +219,7 @@ export function ThesisProgramDetails() {
       <div className="glass-card p-6 lg:p-7">
         <SectionLabel className="text-accent-blue">For professors and researchers</SectionLabel>
         <p className="text-sm text-muted-foreground leading-relaxed">
-          If one of these topics fits your group, we would like to talk — about supervising a student, or about
+          If one of these topics fits your group, we would like to talk - about supervising a student, or about
           collaborating more broadly. You provide academic supervision and examination; we provide the data,
           infrastructure, hardware, compute and weekly technical co-supervision.{" "}
           <strong className="text-foreground">We are not asking institutes for funding, equipment or staff time.</strong>

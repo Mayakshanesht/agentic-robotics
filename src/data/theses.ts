@@ -18,8 +18,8 @@ export const thesisDates = {
   end: "30 April 2027",
 };
 
-/** Role value stored with each application — keeps the three topics separate in /admin. */
-export const thesisRole = (t: Thesis) => `Master's Thesis ${t.number} — ${t.title}`;
+/** Role value stored with each application - keeps the three topics separate in /admin. */
+export const thesisRole = (t: Thesis) => `Master's Thesis ${t.number} - ${t.title}`;
 
 export const theses: Thesis[] = [
   {
@@ -28,14 +28,14 @@ export const theses: Thesis[] = [
     title: "From Video to Part-Level 3D Scenes",
     focus: "3D computer vision · part-level perception · simulation-ready scenes",
     intro: [
-      "A robot does not grasp an object. It grasps a part — the handle, the rim, the socket. Perception today stops at object level, which is enough to move something from A to B and not enough for contact-precise work.",
-      "The same gap appears when 3D scenes are generated from video for simulation. Those scenes are judged either by whether renders look photographic, or by whether the physics fails to fall over. The first says nothing about whether the geometry is right; the second is a floor, not a standard. Neither answers the question that matters — can this scene support the task it was built for?",
+      "A robot does not grasp an object. It grasps a part - the handle, the rim, the socket. Perception today stops at object level, which is enough to move something from A to B and not enough for contact-precise work.",
+      "The same gap appears when 3D scenes are generated from video for simulation. Those scenes are judged either by whether renders look photographic, or by whether the physics fails to fall over. The first says nothing about whether the geometry is right; the second is a floor, not a standard. Neither answers the question that matters - can this scene support the task it was built for?",
     ],
     question:
-      "Can object parts be identified from video and placed in 3D well enough to build a simulation-ready scene — and can that part-level view give us a real measure of whether a generated scene is visually and physically correct?",
+      "Can object parts be identified from video and placed in 3D well enough to build a simulation-ready scene - and can that part-level view give us a real measure of whether a generated scene is visually and physically correct?",
     bring: [
-      "3D computer vision — multi-view geometry, calibration, point-cloud processing",
-      "Deep learning in 2D and 3D — semantic and instance segmentation, point-cloud networks",
+      "3D computer vision - multi-view geometry, calibration, point-cloud processing",
+      "Deep learning in 2D and 3D - semantic and instance segmentation, point-cloud networks",
       "Experience fine-tuning pretrained vision models when labels are scarce",
       "Strong Python and PyTorch",
       "Experimental discipline",
@@ -55,12 +55,12 @@ export const theses: Thesis[] = [
     title: "Contact-Rich Robot Data from Human Video",
     focus: "Video understanding · physics simulation · force and tactile data",
     intro: [
-      "Robot policies are trained on teleoperated demonstrations, which scale linearly with human hours and are the dominant cost in robot learning. Video is far cheaper — but it carries only motion, and the manipulation that matters industrially is decided by force.",
+      "Robot policies are trained on teleoperated demonstrations, which scale linearly with human hours and are the dominant cost in robot learning. Video is far cheaper - but it carries only motion, and the manipulation that matters industrially is decided by force.",
     ],
     question:
-      "How reliably can a manipulation task be recovered from ordinary third-person video — what happened, when each phase began and ended, along what trajectory — and can force and tactile training data derived from it be good enough to train on?",
+      "How reliably can a manipulation task be recovered from ordinary third-person video - what happened, when each phase began and ended, along what trajectory - and can force and tactile training data derived from it be good enough to train on?",
     bring: [
-      "Computer vision for manipulation — 6-DoF object tracking, video understanding, or hand–object interaction",
+      "Computer vision for manipulation - 6-DoF object tracking, video understanding, or hand-object interaction",
       "Robot kinematics and rigid-body dynamics",
       "Hands-on physics simulation in Isaac Sim or MuJoCo, including extending the simulator",
       "Signal processing for time series",
@@ -83,12 +83,12 @@ export const theses: Thesis[] = [
     title: "Multimodal Foundation Model Adaptation",
     focus: "Robot foundation models · 3D, force and pressure inputs · real-arm evaluation",
     intro: [
-      "Open robot foundation models see camera and language — not geometry, not force. Adapting one to consume them is a search over a large design space, run today on expert intuition, re-done by hand at every deployment, leaving nothing transferable behind.",
+      "Open robot foundation models see camera and language - not geometry, not force. Adapting one to consume them is a search over a large design space, run today on expert intuition, re-done by hand at every deployment, leaving nothing transferable behind.",
     ],
     question:
-      "Can an open pretrained model be extended to consume 3D geometry, force and contact pressure well enough to work on a real arm — and can that adaptation be made systematic instead of hand-tuned for every deployment?",
+      "Can an open pretrained model be extended to consume 3D geometry, force and contact pressure well enough to work on a real arm - and can that adaptation be made systematic instead of hand-tuned for every deployment?",
     bring: [
-      "Real projects on robotic arms or humanoids using robot foundation models — a policy you trained, deployed on hardware and debugged when it failed, not coursework",
+      "Real projects on robotic arms or humanoids using robot foundation models - a policy you trained, deployed on hardware and debugged when it failed, not coursework",
       "Hands-on experience with the LeRobot ecosystem and SO-101-class arms",
       "Strong Python and PyTorch, including fine-tuning large models",
       "Transformer and vision-language model familiarity",

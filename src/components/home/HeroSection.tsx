@@ -61,7 +61,7 @@ export function HeroSection() {
       <div className="absolute -top-40 -left-40 w-[320px] sm:w-[560px] h-[320px] sm:h-[560px] rounded-full bg-accent-blue/20 blur-[100px] sm:blur-[140px] pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] rounded-full bg-accent-green/15 blur-[120px] sm:blur-[160px] pointer-events-none" />
 
-      {/* Live WebGL capability graph — hidden on small screens to keep hero calm */}
+      {/* Live WebGL capability graph - hidden on small screens to keep hero calm */}
       <div className="hidden md:flex absolute inset-x-0 top-0 h-[640px] items-center justify-center pointer-events-none">
         <div className="conic-halo absolute w-[520px] h-[520px] rounded-full blur-[90px] opacity-30" />
         <Suspense fallback={null}>
@@ -103,7 +103,7 @@ export function HeroSection() {
           className="mt-5 sm:mt-6 text-center mx-auto max-w-2xl text-[15px] sm:text-base lg:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0"
         >
           Turn industrial processes into validated, self-improving robot
-          capabilities — deployed on the hardware you already own.
+          capabilities - deployed on the hardware you already own.
         </motion.p>
 
         {/* Value flow */}
@@ -187,7 +187,7 @@ export function HeroSection() {
               )}
             </AnimatePresence>
 
-            {/* soft gradient veils — lighter so bg shows through */}
+            {/* soft gradient veils - lighter so bg shows through */}
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/60 via-background/10 to-transparent pointer-events-none" />
             <div className="absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-background/20 to-transparent pointer-events-none" />
 

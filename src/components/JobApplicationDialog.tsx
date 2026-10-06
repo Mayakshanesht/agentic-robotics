@@ -26,12 +26,12 @@ const thesisSchema = jobSchema.extend({
 });
 
 const SUPERVISOR_OPTIONS = [
-  "Yes — a professor has agreed to supervise",
+  "Yes - a professor has agreed to supervise",
   "In discussion with a professor",
-  "Not yet — I need the topic proposal",
+  "Not yet - I need the topic proposal",
 ];
 
-const START_OPTIONS = [thesisDates.start, "December 2026", "January 2027", "Later — by agreement"];
+const START_OPTIONS = [thesisDates.start, "December 2026", "January 2027", "Later - by agreement"];
 
 const EMPTY_FORM = {
   full_name: "", email: "", location: "", linkedin: "", portfolio: "", cover_letter: "",
@@ -137,7 +137,7 @@ export function JobApplicationDialog({ role, open, onClose, variant = "job" }: P
   };
 
   const documentsMailto = `mailto:${THESIS_CONTACT_EMAIL}?subject=${encodeURIComponent(
-    `CV & transcript — ${role} — ${form.full_name}`,
+    `CV & transcript - ${role} - ${form.full_name}`,
   )}&body=${encodeURIComponent(
     `Hello,\n\nplease find my CV and transcript attached for the application I submitted on the website.\n\nBest regards,\n${form.full_name}`,
   )}`;
@@ -168,7 +168,7 @@ export function JobApplicationDialog({ role, open, onClose, variant = "job" }: P
                 <p className="text-xs text-muted-foreground mt-2 mb-6">{THESIS_CONTACT_EMAIL}</p>
                 <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
                   And if you have not yet,{" "}
-                  <strong className="text-foreground">start talking to professors at your university now</strong> — the
+                  <strong className="text-foreground">start talking to professors at your university now</strong> - the
                   thesis is registered with your examination office during {thesisDates.registration}.
                 </p>
                 <button onClick={close} className="text-sm font-semibold text-accent-blue hover:underline">Close</button>
@@ -188,7 +188,7 @@ export function JobApplicationDialog({ role, open, onClose, variant = "job" }: P
             <h3 className="font-display font-bold text-2xl mb-1">{role}</h3>
             <p className="text-sm text-muted-foreground mb-6">
               {isThesis
-                ? `External master's thesis · ${thesisDates.start} – ${thesisDates.end} · Aachen`
+                ? `External master's thesis · ${thesisDates.start} - ${thesisDates.end} · Aachen`
                 : "Aachen, Germany · Full-time"}
             </p>
 
@@ -216,7 +216,7 @@ export function JobApplicationDialog({ role, open, onClose, variant = "job" }: P
                 <input
                   required={isThesis}
                   className="input-base"
-                  placeholder={isThesis ? "Repository, project report or paper — https://…" : "https://…"}
+                  placeholder={isThesis ? "Repository, project report or paper - https://…" : "https://…"}
                   value={form.portfolio}
                   onChange={set("portfolio")}
                 />

@@ -39,7 +39,7 @@ const streams = [
   { label: "Touch", color: GREEN, amp: 2.8 },
 ];
 
-/** DataForge — four synchronised sensor streams recorded over time. */
+/** DataForge - four synchronised sensor streams recorded over time. */
 export function ModalityStreams() {
   const reduce = useReducedMotion();
   const loop = { duration: 3.2, times: [0, 0.8, 1], repeat: Infinity, ease: "linear" as const };
@@ -75,7 +75,7 @@ export function ModalityStreams() {
 
 const sensors = ["RGB", "Depth", "F/T", "Tactile"];
 
-/** ModelLab — robot-specific sensors plugged into a foundation model that adapts, then acts. */
+/** ModelLab - robot-specific sensors plugged into a foundation model that adapts, then acts. */
 export function AdapterAnim() {
   const reduce = useReducedMotion();
   return (
@@ -118,7 +118,7 @@ export function AdapterAnim() {
   );
 }
 
-/** Safety & validation — checks tick through in sequence before anything reaches hardware. */
+/** Safety & validation - checks tick through in sequence before anything reaches hardware. */
 export function SafetyChecks({ items }: { items: string[] }) {
   const reduce = useReducedMotion();
   return (
@@ -149,7 +149,7 @@ export function SafetyChecks({ items }: { items: string[] }) {
 
 const steps = ["Plan", "Grasp", "Place", "Done"];
 
-/** AgenticOS — a grasp slips, the failure is detected, the step is retried and the task completes. */
+/** AgenticOS - a grasp slips, the failure is detected, the step is retried and the task completes. */
 export function RecoveryLoop() {
   const reduce = useReducedMotion();
   const xs = [22, 78, 134, 190];
@@ -195,7 +195,7 @@ export function RecoveryLoop() {
 
 const busNodes = ["G1", "H2", "OpenArm 2", "SO-101", "+ yours"];
 
-/** KineBridge — one hardware standard, many robots and sensors on the same bus. */
+/** KineBridge - one hardware standard, many robots and sensors on the same bus. */
 export function HardwareBus() {
   const reduce = useReducedMotion();
   const xs = [22, 64, 106, 148, 190];

@@ -2,16 +2,16 @@ import { useEffect, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown, HelpCircle, Mail, X } from "lucide-react";
-import { CONTACT_EMAIL, pilotRobots, pricingModel, products } from "@/data/company";
+import { CONTACT_EMAIL } from "@/data/company";
 
-type Faq = { q: string; a: ReactNode; cta?: { label: string; to: string } };
+type Faq = { q: string; a: ReactNode; cta?: { label: string; to?: string; href?: string } };
 
 function Bullets({ items }: { items: string[] }) {
   return (
     <ul className="mt-2 space-y-1.5">
       {items.map((it) => (
         <li key={it} className="flex gap-2">
-          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" />
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
           <span>{it}</span>
         </li>
       ))}
@@ -19,58 +19,47 @@ function Bullets({ items }: { items: string[] }) {
   );
 }
 
-const robotNames = pilotRobots.map((r) => r.name);
-const robotsText = `${robotNames.slice(0, -1).join(", ")} and ${robotNames[robotNames.length - 1]}`;
-
-/** Fixed answers only — nothing is generated, so nothing can be invented or leaked. Facts come from src/data/company.ts. */
+/** Fixed answers only, outcome level: no internal module names, no pricing, no customer names. */
 const faqs: Faq[] = [
   {
     q: "What does CloudBee Robotics do?",
-    a: "We help industrial teams automate contact-rich manipulation — tasks decided by force and touch, not just vision. You generate a 4D replica of your own work cell and synthetic data on it, adapt and train foundation models for your robot, and run them on a self-recovering agentic OS.",
-    cta: { label: "See the platform", to: "/product" },
+    a: "You describe the task. We help build the skill for your robot, in your own work cell, so you do not need an R&D team of your own.",
+    cta: { label: "How it works", to: "/#how-it-works" },
   },
   {
-    q: "What are the four products?",
-    a: <Bullets items={products.map((p) => `${p.name}${p.key === "modellab" ? " + Copilot" : ""} — ${p.tagline}`)} />,
-    cta: { label: "Explore the products", to: "/product" },
+    q: "What do I need to get started?",
+    a: "A task described in plain words. A phone video of your cell or a few demonstrations help, but are optional.",
   },
   {
-    q: "How do customers pay?",
-    a: (
-      <>
-        <Bullets items={pricingModel.map((p) => `${p.title}: ${p.billing}`)} />
-        <p className="mt-2">Rates are shared on request.</p>
-      </>
-    ),
-    cta: { label: "See pricing", to: "/pricing" },
+    q: "How long does a first skill take?",
+    a: "About 2 weeks for a pilot skill, with one engineer from your side. These are targets for our pilot programme, not guarantees.",
+    cta: { label: "Book a pilot", href: `mailto:${CONTACT_EMAIL}?subject=Pilot%20request` },
   },
   {
-    q: "Can I try it before committing?",
-    a: "Yes. We start with a free pilot demo on a small task similar to yours.",
-    cta: { label: "Get a free pilot demo", to: "/contact?interest=Pilot%20Program" },
+    q: "Which robots do you support?",
+    a: <Bullets items={["Robot arms", "Humanoids", "Dexterous hands"]} />,
   },
   {
-    q: "Which robots do you work with?",
-    a: `Our pilots run on ${robotsText}. Other robots and sensors connect through KineBridge, our hardware standard.`,
-    cta: { label: "How KineBridge works", to: "/product" },
+    q: "What does it cost?",
+    a: "We discuss commercial terms directly, based on your task and your robots. Start with a pilot and we will take it from there.",
+    cta: { label: "Talk to us", href: `mailto:${CONTACT_EMAIL}?subject=Pilot%20request` },
   },
   {
     q: "What do you share under NDA?",
-    a: "System architecture and methods, datasets, models and benchmarks, pilot results and customer names are shared with partners and investors under NDA.",
-    cta: { label: "Request the technical brief", to: "/contact?interest=Partnership" },
+    a: "Technical detail, pilot results and anything commercial are shared with partners and investors under NDA.",
   },
   {
     q: "Are you raising investment?",
-    a: "Yes — we're raising a pre-seed round to turn pilots into paid deployments. The deck, round details and financials are shared on request.",
+    a: "Yes, we are raising our pre-seed round. Investors can request our deck and a demo.",
     cta: { label: "For investors", to: "/#investors" },
   },
   {
     q: "Where are you based, and who backs you?",
-    a: "Aachen, Germany. CloudBee Robotics is an EXIST-funded start-up project at RWTH Aachen, with its own hardware lab at the Collective Incubator and a WestAI compute grant.",
+    a: "Aachen, Germany. CloudBee Robotics is an RWTH Aachen spin-off, funded by an EXIST grant and a WestAI compute grant, with its own hardware lab at the Collective Incubator.",
   },
   {
     q: "Do you offer jobs or thesis positions?",
-    a: "Yes — open roles and master's thesis positions are listed on our careers page.",
+    a: "Open roles and master's thesis positions are listed on our careers page.",
     cta: { label: "See careers", to: "/careers" },
   },
   {
@@ -142,7 +131,7 @@ export function FaqWidget() {
                     <button
                       onClick={() => setActive(isOpen ? null : i)}
                       aria-expanded={isOpen}
-                      className="flex w-full items-center justify-between gap-3 px-3 py-3 text-left text-sm font-semibold text-foreground transition-colors hover:text-accent-blue"
+                      className="flex w-full items-center justify-between gap-3 px-3 py-3 text-left text-sm font-semibold text-foreground transition-colors hover:text-primary"
                     >
                       {f.q}
                       <ChevronDown size={16} className={`shrink-0 text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""}`} />
@@ -158,14 +147,22 @@ export function FaqWidget() {
                         >
                           <div className="px-3 pb-4 text-sm leading-relaxed text-muted-foreground">
                             <div>{f.a}</div>
-                            {f.cta && (
+                            {f.cta?.to && (
                               <Link
                                 to={f.cta.to}
                                 onClick={() => setOpen(false)}
-                                className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue transition-all hover:gap-2"
+                                className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-all hover:gap-2"
                               >
                                 {f.cta.label} <ArrowRight size={14} />
                               </Link>
+                            )}
+                            {f.cta?.href && (
+                              <a
+                                href={f.cta.href}
+                                className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-all hover:gap-2"
+                              >
+                                {f.cta.label} <ArrowRight size={14} />
+                              </a>
                             )}
                           </div>
                         </motion.div>
@@ -178,7 +175,7 @@ export function FaqWidget() {
 
             <div className="flex items-center justify-between gap-3 border-t border-border bg-muted/30 px-4 py-3 text-xs">
               <span className="text-muted-foreground">Didn't find your answer?</span>
-              <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-1.5 font-semibold text-accent-blue hover:underline">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline">
                 <Mail size={13} /> Email us
               </a>
             </div>

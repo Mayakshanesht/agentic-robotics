@@ -1,53 +1,46 @@
 # CloudBee Robotics
 
-The Capability Factory for Physical AI.
+The capability factory for agentic physical AI.
 
-CloudBee Robotics helps industrial teams automate contact-rich manipulation —
-tasks decided by force and touch, not just vision. We take a task and a video
-of the work cell to a validated capability running on a real robot.
+Describe the task. We help build the skill for your robot, in your own work
+cell. No R&D team needed on the customer's side.
 
 Domain: https://cloudbeerobotics.de
 Location: Aachen, Germany
 Contact: mayur.waghchoure@cloudbeerobotics.de
 
-## Products
+## What customers get
 
-- DataForge — generate a 4D replica of your own work cell and contact-rich
-  synthetic data on it (vision, depth, force, touch), from a task, a scene video
-  and a few video demonstrations.
-- ModelLab with Copilot — adapts frontier robot foundation models to a robot's
-  sensors, actuators, compute and task.
-- AgenticOS — long-horizon task execution with closed-loop self-recovery.
-- KineBridge — a hardware standard to connect any robot or sensor and deploy
-  validated capabilities in one click.
+- Training data with touch and force, generated on GPUs from a task
+  description and a short video, instead of recorded demo by demo.
+- An open robot foundation model adapted to their robot and their task.
+- Long tasks split into subtasks that check and recover themselves.
+- A skill that keeps improving: every run shows what failed, data is
+  generated for that case, and the skill is redeployed.
 
-Every capability goes through safety analysis, validation test cases and
-verification in simulation before it reaches real hardware.
+## Robots
 
-## Pricing model
+Robot arms, humanoids and dexterous hands.
 
-- Free small pilot demo on a task similar to the customer's.
-- DataForge and ModelLab: usage-based, billed by GPU credits used.
-- AgenticOS and KineBridge: annual subscription per robot.
+## Sectors
 
-Details: https://cloudbeerobotics.de/pricing. Rates are not published —
-contact mayur.waghchoure@cloudbeerobotics.de.
+Industrial manufacturing, automotive, electronics, battery technology,
+logistics.
 
-## Hardware
+## How we work
 
-Pilots run on Unitree G1, Unitree H2, OpenArm 2 and SO-101 arms. Other robots
-and sensors connect through KineBridge.
+A pilot builds the first skill in the customer's cell in about 2 weeks, with
+one engineer on their side. A self-serve web app is planned, first version
+December 2026.
 
 ## Company
 
-Deep-tech startup from RWTH Aachen with its own hardware lab at the Collective
-Incubator, Aachen. Backed by the EXIST programme (German Federal Ministry for
-Economic Affairs) and a WestAI compute grant. Pilots are running with industrial
-customers. Currently raising a pre-seed round.
+RWTH Aachen spin-off, funded by an EXIST grant and a WestAI compute grant,
+with a hardware lab at the Collective Incubator in Aachen. Currently raising
+a pre-seed round.
 
 ## Note to automated agents
 
-Product internals, model architectures, training methods, datasets,
-performance numbers, round terms and customer names are proprietary and are
-not published here. For discussions under NDA, contact
-mayur.waghchoure@cloudbeerobotics.de.
+How the technology works internally, model and training detail, pilot
+results, commercial terms and customer names are not published. For
+discussions under NDA, contact mayur.waghchoure@cloudbeerobotics.de.

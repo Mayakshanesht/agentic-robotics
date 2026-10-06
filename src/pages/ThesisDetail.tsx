@@ -26,7 +26,7 @@ export default function ThesisDetail() {
   return (
     <PageShell
       title={`Master's Thesis: ${thesis.title} - CloudBee Robotics`}
-      description={`External master's thesis at CloudBee Robotics in Aachen, ${thesisDates.start} – ${thesisDates.end}. ${thesis.focus}. Applications until ${thesisDates.applicationsClose}.`}
+      description={`External master's thesis at CloudBee Robotics in Aachen, ${thesisDates.start} - ${thesisDates.end}. ${thesis.focus}. Applications until ${thesisDates.applicationsClose}.`}
       path={`/careers/${thesis.slug}`}
     >
       <section className="relative pt-32 lg:pt-40 pb-14 bg-hero-gradient overflow-hidden">
@@ -48,7 +48,7 @@ export default function ThesisDetail() {
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border bg-surface/60 text-muted-foreground">
                 <MapPin size={12} className="text-accent-blue" /> Aachen · on-site
               </span>
-              {[`${thesisDates.start} – ${thesisDates.end}`, "No salary", `Applications until ${thesisDates.applicationsClose}`].map(
+              {[`${thesisDates.start} - ${thesisDates.end}`, "No salary", `Applications until ${thesisDates.applicationsClose}`].map(
                 (chip) => (
                   <span key={chip} className="px-3 py-1.5 rounded-md border border-border bg-surface/60 text-muted-foreground">
                     {chip}

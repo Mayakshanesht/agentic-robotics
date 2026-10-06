@@ -8,7 +8,7 @@ const credibility = [
   { icon: GraduationCap, title: "RWTH Aachen University", body: "Part of one of Europe's leading technical university ecosystems.", url: "https://www.rwth-aachen.de" },
   { icon: Beaker, title: "IGMR Institute", body: "Research collaboration with the Institute of Mechanism Theory, Machine Dynamics and Robotics - validating CloudBee's platform through pilot and research projects.", url: "https://www.igmr.rwth-aachen.de" },
   { icon: Award, title: "EXIST Grant", body: "Awarded the German federal startup grant - backing the research and validating commercial and technical potential.", url: "https://www.exist.de" },
-  { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center to train and validate our multimodal robot foundation models at scale.", url: "https://westai.de" },
+  { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center.", url: "https://westai.de" },
   { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator.", url: "https://www.collective-incubator.de" },
   { icon: Briefcase, title: "Industrial Traction", body: "Pilots running with industrial customers." },
 ];

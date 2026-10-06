@@ -41,7 +41,7 @@ export default function Careers() {
               Join the team building the <span className="text-gradient-blue">future of physical AI.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              We're a small, senior team shipping a real product — contact-rich manipulation data, robot foundation models adapted to real hardware, and an agentic runtime that recovers on its own.
+              We're a small, senior team shipping a real product - contact-rich manipulation data, robot foundation models adapted to real hardware, and an agentic runtime that recovers on its own.
             </p>
             <div className="inline-flex items-center gap-2 text-sm font-mono text-muted-foreground px-3 py-2 mt-6 rounded-md border border-border bg-surface/60">
               <MapPin size={14} className="text-accent-blue" />
@@ -116,14 +116,14 @@ export default function Careers() {
               </h3>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-3xl">
                 These are not internships with a thesis attached. Each one is built around a question the field has not
-                answered — chosen because we need the answer ourselves, and framed so that a negative result is still a
+                answered - chosen because we need the answer ourselves, and framed so that a negative result is still a
                 result worth publishing.
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-xs font-mono">
                 {[
                   "Three positions",
                   "Aachen · on-site",
-                  `${thesisDates.start} – ${thesisDates.end}`,
+                  `${thesisDates.start} - ${thesisDates.end}`,
                   `Applications until ${thesisDates.applicationsClose}`,
                 ].map((chip) => (
                   <span key={chip} className="px-3 py-1.5 rounded-md border border-border bg-surface/60 text-muted-foreground">

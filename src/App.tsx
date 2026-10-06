@@ -11,7 +11,6 @@ import Solution from "./pages/Solution";
 import Research from "./pages/Research";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
-import Pricing from "./pages/Pricing";
 import ThesisDetail from "./pages/ThesisDetail";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
@@ -40,7 +39,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/pricing" element={<Navigate to="/" replace />} />
           <Route path="/solution" element={<Solution />} />
           <Route path="/research" element={<Research />} />
           <Route path="/team" element={<Team />} />
