@@ -1,160 +1,215 @@
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ContactShadows, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 
+const BODY = "#F2F5F8";
+const JOINT = "#1E3A5F";
+const CAN = "#D7263D";
+const TRAY = "#F59E0B";
+const WOOD = "#C8A06A";
 const TEAL = "#0D9488";
-const DARK_TEAL = "#0F766E";
-const LIGHT_TEAL = "#5EB8AE";
-const NAVY = "#0A1C33";
 const PANEL = "#E2E8F0";
 
-const BIN_X = -0.45;
-const TRAY_X = 0.5;
-const TABLE_Y = 0.43;
-const CYCLE = 7; // seconds per pick-and-place loop
+const TABLE_Y = 0.72;
+const CAN_HOME = new THREE.Vector3(-0.22, TABLE_Y + 0.065, 0.1);
+const TRAY_SPOT = new THREE.Vector3(0.3, TABLE_Y + 0.055, 0.08);
+const CYCLE = 8;
 
-/** Where the head and the part should be at a given phase of the loop. */
-function pose(t: number) {
-  const ease = (a: number, b: number, k: number) => a + (b - a) * (k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2);
-  if (t < 0.22) return { x: ease(TRAY_X, BIN_X, t / 0.22), y: 0.42, grip: 0.07, holding: false };
-  if (t < 0.34) return { x: BIN_X, y: ease(0.42, 0.14, (t - 0.22) / 0.12), grip: 0.07, holding: false };
-  if (t < 0.42) return { x: BIN_X, y: 0.14, grip: ease(0.07, 0.035, (t - 0.34) / 0.08), holding: t > 0.38 };
-  if (t < 0.54) return { x: BIN_X, y: ease(0.14, 0.42, (t - 0.42) / 0.12), grip: 0.035, holding: true };
-  if (t < 0.74) return { x: ease(BIN_X, TRAY_X, (t - 0.54) / 0.2), y: 0.42, grip: 0.035, holding: true };
-  if (t < 0.86) return { x: TRAY_X, y: ease(0.42, 0.16, (t - 0.74) / 0.12), grip: 0.035, holding: true };
-  if (t < 0.94) return { x: TRAY_X, y: 0.16, grip: ease(0.035, 0.07, (t - 0.86) / 0.08), holding: t < 0.9 };
-  return { x: TRAY_X, y: ease(0.16, 0.42, (t - 0.94) / 0.06), grip: 0.07, holding: false };
+/** Hand-authored arm keyframes. The can follows the real hand position, so the two always agree. */
+const keys = [
+  { t: 0.0, yaw: 0.1, pitch: -0.15, elbow: 0.35, grip: 0.055, hold: false },
+  { t: 0.22, yaw: -0.5, pitch: -1.15, elbow: 1.0, grip: 0.055, hold: false },
+  { t: 0.32, yaw: -0.5, pitch: -1.15, elbow: 1.0, grip: 0.028, hold: true },
+  { t: 0.46, yaw: -0.5, pitch: -0.75, elbow: 0.7, grip: 0.028, hold: true },
+  { t: 0.64, yaw: 0.42, pitch: -0.8, elbow: 0.75, grip: 0.028, hold: true },
+  { t: 0.76, yaw: 0.42, pitch: -1.1, elbow: 1.0, grip: 0.028, hold: true },
+  { t: 0.84, yaw: 0.42, pitch: -1.1, elbow: 1.0, grip: 0.055, hold: false },
+  { t: 1.0, yaw: 0.1, pitch: -0.15, elbow: 0.35, grip: 0.055, hold: false },
+];
+
+function sample(t: number) {
+  let a = keys[0];
+  let b = keys[keys.length - 1];
+  for (let i = 0; i < keys.length - 1; i++) {
+    if (t >= keys[i].t && t <= keys[i + 1].t) {
+      a = keys[i];
+      b = keys[i + 1];
+      break;
+    }
+  }
+  const span = b.t - a.t || 1;
+  const raw = (t - a.t) / span;
+  const k = raw < 0.5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
+  return {
+    yaw: a.yaw + (b.yaw - a.yaw) * k,
+    pitch: a.pitch + (b.pitch - a.pitch) * k,
+    elbow: a.elbow + (b.elbow - a.elbow) * k,
+    grip: a.grip + (b.grip - a.grip) * k,
+    hold: a.hold,
+    grasping: a.hold && b.hold,
+  };
 }
 
 function Cell({ variations, forces, still }: { variations: boolean; forces: boolean; still: boolean }) {
-  const head = useRef<THREE.Group>(null);
-  const left = useRef<THREE.Mesh>(null);
-  const right = useRef<THREE.Mesh>(null);
-  const part = useRef<THREE.Mesh>(null);
-  const contact = useRef<THREE.Mesh>(null);
-
-  const ghosts = useMemo(
-    () => Array.from({ length: 7 }, (_, i) => {
-      const k = (i / 6) * Math.PI;
-      return { x: Math.cos(k) * 0.52, z: 0.12 + Math.sin(k) * 0.16, r: ((i * 37) % 60) / 100 };
-    }),
-    [],
-  );
+  const shoulder = useRef<THREE.Group>(null);
+  const forearm = useRef<THREE.Group>(null);
+  const hand = useRef<THREE.Group>(null);
+  const fingerL = useRef<THREE.Mesh>(null);
+  const fingerR = useRef<THREE.Mesh>(null);
+  const can = useRef<THREE.Mesh>(null);
+  const ring = useRef<THREE.Mesh>(null);
+  const grabbed = useRef(false);
+  const world = useRef(new THREE.Vector3());
 
   useFrame(({ clock }) => {
-    const t = still ? 0.6 : (clock.getElapsedTime() % CYCLE) / CYCLE;
-    const p = pose(t);
-    if (head.current) head.current.position.set(p.x, TABLE_Y + p.y, 0);
-    if (left.current) left.current.position.x = -p.grip;
-    if (right.current) right.current.position.x = p.grip;
-    if (part.current) {
-      if (p.holding) part.current.position.set(p.x, TABLE_Y + p.y - 0.085, 0);
-      else if (t > 0.9 || t < 0.2) part.current.position.set(TRAY_X, TABLE_Y + 0.045, 0);
-      else part.current.position.set(BIN_X, TABLE_Y + 0.045, 0);
+    const t = still ? 0.3 : (clock.getElapsedTime() % CYCLE) / CYCLE;
+    const p = sample(t);
+    if (shoulder.current) {
+      shoulder.current.rotation.z = p.yaw;
+      shoulder.current.rotation.x = p.pitch;
     }
-    if (contact.current) {
-      const grasping = t > 0.34 && t < 0.56;
-      contact.current.visible = forces && grasping;
-      const s = 1 + Math.sin(clock.getElapsedTime() * 8) * 0.12;
-      contact.current.scale.set(s, s, s);
+    if (forearm.current) forearm.current.rotation.x = p.elbow;
+    if (fingerL.current) fingerL.current.position.x = -p.grip;
+    if (fingerR.current) fingerR.current.position.x = p.grip;
+    if (hand.current && can.current) {
+      hand.current.getWorldPosition(world.current);
+      if (p.hold) {
+        grabbed.current = true;
+        can.current.position.set(world.current.x, world.current.y - 0.075, world.current.z);
+      } else if (grabbed.current) {
+        grabbed.current = false;
+        can.current.position.copy(TRAY_SPOT);
+      } else if (t < 0.25) {
+        can.current.position.copy(CAN_HOME);
+      }
+    }
+    if (ring.current) {
+      ring.current.visible = forces && p.grasping;
+      const s = 1 + Math.sin(clock.getElapsedTime() * 9) * 0.14;
+      ring.current.scale.set(s, s, s);
     }
   });
 
   return (
     <group>
       {/* table */}
-      <mesh position={[0, TABLE_Y - 0.03, 0]} receiveShadow>
-        <boxGeometry args={[1.7, 0.06, 0.8]} />
-        <meshStandardMaterial color="#FFFFFF" roughness={0.7} />
+      <mesh position={[0, TABLE_Y - 0.02, 0]} receiveShadow>
+        <boxGeometry args={[1.5, 0.045, 0.75]} />
+        <meshStandardMaterial color={WOOD} roughness={0.7} />
       </mesh>
-      {[[-0.78, -0.33], [0.78, -0.33], [-0.78, 0.33], [0.78, 0.33]].map(([x, z]) => (
-        <mesh key={`${x}-${z}`} position={[x, (TABLE_Y - 0.06) / 2, z]}>
-          <boxGeometry args={[0.05, TABLE_Y - 0.06, 0.05]} />
-          <meshStandardMaterial color={PANEL} roughness={0.9} />
+      {[[-0.68, -0.3], [0.68, -0.3], [-0.68, 0.3], [0.68, 0.3]].map(([x, z]) => (
+        <mesh key={`${x}-${z}`} position={[x, (TABLE_Y - 0.045) / 2, z]}>
+          <boxGeometry args={[0.045, TABLE_Y - 0.045, 0.045]} />
+          <meshStandardMaterial color={PANEL} roughness={0.85} />
         </mesh>
       ))}
 
-      {/* bin on the left: floor plus four walls */}
-      <group position={[BIN_X, TABLE_Y, 0]}>
-        <mesh position={[0, 0.012, 0]}>
-          <boxGeometry args={[0.3, 0.024, 0.3]} />
-          <meshStandardMaterial color={LIGHT_TEAL} roughness={0.6} />
+      {/* tray */}
+      <group position={[0.3, TABLE_Y, 0.08]}>
+        <mesh position={[0, 0.012, 0]} receiveShadow>
+          <boxGeometry args={[0.34, 0.025, 0.26]} />
+          <meshStandardMaterial color={TRAY} roughness={0.5} />
         </mesh>
-        {[[0, -0.145, 0.3, 0.02], [0, 0.145, 0.3, 0.02], [-0.145, 0, 0.02, 0.3], [0.145, 0, 0.02, 0.3]].map(
+        {[[0, -0.125, 0.34, 0.015], [0, 0.125, 0.34, 0.015], [-0.165, 0, 0.015, 0.26], [0.165, 0, 0.015, 0.26]].map(
           ([x, z, w, d], i) => (
             <mesh key={i} position={[x, 0.035, z]}>
               <boxGeometry args={[w, 0.05, d]} />
-              <meshStandardMaterial color={LIGHT_TEAL} roughness={0.55} transparent opacity={0.55} />
+              <meshStandardMaterial color={TRAY} roughness={0.45} />
             </mesh>
           ),
         )}
       </group>
 
-      {/* tray on the right */}
-      <group position={[TRAY_X, TABLE_Y, 0]}>
-        <mesh position={[0, 0.01, 0]}>
-          <boxGeometry args={[0.34, 0.02, 0.3]} />
-          <meshStandardMaterial color="#E6F5F3" roughness={0.7} />
-        </mesh>
-        {[[0, -0.145, 0.34, 0.016], [0, 0.145, 0.34, 0.016], [-0.165, 0, 0.016, 0.3], [0.165, 0, 0.016, 0.3]].map(
-          ([x, z, w, d], i) => (
-            <mesh key={i} position={[x, 0.032, z]}>
-              <boxGeometry args={[w, 0.044, d]} />
-              <meshStandardMaterial color={TEAL} roughness={0.5} transparent opacity={0.45} />
-            </mesh>
-          ),
-        )}
-      </group>
-
-      {/* gantry */}
-      <mesh position={[0, TABLE_Y + 0.62, -0.02]}>
-        <boxGeometry args={[1.5, 0.035, 0.06]} />
-        <meshStandardMaterial color="#1E3A5F" roughness={0.5} metalness={0.2} />
-      </mesh>
-      {[-0.72, 0.72].map((x) => (
-        <mesh key={x} position={[x, TABLE_Y + 0.3, -0.02]}>
-          <boxGeometry args={[0.04, 0.65, 0.04]} />
-          <meshStandardMaterial color="#1E3A5F" roughness={0.6} />
-        </mesh>
-      ))}
-
-      {/* moving head with two fingers */}
-      <group ref={head}>
-        <mesh>
-          <boxGeometry args={[0.16, 0.1, 0.16]} />
-          <meshStandardMaterial color={DARK_TEAL} roughness={0.4} metalness={0.3} />
-        </mesh>
-        <mesh ref={left} position={[-0.07, -0.09, 0]}>
-          <boxGeometry args={[0.025, 0.1, 0.08]} />
-          <meshStandardMaterial color={TEAL} roughness={0.4} />
-        </mesh>
-        <mesh ref={right} position={[0.07, -0.09, 0]}>
-          <boxGeometry args={[0.025, 0.1, 0.08]} />
-          <meshStandardMaterial color={TEAL} roughness={0.4} />
-        </mesh>
-        <mesh ref={contact} position={[0, -0.14, 0]} rotation={[Math.PI / 2, 0, 0]} visible={false}>
-          <torusGeometry args={[0.1, 0.012, 8, 32]} />
-          <meshBasicMaterial color={TEAL} transparent opacity={0.75} />
-        </mesh>
-      </group>
-
-      {/* the part */}
-      <mesh ref={part} position={[BIN_X, TABLE_Y + 0.045, 0]} castShadow>
-        <boxGeometry args={[0.09, 0.09, 0.09]} />
-        <meshStandardMaterial color={TEAL} roughness={0.35} />
+      {/* can */}
+      <mesh ref={can} position={CAN_HOME.toArray()} castShadow>
+        <cylinderGeometry args={[0.033, 0.033, 0.12, 24]} />
+        <meshStandardMaterial color={CAN} roughness={0.3} metalness={0.25} />
       </mesh>
 
-      {/* generated variations */}
-      {variations &&
-        ghosts.map((g, i) => (
-          <mesh key={i} position={[g.x, TABLE_Y + 0.045, g.z]} rotation={[0, g.r * Math.PI, 0]}>
-            <boxGeometry args={[0.09, 0.09, 0.09]} />
-            <meshStandardMaterial color={TEAL} transparent opacity={0.22} roughness={0.5} />
+      {/* humanoid */}
+      <group position={[0, 0, -0.52]}>
+        <mesh position={[0, 0.42, 0]}>
+          <boxGeometry args={[0.26, 0.84, 0.2]} />
+          <meshStandardMaterial color={JOINT} roughness={0.6} />
+        </mesh>
+        <mesh position={[0, 1.02, 0]} castShadow>
+          <boxGeometry args={[0.34, 0.42, 0.24]} />
+          <meshStandardMaterial color={BODY} roughness={0.45} />
+        </mesh>
+        <mesh position={[0, 1.33, 0.01]}>
+          <boxGeometry args={[0.17, 0.19, 0.17]} />
+          <meshStandardMaterial color={BODY} roughness={0.4} />
+        </mesh>
+        <mesh position={[0, 1.33, 0.1]}>
+          <boxGeometry args={[0.13, 0.08, 0.02]} />
+          <meshStandardMaterial color={JOINT} roughness={0.25} metalness={0.4} />
+        </mesh>
+        {/* left arm, resting */}
+        <group position={[-0.22, 1.16, 0]} rotation={[0.15, 0, -0.12]}>
+          <mesh position={[0, -0.14, 0]}>
+            <capsuleGeometry args={[0.042, 0.2, 4, 12]} />
+            <meshStandardMaterial color={BODY} roughness={0.45} />
           </mesh>
-        ))}
+          <mesh position={[0, -0.38, 0]}>
+            <capsuleGeometry args={[0.036, 0.18, 4, 12]} />
+            <meshStandardMaterial color={BODY} roughness={0.45} />
+          </mesh>
+        </group>
+        {/* right arm, working */}
+        <group ref={shoulder} position={[0.22, 1.16, 0]}>
+          <mesh position={[0, 0, 0]}>
+            <sphereGeometry args={[0.055, 16, 16]} />
+            <meshStandardMaterial color={JOINT} roughness={0.5} />
+          </mesh>
+          <mesh position={[0, -0.14, 0]}>
+            <capsuleGeometry args={[0.042, 0.2, 4, 12]} />
+            <meshStandardMaterial color={BODY} roughness={0.45} />
+          </mesh>
+          <group ref={forearm} position={[0, -0.28, 0]}>
+            <mesh position={[0, 0, 0]}>
+              <sphereGeometry args={[0.045, 16, 16]} />
+              <meshStandardMaterial color={JOINT} roughness={0.5} />
+            </mesh>
+            <mesh position={[0, -0.13, 0]}>
+              <capsuleGeometry args={[0.036, 0.18, 4, 12]} />
+              <meshStandardMaterial color={BODY} roughness={0.45} />
+            </mesh>
+            <group ref={hand} position={[0, -0.26, 0]}>
+              <mesh>
+                <boxGeometry args={[0.07, 0.05, 0.06]} />
+                <meshStandardMaterial color={JOINT} roughness={0.4} />
+              </mesh>
+              <mesh ref={fingerL} position={[-0.055, -0.055, 0]}>
+                <boxGeometry args={[0.018, 0.08, 0.05]} />
+                <meshStandardMaterial color={BODY} roughness={0.4} />
+              </mesh>
+              <mesh ref={fingerR} position={[0.055, -0.055, 0]}>
+                <boxGeometry args={[0.018, 0.08, 0.05]} />
+                <meshStandardMaterial color={BODY} roughness={0.4} />
+              </mesh>
+              <mesh ref={ring} position={[0, -0.075, 0]} rotation={[Math.PI / 2, 0, 0]} visible={false}>
+                <torusGeometry args={[0.075, 0.009, 8, 28]} />
+                <meshBasicMaterial color={TEAL} transparent opacity={0.85} />
+              </mesh>
+            </group>
+          </group>
+        </group>
+      </group>
 
-      <ContactShadows position={[0, 0.001, 0]} opacity={0.4} scale={4.5} blur={2.2} far={2.5} color={NAVY} />
+      {/* generated variations of the can */}
+      {variations &&
+        Array.from({ length: 7 }).map((_, i) => {
+          const k = (i / 6) * Math.PI;
+          return (
+            <mesh key={i} position={[Math.cos(k) * 0.45, TABLE_Y + 0.065, 0.2 + Math.sin(k) * 0.12]}>
+              <cylinderGeometry args={[0.033, 0.033, 0.12, 20]} />
+              <meshStandardMaterial color={CAN} transparent opacity={0.22} roughness={0.5} />
+            </mesh>
+          );
+        })}
+
+      <ContactShadows position={[0, 0.001, 0]} opacity={0.4} scale={5} blur={2.2} far={3} color="#0A1C33" />
     </group>
   );
 }
@@ -170,19 +225,19 @@ export default function WorkCellScene({
 }) {
   return (
     <Canvas dpr={[1, 1.6]} shadows gl={{ antialias: true }} style={{ background: "transparent" }}>
-      <PerspectiveCamera makeDefault position={[1.25, 1.02, 1.55]} fov={42} />
-      <ambientLight intensity={0.75} />
-      <directionalLight position={[2.5, 4, 2]} intensity={1.5} castShadow />
-      <directionalLight position={[-3, 2, -2]} intensity={0.35} color={LIGHT_TEAL} />
+      <PerspectiveCamera makeDefault position={[1.15, 1.45, 1.85]} fov={40} />
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[2.5, 4, 2.5]} intensity={1.4} castShadow />
+      <directionalLight position={[-3, 2, -1]} intensity={0.3} color="#5EB8AE" />
       <Cell variations={variations} forces={forces} still={still} />
       <OrbitControls
         enablePan={false}
         enableZoom={false}
         autoRotate={!still}
-        autoRotateSpeed={0.6}
+        autoRotateSpeed={0.5}
         minPolarAngle={Math.PI / 5}
-        maxPolarAngle={Math.PI / 2.2}
-        target={[0, 0.58, 0]}
+        maxPolarAngle={Math.PI / 2.1}
+        target={[0, 0.9, 0]}
       />
     </Canvas>
   );

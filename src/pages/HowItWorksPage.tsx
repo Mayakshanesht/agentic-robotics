@@ -53,9 +53,27 @@ export default function HowItWorksPage() {
         <div className="mt-10">
           <DataComparison />
         </div>
+        <FadeUp delay={0.1} className="mt-5">
+          <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
+            <video
+              src="/media/multimodal-data.mp4"
+              poster="/media/multimodal-data-poster.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              aria-label="One recording in the twin, showing camera views, depth, fingertip touch and force at the same moment"
+              className="aspect-video w-full"
+            />
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            One recording in the twin: camera views, depth, fingertip touch and force, captured at the same moment.
+          </p>
+        </FadeUp>
       </Section>
 
-      <DigitalTwin />
+      <DigitalTwin story />
 
       <Section className="border-t border-border bg-white">
         <FadeUp className="max-w-3xl">

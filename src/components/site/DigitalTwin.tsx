@@ -2,11 +2,12 @@ import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { Boxes, Hand, Move3d } from "lucide-react";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
+import labPhoto from "@/assets/events/lab.jpg";
 
 const WorkCellScene = lazy(() => import("@/components/site/three/WorkCellScene"));
 
-/** Interactive 3D cell. The heavy 3D bundle only loads once the section is in view. */
-export function DigitalTwin() {
+/** Real cell beside its twin, then an explorable 3D version. The 3D bundle loads only in view. */
+export function DigitalTwin({ story = false }: { story?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const [mounted, setMounted] = useState(false);
@@ -39,7 +40,7 @@ export function DigitalTwin() {
       <FadeUp className="max-w-3xl">
         <Kicker>The digital twin</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Your work cell, replayed thousands of times.
+          One walk through your cell with a phone. Then a room a robot can practise in.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
           We rebuild your cell as a twin, then run the task again and again with new positions, new parts and new
@@ -47,7 +48,64 @@ export function DigitalTwin() {
         </p>
       </FadeUp>
 
-      <FadeUp delay={0.1} className="mt-10">
+      <div className="mt-10 grid gap-5 lg:grid-cols-2">
+        <FadeUp>
+          <figure className="h-full overflow-hidden rounded-2xl border border-border bg-[#F8FAFC] shadow-[var(--shadow-card)]">
+            <div className="aspect-video overflow-hidden">
+              <img src={labPhoto} alt="The real CloudBee Robotics lab in Aachen" className="h-full w-full object-cover" loading="lazy" />
+            </div>
+            <figcaption className="px-5 py-4">
+              <div className="text-[13px] font-bold uppercase tracking-[3px] text-muted-foreground">The real cell</div>
+              <p className="mt-1.5 text-[15px] text-[#13233B]">Filmed on a phone, in one walk-through.</p>
+            </figcaption>
+          </figure>
+        </FadeUp>
+
+        <FadeUp delay={0.1}>
+          <figure className="h-full overflow-hidden rounded-2xl border border-primary/30 bg-[#F8FAFC] shadow-[var(--shadow-card)]">
+            <div className="aspect-video overflow-hidden bg-[#0A1C33]">
+              {reduce ? (
+                <img src="/media/scene-orbit-poster.jpg" alt="A 3D reconstruction of the lab, seen from above" className="h-full w-full object-cover" />
+              ) : (
+                <video
+                  src="/media/scene-orbit.mp4"
+                  poster="/media/scene-orbit-poster.jpg"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="A 3D reconstruction of the CloudBee lab, orbiting"
+                  className="h-full w-full object-cover"
+                />
+              )}
+            </div>
+            <figcaption className="px-5 py-4">
+              <div className="text-[13px] font-bold uppercase tracking-[3px] text-primary">The twin</div>
+              <p className="mt-1.5 text-[15px] text-[#13233B]">The same room, rebuilt from that video.</p>
+            </figcaption>
+          </figure>
+        </FadeUp>
+      </div>
+
+      {story && (
+        <FadeUp delay={0.1} className="mt-5">
+          <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
+            <video
+              src="/media/twin-story.mp4"
+              poster="/media/twin-story-poster.jpg"
+              controls
+              muted
+              playsInline
+              preload="none"
+              aria-label="How a phone video of a room becomes a simulation a robot can practise in"
+              className="aspect-video w-full"
+            />
+          </div>
+        </FadeUp>
+      )}
+
+      <FadeUp delay={0.15} className="mt-5">
         <div className="overflow-hidden rounded-2xl border border-border bg-[#F8FAFC] shadow-[var(--shadow-card)]">
           <div ref={ref} className="relative h-[380px] w-full lg:h-[460px]">
             {mounted ? (
@@ -76,6 +134,7 @@ export function DigitalTwin() {
                 <t.icon size={15} /> {t.label}
               </button>
             ))}
+            <span className="ml-auto text-sm text-muted-foreground">A task in the twin: lift the can, set it in the tray.</span>
           </div>
         </div>
       </FadeUp>

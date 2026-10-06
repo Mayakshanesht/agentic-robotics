@@ -135,6 +135,59 @@ function Signal({ label, colour, active, reduce }: { label: string; colour: stri
   );
 }
 
+
+function Pads({ active, reduce }: { active: boolean; reduce: boolean | null }) {
+  return (
+    <div className="flex items-center gap-3">
+      <span className="w-16 shrink-0 text-xs font-semibold" style={{ color: active ? TEAL : MUTED }}>
+        Pads
+      </span>
+      <div className="flex flex-1 gap-1">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <motion.span
+            key={i}
+            className="h-4 flex-1 rounded-[3px]"
+            style={{ background: active ? TEAL : "#EEF2F6" }}
+            initial={{ opacity: active ? 0.15 : 1 }}
+            animate={
+              reduce || !active
+                ? undefined
+                : { opacity: [0.15, 0.15, 0.35 + ((i * 7) % 6) / 10, 0.9, 0.15] }
+            }
+            transition={{ ...loop, delay: (i % 4) * 0.05 }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Phase({ reduce }: { reduce: boolean | null }) {
+  const steps = ["Approach", "Contact", "Lift"];
+  return (
+    <div className="mt-3 flex items-center gap-2">
+      {steps.map((label, i) => (
+        <motion.span
+          key={label}
+          className="rounded-full border px-2.5 py-1 text-[11px] font-semibold"
+          initial={{ borderColor: LINE, color: MUTED }}
+          animate={
+            reduce
+              ? undefined
+              : {
+                  borderColor: [LINE, i === 0 ? TEAL : LINE, i === 1 ? TEAL : LINE, i === 2 ? TEAL : LINE, LINE],
+                  color: [MUTED, i === 0 ? TEAL : MUTED, i === 1 ? TEAL : MUTED, i === 2 ? TEAL : MUTED, MUTED],
+                }
+          }
+          transition={loop}
+        >
+          {label}
+        </motion.span>
+      ))}
+    </div>
+  );
+}
+
 export function DataComparison() {
   const reduce = useReducedMotion();
   return (
@@ -147,7 +200,9 @@ export function DataComparison() {
           <Signal label="Camera" colour={AMBER} active reduce={reduce} />
           <Signal label="Force" colour={AMBER} active={false} reduce={reduce} />
           <Signal label="Touch" colour={AMBER} active={false} reduce={reduce} />
+          <Pads active={false} reduce={reduce} />
         </div>
+        <Phase reduce={reduce} />
       </Panel>
 
       <Panel title="With touch and force" tone="teal" verdict="catches contact">
@@ -158,7 +213,9 @@ export function DataComparison() {
           <Signal label="Camera" colour={TEAL} active reduce={reduce} />
           <Signal label="Force" colour={TEAL} active reduce={reduce} />
           <Signal label="Touch" colour={TEAL} active reduce={reduce} />
+          <Pads active reduce={reduce} />
         </div>
+        <Phase reduce={reduce} />
       </Panel>
     </div>
   );
