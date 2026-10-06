@@ -24,7 +24,7 @@ const faqs: Faq[] = [
   {
     q: "What does CloudBee Robotics do?",
     a: "You describe the task. We help build the skill for your robot, in your own work cell, so you do not need an R&D team of your own.",
-    cta: { label: "How it works", to: "/#how-it-works" },
+    cta: { label: "How it works", to: "/how-it-works" },
   },
   {
     q: "What do I need to get started?",
