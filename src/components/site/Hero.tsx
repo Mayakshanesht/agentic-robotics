@@ -69,6 +69,10 @@ export function Hero() {
             Describe the task. We help build the skill for your robot, in your own work cell. No R&amp;D team needed on
             your side.
           </p>
+          <p className="mt-4 max-w-xl text-lg font-semibold leading-relaxed text-foreground">
+            Then our self-improving OS keeps it getting better: it spots what failed, fixes the data and the model, and
+            redeploys. Better every run.
+          </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a href={BOOK_A_PILOT} className="btn-pilot px-7 py-3.5 text-base">
               Book a pilot

@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/site/Hero";
 import { SeeItWork } from "@/components/site/SeeItWork";
+import { LogoMarquee } from "@/components/site/LogoMarquee";
+import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ProblemAnswer } from "@/components/site/ProblemAnswer";
 import { ExploreTeasers } from "@/components/site/ExploreTeasers";
 import { Traction } from "@/components/site/Traction";
@@ -33,6 +35,7 @@ const Index = () => {
       <SectionRail
         items={[
           { id: "see-it-work", label: "See it work" },
+          { id: "digital-twin", label: "Digital twin" },
           { id: "problem", label: "The problem" },
           { id: "explore", label: "Explore" },
           { id: "pilots", label: "Traction" },
@@ -42,7 +45,9 @@ const Index = () => {
         ]}
       />
       <Hero />
+      <LogoMarquee />
       <SeeItWork />
+      <DigitalTwin />
       <ProblemAnswer />
       <ExploreTeasers />
       <Traction />

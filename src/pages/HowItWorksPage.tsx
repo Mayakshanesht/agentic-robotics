@@ -2,6 +2,7 @@ import { PageShell } from "@/components/PageShell";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { DataComparison } from "@/components/site/anim/DataComparison";
+import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ModelAdapts } from "@/components/site/anim/ModelAdapts";
 import { BOOK_A_PILOT_MAILTO, robotFamilies, sectors } from "@/data/company";
 
@@ -53,6 +54,8 @@ export default function HowItWorksPage() {
           <DataComparison />
         </div>
       </Section>
+
+      <DigitalTwin />
 
       <Section className="border-t border-border bg-white">
         <FadeUp className="max-w-3xl">

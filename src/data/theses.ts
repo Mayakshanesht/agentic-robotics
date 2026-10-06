@@ -12,10 +12,10 @@ export type Thesis = {
 export const THESIS_CONTACT_EMAIL = "mayur.waghchoure@cloudbeerobotics.de";
 
 export const thesisDates = {
-  applicationsClose: "30 September 2026",
-  registration: "October 2026",
-  start: "1 November 2026",
-  end: "30 April 2027",
+  applicationsClose: "30 October 2026",
+  registration: "November 2026",
+  start: "1 December 2026",
+  end: "31 May 2027",
 };
 
 /** Role value stored with each application - keeps the three topics separate in /admin. */
