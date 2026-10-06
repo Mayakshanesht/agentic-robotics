@@ -6,9 +6,9 @@ import { FasterCheaper } from "@/components/site/anim/FasterCheaper";
 import { BOOK_A_PILOT_MAILTO, robotFamilies } from "@/data/company";
 
 const families = [
-  { name: "Robot arms", body: "Pick, place, insert and assemble tasks, including steps that depend on contact rather than vision alone." },
-  { name: "Humanoids", body: "Two-handed tasks and longer sequences, where a step may need to be checked and repeated before the next one starts." },
-  { name: "Dexterous hands", body: "Handling that depends on grip and force, where small corrections decide whether the task succeeds." },
+  { name: "Robot arms", body: "Pick, place, insert and assemble tasks, including steps that depend on contact rather than vision alone.", status: "Running on real robots in our lab" },
+  { name: "Humanoids", body: "Two-handed tasks and longer sequences, where a step may need to be checked and repeated before the next one starts.", status: "In simulation today" },
+  { name: "Dexterous hands", body: "Handling that depends on grip and force, where small corrections decide whether the task succeeds.", status: "In simulation today" },
 ];
 
 export default function WhyCloudBeePage() {
@@ -63,6 +63,9 @@ export default function WhyCloudBeePage() {
             <FadeUp key={f.name} delay={i * 0.08}>
               <div className="h-full rounded-2xl border border-border bg-white p-7 shadow-[var(--shadow-card)]">
                 <h3 className="text-xl font-bold text-foreground">{f.name}</h3>
+                <div className="mt-2 inline-flex rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-primary">
+                  {f.status}
+                </div>
                 <p className="mt-3 text-[17px] leading-relaxed text-[#13233B]">{f.body}</p>
               </div>
             </FadeUp>
