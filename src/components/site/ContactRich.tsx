@@ -165,8 +165,8 @@ export function ContactRich() {
             loop
             playsInline
             preload="none"
-            aria-label="One recording seen through every sensor at once: head and wrist cameras, depth, fingertip touch pads, grip force and joint loads"
-            className="aspect-[960/524] w-full"
+            aria-label="One recording seen through every sensor at once: head and wrist cameras, depth and the physics view on the left, and on the right the touch pads on each fingertip, the force on the skin, the height of the object and what each joint carries"
+            className="aspect-[1600/662] w-full"
           />
         </div>
         <p className="mt-3 text-sm text-muted-foreground">
