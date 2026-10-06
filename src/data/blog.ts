@@ -10,6 +10,14 @@ import { ExternalLink, Calendar, Trophy, Rocket, Target, Award, Cpu } from "luci
  */
 export const blogPosts = [
   {
+    title: "The Last Mile Is Touch: Why Robots Need to Feel to Finish the Job",
+    excerpt:
+      "Vision gets a robot to the object. Touch is what lets it finish the job. Where tactile sensing is a requirement, why robot skin wears out, and what has to happen before touch reaches every production robot.",
+    date: "Oct 6, 2026",
+    category: "Research",
+    slug: "/blog/the-last-mile-is-touch",
+  },
+  {
     title: "Why Physical AI Needs 4D Synthetic Data",
     excerpt: "Traditional approaches to robot training are hitting a wall. Here's why 4D world generation is the key to scalable robot intelligence.",
     date: "Jan 15, 2026",

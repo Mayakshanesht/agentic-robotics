@@ -82,8 +82,9 @@ export default function HowItWorksPage() {
         src="/media/trained-model.mp4"
         poster="/media/trained-model-poster.jpg"
         alt="The same new situation attempted by an off-the-shelf model on the left and by the same model trained on generated data on the right"
-        caption="Part 2: the trained model running. Left: the model off the shelf. Right: the same model after training on the generated data."
+        caption="Part 2: the trained model running. The same new situation, attempted twice at the same moment."
         aspect="aspect-[1600/340]"
+        splitLabels={{ left: "Off the shelf · fails", right: "Trained on our data · succeeds" }}
         tone="white"
       />
 
