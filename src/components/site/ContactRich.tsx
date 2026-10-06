@@ -141,6 +141,22 @@ export function ContactRich() {
         ))}
       </div>
 
+      <FadeUp delay={0.1} className="mt-5">
+        <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
+          <video
+            src="/media/contact-rich.mp4"
+            poster="/media/contact-rich-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            aria-label="Contact-rich synthetic data: camera views, 3D geometry, tactile pads and joint dynamics from one recording"
+            className="aspect-video w-full"
+          />
+        </div>
+      </FadeUp>
+
       <FadeUp className="mt-8">
         <p className="max-w-3xl text-[17px] leading-relaxed text-[#13233B]">
           So we generate it: every run in your twin is recorded with vision, depth, touch and force at the same moment,

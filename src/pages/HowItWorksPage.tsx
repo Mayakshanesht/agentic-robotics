@@ -58,19 +58,19 @@ export default function HowItWorksPage() {
         <FadeUp delay={0.1} className="mt-5">
           <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
             <video
-              src="/media/multimodal-data.mp4"
-              poster="/media/multimodal-data-poster.jpg"
+              src="/media/contact-rich.mp4"
+              poster="/media/contact-rich-poster.jpg"
               autoPlay
               muted
               loop
               playsInline
               preload="none"
-              aria-label="One recording in the twin, showing camera views, depth, fingertip touch and force at the same moment"
+              aria-label="Contact-rich synthetic data: camera views, 3D geometry, tactile pads and joint dynamics from one recording"
               className="aspect-video w-full"
             />
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
-            One recording in the twin: camera views, depth, fingertip touch and force, captured at the same moment.
+            One recording in the twin: every sensor over time, with the dynamics that produced it.
           </p>
         </FadeUp>
       </Section>
