@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NoIndex } from "@/components/NoIndex";
 import { motion } from "framer-motion";
 import { ArrowLeft, KeyRound, Loader2 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -68,6 +69,7 @@ export default function ResetPassword() {
 
   return (
     <div className="min-h-screen bg-background">
+      <NoIndex title="Reset password · CloudBee Robotics" />
       <Navbar />
       <main className="pt-20">
         <section className="section-spacing relative overflow-hidden">

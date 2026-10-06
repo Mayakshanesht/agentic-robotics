@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NoIndex } from "@/components/NoIndex";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -68,6 +69,7 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <NoIndex title="Admin login · CloudBee Robotics" />
       <Navbar />
       <main className="pt-20">
         <section className="section-spacing relative overflow-hidden">

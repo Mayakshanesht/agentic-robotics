@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
+import { NoIndex } from "@/components/NoIndex";
 import { motion } from "framer-motion";
 import { ArrowLeft, LogOut, Trash2, RefreshCw, Users, Mail, Building, Briefcase, Calendar, MessageSquare, FileText, Newspaper, BarChart3, Globe, Eye } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -126,6 +127,7 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <NoIndex title="Admin · CloudBee Robotics" />
       <Navbar />
       <main className="pt-20">
         <section className="section-spacing relative">

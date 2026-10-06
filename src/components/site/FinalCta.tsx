@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { BOOK_A_PILOT } from "@/components/Navbar";
+import { CONTACT_EMAIL } from "@/data/company";
 import { FadeUp } from "@/components/site/ui";
 
 export function FinalCta() {
@@ -21,6 +22,12 @@ export function FinalCta() {
               Join the waitlist
             </Link>
           </div>
+          <p className="mt-6 text-[15px] text-muted-foreground">
+            Or write to us directly:{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-primary hover:underline">
+              {CONTACT_EMAIL}
+            </a>
+          </p>
         </FadeUp>
       </div>
     </section>

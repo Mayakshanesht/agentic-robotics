@@ -2,7 +2,7 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { CountUp } from "@/components/site/CountUp";
 
 const tiles = [
-  { big: "2", label: "pilots running", detail: "Tier-1 automotive (humanoids) · Medical-device testing" },
+  { big: "2", label: "pilots running", detail: "Tier-1 automotive · Medical-device testing" },
   { big: "2", label: "pilots in negotiation", detail: "Packaging & bulk handling · Mobile robotics" },
   { big: "1", label: "letter of intent", detail: "Automotive controls" },
   { big: "Non-dilutive", label: "grant funded", detail: "EXIST Gründungsstipendium · WestAI compute grant" },
