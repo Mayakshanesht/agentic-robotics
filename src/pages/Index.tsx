@@ -6,6 +6,7 @@ import { SeeItWork } from "@/components/site/SeeItWork";
 import { LogoMarquee } from "@/components/site/LogoMarquee";
 import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ContactRich } from "@/components/site/ContactRich";
+import { VideoBlock } from "@/components/site/VideoBlock";
 import { WebApp } from "@/components/site/WebApp";
 import { ProblemAnswer } from "@/components/site/ProblemAnswer";
 import { ExploreTeasers } from "@/components/site/ExploreTeasers";
@@ -39,6 +40,7 @@ const Index = () => {
           { id: "see-it-work", label: "See it work" },
           { id: "digital-twin", label: "Digital twin" },
           { id: "contact-rich", label: "Contact-rich data" },
+          { id: "trained-model", label: "Trained model" },
           { id: "web-app", label: "Web app" },
           { id: "problem", label: "The problem" },
           { id: "explore", label: "Explore" },
@@ -53,6 +55,17 @@ const Index = () => {
       <SeeItWork />
       <DigitalTwin />
       <ContactRich />
+      <VideoBlock
+        id="trained-model"
+        kicker="The trained model"
+        title="The same situation, before and after training."
+        body="An open robot model, trained on the generated data, tested on situations it never saw during training. Off the shelf it fails; trained on this data it completes the task."
+        src="/media/trained-model.mp4"
+        poster="/media/trained-model-poster.jpg"
+        alt="The same new situation attempted by an off-the-shelf model and by the same model trained on generated data"
+        caption="Part 2: the trained model running."
+        tone="white"
+      />
       <WebApp />
       <ProblemAnswer />
       <ExploreTeasers />

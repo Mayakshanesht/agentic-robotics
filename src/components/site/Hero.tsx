@@ -10,7 +10,6 @@ type Slide = { src: string; poster: string; tag: string };
 /** Our own footage only. Each clip is silent and carries no text of its own. */
 const slides: Slide[] = [
   { src: "/media/hero-loop.mp4", poster: "/media/hero-loop-poster.jpg", tag: "Digital twin, then real robots in our lab" },
-  { src: "/media/twin-robot.mp4", poster: "/media/twin-robot-poster.jpg", tag: "A robot at work in your room, rebuilt from one phone video" },
   { src: "/videos/robot-demo.mp4", poster: "/media/robot-demo-poster.jpg", tag: "One task across several arms, running live" },
 ];
 

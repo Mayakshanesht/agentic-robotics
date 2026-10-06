@@ -5,6 +5,7 @@ import { DataComparison } from "@/components/site/anim/DataComparison";
 import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ContactRich } from "@/components/site/ContactRich";
 import { WebApp } from "@/components/site/WebApp";
+import { VideoBlock } from "@/components/site/VideoBlock";
 import { ModelAdapts } from "@/components/site/anim/ModelAdapts";
 import { BOOK_A_PILOT_MAILTO, robotFamilies, sectors } from "@/data/company";
 
@@ -38,6 +39,8 @@ export default function HowItWorksPage() {
           </FadeUp>
         </div>
       </section>
+
+      <WebApp />
 
       <HowItWorks />
 
@@ -76,8 +79,29 @@ export default function HowItWorksPage() {
       </Section>
 
       <DigitalTwin />
+      <VideoBlock
+        id="dataset"
+        kicker="Dataset generation"
+        title="One task, many generated situations."
+        body="The same task is played out again and again: the object moved, turned, heavier or more slippery; the robot standing somewhere else; the room lit differently. Hard cases are kept, including the ones that fail."
+        src="/media/dataset-generation.mp4"
+        poster="/media/dataset-generation-poster.jpg"
+        alt="One task played out as many generated situations, each with what changed written underneath"
+        caption="Part 1: generating the dataset."
+      />
+
+      <VideoBlock
+        id="trained-model"
+        kicker="The trained model"
+        title="The same situation, before and after training."
+        body="An open robot model, trained on the generated data, tested on situations it never saw during training. Off the shelf it fails; trained on this data it completes the task."
+        src="/media/trained-model.mp4"
+        poster="/media/trained-model-poster.jpg"
+        alt="The same new situation attempted by an off-the-shelf model and by the same model trained on generated data"
+        caption="Part 2: the trained model running."
+        tone="white"
+      />
       <ContactRich />
-      <WebApp />
 
       <Section className="border-t border-border bg-white">
         <FadeUp className="max-w-3xl">
