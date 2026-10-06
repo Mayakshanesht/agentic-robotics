@@ -18,6 +18,14 @@ Contact: mayur.waghchoure@cloudbeerobotics.de
 - A skill that keeps improving: every run shows what failed, data is
   generated for that case, and the skill is redeployed.
 
+## What we have shown
+
+A Unitree G1 humanoid on LinkerHand O6 hands walking 2.7 m on its own legs
+through a digital twin of our own lab in Aachen, stopping at a cabinet, then
+lifting a screwdriver 11.2 cm and holding it for 3.5 s, with no falls. Full
+physics, real time, measured in simulation.
+Video: https://cloudbeerobotics.de/media/g1-walk.mp4
+
 ## Robots
 
 Robot arms, humanoids and dexterous hands.

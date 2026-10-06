@@ -4,6 +4,7 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ContactRich } from "@/components/site/ContactRich";
+import { TwoPolicies } from "@/components/site/TwoPolicies";
 import { WebApp } from "@/components/site/WebApp";
 import { VideoBlock } from "@/components/site/VideoBlock";
 import { ModelAdapts } from "@/components/site/anim/ModelAdapts";
@@ -45,6 +46,18 @@ export default function HowItWorksPage() {
       <HowItWorks />
 
       <DigitalTwin />
+      <VideoBlock
+        id="walking-twin"
+        kicker="The twin, at full scale"
+        title="A humanoid can walk through it."
+        body="The twin is the whole room, not a tabletop. A Unitree G1 on LinkerHand O6 hands walks across the twin of our own lab on its own legs, stops at the cabinet, reaches the bench and lifts a screwdriver. Full physics decides whether it keeps its balance and whether the grip holds."
+        src="/media/g1-walk.mp4"
+        poster="/media/g1-walk-poster.jpg"
+        alt="A Unitree G1 humanoid walking across a digital twin of the CloudBee lab, stopping at a cabinet, reaching the bench and lifting a screwdriver"
+        caption="Full physics, real time, in the twin of our own lab. The route map and the figures are the simulation's own readouts."
+        tone="white"
+      />
+      <TwoPolicies />
       <ContactRich />
       <VideoBlock
         id="dataset"

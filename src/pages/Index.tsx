@@ -4,6 +4,7 @@ import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/site/Hero";
 import { SeeItWork } from "@/components/site/SeeItWork";
 import { LogoMarquee } from "@/components/site/LogoMarquee";
+import { HumanoidWalk } from "@/components/site/HumanoidWalk";
 import { WhatWeMake } from "@/components/site/WhatWeMake";
 import { SelfImprovingOs } from "@/components/site/SelfImprovingOs";
 import { ProblemAnswer } from "@/components/site/ProblemAnswer";
@@ -35,6 +36,7 @@ const Index = () => {
       <SectionRail
         items={[
           { id: "see-it-work", label: "See it work" },
+          { id: "humanoid", label: "The humanoid" },
           { id: "what-we-make", label: "What we make" },
           { id: "self-improving", label: "Self-improving" },
           { id: "problem", label: "The problem" },
@@ -47,6 +49,7 @@ const Index = () => {
       <Hero />
       <LogoMarquee />
       <SeeItWork />
+      <HumanoidWalk />
       <WhatWeMake />
       <SelfImprovingOs />
       <ProblemAnswer />

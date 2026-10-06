@@ -11,6 +11,7 @@ type Slide = { src: string; poster: string; tag: string; still?: boolean };
 
 /** Our own footage and photos only. Each clip is silent and carries no text of its own. */
 const slides: Slide[] = [
+  { src: "/media/g1-walk-hero.mp4", poster: "/media/g1-walk-hero-poster.jpg", tag: "A Unitree G1 walking our own lab, in its twin" },
   { src: "/media/twin-room.mp4", poster: "/media/twin-room-poster.jpg", tag: "One phone video of your cell, rebuilt as a twin" },
   { src: "/media/dataset-generation.mp4", poster: "/media/dataset-generation-poster.jpg", tag: "The same task, played again and again in the twin" },
   { src: "/media/contact-rich.mp4", poster: "/media/contact-rich-poster.jpg", tag: "Every sensor at once: cameras, depth, touch and force" },
