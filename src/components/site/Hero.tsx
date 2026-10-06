@@ -11,6 +11,7 @@ type Slide = { src: string; poster: string; tag: string };
 const slides: Slide[] = [
   { src: "/media/hero-loop.mp4", poster: "/media/hero-loop-poster.jpg", tag: "Digital twin, then real robots in our lab" },
   { src: "/videos/robot-demo.mp4", poster: "/media/robot-demo-poster.jpg", tag: "One task across several arms, running live" },
+  { src: "/media/contact-rich.mp4", poster: "/media/contact-rich-poster.jpg", tag: "Every sensor at once: cameras, depth, touch and force" },
 ];
 
 const SLIDE_MS = 8000;

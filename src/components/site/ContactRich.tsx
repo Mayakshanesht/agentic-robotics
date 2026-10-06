@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
+import { DataComparison } from "@/components/site/anim/DataComparison";
 
 const TEAL = "#0D9488";
 const AMBER = "#B45309";
@@ -141,7 +142,20 @@ export function ContactRich() {
         ))}
       </div>
 
-      <FadeUp delay={0.1} className="mt-5">
+      <FadeUp className="mt-14 max-w-3xl">
+        <h3 className="text-[1.6rem] font-bold leading-tight tracking-[-0.5px] text-foreground lg:text-[1.9rem]">
+          The same task, recorded two ways.
+        </h3>
+        <p className="mt-4 text-[17px] leading-relaxed text-[#13233B]">
+          A dataset of pixels only, next to the same task recorded with touch and force on top. Only the second one
+          carries the moment that decides whether the task succeeds.
+        </p>
+      </FadeUp>
+      <div className="mt-8">
+        <DataComparison />
+      </div>
+
+      <FadeUp delay={0.1} className="mt-14">
         <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
           <video
             src="/media/contact-rich.mp4"

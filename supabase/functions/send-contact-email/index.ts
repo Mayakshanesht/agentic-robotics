@@ -2,6 +2,9 @@ import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { z } from 'npm:zod@3.23.8';
 
 const TO_EMAIL = 'mayur.waghchoure@cloudbeerobotics.de';
+// Every form submission is also copied here, so nothing is missed while the
+// company mailbox is being set up.
+const NOTIFY_EMAILS = [TO_EMAIL, 'mayurwaghchoure1995@gmail.com'];
 // IMPORTANT: this address's domain (cloudbeerobotics.de) must be VERIFIED in Resend
 // (Resend → Domains → add cloudbeerobotics.de → add the DNS records). Until then,
 // fall back to 'onboarding@resend.dev' which only delivers to your own Resend account.
@@ -84,7 +87,7 @@ Deno.serve(async (req) => {
     const [internalRes, confirmRes] = await Promise.allSettled([
       send({
         from: FROM_EMAIL,
-        to: [TO_EMAIL],
+        to: NOTIFY_EMAILS,
         reply_to: email,
         subject: `[CloudBee] ${interest} - ${name}${company ? ` · ${company}` : ''}`,
         html: internalHtml,

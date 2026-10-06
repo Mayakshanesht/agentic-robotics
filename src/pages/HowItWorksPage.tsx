@@ -1,7 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { HowItWorks } from "@/components/site/HowItWorks";
-import { DataComparison } from "@/components/site/anim/DataComparison";
 import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ContactRich } from "@/components/site/ContactRich";
 import { WebApp } from "@/components/site/WebApp";
@@ -44,23 +43,8 @@ export default function HowItWorksPage() {
 
       <HowItWorks />
 
-      <Section className="border-t border-border">
-        <FadeUp className="max-w-3xl">
-          <Kicker>The data</Kicker>
-          <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-            Why touch and force change what a robot can learn.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-            A camera sees where the part is. It does not feel the moment a grip starts to slip. Training data that
-            carries touch and force captures the part of the task that decides success.
-          </p>
-        </FadeUp>
-        <div className="mt-10">
-          <DataComparison />
-        </div>
-      </Section>
-
       <DigitalTwin />
+      <ContactRich />
       <VideoBlock
         id="dataset"
         kicker="Dataset generation"
@@ -71,19 +55,6 @@ export default function HowItWorksPage() {
         alt="One task played out as many generated situations, each with what changed written underneath"
         caption="Part 1: generating the dataset."
       />
-
-      <VideoBlock
-        id="trained-model"
-        kicker="The trained model"
-        title="The same situation, before and after training."
-        body="An open robot model, trained on the generated data, tested on situations it never saw during training. Off the shelf it fails; trained on this data it completes the task."
-        src="/media/trained-model.mp4"
-        poster="/media/trained-model-poster.jpg"
-        alt="The same new situation attempted by an off-the-shelf model and by the same model trained on generated data"
-        caption="Part 2: the trained model running."
-        tone="white"
-      />
-      <ContactRich />
 
       <Section className="border-t border-border bg-white">
         <FadeUp className="max-w-3xl">
@@ -100,6 +71,18 @@ export default function HowItWorksPage() {
           <ModelAdapts />
         </div>
       </Section>
+
+      <VideoBlock
+        id="trained-model"
+        kicker="The trained model"
+        title="The same situation, before and after training."
+        body="An open robot model, trained on the generated data, tested on situations it never saw during training. Off the shelf it fails; trained on this data it completes the task."
+        src="/media/trained-model.mp4"
+        poster="/media/trained-model-poster.jpg"
+        alt="The same new situation attempted by an off-the-shelf model and by the same model trained on generated data"
+        caption="Part 2: the trained model running."
+        tone="white"
+      />
 
       <Section className="border-t border-border">
         <div className="grid gap-10 lg:grid-cols-2">

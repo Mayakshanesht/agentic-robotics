@@ -55,6 +55,18 @@ function Waitlist() {
         use_case: d.task || null,
       });
       if (error) throw error;
+      // Best-effort email notification (won't block UX if not configured)
+      supabase.functions
+        .invoke("send-contact-email", {
+          body: {
+            name: d.company || d.email,
+            company: d.company || "",
+            email: d.email,
+            interest: "Pilot Program",
+            message: `Web app waitlist signup.\n\nRobot type: ${d.robot_type}\nTask: ${d.task || "-"}`,
+          },
+        })
+        .catch(() => {});
       setDone(true);
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : "Could not submit, please try again");

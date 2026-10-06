@@ -56,6 +56,19 @@ const RequestAccess = () => {
 
       if (error) throw error;
 
+      // Best-effort email notification (won't block UX if not configured)
+      supabase.functions
+        .invoke("send-contact-email", {
+          body: {
+            name: data.full_name,
+            company: data.company || "",
+            email: data.email,
+            interest: "Other",
+            message: `Early access request from the website.\n\nRole: ${data.role || "-"}\nUse case: ${data.use_case || "-"}`,
+          },
+        })
+        .catch(() => {});
+
       setIsSubmitted(true);
     } catch (error) {
       toast({
