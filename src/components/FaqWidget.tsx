@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown, HelpCircle, Mail, X } from "lucide-react";
-import { CONTACT_EMAIL } from "@/data/company";
+import { BOOK_A_PILOT_PATH, CONTACT_EMAIL } from "@/data/company";
 
 type Faq = { q: string; a: ReactNode; cta?: { label: string; to?: string; href?: string } };
 
@@ -33,7 +33,7 @@ const faqs: Faq[] = [
   {
     q: "How long does a first skill take?",
     a: "About 2 weeks for a pilot skill, with one engineer from your side. These are targets for our pilot programme, not guarantees.",
-    cta: { label: "Book a pilot", href: `mailto:${CONTACT_EMAIL}?subject=Pilot%20request` },
+    cta: { label: "Book a pilot", to: BOOK_A_PILOT_PATH },
   },
   {
     q: "Which robots do you support?",
@@ -42,7 +42,7 @@ const faqs: Faq[] = [
   {
     q: "What does it cost?",
     a: "We discuss commercial terms directly, based on your task and your robots. Start with a pilot and we will take it from there.",
-    cta: { label: "Talk to us", href: `mailto:${CONTACT_EMAIL}?subject=Pilot%20request` },
+    cta: { label: "Talk to us", to: BOOK_A_PILOT_PATH },
   },
   {
     q: "What do you share under NDA?",

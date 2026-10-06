@@ -3,28 +3,20 @@ import { PhotoSlot } from "@/components/PhotoSlot";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import lab from "@/assets/events/lab.jpg";
 import foundersFestival from "@/assets/events/founders-festival.jpg";
-import startupWeek from "@/assets/events/startup-week.jpg";
 import guestLecture from "@/assets/events/guest-lecture.jpg";
-import ideationPitch from "@/assets/ideation-pitch.jpg";
-import pitch from "@/assets/events/pitch.jpg";
-import workshop from "@/assets/events/workshop.jpg";
-import makerSpace from "@/assets/events/maker-space.jpg";
 
 type Photo = { src: string; alt: string; caption: string };
 
 /**
  * Our own photos. Entries pointing at /events are drop-in slots: add the file
- * and the placeholder is replaced automatically.
+ * and the placeholder is replaced automatically. Photos showing people who are
+ * not on the team are not published here (GDPR), and the two stage photos moved
+ * to the hero carousel.
  */
 const photos: Photo[] = [
   { src: foundersFestival, alt: "The CloudBee Robotics team at their booth at the Founders Festival in Aachen", caption: "Our booth at the Founders Festival, Aachen" },
-  { src: startupWeek, alt: "The CloudBee Robotics stand during Startup Week Aachen", caption: "Startup Week Aachen" },
   { src: guestLecture, alt: "Mayur Waghchoure giving a guest lecture at the RWTH International Academy", caption: "Guest lecture at the RWTH International Academy" },
-  { src: pitch, alt: "Mayur Waghchoure presenting CloudBee Robotics to a seated audience as a finalist at the Deloitte Problem-Solution Fit final", caption: "Finalist at the Deloitte Problem-Solution Fit final" },
-  { src: ideationPitch, alt: "Mayur Waghchoure pitching CloudBee Robotics at the RWTH Innovation Ideation programme", caption: "Pitching at the RWTH Innovation Ideation programme" },
   { src: lab, alt: "The CloudBee Robotics hardware lab in Aachen", caption: "Our hardware lab, Aachen" },
-  { src: workshop, alt: "The CloudBee Robotics team in a workshop session", caption: "Team workshop" },
-  { src: makerSpace, alt: "The maker space at the Collective Incubator in Aachen", caption: "Maker space, Collective Incubator" },
 ];
 
 function Placeholder({ caption }: { caption: string }) {

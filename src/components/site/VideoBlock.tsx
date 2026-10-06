@@ -12,6 +12,7 @@ export function VideoBlock({
   poster,
   alt,
   caption,
+  aspect = "aspect-video",
   tone = "default",
 }: {
   id?: string;
@@ -22,6 +23,8 @@ export function VideoBlock({
   poster: string;
   alt: string;
   caption?: string;
+  /** Tailwind aspect class matching the clip, which is no longer always 16:9. */
+  aspect?: string;
   tone?: "default" | "white";
 }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -50,7 +53,7 @@ export function VideoBlock({
       </FadeUp>
       <FadeUp delay={0.1} className="mt-10">
         <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
-          <video ref={ref} src={src} poster={poster} controls muted loop playsInline preload="none" aria-label={alt} className="aspect-video w-full" />
+          <video ref={ref} src={src} poster={poster} controls muted loop playsInline preload="none" aria-label={alt} className={`${aspect} w-full`} />
         </div>
         {caption && <p className="mt-3 text-sm text-muted-foreground">{caption}</p>}
       </FadeUp>

@@ -38,15 +38,15 @@ export function DigitalTwin() {
         <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
           <video
             ref={video}
-            src="/media/twin-presentation.mp4"
-            poster="/media/twin-presentation-poster.jpg"
+            src="/media/twin-compare.mp4"
+            poster="/media/twin-compare-poster.jpg"
             controls
             muted
             loop
             playsInline
             preload="metadata"
             aria-label="One phone video of a room becomes its digital twin, shown side by side with the filmed room, then variations of it"
-            className="aspect-video w-full"
+            className="aspect-[1280/362] w-full"
           />
         </div>
         <p className="mt-3 text-sm text-muted-foreground">

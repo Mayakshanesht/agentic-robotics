@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/PageShell";
+import { Link } from "react-router-dom";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { DigitalTwin } from "@/components/site/DigitalTwin";
@@ -6,7 +7,7 @@ import { ContactRich } from "@/components/site/ContactRich";
 import { WebApp } from "@/components/site/WebApp";
 import { VideoBlock } from "@/components/site/VideoBlock";
 import { ModelAdapts } from "@/components/site/anim/ModelAdapts";
-import { BOOK_A_PILOT_MAILTO, robotFamilies, sectors } from "@/data/company";
+import { BOOK_A_PILOT_PATH, CONTACT_EMAIL, robotFamilies, sectors } from "@/data/company";
 
 const fromYou = [
   "The task, described in plain words",
@@ -32,9 +33,9 @@ export default function HowItWorksPage() {
             <p className="mt-6 text-lg leading-relaxed text-[#13233B]">
               You describe the task. We do the rest in your own cell, and the skill keeps getting better once it runs.
             </p>
-            <a href={BOOK_A_PILOT_MAILTO} className="btn-pilot mt-8 px-7 py-3.5 text-base">
+            <Link to={BOOK_A_PILOT_PATH} className="btn-pilot mt-8 px-7 py-3.5 text-base">
               Book a pilot
-            </a>
+            </Link>
           </FadeUp>
         </div>
       </section>
@@ -52,8 +53,9 @@ export default function HowItWorksPage() {
         body="The same task is played out again and again: the object moved, turned, heavier or more slippery; the robot standing somewhere else; the room lit differently. Hard cases are kept, including the ones that fail."
         src="/media/dataset-generation.mp4"
         poster="/media/dataset-generation-poster.jpg"
-        alt="One task played out as many generated situations, each with what changed written underneath"
+        alt="One task played out as many generated situations: the object moved, the robot standing elsewhere, the room lit differently"
         caption="Part 1: generating the dataset."
+        aspect="aspect-[1600/680]"
       />
 
       <Section className="border-t border-border bg-white">
@@ -79,8 +81,9 @@ export default function HowItWorksPage() {
         body="An open robot model, trained on the generated data, tested on situations it never saw during training. Off the shelf it fails; trained on this data it completes the task."
         src="/media/trained-model.mp4"
         poster="/media/trained-model-poster.jpg"
-        alt="The same new situation attempted by an off-the-shelf model and by the same model trained on generated data"
-        caption="Part 2: the trained model running."
+        alt="The same new situation attempted by an off-the-shelf model on the left and by the same model trained on generated data on the right"
+        caption="Part 2: the trained model running. Left: the model off the shelf. Right: the same model after training on the generated data."
+        aspect="aspect-[1600/340]"
         tone="white"
       />
 
@@ -107,9 +110,15 @@ export default function HowItWorksPage() {
               ))}
             </div>
             <p className="mt-6 text-sm text-muted-foreground">Sectors we work in: {sectors.join(", ").toLowerCase()}.</p>
-            <a href={BOOK_A_PILOT_MAILTO} className="btn-pilot mt-8 px-7 py-3.5 text-base">
+            <Link to={BOOK_A_PILOT_PATH} className="btn-pilot mt-8 px-7 py-3.5 text-base">
               Book a pilot
-            </a>
+            </Link>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Or write to{" "}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-primary hover:underline">
+                {CONTACT_EMAIL}
+              </a>
+            </p>
           </FadeUp>
         </div>
       </Section>

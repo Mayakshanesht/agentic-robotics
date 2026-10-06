@@ -1,8 +1,9 @@
 import { PageShell } from "@/components/PageShell";
+import { Link } from "react-router-dom";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { WhyCloudBee } from "@/components/site/WhyCloudBee";
 import { FasterCheaper } from "@/components/site/anim/FasterCheaper";
-import { BOOK_A_PILOT_MAILTO, robotFamilies } from "@/data/company";
+import { BOOK_A_PILOT_PATH, CONTACT_EMAIL, robotFamilies } from "@/data/company";
 
 const families = [
   { name: "Robot arms", body: "Pick, place, insert and assemble tasks, including steps that depend on contact rather than vision alone.", status: "Running on real robots in our lab" },
@@ -28,9 +29,15 @@ export default function WhyCloudBeePage() {
               Teaching a robot by hand costs months and specialists. We change where the work happens, so a new skill
               costs weeks and one engineer on your side.
             </p>
-            <a href={BOOK_A_PILOT_MAILTO} className="btn-pilot mt-8 px-7 py-3.5 text-base">
+            <Link to={BOOK_A_PILOT_PATH} className="btn-pilot mt-8 px-7 py-3.5 text-base">
               Book a pilot
-            </a>
+            </Link>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Or write to{" "}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-primary hover:underline">
+                {CONTACT_EMAIL}
+              </a>
+            </p>
           </FadeUp>
         </div>
       </section>

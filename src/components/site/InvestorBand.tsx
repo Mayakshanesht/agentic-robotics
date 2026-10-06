@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { CONTACT_EMAIL } from "@/data/company";
+import { CONTACT_EMAIL, REQUEST_DECK_PATH } from "@/data/company";
 import { FadeUp } from "@/components/site/ui";
 
-const deckMailto = `mailto:${CONTACT_EMAIL}?subject=CloudBee%20investor%20deck`;
-const callMailto = `mailto:${CONTACT_EMAIL}?subject=Intro%20call%20with%20CloudBee&body=Hi%20Mayur%2C%0A%0AI%27d%20like%20a%20short%20intro%20call.%20Here%20are%20a%20few%20times%20that%20work%20for%20me%3A%0A`;
 const founderLinkedIn = "https://www.linkedin.com/in/mayur-waghchoure/";
 
 export function InvestorBand() {
@@ -32,15 +30,9 @@ export function InvestorBand() {
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-            <a href={deckMailto} className="btn-pilot px-7 py-3.5 text-base">
+            <Link to={REQUEST_DECK_PATH} className="btn-pilot px-7 py-3.5 text-base">
               Request the deck
-            </a>
-            <a
-              href={callMailto}
-              className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-white/70"
-            >
-              Book a 20-minute call
-            </a>
+            </Link>
           </div>
         </FadeUp>
       </div>

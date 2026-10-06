@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
-import { CONTACT_EMAIL } from "@/data/company";
+import { BOOK_A_PILOT_PATH } from "@/data/company";
 
 const navLinks = [
   { label: "How it works", to: "/how-it-works" },
@@ -16,7 +16,7 @@ const navLinks = [
   { label: "Investors", to: "/investors" },
 ];
 
-export const BOOK_A_PILOT = `mailto:${CONTACT_EMAIL}?subject=Pilot%20request`;
+export const BOOK_A_PILOT = BOOK_A_PILOT_PATH;
 
 /** Navy badge: the logo is drawn for dark backgrounds, so it never sits directly on white. */
 export function LogoBadge({ className = "h-10" }: { className?: string }) {
@@ -56,9 +56,9 @@ export function Navbar() {
           </div>
 
           <div className="hidden lg:block">
-            <a href={BOOK_A_PILOT} className="btn-pilot">
+            <Link to={BOOK_A_PILOT} className="btn-pilot">
               Book a pilot
-            </a>
+            </Link>
           </div>
 
           <button className="p-2 text-foreground lg:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu" aria-expanded={isOpen}>
@@ -88,9 +88,9 @@ export function Navbar() {
                   {l.label}
                 </NavLink>
               ))}
-              <a href={BOOK_A_PILOT} className="btn-pilot mt-2 w-full">
+              <Link to={BOOK_A_PILOT} className="btn-pilot mt-2 w-full" onClick={() => setIsOpen(false)}>
                 Book a pilot
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

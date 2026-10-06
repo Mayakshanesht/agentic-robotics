@@ -5,9 +5,8 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { Traction } from "@/components/site/Traction";
 import { TeamStrip } from "@/components/site/TeamStrip";
 import { FundingStrip } from "@/components/site/FundingStrip";
-import { CONTACT_EMAIL } from "@/data/company";
+import { CONTACT_EMAIL, REQUEST_DECK_PATH } from "@/data/company";
 
-const deckMailto = `mailto:${CONTACT_EMAIL}?subject=CloudBee%20investor%20deck`;
 
 const underNda = [
   "How the technology works, in technical detail",
@@ -34,9 +33,9 @@ export default function InvestorsPage() {
               industrial companies and our own hardware lab in Aachen. Request our deck and a demo.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href={deckMailto} className="btn-pilot px-7 py-3.5 text-base">
+              <Link to={REQUEST_DECK_PATH} className="btn-pilot px-7 py-3.5 text-base">
                 Request the deck
-              </a>
+              </Link>
               <Link
                 to="/how-it-works"
                 className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
@@ -72,9 +71,9 @@ export default function InvestorsPage() {
                   </li>
                 ))}
               </ul>
-              <a href={deckMailto} className="btn-pilot mt-6 w-full justify-center py-3">
+              <Link to={REQUEST_DECK_PATH} className="btn-pilot mt-6 w-full justify-center py-3">
                 Request the deck
-              </a>
+              </Link>
             </div>
           </FadeUp>
         </div>

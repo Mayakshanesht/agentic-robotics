@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { FadeUp, Kicker } from "@/components/site/ui";
 import { Traction } from "@/components/site/Traction";
 import { PilotToSelfServe } from "@/components/site/PilotToSelfServe";
-import { BOOK_A_PILOT_MAILTO } from "@/data/company";
+import { BOOK_A_PILOT_PATH, CONTACT_EMAIL } from "@/data/company";
 
 export default function PilotsPage() {
   const location = useLocation();
@@ -31,9 +31,15 @@ export default function PilotsPage() {
               A pilot builds your first skill in your own cell, with your robot and your parts. What works there is what
               we scale.
             </p>
-            <a href={BOOK_A_PILOT_MAILTO} className="btn-pilot mt-8 px-7 py-3.5 text-base">
+            <Link to={BOOK_A_PILOT_PATH} className="btn-pilot mt-8 px-7 py-3.5 text-base">
               Book a pilot
-            </a>
+            </Link>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Or write to{" "}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-primary hover:underline">
+                {CONTACT_EMAIL}
+              </a>
+            </p>
           </FadeUp>
         </div>
       </section>

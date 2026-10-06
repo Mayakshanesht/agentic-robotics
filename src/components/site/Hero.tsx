@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { BOOK_A_PILOT } from "@/components/Navbar";
 import { Kicker } from "@/components/site/ui";
+import pitchPhoto from "@/assets/events/pitch.jpg";
+import ideationPhoto from "@/assets/ideation-pitch.jpg";
 
-type Slide = { src: string; poster: string; tag: string };
+type Slide = { src: string; poster: string; tag: string; still?: boolean };
 
-/** Our own footage only. Each clip is silent and carries no text of its own. */
+/** Our own footage and photos only. Each clip is silent and carries no text of its own. */
 const slides: Slide[] = [
-  { src: "/media/hero-loop.mp4", poster: "/media/hero-loop-poster.jpg", tag: "Digital twin, then real robots in our lab" },
-  { src: "/videos/robot-demo.mp4", poster: "/media/robot-demo-poster.jpg", tag: "One task across several arms, running live" },
+  { src: "/media/twin-room.mp4", poster: "/media/twin-room-poster.jpg", tag: "One phone video of your cell, rebuilt as a twin" },
+  { src: "/media/dataset-generation.mp4", poster: "/media/dataset-generation-poster.jpg", tag: "The same task, played again and again in the twin" },
   { src: "/media/contact-rich.mp4", poster: "/media/contact-rich-poster.jpg", tag: "Every sensor at once: cameras, depth, touch and force" },
+  { src: pitchPhoto, poster: pitchPhoto, tag: "Pitching at the Deloitte Problem-Solution Fit final", still: true },
+  { src: ideationPhoto, poster: ideationPhoto, tag: "At the RWTH Innovation Ideation programme", still: true },
 ];
 
 const SLIDE_MS = 8000;
@@ -34,8 +38,18 @@ export function Hero() {
     <section className="relative isolate flex min-h-[calc(100svh-4rem)] items-center overflow-hidden pt-24 lg:min-h-[calc(100svh-5rem)] lg:pt-28">
       <div className="absolute inset-0 -z-10">
         <AnimatePresence mode="sync">
-          {reduce ? (
-            <img key="poster" src={slides[0].poster} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
+          {reduce || current.still ? (
+            <motion.img
+              key={current.src}
+              src={reduce ? slides[0].poster : current.src}
+              alt=""
+              aria-hidden
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.1, ease: "easeOut" }}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           ) : (
             <motion.video
               key={current.src}
@@ -82,9 +96,9 @@ export function Hero() {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href={BOOK_A_PILOT} className="btn-pilot px-7 py-3.5 text-base">
+            <Link to={BOOK_A_PILOT} className="btn-pilot px-7 py-3.5 text-base">
               Book a pilot
-            </a>
+            </Link>
             <Link
               to="/pilots#waitlist"
               className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-white/90 px-7 py-3.5 text-sm font-semibold text-primary backdrop-blur transition-colors hover:bg-secondary"

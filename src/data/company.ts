@@ -5,7 +5,13 @@
 
 export const CONTACT_EMAIL = "mayur.waghchoure@cloudbeerobotics.de";
 
-export const BOOK_A_PILOT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=Pilot%20request`;
+/**
+ * Calls to action open the form on /contact instead of a mail client: a form
+ * reaches the database and the inbox, a mailto reaches neither on a machine
+ * with no mail client set up. The address stays visible as text next to them.
+ */
+export const BOOK_A_PILOT_PATH = "/contact?interest=Pilot%20Program";
+export const REQUEST_DECK_PATH = "/contact?interest=Investment";
 
 /** Robot families we build skills for. */
 export const robotFamilies = ["Robot arms", "Humanoids", "Dexterous hands"];
@@ -19,12 +25,13 @@ export const sectors = [
   "Logistics",
 ];
 
-/** Our own footage, hosted on this site. */
+/** Our own footage, hosted on this site. Every clip is silent and carries no overlaid text. */
 export const MEDIA = {
-  heroLoop: "/media/hero-loop.mp4",
-  heroLoopPoster: "/media/hero-loop-poster.jpg",
+  twinRoom: "/media/twin-room.mp4",
+  twinCompare: "/media/twin-compare.mp4",
+  datasetGeneration: "/media/dataset-generation.mp4",
+  contactRich: "/media/contact-rich.mp4",
+  trainedModel: "/media/trained-model.mp4",
   walkthrough: "/media/walkthrough.mp4",
   walkthroughPoster: "/media/walkthrough-poster.jpg",
-  robotDemo: "/videos/robot-demo.mp4",
-  videoToMotion: "/videos/video-to-motion.mp4",
 };

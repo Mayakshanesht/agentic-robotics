@@ -5,6 +5,7 @@ import { Hero } from "@/components/site/Hero";
 import { SeeItWork } from "@/components/site/SeeItWork";
 import { LogoMarquee } from "@/components/site/LogoMarquee";
 import { WhatWeMake } from "@/components/site/WhatWeMake";
+import { SelfImprovingOs } from "@/components/site/SelfImprovingOs";
 import { ProblemAnswer } from "@/components/site/ProblemAnswer";
 import { ExploreTeasers } from "@/components/site/ExploreTeasers";
 import { Traction } from "@/components/site/Traction";
@@ -36,6 +37,7 @@ const Index = () => {
         items={[
           { id: "see-it-work", label: "See it work" },
           { id: "what-we-make", label: "What we make" },
+          { id: "self-improving", label: "Self-improving" },
           { id: "problem", label: "The problem" },
           { id: "pilots", label: "Traction" },
           { id: "team", label: "Team" },
@@ -48,6 +50,7 @@ const Index = () => {
       <LogoMarquee />
       <SeeItWork />
       <WhatWeMake />
+      <SelfImprovingOs />
       <ProblemAnswer />
       <Traction />
       <TeamStrip />
