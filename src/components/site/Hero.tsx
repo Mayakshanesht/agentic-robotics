@@ -65,14 +65,22 @@ export function Hero() {
           <h1 className="mt-5 text-[2.5rem] font-extrabold leading-[1.05] tracking-[-1.5px] sm:text-5xl lg:text-[3.75rem]">
             Anyone describes a task. <span className="text-primary">Any robot learns it.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#13233B]">
+          <p className="mt-6 max-w-xl text-lg font-semibold leading-relaxed text-foreground">
+            The self-improving OS for robotics, powered by contact-rich synthetic data built from one video of your work
+            cell.
+          </p>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#13233B]">
             Describe the task. We help build the skill for your robot, in your own work cell. No R&amp;D team needed on
             your side.
           </p>
-          <p className="mt-4 max-w-xl text-lg font-semibold leading-relaxed text-foreground">
-            Then our self-improving OS keeps it getting better: it spots what failed, fixes the data and the model, and
-            redeploys. Better every run.
-          </p>
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            <span className="text-[13px] font-bold uppercase tracking-[3px] text-primary">Show it your way</span>
+            {["Text", "Teleoperation", "Video demo"].map((w) => (
+              <span key={w} className="rounded-full border border-primary/30 bg-white/85 px-3 py-1 text-sm text-[#13233B] backdrop-blur">
+                {w}
+              </span>
+            ))}
+          </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a href={BOOK_A_PILOT} className="btn-pilot px-7 py-3.5 text-base">
               Book a pilot

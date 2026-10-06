@@ -5,6 +5,7 @@ import { Hero } from "@/components/site/Hero";
 import { SeeItWork } from "@/components/site/SeeItWork";
 import { LogoMarquee } from "@/components/site/LogoMarquee";
 import { DigitalTwin } from "@/components/site/DigitalTwin";
+import { ContactRich } from "@/components/site/ContactRich";
 import { ProblemAnswer } from "@/components/site/ProblemAnswer";
 import { ExploreTeasers } from "@/components/site/ExploreTeasers";
 import { Traction } from "@/components/site/Traction";
@@ -36,6 +37,7 @@ const Index = () => {
         items={[
           { id: "see-it-work", label: "See it work" },
           { id: "digital-twin", label: "Digital twin" },
+          { id: "contact-rich", label: "Contact-rich data" },
           { id: "problem", label: "The problem" },
           { id: "explore", label: "Explore" },
           { id: "pilots", label: "Traction" },
@@ -48,6 +50,7 @@ const Index = () => {
       <LogoMarquee />
       <SeeItWork />
       <DigitalTwin />
+      <ContactRich />
       <ProblemAnswer />
       <ExploreTeasers />
       <Traction />
