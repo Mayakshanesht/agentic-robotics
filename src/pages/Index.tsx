@@ -9,7 +9,6 @@ import { SelfImprovingOs } from "@/components/site/SelfImprovingOs";
 import { ProblemAnswer } from "@/components/site/ProblemAnswer";
 import { ExploreTeasers } from "@/components/site/ExploreTeasers";
 import { Traction } from "@/components/site/Traction";
-import { TeamStrip } from "@/components/site/TeamStrip";
 import { EventGallery } from "@/components/site/EventGallery";
 import { LatestPosts } from "@/components/site/LatestPosts";
 import { FundingStrip } from "@/components/site/FundingStrip";
@@ -40,7 +39,6 @@ const Index = () => {
           { id: "self-improving", label: "Self-improving" },
           { id: "problem", label: "The problem" },
           { id: "pilots", label: "Traction" },
-          { id: "team", label: "Team" },
           { id: "funding", label: "Funding" },
           { id: "explore", label: "Explore" },
           { id: "investors", label: "Investors" },
@@ -53,7 +51,6 @@ const Index = () => {
       <SelfImprovingOs />
       <ProblemAnswer />
       <Traction />
-      <TeamStrip />
       <FundingStrip />
       <ExploreTeasers />
       <EventGallery />
