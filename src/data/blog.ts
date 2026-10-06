@@ -19,21 +19,24 @@ export const blogPosts = [
   },
   {
     title: "Why Physical AI Needs 4D Synthetic Data",
-    excerpt: "Traditional approaches to robot training are hitting a wall. Here's why 4D world generation is the key to scalable robot intelligence.",
+    excerpt:
+      "Robot data is still collected one demonstration at a time, mostly vision only. The missing dimensions are time and contact, and both have to be generated.",
     date: "Jan 15, 2026",
     category: "Technology",
     slug: "/blog/why-physical-ai-needs-4d-synthetic-data",
   },
   {
-    title: "The Sim-to-Real Gap: Solved",
-    excerpt: "How world-aware AI models bridge the gap between simulation and real-world deployment.",
+    title: "Narrowing the Sim-to-Real Gap",
+    excerpt:
+      "Not a solved problem, but a narrower one: a twin built from the real cell, variation along what actually varies, contact in the data, and failures kept.",
     date: "Jan 10, 2026",
     category: "Research",
     slug: "/blog/sim-to-real-gap-solved",
   },
   {
-    title: "Introducing CloudBee Robotics Platform",
-    excerpt: "We're building the infrastructure for agentic physical AI. Here's our vision for the future of robotics.",
+    title: "Introducing CloudBee Robotics",
+    excerpt:
+      "An RWTH Aachen spin-off building the self-improving OS for robotics: contact-rich 4D synthetic data, and open robot models adapted to the cell they run in.",
     date: "Jan 5, 2026",
     category: "Announcement",
     slug: "/blog/introducing-cloudbee-robotics",

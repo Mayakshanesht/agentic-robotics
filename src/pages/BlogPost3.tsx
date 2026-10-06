@@ -1,91 +1,78 @@
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { motion } from "framer-motion";
-import { Calendar, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { BlogArticle, Bullet, H2, P, Strong } from "@/components/site/BlogArticle";
 
 export default function BlogPost3() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main className="pt-32 pb-20">
-        <article className="section-container max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <Link to="/blog">
-              <Button variant="ghost" className="mb-8 -ml-4">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
-              </Button>
-            </Link>
+    <BlogArticle
+      title="Introducing CloudBee Robotics · CloudBee Robotics"
+      heading="Introducing CloudBee Robotics"
+      description="An RWTH Aachen spin-off building the self-improving OS for robotics: 4D synthetic data with touch and force, generated from one video of a work cell, and open robot models adapted to the cell they run in."
+      path="/blog/introducing-cloudbee-robotics"
+      category="Announcement"
+      date="5 January 2026"
+      lede="Anyone describes a task. Any robot learns it. That is the company in one line, and the rest of this post is what stands behind it."
+      closing="We run pilots with industrial partners now, and the first version of the web app opens in December 2026. Both start the same way: tell us the task."
+    >
+      <P>
+        Robots on a factory floor are still taught by hand. Teaching one task takes months of specialist time, the
+        result works in one cell with one part, and a change to either sends you back to the beginning. The hardware is
+        not the constraint any more; robot arms, humanoids and dexterous hands are available to buy. What is missing is
+        the capability that runs on them, and the data that capability has to be built from.
+      </P>
 
-            <span className="text-primary text-sm font-medium">Announcement</span>
-            <h1 className="font-display text-3xl lg:text-4xl font-bold mt-2 mb-4 text-foreground">
-              Introducing CloudBee Robotics Platform
-            </h1>
-            <div className="flex items-center gap-2 text-muted-foreground text-sm mb-8">
-              <Calendar className="w-4 h-4" />
-              <span>Jan 5, 2026</span>
-            </div>
+      <H2>What we build</H2>
+      <P>
+        We turn a described task into a working skill on the customer's own robot, in their own work cell, and we keep
+        it working after it goes live.
+      </P>
+      <ul className="mt-5 space-y-3">
+        <Bullet>
+          <Strong>4D synthetic data.</Strong> One walk through the cell with a phone becomes a digital twin. The task
+          is then played out in that twin thousands of times, each run recorded with vision, depth, touch and force at
+          the same instant. Contact is in the data, which is what separates it from a vision-only dataset.
+        </Bullet>
+        <Bullet>
+          <Strong>World-aware model adaptation.</Strong> We do not train foundation models from scratch. We take the
+          best open robot model available and adapt it to the customer's sensors, gripper and task, using data where
+          the physics of contact is present rather than implied.
+        </Bullet>
+        <Bullet>
+          <Strong>Validation in the twin.</Strong> Before a skill runs on hardware it is tested against situations it
+          never saw during training, in the twin of the cell it will run in.
+        </Bullet>
+        <Bullet>
+          <Strong>A self-improving loop.</Strong> What happens on the line comes back: a new part, a moved fixture, a
+          different light. Those situations are regenerated, the data is corrected, the model is corrected, and the
+          skill goes back on the robot while production continues.
+        </Bullet>
+      </ul>
+      <P>
+        That loop is what we mean when we call it an operating system for robotics. Not a simulator, not a dataset you
+        buy once, but one cycle that keeps data, model and robot in step.
+      </P>
 
-            <div className="prose prose-lg max-w-none text-foreground">
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Today, we're excited to announce CloudBee Robotics - an end-to-end platform 
-                for building agentic physical AI. We're building the infrastructure that will 
-                power the next generation of intelligent robots.
-              </p>
+      <H2>Why now</H2>
+      <P>
+        Three things changed at once. Open robot foundation models became good enough to be worth adapting rather than
+        replacing. Rebuilding a real room as a physically behaving scene stopped being a research project. And GPU
+        compute became the cheapest input in robotics, which makes generating training runs cheaper than collecting
+        them by hand. The bottleneck moved from models to data, and specifically to data that contains contact.
+      </P>
 
-              <h2 className="font-display text-2xl font-semibold mt-8 mb-4">Our Vision</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                The robotics industry is at an inflection point. Foundation models have 
-                revolutionized what's possible with AI, but bringing this intelligence to 
-                the physical world requires entirely new infrastructure. Current approaches 
-                are fragmented, expensive, and don't scale.
-              </p>
+      <H2>Who we are</H2>
+      <P>
+        CloudBee Robotics is an RWTH Aachen spin-off, built by people who have deployed robots in industry rather than
+        only written about them. We are funded by the EXIST Gründungsstipendium of the German Federal Ministry and by a
+        WestAI compute grant, both non-dilutive, and advised by Prof. Dr. Bastian Leibe, Chair of Computer Vision at
+        RWTH Aachen.
+      </P>
 
-              <h2 className="font-display text-2xl font-semibold mt-8 mb-4">What We're Building</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                CloudBee Robotics provides an integrated platform for the entire robot AI 
-                development lifecycle:
-              </p>
-              <ul className="list-disc pl-6 mb-6 text-muted-foreground space-y-2">
-                <li>4D World Generation: Create photorealistic, physics-accurate training environments</li>
-                <li>World-Aware Training: Train models that understand physical reality</li>
-                <li>Sim-to-Real Transfer: Deploy models that work in the real world</li>
-                <li>Continuous Learning: Improve models with real-world feedback</li>
-              </ul>
-
-              <h2 className="font-display text-2xl font-semibold mt-8 mb-4">Why Now?</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Three trends are converging to make this possible. First, generative AI has 
-                reached a level where we can create realistic synthetic worlds. Second, 
-                foundation models provide the reasoning capabilities needed for complex 
-                physical tasks. Third, computing costs have dropped enough to make 
-                large-scale simulation economically viable.
-              </p>
-
-              <h2 className="font-display text-2xl font-semibold mt-8 mb-4">The Team</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                We're a team of robotics engineers from RWTH Aachen University with 
-                hands-on experience building autonomous systems. We've seen firsthand 
-                the challenges of developing robot AI and we're building the platform 
-                we wish we had.
-              </p>
-
-              <h2 className="font-display text-2xl font-semibold mt-8 mb-4">Join the Private Beta</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                We're opening our platform to a select group of partners who share our 
-                vision for the future of robotics. If you're working on autonomous 
-                systems and want to accelerate your development, we'd love to hear from you.
-              </p>
-            </div>
-          </motion.div>
-        </article>
-      </main>
-      <Footer />
-    </div>
+      <H2>How to start</H2>
+      <P>
+        We run pilots with industrial partners: you describe the task, optionally hand us a phone video of the cell,
+        and give us access during the pilot and one engineer on your side. The first version of the self-serve web app
+        opens in December 2026, and the waitlist is open now. Commercial terms we discuss directly, on your task and
+        your robots.
+      </P>
+    </BlogArticle>
   );
 }
