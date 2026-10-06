@@ -37,7 +37,7 @@ const team: Member[] = [
     role: "Founder & CEO",
     image: mayurImg,
     email: "mayur.waghchoure@cloudbeerobotics.de",
-    linkedin: "https://www.linkedin.com/in/mayurwaghchoure/",
+    linkedin: "https://www.linkedin.com/in/mayur-waghchoure/",
     description:
       "Robotics and AI engineer with hands-on experience in autonomous systems, robotic learning, and AI infrastructure at scale. M.Sc. Robotic Systems Engineering, RWTH Aachen University.",
     expertise: ["Robotics", "Physical AI", "Autonomous Systems", "Industrial AI"],
@@ -46,7 +46,7 @@ const team: Member[] = [
     name: "Madhava Pandiyan",
     role: "Co-founder & CTO",
     image: madhavaImg,
-    linkedin: "https://www.linkedin.com/in/madhava-pandiyan/",
+    linkedin: "https://www.linkedin.com/in/madhava-pandiyan-cn-8b6b97122/",
     description:
       "Deformable simulation, locomotion and reinforcement learning, sim-to-real. Builds and runs our hardware lab. M.Sc. RWTH Aachen.",
     expertise: ["Simulation", "Reinforcement learning", "Sim-to-real", "Hardware lab"],
