@@ -1,4 +1,5 @@
 import { useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { BOOK_A_PILOT } from "@/components/Navbar";
 import { FadeUp, Kicker } from "@/components/site/ui";
 
@@ -6,11 +7,6 @@ const chips = ["Robot arms", "Humanoids", "Dexterous hands"];
 
 export function Hero() {
   const reduce = useReducedMotion();
-
-  const toWaitlist = (e: React.MouseEvent) => {
-    e.preventDefault();
-    document.querySelector("#waitlist")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <section className="bg-hero-gradient pt-28 lg:pt-36">
@@ -29,13 +25,12 @@ export function Hero() {
               <a href={BOOK_A_PILOT} className="btn-pilot px-7 py-3.5 text-base">
                 Book a pilot
               </a>
-              <a
-                href="#waitlist"
-                onClick={toWaitlist}
+              <Link
+                to="/pilots#waitlist"
                 className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
               >
                 Join the web app waitlist
-              </a>
+              </Link>
             </div>
             <div className="mt-7 flex flex-wrap gap-2">
               {chips.map((c) => (

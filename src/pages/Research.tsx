@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, GraduationCap, Award, Beaker, Building2, Briefcase, CheckCircle2, Cpu } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
+import { EventGallery } from "@/components/site/EventGallery";
 
 const credibility = [
   { icon: GraduationCap, title: "RWTH Aachen University", body: "Part of one of Europe's leading technical university ecosystems.", url: "https://www.rwth-aachen.de" },
@@ -98,6 +99,8 @@ export default function Research() {
           </div>
         </div>
       </section>
+      <EventGallery title="Our lab, our events, our people" />
+
     </PageShell>
   );
 }

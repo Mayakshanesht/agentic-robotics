@@ -4,11 +4,11 @@ import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/site/Hero";
 import { SeeItWork } from "@/components/site/SeeItWork";
 import { ProblemAnswer } from "@/components/site/ProblemAnswer";
-import { HowItWorks } from "@/components/site/HowItWorks";
-import { WhyCloudBee } from "@/components/site/WhyCloudBee";
-import { PilotToSelfServe } from "@/components/site/PilotToSelfServe";
+import { ExploreTeasers } from "@/components/site/ExploreTeasers";
 import { Traction } from "@/components/site/Traction";
 import { TeamStrip } from "@/components/site/TeamStrip";
+import { EventGallery } from "@/components/site/EventGallery";
+import { LatestPosts } from "@/components/site/LatestPosts";
 import { InvestorBand } from "@/components/site/InvestorBand";
 import { FinalCta } from "@/components/site/FinalCta";
 import { FaqWidget } from "@/components/FaqWidget";
@@ -31,11 +31,11 @@ const Index = () => {
       <Hero />
       <SeeItWork />
       <ProblemAnswer />
-      <HowItWorks />
-      <WhyCloudBee />
-      <PilotToSelfServe />
+      <ExploreTeasers />
       <Traction />
       <TeamStrip />
+      <EventGallery />
+      <LatestPosts />
       <InvestorBand />
       <FinalCta />
       <FaqWidget />

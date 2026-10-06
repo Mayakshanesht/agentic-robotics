@@ -1,0 +1,39 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { FadeUp, Kicker, Section } from "@/components/site/ui";
+
+const cards = [
+  { to: "/how-it-works", title: "How it works", body: "Four steps from a described task to a working skill, and why touch and force change the data." },
+  { to: "/why-cloudbee", title: "Why CloudBee", body: "One loop instead of five separate problems, and what that does to time and cost." },
+  { to: "/pilots", title: "Pilots", body: "Where we are running today, how a pilot works, and the web app that follows." },
+  { to: "/investors", title: "Investors", body: "We're raising our pre-seed round. Request the deck and a demo." },
+];
+
+export function ExploreTeasers() {
+  return (
+    <Section className="border-t border-border bg-white">
+      <FadeUp className="max-w-3xl">
+        <Kicker>Explore</Kicker>
+        <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
+          Go deeper where it matters to you.
+        </h2>
+      </FadeUp>
+      <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        {cards.map((c, i) => (
+          <FadeUp key={c.to} delay={i * 0.07}>
+            <Link
+              to={c.to}
+              className="group flex h-full flex-col rounded-2xl border border-border bg-[#F8FAFC] p-7 transition-colors hover:border-primary/40"
+            >
+              <h3 className="text-xl font-bold text-foreground">{c.title}</h3>
+              <p className="mt-3 flex-1 text-[17px] leading-relaxed text-[#13233B]">{c.body}</p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-all group-hover:gap-2.5">
+                Read more <ArrowRight size={14} />
+              </span>
+            </Link>
+          </FadeUp>
+        ))}
+      </div>
+    </Section>
+  );
+}

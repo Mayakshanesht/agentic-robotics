@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { CONTACT_EMAIL } from "@/data/company";
 
 const navLinks = [
-  { label: "How it works", hash: "#how-it-works" },
-  { label: "Why CloudBee", hash: "#why-cloudbee" },
-  { label: "Pilots", hash: "#pilots" },
-  { label: "Team", hash: "#team" },
-  { label: "Investors", hash: "#investors" },
+  { label: "How it works", to: "/how-it-works" },
+  { label: "Why CloudBee", to: "/why-cloudbee" },
+  { label: "Pilots", to: "/pilots" },
+  { label: "Team", to: "/team" },
+  { label: "Blog", to: "/blog" },
+  { label: "Investors", to: "/investors" },
 ];
 
 export const BOOK_A_PILOT = `mailto:${CONTACT_EMAIL}?subject=Pilot%20request`;
@@ -27,17 +28,8 @@ export function LogoBadge({ className = "h-10" }: { className?: string }) {
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => setIsOpen(false), [location.pathname]);
-
-  const goTo = (hash: string) => (e: React.MouseEvent) => {
-    setIsOpen(false);
-    if (location.pathname !== "/") return; // let the router handle /#hash from other pages
-    e.preventDefault();
-    document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    navigate(`/${hash}`, { replace: true });
-  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-white/95 backdrop-blur-md">
@@ -49,14 +41,15 @@ export function Navbar() {
 
           <div className="hidden items-center gap-1 lg:flex">
             {navLinks.map((l) => (
-              <Link
-                key={l.hash}
-                to={`/${l.hash}`}
-                onClick={goTo(l.hash)}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              <NavLink
+                key={l.to}
+                to={l.to}
+                className={({ isActive }) =>
+                  `rounded-md px-3 py-2 text-sm font-medium transition-colors ${isActive ? "text-primary" : "text-muted-foreground hover:text-primary"}`
+                }
               >
                 {l.label}
-              </Link>
+              </NavLink>
             ))}
           </div>
 
@@ -82,14 +75,16 @@ export function Navbar() {
           >
             <div className="section-container flex flex-col gap-1 py-5">
               {navLinks.map((l) => (
-                <Link
-                  key={l.hash}
-                  to={`/${l.hash}`}
-                  onClick={goTo(l.hash)}
-                  className="rounded-md px-3 py-3 text-sm font-medium text-muted-foreground"
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `rounded-md px-3 py-3 text-sm font-medium ${isActive ? "text-primary" : "text-muted-foreground"}`
+                  }
                 >
                   {l.label}
-                </Link>
+                </NavLink>
               ))}
               <a href={BOOK_A_PILOT} className="btn-pilot mt-2 w-full">
                 Book a pilot

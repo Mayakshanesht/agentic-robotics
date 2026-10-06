@@ -6,8 +6,10 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
-import Product from "./pages/Product";
-import Solution from "./pages/Solution";
+import HowItWorksPage from "./pages/HowItWorksPage";
+import WhyCloudBeePage from "./pages/WhyCloudBeePage";
+import PilotsPage from "./pages/PilotsPage";
+import InvestorsPage from "./pages/InvestorsPage";
 import Research from "./pages/Research";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
@@ -38,9 +40,13 @@ const App = () => (
         <PageTracker />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/why-cloudbee" element={<WhyCloudBeePage />} />
+          <Route path="/pilots" element={<PilotsPage />} />
+          <Route path="/investors" element={<InvestorsPage />} />
+          <Route path="/product" element={<Navigate to="/how-it-works" replace />} />
           <Route path="/pricing" element={<Navigate to="/" replace />} />
-          <Route path="/solution" element={<Solution />} />
+          <Route path="/solution" element={<Navigate to="/why-cloudbee" replace />} />
           <Route path="/research" element={<Research />} />
           <Route path="/team" element={<Team />} />
           <Route path="/careers" element={<Careers />} />
@@ -49,10 +55,10 @@ const App = () => (
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/privacy" element={<Privacy />} />
           {/* Legacy redirects */}
-          <Route path="/platform" element={<Navigate to="/product" replace />} />
-          <Route path="/hardware" element={<Navigate to="/solution" replace />} />
-          <Route path="/technology" element={<Navigate to="/product" replace />} />
-          <Route path="/use-cases" element={<Navigate to="/solution" replace />} />
+          <Route path="/platform" element={<Navigate to="/how-it-works" replace />} />
+          <Route path="/hardware" element={<Navigate to="/why-cloudbee" replace />} />
+          <Route path="/technology" element={<Navigate to="/how-it-works" replace />} />
+          <Route path="/use-cases" element={<Navigate to="/why-cloudbee" replace />} />
           <Route path="/team-careers" element={<Navigate to="/team" replace />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/why-physical-ai-needs-4d-synthetic-data" element={<BlogPost1 />} />

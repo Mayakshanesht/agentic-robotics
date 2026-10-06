@@ -6,9 +6,14 @@ import { CONTACT_EMAIL } from "@/data/company";
 const linkedInUrl = "https://www.linkedin.com/company/cloudbeerobotics/";
 
 const explore = [
+  { to: "/how-it-works", label: "How it works" },
+  { to: "/why-cloudbee", label: "Why CloudBee" },
+  { to: "/pilots", label: "Pilots" },
+  { to: "/research", label: "Research" },
   { to: "/team", label: "Team" },
-  { to: "/careers", label: "Careers" },
+  { to: "/investors", label: "Investors" },
   { to: "/blog", label: "Blog" },
+  { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
 ];
 
