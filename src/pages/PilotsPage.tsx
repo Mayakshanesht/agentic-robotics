@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
-import { FadeUp, Kicker, Section } from "@/components/site/ui";
+import { FadeUp, Kicker } from "@/components/site/ui";
 import { Traction } from "@/components/site/Traction";
 import { PilotToSelfServe } from "@/components/site/PilotToSelfServe";
-import { WebAppPreview } from "@/components/site/anim/WebAppPreview";
 import { BOOK_A_PILOT_MAILTO } from "@/data/company";
 
 export default function PilotsPage() {
@@ -42,20 +41,6 @@ export default function PilotsPage() {
       <Traction />
       <PilotToSelfServe />
 
-      <Section className="border-t border-border">
-        <FadeUp className="max-w-3xl">
-          <Kicker>The web app</Kicker>
-          <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-            Soon you will describe skills yourself.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-            The same loop we run with you in a pilot, as self-serve software. First version: December 2026.
-          </p>
-        </FadeUp>
-        <div className="mt-10">
-          <WebAppPreview />
-        </div>
-      </Section>
     </PageShell>
   );
 }

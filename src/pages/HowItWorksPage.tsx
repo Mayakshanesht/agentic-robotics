@@ -4,6 +4,7 @@ import { HowItWorks } from "@/components/site/HowItWorks";
 import { DataComparison } from "@/components/site/anim/DataComparison";
 import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ContactRich } from "@/components/site/ContactRich";
+import { WebApp } from "@/components/site/WebApp";
 import { ModelAdapts } from "@/components/site/anim/ModelAdapts";
 import { BOOK_A_PILOT_MAILTO, robotFamilies, sectors } from "@/data/company";
 
@@ -74,8 +75,9 @@ export default function HowItWorksPage() {
         </FadeUp>
       </Section>
 
-      <DigitalTwin story />
+      <DigitalTwin />
       <ContactRich />
+      <WebApp />
 
       <Section className="border-t border-border bg-white">
         <FadeUp className="max-w-3xl">
