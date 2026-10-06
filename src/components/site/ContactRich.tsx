@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { DataComparison } from "@/components/site/anim/DataComparison";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const TEAL = "#0D9488";
 const AMBER = "#B45309";
@@ -98,6 +99,7 @@ function Together({ reduce }: { reduce: boolean | null }) {
 }
 
 export function ContactRich() {
+  const onPhone = useIsMobile();
   const reduce = useReducedMotion();
   const cards = [
     {
@@ -156,22 +158,23 @@ export function ContactRich() {
       </div>
 
       <FadeUp delay={0.1} className="mt-14">
-        <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
+        <div className="-mx-6 overflow-hidden border border-x-0 border-border bg-[#0A1C33] shadow-[var(--shadow-card)] md:mx-0 md:rounded-2xl md:border-x">
           <video
-            src="/media/contact-rich.mp4"
-            poster="/media/contact-rich-poster.jpg"
+            src={onPhone ? "/media/contact-rich-mobile.mp4" : "/media/contact-rich.mp4"}
+            poster={onPhone ? "/media/contact-rich-mobile-poster.jpg" : "/media/contact-rich-poster.jpg"}
             autoPlay
             muted
             loop
             playsInline
             preload="none"
             aria-label="One recording seen through every sensor at once: head and wrist cameras, depth and the physics view on the left, and on the right the touch pads on each fingertip, the force on the skin, the height of the object and what each joint carries"
-            className="aspect-[1600/662] w-full"
+            className={`${onPhone ? "aspect-[640/786]" : "aspect-[1600/662]"} w-full`}
           />
         </div>
-        <p className="mt-3 text-sm text-muted-foreground">
-          One recording, every sensor at once: cameras, depth, the touch pads on each fingertip, grip force and what
-          each joint carries.
+        <p className="mt-3 px-6 text-sm text-muted-foreground md:px-0">
+          {onPhone
+            ? "One recording, seen through every camera, the depth sensor and the physics view at the same moment. The touch and force readouts are on the wider screens."
+            : "One recording, every sensor at once: cameras, depth, the touch pads on each fingertip, grip force and what each joint carries."}
         </p>
       </FadeUp>
 

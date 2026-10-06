@@ -56,6 +56,9 @@ export default function HowItWorksPage() {
         alt="One task played out as many generated situations: the object moved, the robot standing elsewhere, the room lit differently"
         caption="Part 1: generating the dataset."
         aspect="aspect-[1600/680]"
+        mobileSrc="/media/dataset-generation-mobile.mp4"
+        mobilePoster="/media/dataset-generation-mobile-poster.jpg"
+        mobileAspect="aspect-[1180/680]"
       />
 
       <Section className="border-t border-border bg-white">
@@ -85,6 +88,9 @@ export default function HowItWorksPage() {
         caption="Part 2: the trained model running. The same new situation, attempted twice at the same moment."
         aspect="aspect-[1600/340]"
         splitLabels={{ left: "Off the shelf · fails", right: "Trained on our data · succeeds" }}
+        mobileSrc="/media/trained-model-mobile.mp4"
+        mobilePoster="/media/trained-model-mobile-poster.jpg"
+        mobileAspect="aspect-[790/680]"
         tone="white"
       />
 

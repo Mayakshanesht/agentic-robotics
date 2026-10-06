@@ -30,7 +30,7 @@ export function SeeItWork() {
         </h2>
       </FadeUp>
       <FadeUp delay={0.1} className="mt-10">
-        <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-[var(--shadow-card)]">
+        <div className="-mx-6 overflow-hidden border border-x-0 border-border bg-white shadow-[var(--shadow-card)] md:mx-0 md:rounded-2xl md:border-x">
           <video
             ref={ref}
             src="/media/walkthrough.mp4"

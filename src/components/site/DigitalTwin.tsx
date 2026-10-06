@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 /** Real cell beside its twin, then an explorable 3D version. The 3D bundle loads only in view. */
 export function DigitalTwin() {
+  const onPhone = useIsMobile();
   const video = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
 
@@ -35,22 +37,23 @@ export function DigitalTwin() {
       </FadeUp>
 
       <FadeUp delay={0.08} className="mt-10">
-        <div className="overflow-hidden rounded-2xl border border-border bg-[#0A1C33] shadow-[var(--shadow-card)]">
+        <div className="-mx-6 overflow-hidden border border-x-0 border-border bg-[#0A1C33] shadow-[var(--shadow-card)] md:mx-0 md:rounded-2xl md:border-x">
           <video
             ref={video}
-            src="/media/twin-compare.mp4"
-            poster="/media/twin-compare-poster.jpg"
+            src={onPhone ? "/media/twin-compare-mobile.mp4" : "/media/twin-compare.mp4"}
+            poster={onPhone ? "/media/twin-compare-mobile-poster.jpg" : "/media/twin-compare-poster.jpg"}
             controls
             muted
             loop
             playsInline
             preload="metadata"
             aria-label="One phone video of a room becomes its digital twin, shown side by side with the filmed room, then variations of it"
-            className="aspect-[1280/362] w-full"
+            className={`${onPhone ? "aspect-[640/724]" : "aspect-[1280/362]"} w-full`}
           />
         </div>
-        <p className="mt-3 text-sm text-muted-foreground">
-          Filmed on the left, the twin on the right. One video in, a twin and its variations out.
+        <p className="mt-3 px-6 text-sm text-muted-foreground md:px-0">
+          {onPhone ? "Filmed above, the twin below." : "Filmed on the left, the twin on the right."} One video in, a
+          twin and its variations out.
         </p>
       </FadeUp>
 
