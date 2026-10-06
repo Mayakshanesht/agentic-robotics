@@ -20,10 +20,9 @@ const photos: Photo[] = [
   { src: foundersFestival, alt: "The CloudBee Robotics team at their booth at the Founders Festival in Aachen", caption: "Our booth at the Founders Festival, Aachen" },
   { src: startupWeek, alt: "The CloudBee Robotics stand during Startup Week Aachen", caption: "Startup Week Aachen" },
   { src: guestLecture, alt: "Mayur Waghchoure giving a guest lecture at the RWTH International Academy", caption: "Guest lecture at the RWTH International Academy" },
-  { src: "/events/deloitte-final.jpg", alt: "Mayur Waghchoure pitching as a finalist at the Deloitte Problem-Solution Fit final", caption: "Finalist at the Deloitte Problem-Solution Fit final" },
+  { src: pitch, alt: "Mayur Waghchoure presenting CloudBee Robotics to a seated audience as a finalist at the Deloitte Problem-Solution Fit final", caption: "Finalist at the Deloitte Problem-Solution Fit final" },
   { src: ideationPitch, alt: "Mayur Waghchoure pitching CloudBee Robotics at the RWTH Innovation Ideation programme", caption: "Pitching at the RWTH Innovation Ideation programme" },
   { src: lab, alt: "The CloudBee Robotics hardware lab in Aachen", caption: "Our hardware lab, Aachen" },
-  { src: pitch, alt: "CloudBee Robotics pitching at the Collective Incubator", caption: "Pitching at the Collective Incubator" },
   { src: workshop, alt: "The CloudBee Robotics team in a workshop session", caption: "Team workshop" },
   { src: makerSpace, alt: "The maker space at the Collective Incubator in Aachen", caption: "Maker space, Collective Incubator" },
 ];
@@ -44,9 +43,9 @@ export function EventGallery({ title = "Where we build and who we meet" }: { tit
         <Kicker>Lab and events</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">{title}</h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          We build in our own lab in Aachen, and we show the work in person: booths at the Founders Festival and
-          Startup Week Aachen, a guest lecture at the RWTH International Academy, and pitches at the Deloitte
-          Problem-Solution Fit final and the RWTH Innovation Ideation programme.
+          We build in our own lab in Aachen, and we show the work in person: booths at the Founders Festival,
+          Startup Week Aachen and Start and Scale, a guest lecture at the RWTH International Academy, and pitches at
+          the Deloitte Problem-Solution Fit final and the RWTH Innovation Ideation programme.
         </p>
       </FadeUp>
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

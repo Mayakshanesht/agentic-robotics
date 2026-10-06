@@ -1,3 +1,3 @@
-Drop event photos here, named exactly:
-  deloitte-final.jpg   (pitching as a finalist at the Deloitte Problem-Solution Fit final)
-They replace the placeholder on the homepage and research page automatically.
+Drop event photos here if you want extra tiles, for example:
+  start-and-scale.jpg
+Add the file, then ask to have it wired into the gallery.
