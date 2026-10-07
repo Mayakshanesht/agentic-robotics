@@ -79,11 +79,11 @@ export function HumanoidWalk() {
 
       <FadeUp delay={0.1} className="mt-6 max-w-3xl">
         <p className="text-[17px] leading-relaxed text-[#13233B]">
-          Measured in that run, not projected. The walking is not a scripted path: it is a controller learned by trial
-          in the same twin that trains the hands, which is why the robot that walks to the bench is the robot that then
-          has to hold the part.{" "}
-          <Link to="/how-it-works#two-policies" className="font-semibold text-primary hover:underline">
-            How one video becomes both skills →
+          Measured in that run, not projected. It matters because a twin that only holds a tabletop can train an arm.
+          A twin a humanoid can walk through is a twin for the whole robot: where to stand, how to reach from there,
+          and how much force to hold with once it arrives.{" "}
+          <Link to="/how-it-works" className="font-semibold text-primary hover:underline">
+            See how the twin is built →
           </Link>
         </p>
       </FadeUp>

@@ -4,7 +4,6 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ContactRich } from "@/components/site/ContactRich";
-import { TwoPolicies } from "@/components/site/TwoPolicies";
 import { WebApp } from "@/components/site/WebApp";
 import { VideoBlock } from "@/components/site/VideoBlock";
 import { ModelAdapts } from "@/components/site/anim/ModelAdapts";
@@ -57,7 +56,6 @@ export default function HowItWorksPage() {
         caption="Full physics, real time, in the twin of our own lab. The route map and the figures are the simulation's own readouts."
         tone="white"
       />
-      <TwoPolicies />
       <ContactRich />
       <VideoBlock
         id="dataset"
