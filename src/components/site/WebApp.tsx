@@ -11,7 +11,8 @@ export function WebApp() {
           Soon you will describe skills yourself.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          The same loop we run with you in a pilot, as self-serve software. First version: December 2026.
+          The same loop we run with you in a pilot, as software. From December 2026 our own engineers use it to
+          deliver pilots; from mid-2027 it opens to customers, self-serve.
         </p>
       </FadeUp>
       <div className="mt-10">

@@ -20,7 +20,11 @@ const slides: Slide[] = [
 ];
 
 const SLIDE_MS = 8000;
-const chips = ["Robot arms", "Humanoids", "Dexterous hands"];
+const chips = [
+  { name: "Robot arms", status: "real robots, our lab" },
+  { name: "Humanoids", status: "walks and picks, in simulation" },
+  { name: "Dexterous hands", status: "grasps tools, in simulation" },
+];
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -78,15 +82,15 @@ export function Hero() {
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
           <Kicker>The capability factory for agentic physical AI</Kicker>
           <h1 className="mt-5 text-[2.5rem] font-extrabold leading-[1.05] tracking-[-1.5px] sm:text-5xl lg:text-[3.75rem]">
-            Anyone describes a task. <span className="text-primary">Any robot learns it.</span>
+            Describe the task. <span className="text-primary">Deploy the capability.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg font-semibold leading-relaxed text-foreground">
-            The self-improving OS for robotics, powered by contact-rich synthetic data built from one video of your work
-            cell.
+            The self-improving operating system for robots, powered by scalable, contact-rich synthetic data, touch
+            and force, generated from a single video.
           </p>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#13233B]">
-            Describe the task. We help build the skill for your robot, in your own work cell. No R&amp;D team needed on
-            your side.
+            You describe the task in plain words. We build the skill for your robot, in your own work cell. No
+            R&amp;D team needed on your side.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-2">
             <span className="text-[13px] font-bold uppercase tracking-[3px] text-primary">Show it your way</span>
@@ -109,13 +113,17 @@ export function Hero() {
           </div>
           <div className="mt-7 flex flex-wrap gap-2">
             {chips.map((c) => (
-              <span key={c} className="rounded-full border border-border bg-white/85 px-3.5 py-1.5 text-sm text-[#13233B] backdrop-blur">
-                {c}
+              <span
+                key={c.name}
+                className="rounded-full border border-border bg-white/85 px-3.5 py-1.5 text-sm text-[#13233B] backdrop-blur"
+              >
+                {c.name} <span className="text-muted-foreground">· {c.status}</span>
               </span>
             ))}
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
-            RWTH Aachen spin-off · EXIST grant funded · WestAI compute grant
+            Running in our lab today, in simulation and on real robots · RWTH Aachen spin-off · EXIST and WestAI
+            grants
           </p>
         </motion.div>
       </div>

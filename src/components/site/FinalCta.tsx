@@ -9,7 +9,7 @@ export function FinalCta() {
       <div className="section-container">
         <FadeUp className="mx-auto max-w-3xl text-center">
           <h2 className="text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-            Describe the task. We help build the skill for your robot, in your own work cell.
+            Describe the task. Deploy the capability.
           </h2>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to={BOOK_A_PILOT} className="btn-pilot px-7 py-3.5 text-base">

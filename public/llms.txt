@@ -2,8 +2,14 @@
 
 The capability factory for agentic physical AI.
 
-Describe the task. We help build the skill for your robot, in your own work
-cell. No R&D team needed on the customer's side.
+Describe the task. Deploy the capability.
+
+The self-improving operating system for robots, powered by scalable,
+contact-rich synthetic data, touch and force, generated from a single video.
+No R&D team needed on the customer's side.
+
+Robot arms run on real robots in our lab today. Humanoids walk and pick, and
+dexterous hands grasp tools, in simulation.
 
 Domain: https://cloudbeerobotics.de
 Location: Aachen, Germany
@@ -38,8 +44,8 @@ logistics.
 ## How we work
 
 A pilot builds the first skill in the customer's cell in about 2 weeks, with
-one engineer on their side. A self-serve web app is planned, first version
-December 2026.
+one engineer on their side. From December 2026 our own engineers deliver
+pilots through our web app; from mid-2027 it opens to customers, self-serve.
 
 ## Company
 

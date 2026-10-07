@@ -3,7 +3,7 @@ import { CountUp } from "@/components/site/CountUp";
 
 const tiles = [
   { big: "2", label: "pilots running", detail: "Tier-1 automotive · Medical-device testing" },
-  { big: "2", label: "pilots in negotiation", detail: "Packaging & bulk handling · Mobile robotics" },
+  { big: "2", label: "agreed, signature pending", detail: "Packaging & bulk handling · AGVs, vehicles and software" },
   { big: "1", label: "letter of intent", detail: "Automotive controls" },
   { big: "Non-dilutive", label: "grant funded", detail: "EXIST Gründungsstipendium · WestAI compute grant" },
 ];
@@ -33,7 +33,8 @@ export function Traction() {
       </div>
 
       <p className="mt-7 text-sm text-muted-foreground">
-        Sectors we work in: industrial manufacturing, automotive, electronics, battery technology, logistics.
+        Three more are in the pipeline. Sectors we work in: industrial manufacturing, automotive, electronics,
+        battery technology, logistics.
       </p>
     </Section>
   );

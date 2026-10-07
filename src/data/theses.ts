@@ -43,7 +43,7 @@ export const theses: Thesis[] = [
     alsoUseful: [
       "Label-efficient learning",
       "6-DoF pose estimation",
-      "Neural reconstruction or Gaussian splatting",
+      "Neural reconstruction or novel-view synthesis",
       "Mesh and geometry processing",
       "Physics simulation and scene formats",
       "Evaluation metrics for generative models",
@@ -62,7 +62,7 @@ export const theses: Thesis[] = [
     bring: [
       "Computer vision for manipulation - 6-DoF object tracking, video understanding, or hand-object interaction",
       "Robot kinematics and rigid-body dynamics",
-      "Hands-on physics simulation in Isaac Sim or MuJoCo, including extending the simulator",
+      "Hands-on physics simulation, including extending a simulator rather than only using one",
       "Signal processing for time series",
       "Strong Python and PyTorch",
       "Experimental discipline",
@@ -89,7 +89,7 @@ export const theses: Thesis[] = [
       "Can an open pretrained model be extended to consume 3D geometry, force and contact pressure well enough to work on a real arm - and can that adaptation be made systematic instead of hand-tuned for every deployment?",
     bring: [
       "Real projects on robotic arms or humanoids using robot foundation models - a policy you trained, deployed on hardware and debugged when it failed, not coursework",
-      "Hands-on experience with the LeRobot ecosystem and SO-101-class arms",
+      "Hands-on experience with open robot-learning frameworks and low-cost arms",
       "Strong Python and PyTorch, including fine-tuning large models",
       "Transformer and vision-language model familiarity",
       "The ability to design and train new input modules",

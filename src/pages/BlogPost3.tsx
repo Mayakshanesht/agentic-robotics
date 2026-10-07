@@ -9,7 +9,7 @@ export default function BlogPost3() {
       path="/blog/introducing-cloudbee-robotics"
       category="Announcement"
       date="5 January 2026"
-      lede="Anyone describes a task. Any robot learns it. That is the company in one line, and the rest of this post is what stands behind it."
+      lede="Describe the task. Deploy the capability. That is the company in one line, and the rest of this post is what stands behind it."
       closing="We run pilots with industrial partners now, and the first version of the web app opens in December 2026. Both start the same way: tell us the task."
     >
       <P>
