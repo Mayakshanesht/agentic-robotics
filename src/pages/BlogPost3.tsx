@@ -5,7 +5,7 @@ export default function BlogPost3() {
     <BlogArticle
       title="Introducing CloudBee Robotics · CloudBee Robotics"
       heading="Introducing CloudBee Robotics"
-      description="An RWTH Aachen spin-off building the self-improving OS for robotics: 4D synthetic data with touch and force, generated from one video of a work cell, and open robot models adapted to the cell they run in."
+      description="An RWTH Aachen spin-off building the self-improving OS for robots: 4D synthetic data with touch and force, generated from one video of a work cell, and skills built for the cell they run in."
       path="/blog/introducing-cloudbee-robotics"
       category="Announcement"
       date="5 January 2026"
@@ -31,13 +31,13 @@ export default function BlogPost3() {
           the same instant. Contact is in the data, which is what separates it from a vision-only dataset.
         </Bullet>
         <Bullet>
-          <Strong>World-aware model adaptation.</Strong> We do not train foundation models from scratch. We take the
-          best open robot model available and adapt it to the customer's sensors, gripper and task, using data where
-          the physics of contact is present rather than implied.
+          <Strong>A skill built for the cell it runs in.</Strong> Not a general-purpose demo: the skill is built for
+          the customer's robot, their gripper and their task, on data where the physics of contact is present rather
+          than implied.
         </Bullet>
         <Bullet>
-          <Strong>Validation in the twin.</Strong> Before a skill runs on hardware it is tested against situations it
-          never saw during training, in the twin of the cell it will run in.
+          <Strong>Nothing reaches the robot untested.</Strong> Before a skill runs on hardware it is put through
+          situations it never met while training, in the twin of the cell it will work in.
         </Bullet>
         <Bullet>
           <Strong>A self-improving loop.</Strong> What happens on the line comes back: a new part, a moved fixture, a
@@ -52,10 +52,10 @@ export default function BlogPost3() {
 
       <H2>Why now</H2>
       <P>
-        Three things changed at once. Open robot foundation models became good enough to be worth adapting rather than
-        replacing. Rebuilding a real room as a physically behaving scene stopped being a research project. And GPU
-        compute became the cheapest input in robotics, which makes generating training runs cheaper than collecting
-        them by hand. The bottleneck moved from models to data, and specifically to data that contains contact.
+        Three things changed at once. Robot models got good enough that the hard part stopped being the model.
+        Rebuilding a real room as a physically behaving scene stopped being a research project. And GPU compute became
+        the cheapest input in robotics, which makes generating training runs cheaper than collecting them by hand. The
+        bottleneck moved from models to data, and specifically to data that contains contact.
       </P>
 
       <H2>Who we are</H2>

@@ -38,8 +38,8 @@ export function WhyCloudBee() {
       </div>
 
       <p className="mt-7 text-sm text-muted-foreground">
-        Simulation tools and open foundation models are building blocks we use. We turn them into working skills in your
-        cell.
+        Tools are not the product. A working skill on your line is, and so is the loop that keeps it working after
+        week one.
       </p>
     </Section>
   );

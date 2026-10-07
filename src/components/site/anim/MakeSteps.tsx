@@ -187,7 +187,7 @@ export function OneVideoMany() {
   );
 }
 
-/** The dataset meeting an open model, and the skill that comes out of it. */
+/** Your data in, a skill that runs on your robot out. */
 export function SkillOnRobot() {
   const reduce = useReducedMotion();
   return (
@@ -211,16 +211,16 @@ export function SkillOnRobot() {
         your data
       </text>
 
-      {/* the open model */}
+      {/* the skill */}
       <rect x="80" y="30" width="54" height="42" rx="9" fill="#E6F5F3" stroke={TEAL} strokeWidth="1.5" />
       <text x="107" y="48" fontSize="7.5" textAnchor="middle" fill={INK} fontWeight="700">
-        open
+        your
       </text>
       <text x="107" y="58" fontSize="7.5" textAnchor="middle" fill={INK} fontWeight="700">
-        model
+        skill
       </text>
       <text x="107" y="86" fontSize="7" textAnchor="middle" fill={MUTED}>
-        adapted to your cell
+        built for your cell
       </text>
 
       {/* data flowing in */}

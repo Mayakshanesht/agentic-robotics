@@ -31,8 +31,8 @@ export function DigitalTwin() {
           One walk through your cell with a phone. Then a room a robot can practise in.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          We rebuild your cell as a twin, then run the task again and again with new positions, new parts and new
-          lighting. Each run records what the robot sees and what it feels.
+          We rebuild your cell as a twin and put your task through it thousands of times, across the variety a real
+          line produces. Every run records what the robot sees and what it feels.
         </p>
       </FadeUp>
 

@@ -6,7 +6,6 @@ import { DigitalTwin } from "@/components/site/DigitalTwin";
 import { ContactRich } from "@/components/site/ContactRich";
 import { WebApp } from "@/components/site/WebApp";
 import { VideoBlock } from "@/components/site/VideoBlock";
-import { ModelAdapts } from "@/components/site/anim/ModelAdapts";
 import { BOOK_A_PILOT_PATH, CONTACT_EMAIL, robotFamilies, sectors } from "@/data/company";
 
 const fromYou = [
@@ -20,7 +19,7 @@ export default function HowItWorksPage() {
   return (
     <PageShell
       title="How it works · CloudBee Robotics"
-      description="Describe the task, we generate training data with touch and force, adapt an open robot model to your cell, and keep the skill improving while it runs."
+      description="Describe the task, we generate training data with touch and force in a twin of your cell, build the skill for your robot, and keep it improving while it runs."
       path="/how-it-works"
     >
       <section className="bg-hero-gradient pt-28 lg:pt-36">
@@ -61,10 +60,10 @@ export default function HowItWorksPage() {
         id="dataset"
         kicker="Dataset generation"
         title="One task, many generated situations."
-        body="The same task is played out again and again: the object moved, turned, heavier or more slippery; the robot standing somewhere else; the room lit differently. Hard cases are kept, including the ones that fail."
+        body="Your task never happens the same way twice on a line, so it is not generated the same way twice either. One described task becomes thousands of situations inside your twin, every one of them recorded in full."
         src="/media/dataset-generation.mp4"
         poster="/media/dataset-generation-poster.jpg"
-        alt="One task played out as many generated situations: the object moved, the robot standing elsewhere, the room lit differently"
+        alt="One described task played out as thousands of generated situations inside a digital twin of a work cell"
         caption="Part 1: generating the dataset."
         aspect="aspect-[1600/680]"
         mobileSrc="/media/dataset-generation-mobile.mp4"
@@ -72,27 +71,11 @@ export default function HowItWorksPage() {
         mobileAspect="aspect-[1180/680]"
       />
 
-      <Section className="border-t border-border bg-white">
-        <FadeUp className="max-w-3xl">
-          <Kicker>The model</Kicker>
-          <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-            We adapt an open model to your cell.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-            We do not build foundation models. We take the best open one and make it work with your sensors, your
-            gripper and your task.
-          </p>
-        </FadeUp>
-        <div className="mt-10">
-          <ModelAdapts />
-        </div>
-      </Section>
-
       <VideoBlock
         id="trained-model"
         kicker="The trained model"
         title="The same situation, before and after training."
-        body="An open robot model, trained on the generated data, tested on situations it never saw during training. Off the shelf it fails; trained on this data it completes the task."
+        body="The same new situation, attempted before and after training on data generated in the twin. Before, the attempt fails. After, the task is completed. Neither run was part of the training."
         src="/media/trained-model.mp4"
         poster="/media/trained-model-poster.jpg"
         alt="The same new situation attempted by an off-the-shelf model on the left and by the same model trained on generated data on the right"

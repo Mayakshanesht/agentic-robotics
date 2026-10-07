@@ -19,10 +19,10 @@ Contact: mayur.waghchoure@cloudbeerobotics.de
 
 - Training data with touch and force, generated on GPUs from a task
   description and a short video, instead of recorded demo by demo.
-- An open robot foundation model adapted to their robot and their task.
-- Long tasks split into subtasks that check and recover themselves.
-- A skill that keeps improving: every run shows what failed, data is
-  generated for that case, and the skill is redeployed.
+- A skill built for their robot, their gripper and their task, proven in a
+  twin of their cell before it touches hardware.
+- A skill that keeps improving on their line, run after run, without
+  stopping production.
 
 ## What we have shown
 

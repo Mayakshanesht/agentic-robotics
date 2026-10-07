@@ -45,16 +45,13 @@ export default function BlogPost1() {
 
       <H2>Where the data comes from</H2>
       <P>
-        It starts with one walk through the work cell with a phone. From that video we rebuild the cell as a digital
-        twin: the benches, the fixtures, the parts, close enough to practise in. Then the task is played again and
-        again in that twin, with the object moved and turned, the robot standing somewhere else, the part heavier or
-        more slippery, the room lit differently. Thousands of runs, each recorded with vision, depth, touch and force
-        at the same instant.
+        It starts with one walk through the work cell with a phone. From that video we build a digital twin of the
+        cell, close enough to practise in, and your task is then put through thousands of situations inside it, every
+        one recorded with vision, depth, touch and force at the same instant.
       </P>
       <P>
-        The hard runs are kept, including the ones that fail. A dataset of clean successes teaches a robot the easy
-        half of the job. The runs where the part slips, or the grasp lands slightly off, are the ones that make a
-        trained model recover instead of stall.
+        What matters for the model is that those situations carry the variety a real line has, rather than one
+        rehearsed take repeated. A dataset of clean, identical successes teaches a robot the easy half of the job.
       </P>
 
       <H2>Why synthetic, and why now</H2>

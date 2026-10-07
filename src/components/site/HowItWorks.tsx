@@ -7,15 +7,15 @@ const steps = [
   },
   {
     title: "Generate",
-    body: "We build a digital twin of your cell and generate thousands of variations of the task, with touch and force, on GPUs. No extra robots to buy.",
+    body: "We build a digital twin of your cell and generate thousands of situations of your task inside it, with touch and force, on GPUs. No extra robots to buy and no line stopped.",
   },
   {
     title: "Adapt",
-    body: "Our research copilot picks the best open robot foundation model and adapts it to your cell. We don't build foundation models; we make them work for you.",
+    body: "The skill is built for your robot, your gripper and your task, and proven in the twin before it touches hardware.",
   },
   {
     title: "Improve",
-    body: "Our self-improving OS runs the skill, spots what failed, generates data for exactly that case and redeploys. Your robot gets better with every run.",
+    body: "The skill runs on your line and keeps improving there: what the cell throws at it comes back, and the skill is corrected and returned to the robot.",
   },
 ];
 

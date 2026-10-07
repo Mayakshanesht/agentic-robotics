@@ -17,7 +17,7 @@ const withCloudBee = {
   label: "With CloudBee",
   points: [
     "Training data with touch and force is generated on GPUs, not recorded by hand.",
-    "Long tasks are split into subtasks that check and recover themselves.",
+    "Long tasks keep running when something goes wrong, instead of stopping and waiting for a person.",
   ],
   stats: [
     { big: "about 2 weeks", small: "per skill" },

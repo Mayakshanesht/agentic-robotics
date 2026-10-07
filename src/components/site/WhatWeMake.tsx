@@ -8,7 +8,7 @@ const steps = [
   {
     art: <OneVideoMany />,
     title: "One video of your cell becomes thousands of runs",
-    body: "A walk through the cell with a phone becomes a twin of it. The twin then plays your task again and again, with the part moved, heavier or more slippery, the robot standing elsewhere, the room lit differently. It scales with GPUs instead of with people.",
+    body: "A walk through the cell with a phone is all it takes to start. From that we build a twin of your cell and put your task through thousands of situations inside it, so the skill meets the variety of a real line long before it meets your robot. It scales with GPUs instead of with people.",
   },
   {
     art: <SignalLanes />,
@@ -18,7 +18,7 @@ const steps = [
   {
     art: <SkillOnRobot />,
     title: "The data becomes a skill on your robot",
-    body: "We adapt an open robot model to your sensors, your gripper and your task, test it in the twin against situations it never saw, and put it on the robot in your cell.",
+    body: "The skill is built for your robot, your gripper and your task, proven in the twin first, then put to work in your cell. What you get is a working capability on your line, not a research project.",
   },
 ];
 

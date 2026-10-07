@@ -16,7 +16,7 @@ const stations = [
   },
   {
     label: "The data is corrected",
-    body: "Those exact situations are played again in your twin, with touch and force recorded, until the hard cases are covered. Nobody collects demonstrations by hand.",
+    body: "Your twin covers what the line ran into, with touch and force recorded, until the skill handles it. Nobody has to stop the line or collect demonstrations by hand.",
   },
   {
     label: "The model is corrected",

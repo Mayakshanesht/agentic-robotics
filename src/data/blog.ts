@@ -28,7 +28,7 @@ export const blogPosts = [
   {
     title: "Narrowing the Sim-to-Real Gap",
     excerpt:
-      "Not a solved problem, but a narrower one: a twin built from the real cell, variation along what actually varies, contact in the data, and failures kept.",
+      "Not a solved problem, and anyone who says otherwise is selling something. What the gap costs you, what we do about it, and what we will and will not publish.",
     date: "Jan 10, 2026",
     category: "Research",
     slug: "/blog/sim-to-real-gap-solved",
@@ -36,7 +36,7 @@ export const blogPosts = [
   {
     title: "Introducing CloudBee Robotics",
     excerpt:
-      "An RWTH Aachen spin-off building the self-improving OS for robotics: contact-rich 4D synthetic data, and open robot models adapted to the cell they run in.",
+      "An RWTH Aachen spin-off building the self-improving OS for robots: contact-rich 4D synthetic data, and skills built for the cell they run in.",
     date: "Jan 5, 2026",
     category: "Announcement",
     slug: "/blog/introducing-cloudbee-robotics",
