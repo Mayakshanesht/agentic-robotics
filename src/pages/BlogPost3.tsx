@@ -10,7 +10,7 @@ export default function BlogPost3() {
       category="Announcement"
       date="5 January 2026"
       lede="Describe the task. Deploy the capability. That is the company in one line, and the rest of this post is what stands behind it."
-      closing="We run pilots with industrial partners now, and the first version of the web app opens in December 2026. Both start the same way: tell us the task."
+      closing="We run pilots with industrial partners now. Selected companies get web app access from December 2026, with broader customer access from mid-2027. Both start the same way: tell us the task."
     >
       <P>
         Robots on a factory floor are still taught by hand. Teaching one task takes months of specialist time, the
@@ -69,9 +69,9 @@ export default function BlogPost3() {
       <H2>How to start</H2>
       <P>
         We run pilots with industrial partners: you describe the task, optionally hand us a phone video of the cell,
-        and give us access during the pilot and one engineer on your side. The first version of the self-serve web app
-        opens in December 2026, and the waitlist is open now. Commercial terms we discuss directly, on your task and
-        your robots.
+        and give us access during the pilot and one engineer on your side. Selected companies get access to our web app
+        from December 2026, with broader customer access from mid-2027. The waitlist is open now. Commercial terms we
+        discuss directly, on your task and your robots.
       </P>
     </BlogArticle>
   );

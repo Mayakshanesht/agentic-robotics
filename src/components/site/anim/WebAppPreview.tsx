@@ -18,7 +18,7 @@ export function WebAppPreview() {
         <span className="h-2.5 w-2.5 rounded-full bg-border" />
         <span className="ml-2 text-sm font-semibold text-foreground">CloudBee web app</span>
         <span className="ml-auto rounded-full bg-foreground px-3 py-1 text-[11px] font-bold text-white">
-          First version: Dec 2026
+          Early access: Dec 2026
         </span>
       </div>
 

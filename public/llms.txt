@@ -44,8 +44,8 @@ logistics.
 ## How we work
 
 A pilot builds the first skill in the customer's cell in about 2 weeks, with
-one engineer on their side. From December 2026 our own engineers deliver
-pilots through our web app; from mid-2027 it opens to customers, self-serve.
+one engineer on their side. Selected companies get access to our web app
+from December 2026, with broader customer access from mid-2027.
 
 ## Company
 

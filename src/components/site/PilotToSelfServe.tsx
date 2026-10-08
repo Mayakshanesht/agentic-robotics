@@ -9,7 +9,7 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 const steps = [
   { title: "Pilot", body: "We build your first skill with you, in your cell, in about 2 weeks." },
   { title: "Self-improving OS", body: "It runs on every robot and keeps getting better." },
-  { title: "Web app", body: "Our engineers deliver pilots through it from December 2026, and it opens to customers, self-serve, from mid-2027." },
+  { title: "Web app", body: "Selected companies get access from December 2026, with broader customer access from mid-2027." },
 ];
 
 const robotTypes = ["Arm", "Humanoid", "Dexterous hand", "Other"];
