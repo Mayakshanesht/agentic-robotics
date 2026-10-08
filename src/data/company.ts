@@ -24,14 +24,3 @@ export const sectors = [
   "Battery technology",
   "Logistics",
 ];
-
-/** Our own footage, hosted on this site. Every clip is silent and carries no overlaid text. */
-export const MEDIA = {
-  twinRoom: "/media/twin-room.mp4",
-  twinCompare: "/media/twin-compare.mp4",
-  datasetGeneration: "/media/dataset-generation.mp4",
-  contactRich: "/media/contact-rich.mp4",
-  trainedModel: "/media/trained-model.mp4",
-  walkthrough: "/media/walkthrough.mp4",
-  walkthroughPoster: "/media/walkthrough-poster.jpg",
-};

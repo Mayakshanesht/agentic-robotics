@@ -6,14 +6,10 @@ import { SeeItWork } from "@/components/site/SeeItWork";
 import { LogoMarquee } from "@/components/site/LogoMarquee";
 import { HumanoidWalk } from "@/components/site/HumanoidWalk";
 import { WhatWeMake } from "@/components/site/WhatWeMake";
-import { SelfImprovingOs } from "@/components/site/SelfImprovingOs";
-import { ProblemAnswer } from "@/components/site/ProblemAnswer";
-import { ExploreTeasers } from "@/components/site/ExploreTeasers";
-import { Traction } from "@/components/site/Traction";
-import { EventGallery } from "@/components/site/EventGallery";
+import { CustomerApplications } from "@/components/site/CustomerApplications";
+import { HowItWorks } from "@/components/site/HowItWorks";
 import { LatestPosts } from "@/components/site/LatestPosts";
 import { FundingStrip } from "@/components/site/FundingStrip";
-import { InvestorBand } from "@/components/site/InvestorBand";
 import { FinalCta } from "@/components/site/FinalCta";
 import { SectionRail } from "@/components/site/SectionRail";
 import { FaqWidget } from "@/components/FaqWidget";
@@ -22,43 +18,42 @@ const Index = () => {
   const location = useLocation();
   useEffect(() => {
     if (location.hash) {
-      const el = document.querySelector(location.hash);
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+      const aliases: Record<string, string> = { "self-improving": "how-it-works", problem: "customer-industries", explore: "customer-industries", pilots: "how-it-works", investors: "funding" };
+      let id = location.hash.slice(1);
+      try { id = decodeURIComponent(id); } catch { return; }
+      const el = document.getElementById(aliases[id] ?? id);
+      if (el) {
+        const timer = setTimeout(() => el.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" }), 50);
+        return () => clearTimeout(timer);
+      }
     }
   }, [location]);
 
   return (
     <PageShell
       title="CloudBee Robotics · Describe the task. Deploy the capability."
-      description="Describe the task, deploy the capability. The self-improving operating system for robots, powered by scalable, contact-rich synthetic data, touch and force, generated from a single video. Robot arms, humanoids and dexterous hands. RWTH Aachen spin-off."
+      description="CloudBee Robotics helps industrial teams turn everyday tasks into useful robot capabilities. Explore our pilot programme and meet our team in Aachen. RWTH Aachen spin-off."
       path="/"
     >
       <SectionRail
         items={[
-          { id: "see-it-work", label: "See it work" },
-          { id: "humanoid", label: "The humanoid" },
-          { id: "what-we-make", label: "What we make" },
-          { id: "self-improving", label: "Self-improving" },
-          { id: "problem", label: "The problem" },
-          { id: "pilots", label: "Traction" },
-          { id: "funding", label: "Funding" },
-          { id: "explore", label: "Explore" },
-          { id: "investors", label: "Investors" },
+          { id: "what-we-make", label: "Customer benefits" },
+          { id: "customer-industries", label: "Your industry" },
+          { id: "humanoid", label: "Robots" },
+          { id: "how-it-works", label: "Pilot journey" },
+          { id: "funding", label: "Our supporters" },
+          { id: "blog", label: "Company updates" },
         ]}
       />
       <Hero />
       <LogoMarquee />
-      <SeeItWork />
-      <HumanoidWalk />
       <WhatWeMake />
-      <SelfImprovingOs />
-      <ProblemAnswer />
-      <Traction />
+      <CustomerApplications />
+      <HumanoidWalk />
+      <HowItWorks />
+      <SeeItWork />
       <FundingStrip />
-      <ExploreTeasers />
-      <EventGallery />
       <LatestPosts />
-      <InvestorBand />
       <FinalCta />
       <FaqWidget />
     </PageShell>

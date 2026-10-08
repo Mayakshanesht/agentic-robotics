@@ -1,3 +1,5 @@
+import { lazy, Suspense } from "react";
+import { MotionConfig } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,77 +7,86 @@ import { PageTracker } from "@/components/PageTracker";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
-import HowItWorksPage from "./pages/HowItWorksPage";
-import WhyCloudBeePage from "./pages/WhyCloudBeePage";
-import PilotsPage from "./pages/PilotsPage";
-import InvestorsPage from "./pages/InvestorsPage";
-import Research from "./pages/Research";
-import Team from "./pages/Team";
-import Careers from "./pages/Careers";
-import ThesisDetail from "./pages/ThesisDetail";
-import Contact from "./pages/Contact";
-import Impressum from "./pages/Impressum";
-import Privacy from "./pages/Privacy";
-import Blog from "./pages/Blog";
-import BlogPost1 from "./pages/BlogPost1";
-import BlogPost2 from "./pages/BlogPost2";
-import BlogPost3 from "./pages/BlogPost3";
-import BlogPostTouch from "./pages/BlogPostTouch";
-import BlogPostDynamic from "./pages/BlogPostDynamic";
-import RequestAccess from "./pages/RequestAccess";
-import AdminLogin from "./pages/AdminLogin";
-import Admin from "./pages/Admin";
-import ResetPassword from "./pages/ResetPassword";
-import NotFound from "./pages/NotFound";
+
+const Index = lazy(() => import("./pages/Index"));
+const HowItWorksPage = lazy(() => import("./pages/HowItWorksPage"));
+const WhyCloudBeePage = lazy(() => import("./pages/WhyCloudBeePage"));
+const PilotsPage = lazy(() => import("./pages/PilotsPage"));
+const InvestorsPage = lazy(() => import("./pages/InvestorsPage"));
+const Research = lazy(() => import("./pages/Research"));
+const Team = lazy(() => import("./pages/Team"));
+const Careers = lazy(() => import("./pages/Careers"));
+const ThesisDetail = lazy(() => import("./pages/ThesisDetail"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Impressum = lazy(() => import("./pages/Impressum"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost1 = lazy(() => import("./pages/BlogPost1"));
+const BlogPost2 = lazy(() => import("./pages/BlogPost2"));
+const BlogPost3 = lazy(() => import("./pages/BlogPost3"));
+const BlogPostTouch = lazy(() => import("./pages/BlogPostTouch"));
+const BlogPostDynamic = lazy(() => import("./pages/BlogPostDynamic"));
+const RequestAccess = lazy(() => import("./pages/RequestAccess"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const Admin = lazy(() => import("./pages/Admin"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <PageTracker />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/how-it-works" element={<HowItWorksPage />} />
-          <Route path="/why-cloudbee" element={<WhyCloudBeePage />} />
-          <Route path="/pilots" element={<PilotsPage />} />
-          <Route path="/investors" element={<InvestorsPage />} />
-          <Route path="/product" element={<Navigate to="/how-it-works" replace />} />
-          <Route path="/pricing" element={<Navigate to="/" replace />} />
-          <Route path="/solution" element={<Navigate to="/why-cloudbee" replace />} />
-          <Route path="/research" element={<Research />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/careers/:slug" element={<ThesisDetail />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/privacy" element={<Privacy />} />
-          {/* Legacy redirects */}
-          <Route path="/platform" element={<Navigate to="/how-it-works" replace />} />
-          <Route path="/hardware" element={<Navigate to="/why-cloudbee" replace />} />
-          <Route path="/technology" element={<Navigate to="/how-it-works" replace />} />
-          <Route path="/use-cases" element={<Navigate to="/why-cloudbee" replace />} />
-          <Route path="/team-careers" element={<Navigate to="/team" replace />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/why-physical-ai-needs-4d-synthetic-data" element={<BlogPost1 />} />
-          <Route path="/blog/sim-to-real-gap-solved" element={<BlogPost2 />} />
-          <Route path="/blog/introducing-cloudbee-robotics" element={<BlogPost3 />} />
-          <Route path="/blog/the-last-mile-is-touch" element={<BlogPostTouch />} />
-          <Route path="/blog/:slug" element={<BlogPostDynamic />} />
-          <Route path="/request-access" element={<RequestAccess />} />
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <MotionConfig reducedMotion="user">
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <PageTracker />
+          <Suspense fallback={
+            <main className="flex min-h-screen items-center justify-center bg-background px-6 text-foreground">
+              <p role="status" aria-live="polite">Loading page…</p>
+            </main>
+          }>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/how-it-works" element={<HowItWorksPage />} />
+              <Route path="/why-cloudbee" element={<WhyCloudBeePage />} />
+              <Route path="/pilots" element={<PilotsPage />} />
+              <Route path="/investors" element={<InvestorsPage />} />
+              <Route path="/product" element={<Navigate to="/how-it-works" replace />} />
+              <Route path="/pricing" element={<Navigate to="/" replace />} />
+              <Route path="/solution" element={<Navigate to="/why-cloudbee" replace />} />
+              <Route path="/research" element={<Research />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/careers/:slug" element={<ThesisDetail />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="/privacy" element={<Privacy />} />
+              {/* Legacy redirects */}
+              <Route path="/platform" element={<Navigate to="/how-it-works" replace />} />
+              <Route path="/hardware" element={<Navigate to="/why-cloudbee" replace />} />
+              <Route path="/technology" element={<Navigate to="/how-it-works" replace />} />
+              <Route path="/use-cases" element={<Navigate to="/why-cloudbee" replace />} />
+              <Route path="/team-careers" element={<Navigate to="/team" replace />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/why-physical-ai-needs-4d-synthetic-data" element={<BlogPost1 />} />
+              <Route path="/blog/sim-to-real-gap-solved" element={<BlogPost2 />} />
+              <Route path="/blog/introducing-cloudbee-robotics" element={<BlogPost3 />} />
+              <Route path="/blog/the-last-mile-is-touch" element={<BlogPostTouch />} />
+              <Route path="/blog/:slug" element={<BlogPostDynamic />} />
+              <Route path="/request-access" element={<RequestAccess />} />
+              <Route path="/admin-login" element={<AdminLogin />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </MotionConfig>
 );
 
 export default App;

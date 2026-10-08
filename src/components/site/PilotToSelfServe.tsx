@@ -7,9 +7,9 @@ import { GdprConsent } from "@/components/GdprConsent";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 
 const steps = [
-  { title: "Pilot", body: "We build your first skill with you, in your cell, in about 2 weeks." },
-  { title: "Self-improving OS", body: "It runs on every robot and keeps getting better." },
-  { title: "Web app", body: "Our engineers deliver pilots through it from December 2026, and it opens to customers, self-serve, from mid-2027." },
+  { title: "Define the task", body: "Tell us what you want to automate and what a successful outcome means to your team." },
+  { title: "Run a focused pilot", body: "Agree the scope and assessment criteria, then work with our robotics team." },
+  { title: "Review the next step", body: "Use the pilot outcome to decide how to move forward with your automation project." },
 ];
 
 const robotTypes = ["Arm", "Humanoid", "Dexterous hand", "Other"];
@@ -63,7 +63,7 @@ function Waitlist() {
             company: d.company || "",
             email: d.email,
             interest: "Pilot Program",
-            message: `Web app waitlist signup.\n\nRobot type: ${d.robot_type}\nTask: ${d.task || "-"}`,
+            message: `Waitlist signup.\n\nRobot type: ${d.robot_type}\nTask: ${d.task || "-"}`,
           },
         })
         .catch(() => {});
@@ -78,14 +78,14 @@ function Waitlist() {
   if (done) {
     return (
       <div className="rounded-2xl border border-border bg-white p-7 text-center shadow-[var(--shadow-card)]">
-        <p className="text-lg font-semibold text-foreground">Thanks. We'll be in touch before the first version opens.</p>
+        <p className="text-lg font-semibold text-foreground">Thanks. You're on the list for CloudBee Robotics updates.</p>
       </div>
     );
   }
 
   return (
     <form onSubmit={submit} className="rounded-2xl border border-border bg-white p-7 shadow-[var(--shadow-card)]">
-      <h3 className="text-xl font-bold text-foreground">Join the web app waitlist</h3>
+      <h3 className="text-xl font-bold text-foreground">Join the waitlist</h3>
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium text-[#13233B]">Work email *</span>
@@ -145,7 +145,7 @@ export function PilotToSelfServe() {
       <FadeUp className="max-w-3xl">
         <Kicker>How we work with you</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Start with one skill. Scale to every robot.
+          Start with one task. Plan your next step.
         </h2>
       </FadeUp>
 

@@ -1,7 +1,11 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run check:public",
+  "installCommand": "npm ci",
+  "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/__l5e/:path*", "destination": "https://agentic-robot-mind.lovable.app/__l5e/:path*" },
-    { "source": "/((?!api/|__l5e/).*)", "destination": "/index.html" }
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

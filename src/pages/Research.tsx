@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Award, Beaker, Building2, Briefcase, CheckCircle2, Cpu } from "lucide-react";
+import { ArrowRight, GraduationCap, Award, Building2, Briefcase, CheckCircle2, Cpu } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { EventGallery } from "@/components/site/EventGallery";
@@ -11,14 +11,14 @@ const credibility = [
   { icon: Award, title: "EXIST Grant", body: "Awarded the German federal startup grant - backing the research and validating commercial and technical potential.", url: "https://www.exist.de" },
   { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center.", url: "https://westai.de" },
   { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator.", url: "https://www.collective-incubator.de" },
-  { icon: Briefcase, title: "Industrial Traction", body: "Pilots running with industrial customers." },
+  { icon: Briefcase, title: "Industrial Focus", body: "Working with industrial teams to explore practical robotics applications." },
 ];
 
 export default function Research() {
   return (
     <PageShell
       title="Research & Traction - CloudBee Robotics"
-      description="Grounded in science. Validated in the field. An RWTH Aachen spin-off backed by the EXIST grant, a WestAI compute grant and the Collective Incubator, with pilots running at industrial companies."
+      description="An RWTH Aachen spin-off supported by EXIST, WestAI and the Collective Incubator, with an industrial focus and its own hardware lab in Aachen."
       path="/research"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
@@ -28,7 +28,7 @@ export default function Research() {
             <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-4">Research & Traction</div>
             <h1 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-5">
               Grounded in <span className="text-gradient-blue">Science.</span> <br />
-              Validated in the <span className="text-gradient-green">Field.</span>
+              Focused on <span className="text-gradient-green">Industry.</span>
             </h1>
           </motion.div>
         </div>
@@ -87,11 +87,11 @@ export default function Research() {
           {/* Pilots Underway */}
           <div className="max-w-3xl mx-auto mt-16 glass-card p-8 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-accent-green/30 bg-accent-green/10 text-xs font-mono text-accent-green">
-              <CheckCircle2 size={12} /> Pilots Underway
+              <CheckCircle2 size={12} /> Pilot Programme
             </div>
             <h3 className="font-display font-bold text-2xl mb-3">Become a Pilot Partner</h3>
             <p className="text-muted-foreground mb-6">
-              We are currently running functional pilots. If you're interested in becoming a pilot partner, reach out.
+              Bring us the industrial task you want to automate and discuss a focused pilot with our team.
             </p>
             <Link to="/contact" className="btn-pilot">
               Become a Pilot Partner <ArrowRight size={16} />
@@ -101,7 +101,7 @@ export default function Research() {
       </section>
       <FundingStrip />
 
-      <EventGallery title="Our lab, our events, our people" />
+      <EventGallery title="Meet CloudBee Robotics" />
 
     </PageShell>
   );

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { z } from "zod";
 import { Loader2, Send, CheckCircle2, X, Mail } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -90,8 +91,7 @@ export function JobApplicationDialog({ role, open, onClose, variant = "job" }: P
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [gdpr, setGdpr] = useState(false);
-
-  if (!open) return null;
+  const returnFocus = useRef<HTMLElement | null>(null);
 
   const set = (key: keyof FormState) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -123,10 +123,7 @@ export function JobApplicationDialog({ role, open, onClose, variant = "job" }: P
       const application = { role, ...result.data };
       const { error } = await supabase.from("job_applications").insert(application);
       if (error) throw error;
-      // Best-effort email notification (won't block UX if not configured)
-      supabase.functions
-        .invoke("send-application-email", { body: application })
-        .catch(() => {});
+      // Notifications are sent server-side after the database insert.
       setDone(true);
       toast.success("Application submitted. Thank you!");
     } catch (err: unknown) {
@@ -143,157 +140,179 @@ export function JobApplicationDialog({ role, open, onClose, variant = "job" }: P
   )}`;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm" onClick={close}>
-      <div
-        className="glass-card max-w-2xl w-full p-7 max-h-[90vh] overflow-y-auto relative"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button onClick={close} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground" aria-label="Close">
-          <X size={20} />
-        </button>
+    <DialogPrimitive.Root open={open} onOpenChange={(nextOpen) => { if (!nextOpen) close(); }}>
+      <DialogPrimitive.Portal>
+        <DialogPrimitive.Overlay className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm" />
+        <DialogPrimitive.Content
+          aria-modal="true"
+          className="glass-card fixed left-1/2 top-1/2 z-[101] max-w-2xl w-[calc(100%_-_2rem)] p-7 max-h-[90dvh] overflow-y-auto"
+          style={{ transform: "translate(-50%, -50%)" }}
+          onOpenAutoFocus={() => {
+            returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+          }}
+          onCloseAutoFocus={(event) => {
+            if (returnFocus.current?.isConnected) {
+              event.preventDefault();
+              returnFocus.current.focus();
+            }
+          }}
+        >
+          <DialogPrimitive.Description className="sr-only">
+            {done ? "Your application has been received." : `Complete the application form for ${role}.`}
+          </DialogPrimitive.Description>
+          <button type="button" onClick={close} className="absolute top-2 right-2 flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground hover:text-foreground" aria-label="Close application form">
+            <X size={20} />
+          </button>
 
-        {done ? (
-          <div className="py-10 text-center">
-            <CheckCircle2 size={48} className="text-accent-green mx-auto mb-4" />
-            <h3 className="font-display font-bold text-2xl mb-2">Application received</h3>
-            {isThesis ? (
-              <>
-                <p className="text-muted-foreground text-sm mb-5 max-w-md mx-auto">
-                  One more step: email us your <strong className="text-foreground">CV and transcript</strong> so we can
-                  review your application.
-                </p>
-                <a href={documentsMailto} className="btn-pilot">
-                  <Mail size={16} /> Email CV &amp; transcript
-                </a>
-                <p className="text-xs text-muted-foreground mt-2 mb-6">{THESIS_CONTACT_EMAIL}</p>
-                <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-                  And if you have not yet,{" "}
-                  <strong className="text-foreground">start talking to professors at your university now</strong> - the
-                  thesis is registered with your examination office during {thesisDates.registration}.
-                </p>
-                <button onClick={close} className="text-sm font-semibold text-accent-blue hover:underline">Close</button>
-              </>
-            ) : (
-              <>
-                <p className="text-muted-foreground text-sm mb-6">We review every application and will get back to you within 1-2 weeks.</p>
-                <button onClick={close} className="btn-pilot">Close</button>
-              </>
-            )}
-          </div>
-        ) : (
-          <>
-            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">
-              {isThesis ? "Apply · Master's thesis" : "Apply"}
+          {done ? (
+            <div className="py-10 text-center">
+              <CheckCircle2 size={48} className="text-accent-green mx-auto mb-4" />
+              <DialogPrimitive.Title className="font-display font-bold text-2xl mb-2">Application received</DialogPrimitive.Title>
+              {isThesis ? (
+                <>
+                  <p className="text-muted-foreground text-sm mb-5 max-w-md mx-auto">
+                    One more step: email us your <strong className="text-foreground">CV and transcript</strong> so we can
+                    review your application.
+                  </p>
+                  <a href={documentsMailto} className="btn-pilot">
+                    <Mail size={16} /> Email CV &amp; transcript
+                  </a>
+                  <p className="text-xs text-muted-foreground mt-2 mb-6">{THESIS_CONTACT_EMAIL}</p>
+                  <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
+                    And if you have not yet,{" "}
+                    <strong className="text-foreground">start talking to professors at your university now</strong> - the
+                    thesis is registered with your examination office during {thesisDates.registration}.
+                  </p>
+                  <button onClick={close} className="text-sm font-semibold text-accent-blue hover:underline">Close</button>
+                </>
+              ) : (
+                <>
+                  <p className="text-muted-foreground text-sm mb-6">We review every application and will get back to you within 1-2 weeks.</p>
+                  <button onClick={close} className="btn-pilot">Close</button>
+                </>
+              )}
             </div>
-            <h3 className="font-display font-bold text-2xl mb-1">{role}</h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              {isThesis
-                ? `External master's thesis · ${thesisDates.start} - ${thesisDates.end} · Aachen`
-                : "Aachen, Germany · Full-time"}
-            </p>
+          ) : (
+            <>
+              <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">
+                {isThesis ? "Apply · Master's thesis" : "Apply"}
+              </div>
+              <DialogPrimitive.Title className="font-display font-bold text-2xl mb-1 pr-6">{role}</DialogPrimitive.Title>
+              <p className="text-sm text-muted-foreground mb-6">
+                {isThesis
+                  ? `External master's thesis · ${thesisDates.start} - ${thesisDates.end} · Aachen`
+                  : "Aachen, Germany · Full-time"}
+              </p>
 
-            <form onSubmit={submit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Full name *">
-                  <input required className="input-base" value={form.full_name} onChange={set("full_name")} />
-                </Field>
-                <Field label="Email *">
-                  <input required type="email" className="input-base" value={form.email} onChange={set("email")} />
+              {isThesis && (
+                <p className="mb-6 rounded-lg border border-accent-green/30 bg-accent-green/5 px-4 py-3 text-sm font-semibold text-accent-green">
+                  Applications close {thesisDates.applicationsClose}
+                </p>
+              )}
+
+              <form onSubmit={submit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Field label="Full name *">
+                    <input required className="input-base" value={form.full_name} onChange={set("full_name")} />
+                  </Field>
+                  <Field label="Email *">
+                    <input required type="email" className="input-base" value={form.email} onChange={set("email")} />
+                  </Field>
+                  {isThesis && (
+                    <Field label="University & master's programme *" className="sm:col-span-2">
+                      <input required className="input-base" placeholder="e.g. RWTH Aachen · M.Sc. Computer Science" value={form.university} onChange={set("university")} />
+                    </Field>
+                  )}
+                  <Field label="Location">
+                    <input className="input-base" placeholder="City, Country" value={form.location} onChange={set("location")} />
+                  </Field>
+                  <Field label="LinkedIn">
+                    <input className="input-base" placeholder="https://linkedin.com/in/…" value={form.linkedin} onChange={set("linkedin")} />
+                  </Field>
+                </div>
+                <Field label={isThesis ? "Something you have built *" : "Portfolio / GitHub / Google Scholar"}>
+                  <input
+                    required={isThesis}
+                    className="input-base"
+                    placeholder={isThesis ? "Repository, project report or paper - https://…" : "https://…"}
+                    value={form.portfolio}
+                    onChange={set("portfolio")}
+                  />
                 </Field>
                 {isThesis && (
-                  <Field label="University & master's programme *" className="sm:col-span-2">
-                    <input required className="input-base" placeholder="e.g. RWTH Aachen · M.Sc. Computer Science" value={form.university} onChange={set("university")} />
-                  </Field>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <Field label="Potential supervisor? *">
+                      <select required className="input-base" value={form.supervisor_status} onChange={set("supervisor_status")}>
+                        <option value="" disabled>Choose…</option>
+                        {SUPERVISOR_OPTIONS.map((o) => <option key={o}>{o}</option>)}
+                      </select>
+                    </Field>
+                    <Field label="Earliest start *">
+                      <select required className="input-base" value={form.earliest_start} onChange={set("earliest_start")}>
+                        <option value="" disabled>Choose…</option>
+                        {START_OPTIONS.map((o) => <option key={o}>{o}</option>)}
+                      </select>
+                    </Field>
+                    <Field label="Professor & chair, if known" className="sm:col-span-2">
+                      <input className="input-base" placeholder="e.g. Prof. … · Chair of …" value={form.supervisor_name} onChange={set("supervisor_name")} />
+                    </Field>
+                  </div>
                 )}
-                <Field label="Location">
-                  <input className="input-base" placeholder="City, Country" value={form.location} onChange={set("location")} />
+                <Field label={isThesis ? "Why this topic, and which side of it do you come from? *" : "Why you, why CloudBee Robotics? *"}>
+                  <textarea
+                    required
+                    rows={isThesis ? 5 : 6}
+                    className="input-base resize-y"
+                    placeholder={
+                      isThesis
+                        ? "Two or three sentences are enough. Tell us what you would expect to learn, too."
+                        : "Tell us about your background and what excites you about physical AI…"
+                    }
+                    value={form.cover_letter}
+                    onChange={set("cover_letter")}
+                  />
                 </Field>
-                <Field label="LinkedIn">
-                  <input className="input-base" placeholder="https://linkedin.com/in/…" value={form.linkedin} onChange={set("linkedin")} />
-                </Field>
-              </div>
-              <Field label={isThesis ? "Something you have built *" : "Portfolio / GitHub / Google Scholar"}>
-                <input
-                  required={isThesis}
-                  className="input-base"
-                  placeholder={isThesis ? "Repository, project report or paper - https://…" : "https://…"}
-                  value={form.portfolio}
-                  onChange={set("portfolio")}
-                />
-              </Field>
-              {isThesis && (
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <Field label="Potential supervisor? *">
-                    <select required className="input-base" value={form.supervisor_status} onChange={set("supervisor_status")}>
-                      <option value="" disabled>Choose…</option>
-                      {SUPERVISOR_OPTIONS.map((o) => <option key={o}>{o}</option>)}
-                    </select>
-                  </Field>
-                  <Field label="Earliest start *">
-                    <select required className="input-base" value={form.earliest_start} onChange={set("earliest_start")}>
-                      <option value="" disabled>Choose…</option>
-                      {START_OPTIONS.map((o) => <option key={o}>{o}</option>)}
-                    </select>
-                  </Field>
-                  <Field label="Professor & chair, if known" className="sm:col-span-2">
-                    <input className="input-base" placeholder="e.g. Prof. … · Chair of …" value={form.supervisor_name} onChange={set("supervisor_name")} />
-                  </Field>
+                {isThesis && (
+                  <div className="rounded-lg border border-accent-blue/30 bg-accent-blue/5 p-4 text-sm text-muted-foreground leading-relaxed">
+                    <strong className="text-foreground">Then email your CV and transcript</strong> to{" "}
+                    <a href={`mailto:${THESIS_CONTACT_EMAIL}`} className="text-accent-blue hover:underline break-all">
+                      {THESIS_CONTACT_EMAIL}
+                    </a>
+                    . We show you a pre-filled email right after you submit.
+                  </div>
+                )}
+                <div className="pt-1">
+                  <GdprConsent checked={gdpr} onChange={setGdpr} />
                 </div>
-              )}
-              <Field label={isThesis ? "Why this topic, and which side of it do you come from? *" : "Why you, why CloudBee Robotics? *"}>
-                <textarea
-                  required
-                  rows={isThesis ? 5 : 6}
-                  className="input-base resize-y"
-                  placeholder={
-                    isThesis
-                      ? "Two or three sentences are enough. Tell us what you would expect to learn, too."
-                      : "Tell us about your background and what excites you about physical AI…"
-                  }
-                  value={form.cover_letter}
-                  onChange={set("cover_letter")}
-                />
-              </Field>
-              {isThesis && (
-                <div className="rounded-lg border border-accent-blue/30 bg-accent-blue/5 p-4 text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Then email your CV and transcript</strong> to{" "}
-                  <a href={`mailto:${THESIS_CONTACT_EMAIL}`} className="text-accent-blue hover:underline break-all">
-                    {THESIS_CONTACT_EMAIL}
-                  </a>
-                  . We show you a pre-filled email right after you submit.
-                </div>
-              )}
-              <div className="pt-1">
-                <GdprConsent checked={gdpr} onChange={setGdpr} />
-              </div>
-              <button type="submit" disabled={loading || !gdpr} className="btn-pilot w-full disabled:opacity-60">
-                {loading ? <><Loader2 size={16} className="animate-spin" /> Submitting…</> : <><Send size={16} /> Submit Application</>}
-              </button>
-              <p className="text-xs text-muted-foreground text-center">
-                Applications are reviewed by the founding team.
-              </p>
-            </form>
+                <button type="submit" disabled={loading || !gdpr} className="btn-pilot w-full disabled:opacity-60">
+                  {loading ? <><Loader2 size={16} className="animate-spin" /> Submitting…</> : <><Send size={16} /> Submit Application</>}
+                </button>
+                <p className="text-xs text-muted-foreground text-center">
+                  Applications are reviewed by the founding team.
+                </p>
+              </form>
 
-            <style>{`
-              .input-base {
-                width: 100%;
-                background: hsl(var(--surface));
-                border: 1px solid hsl(var(--border));
-                border-radius: 0.5rem;
-                padding: 0.65rem 0.85rem;
-                font-size: 0.9rem;
-                color: hsl(var(--foreground));
-              }
-              .input-base:focus {
-                outline: none;
-                border-color: hsl(var(--accent-blue));
-                box-shadow: 0 0 0 3px hsl(var(--accent-blue) / 0.15);
-              }
-            `}</style>
-          </>
-        )}
-      </div>
-    </div>
+              <style>{`
+                .input-base {
+                  width: 100%;
+                  background: hsl(var(--surface));
+                  border: 1px solid hsl(var(--border));
+                  border-radius: 0.5rem;
+                  padding: 0.65rem 0.85rem;
+                  font-size: 0.9rem;
+                  color: hsl(var(--foreground));
+                }
+                .input-base:focus {
+                  outline: none;
+                  border-color: hsl(var(--accent-blue));
+                  box-shadow: 0 0 0 3px hsl(var(--accent-blue) / 0.15);
+                }
+              `}</style>
+            </>
+          )}
+        </DialogPrimitive.Content>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 }
 

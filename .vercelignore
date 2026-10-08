@@ -1,0 +1,15 @@
+private-media/
+*-private-media/
+.git/
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+supabase/.temp/
+supabase/.branches/
+*admin-setup.sql
+setup-admin.sql
+reset-admin-password.sql
+*.pem
+*.key

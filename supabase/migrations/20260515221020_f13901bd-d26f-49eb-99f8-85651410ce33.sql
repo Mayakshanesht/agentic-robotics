@@ -1,8 +1,3 @@
--- Grant admin to founder
-INSERT INTO public.user_roles (user_id, role)
-VALUES ('dbfd7649-3926-416b-91be-01d9e50c05f6', 'admin'::app_role)
-ON CONFLICT (user_id, role) DO NOTHING;
-
 -- Blog posts table
 CREATE TABLE public.blog_posts (
   id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,

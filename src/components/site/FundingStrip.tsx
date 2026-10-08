@@ -3,21 +3,21 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import collectiveIncubator from "@/assets/partners/collective-incubator.svg";
 import internationalAcademy from "@/assets/partners/international-academy-rwth.png";
 
-type Logo = { src: string; alt: string; label: string };
+type Logo = { src?: string; alt: string; label: string };
 
 /** Drop a file at the path and the wordmark is replaced by the logo. */
 const logos: Logo[] = [
   { src: collectiveIncubator, alt: "Collective Incubator", label: "Collective Incubator" },
   { src: internationalAcademy, alt: "RWTH International Academy", label: "RWTH International Academy" },
-  { src: "/partners/rwth.png", alt: "RWTH Aachen University", label: "RWTH Aachen University" },
-  { src: "/partners/westai.png", alt: "WestAI AI Service Center", label: "WestAI" },
+  { alt: "RWTH Aachen University", label: "RWTH Aachen University" },
+  { alt: "WestAI AI Service Center", label: "WestAI" },
 ];
 
 function LogoTile({ src, alt, label }: Logo) {
   const [broken, setBroken] = useState(false);
   return (
     <div className="flex h-20 items-center justify-center rounded-xl border border-border bg-white px-5">
-      {broken ? (
+      {broken || !src ? (
         <span className="text-center text-sm font-semibold text-muted-foreground">{label}</span>
       ) : (
         <img src={src} alt={alt} onError={() => setBroken(true)} loading="lazy" className="max-h-10 max-w-[150px] object-contain" />

@@ -30,9 +30,10 @@ export function PageShell({ title, description, path, children }: PageShellProps
         <meta name="twitter:description" content={description} />
         <link rel="canonical" href={`${SITE_URL}${path}`} />
       </Helmet>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
       <ScrollProgress />
-      <main>{children}</main>
+      <main id="main-content" tabIndex={-1}>{children}</main>
       <Footer />
     </div>
   );

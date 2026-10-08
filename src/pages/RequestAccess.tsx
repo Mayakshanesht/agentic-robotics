@@ -56,18 +56,7 @@ const RequestAccess = () => {
 
       if (error) throw error;
 
-      // Best-effort email notification (won't block UX if not configured)
-      supabase.functions
-        .invoke("send-contact-email", {
-          body: {
-            name: data.full_name,
-            company: data.company || "",
-            email: data.email,
-            interest: "Other",
-            message: `Early access request from the website.\n\nRole: ${data.role || "-"}\nUse case: ${data.use_case || "-"}`,
-          },
-        })
-        .catch(() => {});
+      // Notifications are sent server-side after the database insert.
 
       setIsSubmitted(true);
     } catch (error) {
@@ -83,8 +72,9 @@ const RequestAccess = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
-      <main className="pt-20">
+      <main id="main-content" tabIndex={-1} className="pt-20">
         <section className="section-spacing relative overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0 bg-hero-gradient" />

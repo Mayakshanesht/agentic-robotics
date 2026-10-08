@@ -30,20 +30,20 @@ export default function ResetPassword() {
 
   useEffect(() => {
     const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === "PASSWORD_RECOVERY" || session) setReady(true);
+      setReady(!!session);
     });
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) setReady(true);
     });
-    // Fallback: if a recovery hash is present, allow the form regardless
-    if (typeof window !== "undefined" && window.location.hash.includes("type=recovery")) {
-      setReady(true);
-    }
     return () => listener.subscription.unsubscribe();
   }, []);
 
   const updatePassword = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!ready) {
+      toast({ title: "Open a valid password recovery link first.", variant: "destructive" });
+      return;
+    }
     const parsed = passwordSchema.safeParse({ password, confirmPassword });
     if (!parsed.success) {
       toast({ title: "Check password", description: parsed.error.errors[0]?.message, variant: "destructive" });
@@ -109,7 +109,7 @@ export default function ResetPassword() {
                   <Label htmlFor="confirm-password">Confirm password</Label>
                   <Input id="confirm-password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="bg-secondary/50" />
                 </div>
-                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
+                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading || !ready}>
                   {loading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Updating...</> : "Update Password"}
                 </Button>
               </form>

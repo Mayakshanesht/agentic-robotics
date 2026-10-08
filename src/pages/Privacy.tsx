@@ -18,16 +18,22 @@ export default function Privacy() {
             <Section title="1. What we collect">
               <p>
                 When you use a form on this site (contact enquiry, beta / access request,
-                job or thesis application, newsletter), we collect only the information you
+                job or thesis application), we collect the information you
                 voluntarily provide: name, email address, company, message text, and — for
                 job applications — additional details such as LinkedIn or portfolio links
                 and a cover letter.
+              </p>
+              <p className="mt-3">
+                We also record public page visits: the page path, visit time and the
+                referring website's origin. These counts use no cookies or persistent
+                visitor identifiers. URL query parameters and private account pages are
+                excluded.
               </p>
             </Section>
 
             <Section title="2. Why we process it">
               <p>
-                Data is processed on the legal basis of your explicit consent
+                Form submissions are processed on the legal basis of your explicit consent
                 (Art. 6(1)(a) GDPR), which you give by ticking the consent box on the form
                 and pressing submit. We use the data solely to respond to your request or
                 to evaluate your application. We do not sell your data and do not share it
@@ -37,9 +43,9 @@ export default function Privacy() {
 
             <Section title="3. Where it is stored">
               <p>
-                Submissions are stored securely in our backend infrastructure hosted within
-                the European Union. Access is restricted to the CloudBee Robotics founding
-                team and the specific reviewers required to handle your request.
+                Form submissions are stored in Supabase. Authorized administrators use
+                them to respond to enquiries and review applications. When configured,
+                Resend delivers submission notifications to our business mailbox.
               </p>
             </Section>
 

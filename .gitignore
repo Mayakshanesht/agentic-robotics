@@ -18,9 +18,20 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+private-media/
+*-private-media/
+*admin-setup.sql
+setup-admin.sql
+reset-admin-password.sql
+*.pem
+*.key
 
 # Vercel
 .vercel
+
+# Supabase CLI state and linked connection configuration
+supabase/.temp/
+supabase/.branches/
 
 # Editor directories and files
 .vscode/*

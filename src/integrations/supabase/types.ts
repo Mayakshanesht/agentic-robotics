@@ -53,6 +53,7 @@ export type Database = {
           excerpt: string
           id: string
           published: boolean
+          public_marketing_approved: boolean
           slug: string
           title: string
           updated_at: string
@@ -65,6 +66,7 @@ export type Database = {
           excerpt: string
           id?: string
           published?: boolean
+          public_marketing_approved?: boolean
           slug: string
           title: string
           updated_at?: string
@@ -77,6 +79,7 @@ export type Database = {
           excerpt?: string
           id?: string
           published?: boolean
+          public_marketing_approved?: boolean
           slug?: string
           title?: string
           updated_at?: string

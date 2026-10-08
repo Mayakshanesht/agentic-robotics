@@ -1,1 +1,9 @@
-project_id = "jylhsfklzzbawcgiptwa"
+# Set your own project ID when linking the public source to Supabase.
+project_id = "cloudbee-website"
+
+# Database webhooks authenticate with a server-only secret in the handler.
+[functions.send-contact-email]
+verify_jwt = false
+
+[functions.send-application-email]
+verify_jwt = false

@@ -1,48 +1,27 @@
-import { useEffect, useRef } from "react";
-import { useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight, MessageSquare, Target } from "lucide-react";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
+import { BOOK_A_PILOT_PATH } from "@/data/company";
 
-/** Plays muted while in view, pauses when it leaves. Never autoplays under reduced motion. */
 export function SeeItWork() {
-  const ref = useRef<HTMLVideoElement>(null);
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || reduce) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) void el.play().catch(() => {});
-        else el.pause();
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [reduce]);
-
   return (
     <Section id="see-it-work" className="border-t border-border">
-      <FadeUp className="max-w-3xl">
-        <Kicker>See it work</Kicker>
-        <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          From a phone video to a robot that does the task.
-        </h2>
-      </FadeUp>
-      <FadeUp delay={0.1} className="mt-10">
-        <div className="-mx-6 overflow-hidden border border-x-0 border-border bg-white shadow-[var(--shadow-card)] md:mx-0 md:rounded-2xl md:border-x">
-          <video
-            ref={ref}
-            src="/media/walkthrough.mp4"
-            poster="/media/walkthrough-poster.jpg"
-            controls
-            muted
-            playsInline
-            preload="metadata"
-            aria-label="Walkthrough: describing a task, generating training data in a digital twin, and robot arms in the CloudBee lab completing the task"
-            className="aspect-video w-full"
-          />
+      <FadeUp className="grid items-center gap-8 rounded-2xl border border-border bg-white p-8 shadow-[var(--shadow-card)] lg:grid-cols-[1fr_auto] lg:p-10">
+        <div className="max-w-3xl">
+          <Kicker>Explore a pilot</Kicker>
+          <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
+            What should your robot do next?
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
+            Tell us about the task, your robot and your production goals. We can discuss the opportunity and
+            what a focused pilot would involve.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold text-primary">
+            <span className="inline-flex items-center gap-2"><MessageSquare size={18} aria-hidden /> Talk directly to our team</span>
+            <span className="inline-flex items-center gap-2"><Target size={18} aria-hidden /> Start with one defined task</span>
+          </div>
         </div>
+        <Link to={BOOK_A_PILOT_PATH} className="btn-pilot w-fit px-7 py-3.5 text-base">Book a pilot <ArrowRight size={18} aria-hidden /></Link>
       </FadeUp>
     </Section>
   );

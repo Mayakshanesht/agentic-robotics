@@ -3,67 +3,41 @@ import { BlogArticle, Bullet, H2, P, Strong } from "@/components/site/BlogArticl
 export default function BlogPost2() {
   return (
     <BlogArticle
-      title="Narrowing the sim-to-real gap · CloudBee Robotics"
-      heading="Narrowing the sim-to-real gap"
-      description="The sim-to-real gap is not a solved problem, and anyone who tells you otherwise is selling something. What we do about it, what it means for a pilot, and what we will and will not publish."
+      title="Building confidence in industrial automation · CloudBee Robotics"
+      heading="Building confidence in industrial automation"
+      description="A useful robotics partnership starts with business goals, clear expectations, and a shared view of what value means for your operation."
       path="/blog/sim-to-real-gap-solved"
-      category="Research"
+      category="Partnerships"
       date="10 January 2026"
-      lede="A model that works in simulation and fails on the robot has not learned the task. It has learned the simulator."
-      closing="We would rather show you the gap closing on your own cell than argue about it in a blog post. A pilot starts with one video of the cell."
+      lede="A robotics partnership should give you a clear view of the opportunity and the business goals it could serve."
+      closing="Considering automation for your operation? Share your priorities with us and explore a potential pilot."
     >
       <P>
-        Every robotics team meets the same wall. The policy succeeds in simulation, the hardware is set up, and on the
-        real robot it misses, pushes too hard, or stops the moment anything differs from what it was shown. The gap
-        between the two is not one problem. It is a collection of small mismatches that each cost a few percent of
-        success, and they add up.
-      </P>
-      <P>
-        We do not claim to have closed that gap. Nobody has. What we claim is narrower and more useful to a plant
-        manager: the gap is small enough, on the tasks we take, that a skill built in simulation is worth putting on
-        your robot in a fortnight rather than a year.
+        Choosing automation is a business decision. Production teams need to consider the work involved, the people
+        affected, and how an investment fits their broader plans. CloudBee Robotics aims to make those conversations
+        practical and focused on the customer's priorities.
       </P>
 
-      <H2>Why it costs you, not just the researchers</H2>
+      <H2>What matters to your team?</H2>
       <P>
-        The gap is the reason a robot integration quote carries months of on-site tuning. Every percent of transfer
-        that is lost in the lab is paid for again on your floor, by your engineers, with your line idle. That is the
-        line item we are attacking, and it is why we measure ourselves on your cell rather than on a benchmark.
+        The right starting point is the challenge you want to address. Your business may be looking to support staff
+        with repetitive work, accommodate changing demand, or explore a new automation opportunity. We want to
+        understand what success would mean in your context.
       </P>
 
-      <H2>What we do about it</H2>
-      <P>
-        Three things, and none of them involve making the simulation prettier.
-      </P>
+      <H2>What to expect from the conversation</H2>
       <ul className="mt-5 space-y-3">
-        <Bullet>
-          <Strong>The twin is of your cell.</Strong> Not a generic warehouse scene from a catalogue: the bench at the
-          height it actually is, the fixture, the tray, the light. The robot practises in a room that already matches
-          the one it will work in.
-        </Bullet>
-        <Bullet>
-          <Strong>Contact is in the data.</Strong> Vision tells a model where an object is; it never tells it that the
-          grip is about to slip. Our data carries touch and force at the same instant as the images, so the behaviour
-          that transfers is the behaviour that was grounded in contact.
-        </Bullet>
-        <Bullet>
-          <Strong>Nothing reaches your robot untested.</Strong> A skill is put through situations in the twin that it
-          never met while training, before it is allowed near hardware. After it goes live, what happens on your line
-          comes back and the skill is corrected, while production keeps running.
-        </Bullet>
+        <Bullet><Strong>Customer focus.</Strong> Your goals and constraints guide the discussion.</Bullet>
+        <Bullet><Strong>Clear scope.</Strong> Discuss the opportunity, priorities, and commercial expectations together.</Bullet>
+        <Bullet><Strong>Honest communication.</Strong> Ask questions and make decisions with a shared understanding of the proposed partnership.</Bullet>
       </ul>
 
-      <H2>What we will and will not publish</H2>
+      <H2>Explore an opportunity with CloudBee</H2>
       <P>
-        <Strong>World-aware models</Strong> is the shorthand we use for models trained on data where the physics of
-        contact is present rather than implied. It is a claim about the data, and it is the kind of claim that should
-        be settled on a robot rather than in a chart.
+        We welcome industrial partners interested in exploring where robotics could support their business. A pilot
+        offers a focused way to consider a specific opportunity. Scope and commercial terms are discussed directly
+        with each partner.
       </P>
-      <ul className="mt-5 space-y-3">
-        <Bullet>We measure transfer per pilot, on your own task and your own hardware.</Bullet>
-        <Bullet>We do not publish averaged success rates we cannot reproduce on your cell.</Bullet>
-        <Bullet>Pilot results and technical detail are shared with partners and investors under NDA.</Bullet>
-      </ul>
     </BlogArticle>
   );
 }

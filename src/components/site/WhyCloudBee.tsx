@@ -2,16 +2,16 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 
 const reasons = [
   {
-    title: "Contact-rich data that scales",
-    body: "Training data with touch and force, generated from a video plus text or a few demos. It scales with GPUs, not people.",
+    title: "Industrial focus",
+    body: "We start with the tasks and constraints of your operation, so the pilot stays connected to a practical business need.",
   },
   {
-    title: "A loop that corrects itself",
-    body: "Every run teaches the system what went wrong. The data and the model are fixed automatically, and you see it in live analytics.",
+    title: "Hands-on robotics experience",
+    body: "Our founding team brings industry experience and robotics research from RWTH Aachen, supported by our own hardware lab.",
   },
   {
-    title: "Skills that compound",
-    body: "Each new skill builds on the ones before, so every task gets faster and cheaper to deliver.",
+    title: "A focused starting point",
+    body: "Work with us on one defined task, review the results and use them to guide your next investment in automation.",
   },
 ];
 
@@ -21,7 +21,7 @@ export function WhyCloudBee() {
       <FadeUp className="max-w-3xl">
         <Kicker>Why CloudBee</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Others solve one piece. We close the whole loop.
+          A partner for your next step in robotics.
         </h2>
       </FadeUp>
 
@@ -38,8 +38,7 @@ export function WhyCloudBee() {
       </div>
 
       <p className="mt-7 text-sm text-muted-foreground">
-        Tools are not the product. A working skill on your line is, and so is the loop that keeps it working after
-        week one.
+        Your task and your business goals guide the conversation, from the first discussion through the pilot review.
       </p>
     </Section>
   );

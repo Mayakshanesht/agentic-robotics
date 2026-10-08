@@ -3,26 +3,26 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 const today = {
   label: "Today",
   points: [
-    "Data is collected one demo at a time, mostly vision only, with no sense of touch.",
+    "Robot projects can demand substantial specialist time and manual commissioning.",
     "Long tasks break, and a new part or a new site means starting over.",
   ],
   stats: [
-    { big: "6-18 months", small: "to teach one task" },
-    { big: "an R&D team", small: "of in-house experts" },
-    { big: "€100k+", small: "per task" },
+    { big: "Project scope", small: "can be hard to define" },
+    { big: "Specialist effort", small: "takes time to coordinate" },
+    { big: "Investment", small: "needs a clear business case" },
   ],
 };
 
 const withCloudBee = {
   label: "With CloudBee",
   points: [
-    "Training data with touch and force is generated on GPUs, not recorded by hand.",
-    "Long tasks keep running when something goes wrong, instead of stopping and waiting for a person.",
+    "Start with a focused pilot and a clearly defined task in your work cell.",
+    "Work directly with a robotics team and review the results before expanding the project.",
   ],
   stats: [
-    { big: "about 2 weeks", small: "per skill" },
-    { big: "1 engineer", small: "of yours" },
-    { big: "1/4 to 1/2", small: "of the cost" },
+    { big: "One task", small: "for a focused pilot" },
+    { big: "Direct contact", small: "with our robotics team" },
+    { big: "Clear criteria", small: "to assess the outcome" },
   ],
 };
 
@@ -62,7 +62,7 @@ export function ProblemAnswer() {
       <FadeUp className="max-w-3xl">
         <Kicker>The problem</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Robots are still taught by hand.
+          Make the first step in automation more manageable.
         </h2>
       </FadeUp>
       <div className="mt-10 grid gap-5 lg:grid-cols-2 lg:gap-6">
@@ -74,7 +74,7 @@ export function ProblemAnswer() {
         </FadeUp>
       </div>
       <p className="mt-6 text-sm text-muted-foreground">
-        Typical figures from industrial robot projects; CloudBee figures are targets for our pilot programme.
+        Pilot scope, timing and commercial terms are agreed individually with your team.
       </p>
     </Section>
   );

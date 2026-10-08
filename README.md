@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# CloudBee Robotics website
 
-## Project info
+Public marketing website for CloudBee Robotics, built with React, TypeScript,
+Vite and Tailwind CSS. Pages explain customer benefits, the pilot programme,
+the team and career opportunities. Proprietary robotics methods and customer
+project details do not belong in this repository or its public assets.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Local development
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Use Node.js 22.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+cp .env.example .env.local
+npm ci
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Set the Supabase URL and **publishable** key in the ignored `.env.local` file.
+All `VITE_` variables appear in the browser bundle. Never use a service-role key,
+provider key, webhook secret or password in a `VITE_` variable.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Verification
 
-**Use GitHub Codespaces**
+```sh
+npm run lint
+npx tsc --noEmit -p tsconfig.app.json
+npm run check:public
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The public check builds the site, scans shipped copy/assets and current source,
+and tests confidentiality answers and protected notification endpoints without
+sending emails. It catches known disclosures and secret patterns; it does not
+replace human review of new copy, images or media.
 
-## What technologies are used for this project?
+## Publishing
 
-This project is built with:
+Follow [DEPLOYMENT.md](DEPLOYMENT.md) for Vercel and Supabase setup.
+`vercel.json` deploys only `dist` and runs the public check before publication.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+To prepare a new public repository without local files or previous Git history:
 
-## How can I deploy this project?
+```sh
+npm run export:public -- ../agentic-robotics-public
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+The export has no `.git`, `.env.local`, private media or administrative setup
+backups. Start a new Git repository in that directory. Exporting does not remove
+old commits from an existing remote repository, its forks or caches.
 
-## Can I connect a custom domain to my Lovable project?
+## Editorial rules
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Publish customer benefits and company information. Keep internal methods,
+  training workflows, tooling screens and technical roadmaps private.
+- Do not publish customer names, logos or identifiable project results.
+- Inspect imagery and every video frame for slides, documents and private data.
+- Blog articles start as drafts. Public copy and cover imagery require an
+  explicit marketing/confidentiality review before publication.
+- The shared thesis application deadline is in `src/data/theses.ts`.

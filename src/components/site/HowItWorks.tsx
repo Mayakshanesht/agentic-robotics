@@ -2,20 +2,20 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 
 const steps = [
   {
-    title: "Describe",
-    body: "Write the task in plain words. Optionally add a phone video of your cell or a few demos in VR.",
+    title: "Discuss",
+    body: "Tell us about the task, your robot and the outcome that matters to your team.",
   },
   {
-    title: "Generate",
-    body: "We build a digital twin of your cell and generate thousands of situations of your task inside it, with touch and force, on GPUs. No extra robots to buy and no line stopped.",
+    title: "Scope",
+    body: "Together, we agree a focused pilot, the work involved and how to assess the result.",
   },
   {
-    title: "Adapt",
-    body: "The skill is built for your robot, your gripper and your task, and proven in the twin before it touches hardware.",
+    title: "Pilot",
+    body: "We work with your team on the chosen task, using your operational requirements as the guide.",
   },
   {
-    title: "Improve",
-    body: "The skill runs on your line and keeps improving there: what the cell throws at it comes back, and the skill is corrected and returned to the robot.",
+    title: "Review",
+    body: "Review the outcome with us and decide the next step for your automation project.",
   },
 ];
 
@@ -25,7 +25,7 @@ export function HowItWorks() {
       <FadeUp className="max-w-3xl">
         <Kicker>How it works</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          From one phone video to a robot that improves itself.
+          A clear path from your task to a focused pilot.
         </h2>
       </FadeUp>
 
@@ -44,7 +44,7 @@ export function HowItWorks() {
       </div>
 
       <FadeUp className="mt-8">
-        <p className="text-lg font-semibold text-foreground">1 demo → 1,000s of scenes and scenarios → no extra demos.</p>
+        <p className="text-lg font-semibold text-foreground">One task. A shared goal. A practical next step.</p>
       </FadeUp>
     </Section>
   );

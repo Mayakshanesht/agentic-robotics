@@ -28,7 +28,7 @@ const faqs: Faq[] = [
   },
   {
     q: "What do I need to get started?",
-    a: "A task described in plain words. A phone video of your cell or a few demonstrations help, but are optional.",
+    a: "Tell us the task you want to automate, the robots you use and what success would look like. We will discuss the next steps with your team.",
   },
   {
     q: "How long does a first skill take?",
@@ -45,13 +45,13 @@ const faqs: Faq[] = [
     cta: { label: "Talk to us", to: BOOK_A_PILOT_PATH },
   },
   {
-    q: "What do you share under NDA?",
-    a: "Technical detail, pilot results and anything commercial are shared with partners and investors under NDA.",
+    q: "How do you protect technology and customer information?",
+    a: "This website shares company information and customer benefits. Proprietary methods and customer-specific information are handled through confidential discussions with the team.",
   },
   {
     q: "Are you raising investment?",
     a: "Yes, we are raising our pre-seed round. Investors can request our deck and a demo.",
-    cta: { label: "For investors", to: "/#investors" },
+    cta: { label: "For investors", to: "/investors" },
   },
   {
     q: "Where are you based, and who backs you?",

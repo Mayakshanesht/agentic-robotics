@@ -1,24 +1,24 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
-import { OneVideoMany, SignalLanes, SkillOnRobot } from "@/components/site/anim/MakeSteps";
+import { DefineGoal, FocusPilot, ReviewOutcome } from "@/components/site/anim/MakeSteps";
 import { sectors } from "@/data/company";
 
 const steps = [
   {
-    art: <OneVideoMany />,
-    title: "One video of your cell becomes thousands of runs",
-    body: "A walk through the cell with a phone is all it takes to start. From that we build a twin of your cell and put your task through thousands of situations inside it, so the skill meets the variety of a real line long before it meets your robot. It scales with GPUs instead of with people.",
+    art: <DefineGoal />,
+    title: "Start with the work that matters",
+    body: "Handling, assembly and other industrial tasks are the starting point. We help you choose a focused use case for a pilot.",
   },
   {
-    art: <SignalLanes />,
-    title: "Every run carries touch and force, not pixels alone",
-    body: "Factory tasks are decided at the moment of contact, and that is exactly when a camera is blocked by the robot's own hand. Each run is recorded through cameras, depth, the touch pads on each fingertip and the force in the grip, at the same instant.",
+    art: <FocusPilot />,
+    title: "Build around your operation",
+    body: "Your robot, parts and work cell shape the project. We work with your team to understand what successful automation needs to achieve.",
   },
   {
-    art: <SkillOnRobot />,
-    title: "The data becomes a skill on your robot",
-    body: "The skill is built for your robot, your gripper and your task, proven in the twin first, then put to work in your cell. What you get is a working capability on your line, not a research project.",
+    art: <ReviewOutcome />,
+    title: "Make the next decision with confidence",
+    body: "A focused pilot gives your team a concrete result to review before deciding how to move forward.",
   },
 ];
 
@@ -30,12 +30,11 @@ export function WhatWeMake() {
       <FadeUp className="max-w-3xl">
         <Kicker>What we make</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Contact-rich synthetic data for industrial manipulation.
+          Robot capabilities for industrial tasks.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          Industrial AI has text and images in abundance. What it does not have is data of robots touching things.
-          Nobody can scrape it, and collecting it by hand costs an hour of someone's day per demonstration. So we
-          generate it, and build the skill from it.
+          We work with industrial teams to explore practical robotics applications. Start with one task and
+          assess the opportunity in the context of your operation.
         </p>
       </FadeUp>
 
@@ -78,7 +77,7 @@ export function WhatWeMake() {
 
       <FadeUp delay={0.1} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
         <Link to="/how-it-works" className="text-base font-semibold text-primary hover:underline">
-          See how the data is made →
+          Explore the pilot journey →
         </Link>
         <p className="text-sm text-muted-foreground">Built for {sectors.join(", ").toLowerCase()}.</p>
       </FadeUp>

@@ -84,7 +84,7 @@ export function BlogArticle({
                   to="/how-it-works"
                   className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
                 >
-                  See how the data is made
+                  Explore our offering
                 </Link>
               </div>
             </div>

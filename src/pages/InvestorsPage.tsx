@@ -18,7 +18,7 @@ export default function InvestorsPage() {
   return (
     <PageShell
       title="Investors · CloudBee Robotics"
-      description="CloudBee Robotics is raising a pre-seed round. An RWTH Aachen spin-off with EXIST and WestAI funding, pilots with industrial companies and its own hardware lab in Aachen."
+      description="CloudBee Robotics is raising a pre-seed round. An RWTH Aachen spin-off supported by EXIST and WestAI, with an industrial focus and its own hardware lab in Aachen."
       path="/investors"
     >
       <section className="bg-hero-gradient pt-28 lg:pt-36">
@@ -29,8 +29,8 @@ export default function InvestorsPage() {
               We're raising our pre-seed round.
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-[#13233B]">
-              An RWTH Aachen spin-off, funded by an EXIST grant and a WestAI compute grant, with pilots running at
-              industrial companies and our own hardware lab in Aachen. Request our deck and a demo.
+              An RWTH Aachen spin-off, supported by an EXIST grant and a WestAI compute grant, with an industrial
+              focus and our own hardware lab in Aachen. Request an introduction and our company deck.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link to={REQUEST_DECK_PATH} className="btn-pilot px-7 py-3.5 text-base">
@@ -40,7 +40,7 @@ export default function InvestorsPage() {
                 to="/how-it-works"
                 className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
               >
-                See how it works
+                Explore the pilot journey
               </Link>
             </div>
           </FadeUp>
