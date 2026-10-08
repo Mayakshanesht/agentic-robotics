@@ -14,6 +14,13 @@ const credibility = [
   { icon: Briefcase, title: "Industrial Focus", body: "Working with industrial teams to explore practical robotics applications." },
 ];
 
+const engineeringFocus = [
+  { title: "Synthetic data for physical interaction", body: "Developing data around robots interacting with objects: grasping, handling, placing and assembling, with the variety a useful task requires." },
+  { title: "Skills across robot families", body: "Working on task capabilities for robot arms, humanoids and dexterous hands, with attention to the robot and end effector involved." },
+  { title: "A self-improving OS", body: "Building a platform around task development, evaluation and refinement, so the next capability can build on what has already been learned." },
+  { title: "Simulation and hands-on evaluation", body: "Combining simulation demonstrations with work on real robot arms in our Aachen hardware lab. Each pilot defines the test setting and evidence needed for its next step." },
+];
+
 export default function Research() {
   return (
     <PageShell
@@ -31,6 +38,29 @@ export default function Research() {
               Focused on <span className="text-gradient-green">Industry.</span>
             </h1>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="section-spacing border-t border-border bg-white">
+        <div className="section-container">
+          <div className="max-w-3xl">
+            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">What we are building</div>
+            <h2 className="font-display font-bold text-3xl lg:text-4xl">From physical interaction to useful robot capabilities.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              Our work connects synthetic contact-rich data with robot skills and an operating system designed
+              for ongoing improvement. The demonstrations show current simulation work; our lab provides a
+              place to explore real robot tasks with industrial teams.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {engineeringFocus.map((focus, i) => (
+              <motion.div key={focus.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.5 }} className="glass-card p-7">
+                <h3 className="font-display font-semibold text-xl">{focus.title}</h3>
+                <p className="mt-3 text-muted-foreground leading-relaxed">{focus.body}</p>
+              </motion.div>
+            ))}
+          </div>
+          <Link to="/#see-it-work" className="mt-7 inline-flex items-center gap-2 font-semibold text-accent-blue">Watch our demonstrations <ArrowRight size={16} /></Link>
         </div>
       </section>
 

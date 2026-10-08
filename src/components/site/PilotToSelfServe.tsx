@@ -7,17 +7,17 @@ import { GdprConsent } from "@/components/GdprConsent";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 
 const steps = [
-  { title: "Define the task", body: "Tell us what you want to automate and what a successful outcome means to your team." },
-  { title: "Run a focused pilot", body: "Agree the scope and assessment criteria, then work with our robotics team." },
-  { title: "Review the next step", body: "Use the pilot outcome to decide how to move forward with your automation project." },
+  { title: "Pilot your first capability", body: "Choose one handling, assembly or manipulation task. Agree the robot, the test setting and the results your team needs to see." },
+  { title: "Build on what works", body: "Use the pilot to explore refinement and further tasks. Our self-improving OS is being built around an ongoing cycle of capability development and evaluation." },
+  { title: "Help shape self-serve access", body: "A self-serve web application is in development. Join the waitlist to hear about future access and help us understand the capabilities industrial teams need." },
 ];
 
 const robotTypes = ["Arm", "Humanoid", "Dexterous hand", "Other"];
 
 const schema = z.object({
   email: z.string().trim().email("Enter a valid work email").max(255),
-  company: z.string().trim().max(160).optional().or(z.literal("")),
-  robot_type: z.string().min(1, "Choose a robot type"),
+  company: z.string().trim().max(100).optional().or(z.literal("")),
+  robot_type: z.enum(["Arm", "Humanoid", "Dexterous hand", "Other"], { errorMap: () => ({ message: "Choose a robot type" }) }),
   task: z.string().trim().max(300).optional().or(z.literal("")),
 });
 
@@ -48,25 +48,13 @@ function Waitlist() {
       const d = parsed.data;
       // Reuses the existing beta-access table, so waitlist signups appear in /admin.
       const { error } = await supabase.from("beta_access_requests").insert({
-        full_name: d.company || d.email,
+        full_name: d.company || "Waitlist subscriber",
         email: d.email,
         company: d.company || null,
         role: `Waitlist · robot type: ${d.robot_type}`,
         use_case: d.task || null,
       });
       if (error) throw error;
-      // Best-effort email notification (won't block UX if not configured)
-      supabase.functions
-        .invoke("send-contact-email", {
-          body: {
-            name: d.company || d.email,
-            company: d.company || "",
-            email: d.email,
-            interest: "Pilot Program",
-            message: `Waitlist signup.\n\nRobot type: ${d.robot_type}\nTask: ${d.task || "-"}`,
-          },
-        })
-        .catch(() => {});
       setDone(true);
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : "Could not submit, please try again");
@@ -143,10 +131,14 @@ export function PilotToSelfServe() {
   return (
     <Section id="waitlist" className="border-t border-border bg-white">
       <FadeUp className="max-w-3xl">
-        <Kicker>How we work with you</Kicker>
+        <Kicker>From pilot to platform</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Start with one task. Plan your next step.
+          A first robot skill. A growing capability platform.
         </h2>
+        <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
+          Start with a focused industrial pilot today. Help shape a platform that pairs synthetic contact-rich
+          data with robot skills and ongoing improvement, with self-serve access planned as the product develops.
+        </p>
       </FadeUp>
 
       <div className="mt-10 grid items-stretch gap-4 lg:grid-cols-3">

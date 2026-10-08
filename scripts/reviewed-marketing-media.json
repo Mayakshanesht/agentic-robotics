@@ -1,0 +1,35 @@
+{
+  "review": "Outcome-only simulation crops reviewed for diagnostic overlays, tooling and identifiable customer information. Videos are muted and source metadata stripped.",
+  "assets": [
+    {
+      "path": "marketing/demos/contact-interaction-simulation.mp4",
+      "sha256": "8b3848222f7c15519fd537e2ec26ec663712048626933e612ed9c1c3c45f4535",
+      "kind": "video"
+    },
+    {
+      "path": "marketing/demos/contact-interaction-simulation-poster.jpg",
+      "sha256": "7ddaefb7670a62ce99109b12babbef3fed88cfdc2fbe9045e3410b6e439a96b1",
+      "kind": "poster"
+    },
+    {
+      "path": "marketing/demos/humanoid-walking-simulation.mp4",
+      "sha256": "6a6d0af95b73a20c8b2c9f883b48d2c9b7f99c40db8958defad73ad330057723",
+      "kind": "video"
+    },
+    {
+      "path": "marketing/demos/humanoid-walking-simulation-poster.jpg",
+      "sha256": "754e9c36e6b04f11ba5e492a3fd713549d54f639c9ab4a00867911a52f33ba4c",
+      "kind": "poster"
+    },
+    {
+      "path": "marketing/demos/object-handling-simulation.mp4",
+      "sha256": "1f63b588bda416567f0f578cba8c3e11d94b0e36b459b36578c93cd1b379b93b",
+      "kind": "video"
+    },
+    {
+      "path": "marketing/demos/object-handling-simulation-poster.jpg",
+      "sha256": "77865b358829cea3a52e502121c949689f2dc1a8e6d088f3ef7a4ee3171ff88a",
+      "kind": "poster"
+    }
+  ]
+}

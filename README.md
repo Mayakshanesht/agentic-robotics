@@ -2,8 +2,9 @@
 
 Public marketing website for CloudBee Robotics, built with React, TypeScript,
 Vite and Tailwind CSS. Pages explain customer benefits, the pilot programme,
-the team and career opportunities. Proprietary robotics methods and customer
-project details do not belong in this repository or its public assets.
+the team and career opportunities. Public positioning includes the self-improving
+OS and synthetic contact-rich data, with reviewed robot demonstrations.
+Proprietary implementation methods and customer project details stay private.
 
 ## Local development
 
@@ -28,9 +29,10 @@ npm run check:public
 ```
 
 The public check builds the site, scans shipped copy/assets and current source,
-and tests confidentiality answers and protected notification endpoints without
-sending emails. It catches known disclosures and secret patterns; it does not
-replace human review of new copy, images or media.
+verifies reviewed demonstration fingerprints, and tests confidentiality answers
+and protected notification endpoints without sending emails. It catches known
+disclosures and secret patterns; human review still determines what is suitable
+for publication.
 
 ## Publishing
 
@@ -51,8 +53,13 @@ old commits from an existing remote repository, its forks or caches.
 
 - Publish customer benefits and company information. Keep internal methods,
   training workflows, tooling screens and technical roadmaps private.
+- Share the product purpose, data offering, task examples and reviewed outcome
+  demonstrations. Label simulation footage accurately and describe development
+  goals separately from measured pilot results.
 - Do not publish customer names, logos or identifiable project results.
 - Inspect imagery and every video frame for slides, documents and private data.
+- Register approved demonstration files and their SHA-256 fingerprints in
+  `scripts/reviewed-marketing-media.json`. Changes require another media review.
 - Blog articles start as drafts. Public copy and cover imagery require an
   explicit marketing/confidentiality review before publication.
 - The shared thesis application deadline is in `src/data/theses.ts`.

@@ -8,10 +8,10 @@ const RING = "#CBD5E1";
 
 /** Stations on the ring, from the top, clockwise. */
 const LOOP_STATIONS = [
-  { key: "goal", label: "Agree the goal", sub: "for your operation" },
-  { key: "team", label: "Work together", sub: "on a focused pilot" },
-  { key: "review", label: "Review the result", sub: "against the goal" },
-  { key: "next", label: "Choose the next step", sub: "for your project" },
+  { key: "run", label: "Put a skill to work", sub: "on a useful task" },
+  { key: "assess", label: "Assess", sub: "the performance" },
+  { key: "improve", label: "Improve", sub: "the capability" },
+  { key: "expand", label: "Build on", sub: "what works" },
 ];
 
 const anchorFor = (i: number) => (i === 1 ? "start" : i === 3 ? "end" : "middle");
@@ -45,7 +45,7 @@ export function ImproveLoop({ step, lap, labels = true }: { step: number; lap: n
       viewBox={viewBox}
       className="h-full w-full"
       role="img"
-      aria-label="The customer journey: agree the goal, work together on a focused pilot, review the result and choose the next step"
+      aria-label="The capability cycle: put a skill to work, assess its performance, improve the capability and build on what works"
     >
       <circle cx={cx} cy={cy} r={r} fill="none" stroke={RING} strokeWidth="1.5" strokeDasharray="4 6" />
 
@@ -67,13 +67,13 @@ export function ImproveLoop({ step, lap, labels = true }: { step: number; lap: n
 
       <circle cx={cx} cy={cy} r={labels ? 56 : 62} fill="#FFFFFF" stroke={RING} strokeWidth="1" />
       <text x={cx} y={cy - 14} fontSize="13" textAnchor="middle" fill={MUTED}>
-        your
+        robot
       </text>
       <text x={cx} y={cy + 12} fontSize="28" fontWeight="800" textAnchor="middle" fill={INK}>
-        pilot
+        skills
       </text>
       <text x={cx} y={cy + 32} fontSize="11" textAnchor="middle" fill={MUTED}>
-        journey
+        keep improving
       </text>
 
       {LOOP_STATIONS.map((s, i) => {

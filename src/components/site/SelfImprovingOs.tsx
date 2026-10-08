@@ -1,26 +1,27 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useReducedMotion } from "framer-motion";
+import { Pause, Play } from "lucide-react";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { ImproveLoop } from "@/components/site/anim/ImproveLoop";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const stations = [
   {
-    label: "Agree the goal",
-    body: "Choose the task and define what the pilot should achieve for your operation.",
+    label: "Put a skill to work",
+    body: "Start with a useful handling or assembly task on your robot, with clear criteria for successful operation.",
   },
   {
-    label: "Work together",
-    body: "Bring your team’s knowledge of the task together with our robotics experience.",
+    label: "Assess the performance",
+    body: "Understand how the capability handles the task and its variations. Keep quality, consistency and practical use at the centre of the review.",
   },
   {
-    label: "Review the result",
-    body: "Assess the pilot against the agreed goal and discuss what the outcome means for your project.",
+    label: "Improve the capability",
+    body: "Refine the skill as parts, tasks and work-cell requirements change. The goal is a capability that keeps becoming more useful in your operation.",
   },
   {
-    label: "Choose the next step",
-    body: "Decide together whether to refine the task, explore another opportunity or expand the project.",
+    label: "Build on what works",
+    body: "Develop a growing set of robot capabilities, from individual handling steps toward more complete industrial workflows.",
   },
 ];
 
@@ -30,30 +31,43 @@ export function SelfImprovingOs() {
   const reduce = useReducedMotion();
   const isMobile = useIsMobile();
   const [lap, setLap] = useState(0);
+  const [paused, setPaused] = useState(false);
   const step = lap % stations.length;
 
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || paused) return;
     const t = setInterval(() => setLap((l) => l + 1), STEP_MS);
     return () => clearInterval(t);
-  }, [reduce]);
+  }, [reduce, paused]);
 
   return (
     <Section id="self-improving" className="border-t border-border">
       <FadeUp className="max-w-3xl">
-        <Kicker>Working with your team</Kicker>
+        <Kicker>The self-improving OS</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          A pilot is the start of a practical conversation.
+          Robot skills built to keep improving.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          Your operational priorities guide the work. We keep the pilot focused on a defined task, review the
-          outcome with you and discuss the next step in your automation journey.
+          We are building a self-improving operating system for robotics: software that brings useful robot
+          skills into a continuous cycle of operation, assessment and improvement. Our ambition is to give
+          industrial teams a growing set of capabilities for the work they need done.
         </p>
       </FadeUp>
 
       <div className="mt-12 grid items-center gap-10 lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:gap-12">
         <FadeUp className="mx-auto w-full max-w-[520px]">
           <ImproveLoop step={step} lap={lap} labels={!isMobile} />
+          {!reduce && (
+            <button
+              type="button"
+              onClick={() => setPaused((value) => !value)}
+              aria-pressed={paused}
+              className="mx-auto mt-3 flex min-h-11 items-center gap-2 rounded-full border border-primary/30 bg-white px-4 py-2 text-sm font-semibold text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              {paused ? <Play size={16} aria-hidden /> : <Pause size={16} aria-hidden />}
+              {paused ? "Play capability cycle" : "Pause capability cycle"}
+            </button>
+          )}
         </FadeUp>
 
         <FadeUp delay={0.1}>
@@ -87,8 +101,9 @@ export function SelfImprovingOs() {
 
       <FadeUp delay={0.1} className="mt-10 max-w-3xl">
         <p className="text-[17px] leading-relaxed text-[#13233B]">
-          From the first conversation to the pilot review, your team has a clear goal and a direct robotics
-          partner.{" "}
+          <strong className="text-foreground">Where we are today:</strong> robot arms running in our Aachen
+          hardware lab, with humanoid and dexterous-hand demonstrations in simulation. Industrial pilots focus
+          on a defined task and agreed assessment criteria.{" "}
           <Link to="/how-it-works" className="font-semibold text-primary hover:underline">
             Explore the pilot journey →
           </Link>

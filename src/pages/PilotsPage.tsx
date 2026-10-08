@@ -17,7 +17,7 @@ export default function PilotsPage() {
   return (
     <PageShell
       title="Pilots · CloudBee Robotics"
-      description="Explore a focused CloudBee Robotics pilot for your industrial task. Discuss your robot, agree the scope and review the outcome with our team."
+      description="Develop a first robot capability with CloudBee Robotics and help shape our self-improving OS and future self-serve platform."
       path="/pilots"
     >
       <section className="bg-hero-gradient pt-28 lg:pt-36">
@@ -28,8 +28,9 @@ export default function PilotsPage() {
               Start with one task. Plan your next step.
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-[#13233B]">
-              A pilot starts with your task, your robot and your operational goals. Agree the scope with our team,
-              assess the result and use it to guide the next step.
+              Put our synthetic contact-rich data and robot skill development to work on a focused industrial
+              task. Your robot and operational goals shape the pilot, from agreed test criteria to a review
+              of what the capability can do and where it should improve next.
             </p>
             <Link to={BOOK_A_PILOT_PATH} className="btn-pilot mt-8 px-7 py-3.5 text-base">
               Book a pilot

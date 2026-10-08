@@ -1,10 +1,10 @@
-import { ClipboardList, Factory, CheckCircle2 } from "lucide-react";
+import { Database, Bot, RefreshCw } from "lucide-react";
 
 function JourneyArt({ stage }: { stage: "goal" | "pilot" | "review" }) {
   const content = {
-    goal: { icon: ClipboardList, label: "Define the goal", caption: "A task that matters to your team" },
-    pilot: { icon: Factory, label: "Focus the pilot", caption: "Your robot and your operation" },
-    review: { icon: CheckCircle2, label: "Review the outcome", caption: "A practical next step" },
+    goal: { icon: Database, label: "Data for interaction", caption: "Grasping, handling and assembly" },
+    pilot: { icon: Bot, label: "Robot capabilities", caption: "Your task and your equipment" },
+    review: { icon: RefreshCw, label: "Ongoing improvement", caption: "Evaluate, refine and expand" },
   }[stage];
   const Icon = content.icon;
   return (

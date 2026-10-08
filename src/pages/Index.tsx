@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/site/Hero";
-import { SeeItWork } from "@/components/site/SeeItWork";
+import { RobotDemonstrations } from "@/components/site/RobotDemonstrations";
+import { SelfImprovingOs } from "@/components/site/SelfImprovingOs";
+import { ContactRich } from "@/components/site/ContactRich";
 import { LogoMarquee } from "@/components/site/LogoMarquee";
 import { HumanoidWalk } from "@/components/site/HumanoidWalk";
 import { WhatWeMake } from "@/components/site/WhatWeMake";
@@ -18,7 +20,7 @@ const Index = () => {
   const location = useLocation();
   useEffect(() => {
     if (location.hash) {
-      const aliases: Record<string, string> = { "self-improving": "how-it-works", problem: "customer-industries", explore: "customer-industries", pilots: "how-it-works", investors: "funding" };
+      const aliases: Record<string, string> = { problem: "customer-industries", explore: "customer-industries", pilots: "how-it-works", investors: "funding" };
       let id = location.hash.slice(1);
       try { id = decodeURIComponent(id); } catch { return; }
       const el = document.getElementById(aliases[id] ?? id);
@@ -31,27 +33,30 @@ const Index = () => {
 
   return (
     <PageShell
-      title="CloudBee Robotics · Describe the task. Deploy the capability."
-      description="CloudBee Robotics helps industrial teams turn everyday tasks into useful robot capabilities. Explore our pilot programme and meet our team in Aachen. RWTH Aachen spin-off."
+      title="CloudBee Robotics · The self-improving OS for robots"
+      description="We are building a self-improving OS for robots, powered by synthetic contact-rich data. Watch our simulation demonstrations and explore an industrial pilot with our Aachen team."
       path="/"
     >
       <SectionRail
         items={[
-          { id: "what-we-make", label: "Customer benefits" },
+          { id: "what-we-make", label: "What we build" },
+          { id: "see-it-work", label: "Demonstrations" },
+          { id: "self-improving", label: "Self-improving OS" },
+          { id: "contact-rich", label: "Synthetic data" },
           { id: "customer-industries", label: "Your industry" },
-          { id: "humanoid", label: "Robots" },
           { id: "how-it-works", label: "Pilot journey" },
           { id: "funding", label: "Our supporters" },
-          { id: "blog", label: "Company updates" },
         ]}
       />
       <Hero />
       <LogoMarquee />
       <WhatWeMake />
+      <RobotDemonstrations />
+      <SelfImprovingOs />
+      <ContactRich />
       <CustomerApplications />
       <HumanoidWalk />
       <HowItWorks />
-      <SeeItWork />
       <FundingStrip />
       <LatestPosts />
       <FinalCta />

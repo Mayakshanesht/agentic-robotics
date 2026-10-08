@@ -1,14 +1,13 @@
 /**
- * Public-safe facts shared across pages. Outcome level only: no internal module
- * names, no pipeline or tooling detail, no pricing, no customer names.
+ * Public company facts and approved product positioning. Internal implementation,
+ * tooling and customer identities remain private.
  */
 
 export const CONTACT_EMAIL = "mayur.waghchoure@cloudbeerobotics.de";
 
 /**
- * Calls to action open the form on /contact instead of a mail client: a form
- * reaches the database and the inbox, a mailto reaches neither on a machine
- * with no mail client set up. The address stays visible as text next to them.
+ * Calls to action open the enquiry form on /contact. The business address also
+ * stays visible for visitors who prefer email.
  */
 export const BOOK_A_PILOT_PATH = "/contact?interest=Pilot%20Program";
 export const REQUEST_DECK_PATH = "/contact?interest=Investment";

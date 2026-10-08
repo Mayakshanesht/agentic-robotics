@@ -8,11 +8,20 @@ const confidentialAnswer =
 export function publicAnswer(question: string): string {
   const text = question.toLowerCase();
 
-  if (/\b(customer|client|partner)s?\b.*\b(name|names|list|who|logo|logos|results?|contract|data)\b|\bwho\b.*\b(customer|client|partner)s?\b|\b(source|code|algorithm|architecture|dataset|training|model|pipeline|prompt|secret|internal|proprietary|confidential|benchmark|nda)\b/.test(text)) {
+  if (/\b(customer|client|partner)s?\b.*\b(name|names|list|who|logo|logos|results?|contract|data)\b|\bwho\b.*\b(customer|client|partner)s?\b|\b(source|code|algorithm|architecture|pipeline|prompt|secret|internal|proprietary|confidential|benchmark|nda|weights|hyperparameters|credentials)\b/.test(text)) {
+    return confidentialAnswer;
+  }
+  if (/\b(dataset|training|model)\b/.test(text) && !/\bsynthetic\b|contact[- ]rich/.test(text)) {
     return confidentialAnswer;
   }
   if (/\b(career|careers|job|jobs|thesis|theses|apply|application|deadline|hiring)\b/.test(text)) {
     return "Explore our engineering roles and three external master's thesis opportunities in Aachen at /careers. Thesis applications close 30 October 2026, with university registration planned for November 2026.";
+  }
+  if (/\bsynthetic\b|contact[- ]rich/.test(text)) {
+    return "Our synthetic contact-rich data offering supports learning and evaluating robots interacting with objects: grasping, handling, placing and assembling, including task variations. Explore the public offering at /#contact-rich.";
+  }
+  if (/self[- ]improving|operating system|\bos\b/.test(text)) {
+    return "We are building a self-improving OS for robots, designed around operation, assessment and refinement. The aim is a growing set of useful robot capabilities as tasks and conditions change. Explore /#self-improving.";
   }
   if (/\b(invest|investment|investor|investors|funding|deck|raise|raising)\b/.test(text)) {
     return "Investors can meet the team and request a confidential discussion at /contact?interest=Investment. Learn more at /investors.";

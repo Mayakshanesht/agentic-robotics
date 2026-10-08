@@ -21,13 +21,16 @@ secrets only in Supabase Edge secrets and private webhook configuration.
    These values are browser-visible; use a publishable/anon key only.
 3. Deploy and check public routes, the careers deadline, social preview image,
    contact forms and the configured security response headers.
-4. Retire old deployments that still serve removed technical videos or images.
+4. Retire old deployments that still serve the unreviewed original technical
+   videos or images. The current build includes three reviewed simulation crops.
    Existing search caches, old deploy URLs and repository forks are separate
    from the new publication tree.
 
-The build fails if known technical disclosures, unreviewed demo media, private
-setup files or secret-shaped tokens reappear in the publication tree. Publish
-only `dist`; do not serve the repository root.
+The build fails if known proprietary disclosures, unreviewed demo media, private
+setup files or secret-shaped tokens reappear in the publication tree. Approved
+high-level positioning about the self-improving OS and synthetic contact-rich
+data is public. Demonstration files must match their reviewed SHA-256 fingerprints.
+Publish only `dist`; do not serve the repository root.
 
 Vercel configuration reference:
 https://vercel.com/docs/project-configuration/vercel-json

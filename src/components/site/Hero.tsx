@@ -53,15 +53,15 @@ export function Hero() {
 
       <div className="section-container w-full pb-40 sm:pb-32 lg:pb-24">
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
-          <Kicker>Robotics for industry</Kicker>
+          <Kicker>Agentic physical AI</Kicker>
           <h1 className="mt-5 text-[2.5rem] font-extrabold leading-[1.05] tracking-[-1.5px] sm:text-5xl lg:text-[3.75rem]">
-            Describe the task. <span className="text-primary">Deploy the capability.</span>
+            The self-improving OS <span className="text-primary">for robots.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg font-semibold leading-relaxed text-foreground">
-            Put industrial robots to work.
+            Powered by scalable synthetic contact-rich data.
           </p>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#13233B]">
-            Start with a focused pilot for your robot, your parts and your production goals.
+            Describe the task. Deploy the capability. Start with a focused pilot for your robot and production goals.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-2">
             {["Handling", "Assembly", "Industrial automation"].map((w) => (

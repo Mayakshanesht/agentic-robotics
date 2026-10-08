@@ -7,18 +7,18 @@ import { sectors } from "@/data/company";
 const steps = [
   {
     art: <DefineGoal />,
-    title: "Start with the work that matters",
-    body: "Handling, assembly and other industrial tasks are the starting point. We help you choose a focused use case for a pilot.",
+    title: "Synthetic contact-rich data",
+    body: "We develop synthetic data for robots interacting with objects: approaching, grasping, handling and assembling. The focus is the physical interaction that makes a task work, including variation in parts and situations.",
   },
   {
     art: <FocusPilot />,
-    title: "Build around your operation",
-    body: "Your robot, parts and work cell shape the project. We work with your team to understand what successful automation needs to achieve.",
+    title: "Skills for your robot",
+    body: "A useful robot skill must fit the task, the robot and its end effector. We work on capabilities for robot arms, humanoids and dexterous hands, with a pilot shaped around your equipment and success criteria.",
   },
   {
     art: <ReviewOutcome />,
-    title: "Make the next decision with confidence",
-    body: "A focused pilot gives your team a concrete result to review before deciding how to move forward.",
+    title: "A platform that keeps improving",
+    body: "Our self-improving OS is designed to bring task development, evaluation and refinement into an ongoing capability cycle. The aim is to build on what a robot can already do as you explore new tasks and conditions.",
   },
 ];
 
@@ -30,15 +30,16 @@ export function WhatWeMake() {
       <FadeUp className="max-w-3xl">
         <Kicker>What we make</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Robot capabilities for industrial tasks.
+          Data. Robot skills. A platform that keeps improving.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          We work with industrial teams to explore practical robotics applications. Start with one task and
-          assess the opportunity in the context of your operation.
+          We are building the foundations for robots that can take on more useful work: synthetic contact-rich
+          data and a self-improving operating system. Start with an industrial task, develop a capability and
+          use the results to guide what comes next.
         </p>
       </FadeUp>
 
-      {/* the three steps as one line of work, not three separate claims */}
+      {/* Three connected parts of the public product story. */}
       <div className="relative mt-12 hidden md:block" aria-hidden>
         <div className="absolute inset-x-[16%] top-1/2 h-px -translate-y-1/2 border-t border-dashed border-primary/40" />
         <div className="relative grid grid-cols-3">
@@ -77,7 +78,7 @@ export function WhatWeMake() {
 
       <FadeUp delay={0.1} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
         <Link to="/how-it-works" className="text-base font-semibold text-primary hover:underline">
-          Explore the pilot journey →
+          Explore our approach →
         </Link>
         <p className="text-sm text-muted-foreground">Built for {sectors.join(", ").toLowerCase()}.</p>
       </FadeUp>

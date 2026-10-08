@@ -23,8 +23,23 @@ function Bullets({ items }: { items: string[] }) {
 const faqs: Faq[] = [
   {
     q: "What does CloudBee Robotics do?",
-    a: "You describe the task. We help build the skill for your robot, in your own work cell, so you do not need an R&D team of your own.",
+    a: "We are building a self-improving OS for robots, powered by synthetic contact-rich data. Start with a task and develop a capability for your robot through a focused industrial pilot.",
     cta: { label: "How it works", to: "/how-it-works" },
+  },
+  {
+    q: "What is synthetic contact-rich data?",
+    a: "Synthetic data for robots interacting with objects: grasping, handling, placing and assembling. It supports learning and evaluating the physical interactions and task variations a robot capability needs to handle.",
+    cta: { label: "Explore the data offering", to: "/#contact-rich" },
+  },
+  {
+    q: "What does self-improving mean?",
+    a: "Our platform is being built around a cycle of operation, assessment and refinement. The aim is to improve existing skills and develop a growing set of useful robot capabilities as tasks and conditions change.",
+    cta: { label: "Explore the capability cycle", to: "/#self-improving" },
+  },
+  {
+    q: "Are the videos simulations or real robots?",
+    a: "The three featured demonstrations show simulations. We also work with real robot arms in our Aachen hardware lab. Each pilot agrees the test setting and the evidence needed to assess its result.",
+    cta: { label: "Watch the demonstrations", to: "/#see-it-work" },
   },
   {
     q: "What do I need to get started?",

@@ -1,14 +1,33 @@
 # CloudBee Robotics
 
-Describe the task. Deploy the capability.
+The self-improving OS for robots.
 
-CloudBee Robotics helps industrial teams turn everyday tasks into useful robot
-capabilities. We work with teams to understand their goals, agree a pilot scope
-and review the results together.
+CloudBee Robotics is building a self-improving operating system for robots,
+powered by scalable synthetic contact-rich data. Describe the task. Deploy the
+capability. Start with a focused industrial pilot and review the results together.
 
 Domain: https://cloudbeerobotics.de
 Location: Aachen, Germany
 Contact: mayur.waghchoure@cloudbeerobotics.de
+
+## What we are building
+
+- Synthetic contact-rich data for industrial manipulation: grasping, handling,
+  placing and assembly, with task and object variation.
+- Robot skills developed around the task, robot and end effector involved.
+- A self-improving OS designed around operation, assessment and refinement,
+  with a growing set of useful robot capabilities as the goal.
+- Future self-serve access is in development; visitors can join the waitlist.
+
+## Demonstrations and current work
+
+Three featured videos show simulation demonstrations: contact and object
+interaction, humanoid walking and object handling. They illustrate development
+work. The team also works with real robot arms in its Aachen hardware lab.
+Industrial pilots agree a specific test setting and success criteria.
+Demonstrations: https://cloudbeerobotics.de/#see-it-work
+Data offering: https://cloudbeerobotics.de/#contact-rich
+Engineering focus: https://cloudbeerobotics.de/research
 
 ## For customers
 

@@ -2,20 +2,20 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 
 const steps = [
   {
-    title: "Discuss",
-    body: "Tell us about the task, your robot and the outcome that matters to your team.",
+    title: "Describe the task",
+    body: "Share what the robot should do, the parts it will handle and the conditions in your work cell. We define the capability and the outcome that matters to your team.",
   },
   {
-    title: "Scope",
-    body: "Together, we agree a focused pilot, the work involved and how to assess the result.",
+    title: "Develop the capability",
+    body: "We work on task scenarios, synthetic data and robot skills around the agreed scope. The focus is handling the variation and physical interactions your task requires.",
   },
   {
-    title: "Pilot",
-    body: "We work with your team on the chosen task, using your operational requirements as the guide.",
+    title: "Evaluate together",
+    body: "Review the capability in the appropriate simulation or hardware setting. Assess the result against the task, equipment and success criteria agreed for your pilot.",
   },
   {
-    title: "Review",
-    body: "Review the outcome with us and decide the next step for your automation project.",
+    title: "Refine and expand",
+    body: "Use what you learn to improve the task, plan integration or explore the next capability. Your team remains involved in deciding what is ready for the next step.",
   },
 ];
 
@@ -25,7 +25,7 @@ export function HowItWorks() {
       <FadeUp className="max-w-3xl">
         <Kicker>How it works</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          A clear path from your task to a focused pilot.
+          From a task description to a robot capability.
         </h2>
       </FadeUp>
 
@@ -44,7 +44,7 @@ export function HowItWorks() {
       </div>
 
       <FadeUp className="mt-8">
-        <p className="text-lg font-semibold text-foreground">One task. A shared goal. A practical next step.</p>
+        <p className="text-lg font-semibold text-foreground">Describe. Develop. Evaluate. Improve.</p>
       </FadeUp>
     </Section>
   );
