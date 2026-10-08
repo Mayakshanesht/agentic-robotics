@@ -6,13 +6,13 @@ export function WebApp() {
   return (
     <Section id="web-app" className="border-t border-border">
       <FadeUp className="max-w-3xl">
-        <Kicker>Stay in touch</Kicker>
+        <Kicker>The web app</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Be part of what comes next.
+          Soon you will describe skills yourself.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          Join our waitlist for company updates and future opportunities to work with CloudBee Robotics.
-          Tell us about the task and robot you have in mind.
+          The same loop we run with you in a pilot, as software. From December 2026 our own engineers use it to
+          deliver pilots; from mid-2027 it opens to customers, self-serve.
         </p>
       </FadeUp>
       <div className="mt-10">
@@ -20,7 +20,7 @@ export function WebApp() {
       </div>
       <FadeUp className="mt-6">
         <Link to="/pilots#waitlist" className="btn-pilot px-7 py-3.5 text-base">
-          Join the waitlist
+          Join the web app waitlist
         </Link>
       </FadeUp>
     </Section>

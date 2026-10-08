@@ -22,29 +22,18 @@ export default function BlogPostDynamic() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    let active = true;
-    setPost(null);
-    setLoading(true);
-    setNotFound(false);
     (async () => {
-      if (!slug) {
-        setNotFound(true);
-        setLoading(false);
-        return;
-      }
+      if (!slug) return;
       const { data, error } = await supabase
         .from("blog_posts")
         .select("title, category, content, cover_image_url, created_at")
         .eq("slug", slug)
         .eq("published", true)
-        .eq("public_marketing_approved", true)
         .maybeSingle();
-      if (!active) return;
       if (error || !data) setNotFound(true);
       else setPost(data);
       setLoading(false);
     })();
-    return () => { active = false; };
   }, [slug]);
 
   if (notFound) return <Navigate to="/blog" replace />;

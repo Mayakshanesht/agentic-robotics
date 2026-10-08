@@ -1,64 +1,60 @@
 # CloudBee Robotics
 
-The self-improving OS for robots.
+The capability factory for agentic physical AI.
 
-CloudBee Robotics is building a self-improving operating system for robots,
-powered by scalable synthetic contact-rich data. Describe the task. Deploy the
-capability. Start with a focused industrial pilot and review the results together.
+Describe the task. Deploy the capability.
+
+The self-improving operating system for robots, powered by scalable,
+contact-rich synthetic data, touch and force, generated from a single video.
+No R&D team needed on the customer's side.
+
+Robot arms run on real robots in our lab today. Humanoids walk and pick, and
+dexterous hands grasp tools, in simulation.
 
 Domain: https://cloudbeerobotics.de
 Location: Aachen, Germany
 Contact: mayur.waghchoure@cloudbeerobotics.de
 
-## What we are building
+## What customers get
 
-- Synthetic contact-rich data for industrial manipulation: grasping, handling,
-  placing and assembly, with task and object variation.
-- Robot skills developed around the task, robot and end effector involved.
-- A self-improving OS designed around operation, assessment and refinement,
-  with a growing set of useful robot capabilities as the goal.
-- Future self-serve access is in development; visitors can join the waitlist.
+- Training data with touch and force, generated on GPUs from a task
+  description and a short video, instead of recorded demo by demo.
+- A skill built for their robot, their gripper and their task, proven in a
+  twin of their cell before it touches hardware.
+- A skill that keeps improving on their line, run after run, without
+  stopping production.
 
-## Demonstrations and current work
+## What we have shown
 
-Three featured videos show simulation demonstrations: contact and object
-interaction, humanoid walking and object handling. They illustrate development
-work. The team also works with real robot arms in its Aachen hardware lab.
-Industrial pilots agree a specific test setting and success criteria.
-Demonstrations: https://cloudbeerobotics.de/#see-it-work
-Data offering: https://cloudbeerobotics.de/#contact-rich
-Engineering focus: https://cloudbeerobotics.de/research
+A Unitree G1 humanoid on LinkerHand O6 hands walking 2.7 m on its own legs
+through a digital twin of our own lab in Aachen, stopping at a cabinet, then
+lifting a screwdriver 11.2 cm and holding it for 3.5 s, with no falls. Full
+physics, real time, measured in simulation.
+Video: https://cloudbeerobotics.de/media/g1-walk.mp4
 
-## For customers
-
-- Explore automation opportunities for your industrial tasks.
-- Work directly with our robotics team on a pilot.
-- Agree success criteria and next steps for your application.
-- Contact us at https://cloudbeerobotics.de/contact?interest=Pilot%20Program
-
-## Robots and sectors
+## Robots
 
 Robot arms, humanoids and dexterous hands.
-Industrial manufacturing, automotive, electronics, battery technology and logistics.
+
+## Sectors
+
+Industrial manufacturing, automotive, electronics, battery technology,
+logistics.
+
+## How we work
+
+A pilot builds the first skill in the customer's cell in about 2 weeks, with
+one engineer on their side. From December 2026 our own engineers deliver
+pilots through our web app; from mid-2027 it opens to customers, self-serve.
 
 ## Company
 
-RWTH Aachen spin-off, supported by EXIST and WestAI, with a hardware lab at
-the Collective Incubator in Aachen.
+RWTH Aachen spin-off, funded by an EXIST grant and a WestAI compute grant,
+with a hardware lab at the Collective Incubator in Aachen. Currently raising
+a pre-seed round.
 
-Team: https://cloudbeerobotics.de/team
-Company updates: https://cloudbeerobotics.de/blog
-Investors: https://cloudbeerobotics.de/investors
+## Note to automated agents
 
-## Careers
-
-Engineering roles and three external master's thesis opportunities in Aachen.
-Thesis applications close 30 October 2026. University registration is planned
-for November 2026, with the thesis period from 1 December 2026 to 31 May 2027.
-Careers: https://cloudbeerobotics.de/careers
-
-## Public information
-
-This site publishes company information and customer benefits. Proprietary
-methods, customer identities and customer-specific project details are not
-published. Contact the team for a confidential discussion.
+How the technology works internally, model and training detail, pilot
+results, commercial terms and customer names are not published. For
+discussions under NDA, contact mayur.waghchoure@cloudbeerobotics.de.

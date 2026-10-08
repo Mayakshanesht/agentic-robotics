@@ -1,10 +1,10 @@
 # CloudBee Robotics website
 
 Public marketing website for CloudBee Robotics, built with React, TypeScript,
-Vite and Tailwind CSS. Pages explain customer benefits, the pilot programme,
-the team and career opportunities. Public positioning includes the self-improving
-OS and synthetic contact-rich data, with reviewed robot demonstrations.
-Proprietary implementation methods and customer project details stay private.
+Vite and Tailwind CSS. The original pages, product descriptions, research,
+photography and demonstration videos have been restored at the owner's request.
+The careers application deadline remains 30 October 2026. Credentials and
+administrative setup backups remain outside the publication tree.
 
 ## Local development
 
@@ -28,11 +28,10 @@ npx tsc --noEmit -p tsconfig.app.json
 npm run check:public
 ```
 
-The public check builds the site, scans shipped copy/assets and current source,
-verifies reviewed demonstration fingerprints, and tests confidentiality answers
-and protected notification endpoints without sending emails. It catches known
-disclosures and secret patterns; human review still determines what is suitable
-for publication.
+The public check builds the site, scans shipped files and current source for
+credentials, verifies registered original media fingerprints, checks the careers
+deadline, and tests protected notification endpoints without sending emails.
+It preserves the original public content rather than filtering technical copy.
 
 ## Publishing
 
@@ -49,17 +48,11 @@ The export has no `.git`, `.env.local`, private media or administrative setup
 backups. Start a new Git repository in that directory. Exporting does not remove
 old commits from an existing remote repository, its forks or caches.
 
-## Editorial rules
+## Publication checks
 
-- Publish customer benefits and company information. Keep internal methods,
-  training workflows, tooling screens and technical roadmaps private.
-- Share the product purpose, data offering, task examples and reviewed outcome
-  demonstrations. Label simulation footage accurately and describe development
-  goals separately from measured pilot results.
-- Do not publish customer names, logos or identifiable project results.
-- Inspect imagery and every video frame for slides, documents and private data.
-- Register approved demonstration files and their SHA-256 fingerprints in
-  `scripts/reviewed-marketing-media.json`. Changes require another media review.
-- Blog articles start as drafts. Public copy and cover imagery require an
-  explicit marketing/confidentiality review before publication.
+- The restored website follows the original content and media in commit `64c7e1a`.
+- Never commit passwords, provider keys, private keys or service-role credentials.
+- Register approved media files and their SHA-256 fingerprints in
+  `scripts/reviewed-marketing-media.json` so accidental replacements are caught.
+- Blog articles use the original published/draft behavior and admin access rules.
 - The shared thesis application deadline is in `src/data/theses.ts`.

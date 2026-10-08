@@ -3,7 +3,7 @@
 ## Before public publication
 
 Historical commits in the original development repository included operational
-admin passwords and technical media. Removing them from the working tree does
+admin passwords. Removing them from the working tree does
 not remove those earlier commits. Rotate the exposed admin password and revoke
 old sessions in the live Supabase project. Publish the clean source export as a
 new repository, or separately review a history-rewrite plan for the existing
@@ -21,15 +21,15 @@ secrets only in Supabase Edge secrets and private webhook configuration.
    These values are browser-visible; use a publishable/anon key only.
 3. Deploy and check public routes, the careers deadline, social preview image,
    contact forms and the configured security response headers.
-4. Retire old deployments that still serve the unreviewed original technical
-   videos or images. The current build includes three reviewed simulation crops.
-   Existing search caches, old deploy URLs and repository forks are separate
-   from the new publication tree.
+4. The original pages and original demonstration videos are restored at the
+   owner's request. Check that media loads from its original URL and that the
+   careers deadline is 30 October 2026. Existing search caches, old deploy URLs
+   and repository forks are separate from the current publication tree.
 
-The build fails if known proprietary disclosures, unreviewed demo media, private
-setup files or secret-shaped tokens reappear in the publication tree. Approved
-high-level positioning about the self-improving OS and synthetic contact-rich
-data is public. Demonstration files must match their reviewed SHA-256 fingerprints.
+The build fails if unregistered media, private setup files or secret-shaped
+tokens reappear in the publication tree. The original website content is
+preserved, including its technical descriptions. Media files must match their
+registered SHA-256 fingerprints.
 Publish only `dist`; do not serve the repository root.
 
 Vercel configuration reference:
@@ -37,12 +37,10 @@ https://vercel.com/docs/project-configuration/vercel-json
 
 ## Supabase database and authentication
 
-Apply the four `20261008` migrations in order using your normal migration
+Apply the three `20261008` security migrations in order using your normal migration
 workflow. For an existing linked project, review the planned changes before
 running `supabase db push`:
 
-- Require published blog posts to be explicitly reviewed for public marketing.
-  Existing posts remain private until reviewed in the admin editor.
 - Remove the legacy public admin bootstrap functions and anonymous role-table
   access. Existing legitimate admin roles remain in place.
 - Enforce form and analytics field limits in the database.

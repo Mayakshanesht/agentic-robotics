@@ -1,15 +1,22 @@
 import { Camera } from "lucide-react";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
-import pitchPhoto from "@/assets/events/pitch.jpg";
-import ideationPhoto from "@/assets/ideation-pitch.jpg";
+import lab from "@/assets/events/lab.jpg";
+import foundersFestival from "@/assets/events/founders-festival.jpg";
+import guestLecture from "@/assets/events/guest-lecture.jpg";
 
 type Photo = { src: string; alt: string; caption: string };
 
-/** Reviewed public company presentation photos. */
+/**
+ * Our own photos. Entries pointing at /events are drop-in slots: add the file
+ * and the placeholder is replaced automatically. Photos showing people who are
+ * not on the team are not published here (GDPR), and the two stage photos moved
+ * to the hero carousel.
+ */
 const photos: Photo[] = [
-  { src: pitchPhoto, alt: "CloudBee Robotics presenting at the Deloitte Problem-Solution Fit final", caption: "Deloitte Problem-Solution Fit final" },
-  { src: ideationPhoto, alt: "CloudBee Robotics presenting at the RWTH Innovation Ideation programme", caption: "RWTH Innovation Ideation programme" },
+  { src: foundersFestival, alt: "The CloudBee Robotics team at their booth at the Founders Festival in Aachen", caption: "Our booth at the Founders Festival, Aachen" },
+  { src: guestLecture, alt: "Mayur Waghchoure giving a guest lecture at the RWTH International Academy", caption: "Guest lecture at the RWTH International Academy" },
+  { src: lab, alt: "The CloudBee Robotics hardware lab in Aachen", caption: "Our hardware lab, Aachen" },
 ];
 
 function Placeholder({ caption }: { caption: string }) {
@@ -21,11 +28,11 @@ function Placeholder({ caption }: { caption: string }) {
   );
 }
 
-export function EventGallery({ title = "Meet CloudBee Robotics" }: { title?: string }) {
+export function EventGallery({ title = "Where we build and who we meet" }: { title?: string }) {
   return (
     <Section id="lab" className="border-t border-border">
       <FadeUp className="max-w-3xl">
-        <Kicker>Our company in the community</Kicker>
+        <Kicker>Lab and events</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">{title}</h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
           We build in our own lab in Aachen, and we show the work in person: booths at the Founders Festival,
@@ -33,7 +40,7 @@ export function EventGallery({ title = "Meet CloudBee Robotics" }: { title?: str
           the Deloitte Problem-Solution Fit final and the RWTH Innovation Ideation programme.
         </p>
       </FadeUp>
-      <div className="mt-10 grid gap-4 sm:grid-cols-2">
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {photos.map((p, i) => (
           <FadeUp key={p.caption} delay={i * 0.05}>
             <figure className="group h-full overflow-hidden rounded-2xl border border-border bg-white shadow-[var(--shadow-card)]">

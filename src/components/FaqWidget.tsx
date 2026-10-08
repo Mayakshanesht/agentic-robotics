@@ -23,27 +23,12 @@ function Bullets({ items }: { items: string[] }) {
 const faqs: Faq[] = [
   {
     q: "What does CloudBee Robotics do?",
-    a: "We are building a self-improving OS for robots, powered by synthetic contact-rich data. Start with a task and develop a capability for your robot through a focused industrial pilot.",
+    a: "You describe the task. We help build the skill for your robot, in your own work cell, so you do not need an R&D team of your own.",
     cta: { label: "How it works", to: "/how-it-works" },
   },
   {
-    q: "What is synthetic contact-rich data?",
-    a: "Synthetic data for robots interacting with objects: grasping, handling, placing and assembling. It supports learning and evaluating the physical interactions and task variations a robot capability needs to handle.",
-    cta: { label: "Explore the data offering", to: "/#contact-rich" },
-  },
-  {
-    q: "What does self-improving mean?",
-    a: "Our platform is being built around a cycle of operation, assessment and refinement. The aim is to improve existing skills and develop a growing set of useful robot capabilities as tasks and conditions change.",
-    cta: { label: "Explore the capability cycle", to: "/#self-improving" },
-  },
-  {
-    q: "Are the videos simulations or real robots?",
-    a: "The three featured demonstrations show simulations. We also work with real robot arms in our Aachen hardware lab. Each pilot agrees the test setting and the evidence needed to assess its result.",
-    cta: { label: "Watch the demonstrations", to: "/#see-it-work" },
-  },
-  {
     q: "What do I need to get started?",
-    a: "Tell us the task you want to automate, the robots you use and what success would look like. We will discuss the next steps with your team.",
+    a: "A task described in plain words. A phone video of your cell or a few demonstrations help, but are optional.",
   },
   {
     q: "How long does a first skill take?",
@@ -60,13 +45,13 @@ const faqs: Faq[] = [
     cta: { label: "Talk to us", to: BOOK_A_PILOT_PATH },
   },
   {
-    q: "How do you protect technology and customer information?",
-    a: "This website shares company information and customer benefits. Proprietary methods and customer-specific information are handled through confidential discussions with the team.",
+    q: "What do you share under NDA?",
+    a: "Technical detail, pilot results and anything commercial are shared with partners and investors under NDA.",
   },
   {
     q: "Are you raising investment?",
     a: "Yes, we are raising our pre-seed round. Investors can request our deck and a demo.",
-    cta: { label: "For investors", to: "/investors" },
+    cta: { label: "For investors", to: "/#investors" },
   },
   {
     q: "Where are you based, and who backs you?",

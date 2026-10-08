@@ -6,16 +6,16 @@ import { FasterCheaper } from "@/components/site/anim/FasterCheaper";
 import { BOOK_A_PILOT_PATH, CONTACT_EMAIL, robotFamilies } from "@/data/company";
 
 const families = [
-  { name: "Robot arms", body: "Industrial handling and assembly tasks, including pick-and-place, insertion and part handling.", status: "Real robots in our lab" },
-  { name: "Humanoids", body: "Exploring mobility and manipulation for industrial work.", status: "Simulation demonstrations" },
-  { name: "Dexterous hands", body: "Exploring tool and part handling for practical robotics applications.", status: "Simulation demonstrations" },
+  { name: "Robot arms", body: "Pick, place, insert and assemble tasks, including steps that depend on contact rather than vision alone.", status: "Running on real robots in our lab" },
+  { name: "Humanoids", body: "Two-handed tasks and longer sequences, where a step may need to be checked and repeated before the next one starts.", status: "In simulation today" },
+  { name: "Dexterous hands", body: "Handling that depends on grip and force, where small corrections decide whether the task succeeds.", status: "In simulation today" },
 ];
 
 export default function WhyCloudBeePage() {
   return (
     <PageShell
       title="Why CloudBee · CloudBee Robotics"
-      description="Meet your robotics partner: an industrial focus, hands-on experience from RWTH Aachen and a focused pilot for your automation goal."
+      description="Others solve one piece. We close the whole loop: data with touch and force, a model adapted to your cell, and a skill that corrects itself while it runs."
       path="/why-cloudbee"
     >
       <section className="bg-hero-gradient pt-28 lg:pt-36">
@@ -23,11 +23,11 @@ export default function WhyCloudBeePage() {
           <FadeUp className="max-w-3xl">
             <Kicker>Why CloudBee</Kicker>
             <h1 className="mt-5 text-[2.5rem] font-extrabold leading-[1.05] tracking-[-1.5px] lg:text-[3.25rem]">
-              Your next step in industrial robotics.
+              One loop, instead of five separate problems.
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-[#13233B]">
-              Bring your operational goals to a robotics team with industry experience and its own hardware lab.
-              Start with a focused pilot and use the outcome to guide your next step.
+              Teaching a robot by hand costs months and specialists. We change where the work happens, so a new skill
+              costs weeks and one engineer on your side.
             </p>
             <Link to={BOOK_A_PILOT_PATH} className="btn-pilot mt-8 px-7 py-3.5 text-base">
               Book a pilot
@@ -46,9 +46,9 @@ export default function WhyCloudBeePage() {
 
       <Section className="border-t border-border bg-white">
         <FadeUp className="max-w-3xl">
-          <Kicker>A focused approach</Kicker>
+          <Kicker>Faster and cheaper</Kicker>
           <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-            Give your first pilot a clear purpose.
+            The same task, at a different scale of effort.
           </h2>
         </FadeUp>
         <div className="mt-10">
@@ -60,7 +60,7 @@ export default function WhyCloudBeePage() {
         <FadeUp className="max-w-3xl">
           <Kicker>Where it fits</Kicker>
           <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-            Discuss the robot you have in mind.
+            The robots you already have.
           </h2>
         </FadeUp>
         <div className="mt-10 grid gap-5 lg:grid-cols-3">

@@ -56,7 +56,7 @@ const RequestAccess = () => {
 
       if (error) throw error;
 
-      // Notifications are sent server-side after the database insert.
+      // Notifications are sent by authenticated server-side webhooks.
 
       setIsSubmitted(true);
     } catch (error) {
@@ -72,9 +72,8 @@ const RequestAccess = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-20">
+      <main className="pt-20">
         <section className="section-spacing relative overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0 bg-hero-gradient" />

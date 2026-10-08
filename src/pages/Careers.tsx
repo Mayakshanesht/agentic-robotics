@@ -29,7 +29,7 @@ export default function Careers() {
   return (
     <PageShell
       title="Careers - CloudBee Robotics"
-      description={`Join CloudBee Robotics in Aachen. Explore engineering roles and master's thesis opportunities. Thesis applications close ${thesisDates.applicationsClose}.`}
+      description="Join CloudBee Robotics - build the autonomous OS for embodied AI from Aachen, Germany. EXIST funded, RWTH-backed."
       path="/careers"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
@@ -41,15 +41,12 @@ export default function Careers() {
               Join the team building the <span className="text-gradient-blue">future of physical AI.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              We're a small team helping industrial customers put robots to work. Join us in Aachen to turn ambitious ideas into useful products.
+              We're a small, senior team shipping a real product - contact-rich manipulation data, robot foundation models adapted to real hardware, and an agentic runtime that recovers on its own.
             </p>
             <div className="inline-flex items-center gap-2 text-sm font-mono text-muted-foreground px-3 py-2 mt-6 rounded-md border border-border bg-surface/60">
               <MapPin size={14} className="text-accent-blue" />
               Aachen, Germany · EXIST Supported · RWTH Aachen Ecosystem
             </div>
-            <a href="#thesis-positions" className="mt-5 block w-fit rounded-xl border border-accent-green/30 bg-accent-green/5 px-4 py-3 text-sm font-semibold text-accent-green hover:underline">
-              Master's thesis applications close {thesisDates.applicationsClose} <ArrowRight size={14} className="ml-1 inline" />
-            </a>
           </motion.div>
         </div>
       </section>
@@ -84,18 +81,17 @@ export default function Careers() {
                 </div>
               </div>
             </div>
-            <button onClick={() => toggle("rs")} aria-expanded={!!details.rs} aria-controls="research-role-details" className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:gap-2 transition-all">
+            <button onClick={() => toggle("rs")} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue hover:gap-2 transition-all">
               {details.rs ? "Hide details" : "View details"}
               <ChevronDown size={15} className={`transition-transform ${details.rs ? "rotate-180" : ""}`} />
             </button>
             <AnimatePresence initial={false}>
               {details.rs && (
                 <motion.p
-                  id="research-role-details"
                   initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}
                   className="mt-4 text-sm text-muted-foreground leading-relaxed overflow-hidden"
                 >
-                  Help our core team build useful robotics products for industrial customers. We welcome PhD-level research experience or strong industry experience in AI, robotics or engineering, with a track record of delivering practical work.
+                  Join our core team at the intersection of robotics, synthetic data, embodied AI, and robotic foundation models. PhD-level or strong industry experience in generative AI, multimodal systems, or robotics simulation.
                 </motion.p>
               )}
             </AnimatePresence>
@@ -110,7 +106,7 @@ export default function Careers() {
           </motion.div>
 
           {/* Master's thesis positions */}
-          <div id="thesis-positions" className="mb-6 space-y-4 scroll-mt-28">
+          <div className="mb-6 space-y-4">
             <div className="rounded-2xl border border-accent-green/30 bg-accent-green/5 p-6 lg:p-7">
               <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-3">
                 Master's Theses at CloudBee Robotics
@@ -119,9 +115,9 @@ export default function Careers() {
                 We are opening three master's thesis positions.
               </h3>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-3xl">
-                Spend six months alongside our team in Aachen, exploring a practical robotics topic with academic
-                supervision from your university. Detailed proposals are discussed directly with applicants and their
-                supervising professors.
+                These are not internships with a thesis attached. Each one is built around a question the field has not
+                answered - chosen because we need the answer ourselves, and framed so that a negative result is still a
+                result worth publishing.
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-xs font-mono">
                 {[
@@ -180,8 +176,6 @@ export default function Careers() {
 
                 <button
                   onClick={() => toggle(t.slug)}
-                  aria-expanded={!!details[t.slug]}
-                  aria-controls={`requirements-${t.number}`}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-green hover:gap-2 transition-all"
                 >
                   {details[t.slug] ? "Hide requirements" : "What you should bring"}
@@ -190,7 +184,6 @@ export default function Careers() {
                 <AnimatePresence initial={false}>
                   {details[t.slug] && (
                     <motion.div
-                      id={`requirements-${t.number}`}
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
@@ -236,7 +229,7 @@ export default function Careers() {
               <div>
                 <h3 className="font-display font-bold text-xl text-foreground">Open Application</h3>
                 <p className="text-sm text-muted-foreground mt-2 max-w-2xl">
-                  Don't see a role that fits? We'd like to hear from people with engineering, product or research backgrounds who want to help industrial customers put robots to work.
+                  Don't see a role that fits? We're always interested in exceptional people - simulation, embedded, full-stack, or research backgrounds welcome.
                 </p>
               </div>
             </div>

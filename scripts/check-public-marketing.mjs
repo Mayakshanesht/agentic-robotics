@@ -10,16 +10,20 @@ const dist = path.join(root, "dist");
 const mediaReview = JSON.parse(await readFile(path.join(root, "scripts/reviewed-marketing-media.json"), "utf8"));
 const reviewedMedia = new Map();
 for (const asset of mediaReview.assets) {
-  assert(/^marketing\/demos\/[a-z0-9-]+\.(mp4|jpg)$/.test(asset.path), "Reviewed media must use a public demonstration path");
+  assert(/^(?:media|videos|src\/assets)\/[A-Za-z0-9_./-]+\.(mp4|jpg|gif)$/.test(asset.path) && !asset.path.includes(".."), "Registered media must use an original website asset path");
   assert(/^[a-f0-9]{64}$/.test(asset.sha256), "Reviewed media requires a SHA-256 fingerprint");
   assert(!reviewedMedia.has(asset.path), "Duplicate asset in media review");
   reviewedMedia.set(asset.path, asset.sha256);
 }
 
 async function assertReviewedMedia(file, relative) {
-  assert(reviewedMedia.has(relative), `Unreviewed demonstration media: ${relative}`);
   const digest = createHash("sha256").update(await readFile(file)).digest("hex");
-  assert.equal(digest, reviewedMedia.get(relative), `Demonstration changed since review: ${relative}`);
+  if (relative.startsWith("assets/")) {
+    assert([...reviewedMedia.values()].includes(digest), `Unregistered bundled media: ${relative}`);
+  } else {
+    assert(reviewedMedia.has(relative), `Unregistered website media: ${relative}`);
+    assert.equal(digest, reviewedMedia.get(relative), `Website media changed since registration: ${relative}`);
+  }
 }
 
 function assertNoPrivateCredentials(content, file) {
@@ -44,31 +48,25 @@ async function filesIn(directory, excluded = new Set()) {
 const outputFiles = await filesIn(dist);
 for (const file of outputFiles) {
   const relative = path.relative(dist, file);
-  assert(!/private-media|\.(gif|map)$/i.test(relative), `Private media or source map in public build: ${relative}`);
-  if (/\.mp4$/i.test(relative) || relative.startsWith("marketing/demos/")) await assertReviewedMedia(file, relative);
+  assert(!/private-media|\.map$/i.test(relative), `Private archive or source map in public build: ${relative}`);
+  if (/\.(mp4|gif)$/i.test(relative) || (relative.startsWith("media/") && /\.jpg$/i.test(relative))) await assertReviewedMedia(file, relative);
   if (!/\.(html|js|txt|xml)$/.test(file)) continue;
   const content = await readFile(file, "utf8");
   assertNoPrivateCredentials(content, relative);
-  for (const prohibited of [
-    /\b(DataForge|ModelLab|KineBridge|AgenticOS)\b/i,
-    /generated from (a single|one|a phone) video/i,
-    /training data with touch and force/i,
-    /\/media\/(walkthrough|dataset-generation|contact-rich|trained-model|twin-|g1-walk)/i,
-    /\/videos\/(video-to-motion|robot-demo)/i,
-  ]) {
-    assert(!prohibited.test(content), `Legacy technical disclosure in public output: ${relative} (${prohibited})`);
-  }
+
 }
 for (const relative of reviewedMedia.keys()) {
-  assert(outputFiles.includes(path.join(dist, relative)), `Reviewed demonstration missing from build: ${relative}`);
+  if (!relative.startsWith("src/")) assert(outputFiles.includes(path.join(dist, relative)), `Original website media missing from build: ${relative}`);
 }
 
 const html = await readFile(path.join(dist, "index.html"), "utf8");
-assert(html.includes("30 October 2026"), "Public fallback must show the updated thesis deadline");
-assert(html.includes("self-improving OS"), "Approved platform positioning must remain public");
-assert(html.includes("synthetic contact-rich data"), "Approved data offering must remain public");
-assert(html.includes("/marketing/company-presentation.jpg"), "Social previews must use reviewed marketing imagery");
-assert(outputFiles.includes(path.join(dist, "marketing/company-presentation.jpg")), "Social image must exist");
+assert(html.includes("Describe the task. Deploy the capability."), "Original website title must remain public");
+assert(html.includes("self-improving operating system"), "Original platform positioning must remain public");
+assert(html.includes("contact-rich synthetic data"), "Original data offering must remain public");
+assert(html.includes("/media/walkthrough-poster.jpg"), "Original social preview must remain public");
+assert(outputFiles.includes(path.join(dist, "media/walkthrough-poster.jpg")), "Original social image must exist");
+const thesisSource = await readFile(path.join(root, "src/data/theses.ts"), "utf8");
+assert(thesisSource.includes('applicationsClose: "30 October 2026"'), "Careers must retain the October 30 deadline");
 for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
   JSON.parse(match[1]);
 }
@@ -189,8 +187,7 @@ const sourceFiles = (await filesIn(root, new Set([".git", "node_modules", "dist"
 for (const file of sourceFiles) {
   const relative = path.relative(root, file);
   assert(!/private-media|(?:^|\/)(?:setup-admin|reset-admin-password|complete-admin-setup|quick-admin-setup)\.sql$/.test(relative), `Private setup or media in public source: ${relative}`);
-  assert(!/\.gif$/i.test(relative), `Unreviewed animated media in public source: ${relative}`);
-  if (/\.mp4$/i.test(relative)) await assertReviewedMedia(file, relative.replace(/^public\//, ""));
+  if (/\.(mp4|gif)$/i.test(relative)) await assertReviewedMedia(file, relative.replace(/^public\//, ""));
   if (!/\.(tsx?|m?js|json|toml|sql|md|txt|html)$/.test(file)) continue;
   const text = await readFile(file, "utf8");
   assert(!text.includes(["@", "gmail.com"].join("")), `Private personal mailbox in public source: ${relative}`);
@@ -201,4 +198,4 @@ for (const file of sourceFiles.filter((file) => /\.(tsx?|m?js)$/.test(file))) {
   assert(!/\.invoke\(\s*["']send-(?:contact|application)-email["']/.test(source), "Browser code must not invoke mail notifications");
 }
 
-console.log(`Public marketing checks passed for ${outputFiles.length} build files, ${reviewedMedia.size / 2} reviewed demonstrations and confidentiality responses.`);
+console.log(`Public website checks passed for ${outputFiles.length} build files, ${reviewedMedia.size} registered original media assets and protected notification endpoints.`);

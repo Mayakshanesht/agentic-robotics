@@ -17,7 +17,7 @@ export default function PilotsPage() {
   return (
     <PageShell
       title="Pilots · CloudBee Robotics"
-      description="Develop a first robot capability with CloudBee Robotics and help shape our self-improving OS and future self-serve platform."
+      description="Pilots running with industrial companies on humanoids and robot arms. Start with one skill in your own cell in about 2 weeks, then scale to every robot."
       path="/pilots"
     >
       <section className="bg-hero-gradient pt-28 lg:pt-36">
@@ -25,12 +25,11 @@ export default function PilotsPage() {
           <FadeUp className="max-w-3xl">
             <Kicker>Pilots</Kicker>
             <h1 className="mt-5 text-[2.5rem] font-extrabold leading-[1.05] tracking-[-1.5px] lg:text-[3.25rem]">
-              Start with one task. Plan your next step.
+              Start with one skill. Scale to every robot.
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-[#13233B]">
-              Put our synthetic contact-rich data and robot skill development to work on a focused industrial
-              task. Your robot and operational goals shape the pilot, from agreed test criteria to a review
-              of what the capability can do and where it should improve next.
+              A pilot builds your first skill in your own cell, with your robot and your parts. What works there is what
+              we scale.
             </p>
             <Link to={BOOK_A_PILOT_PATH} className="btn-pilot mt-8 px-7 py-3.5 text-base">
               Book a pilot

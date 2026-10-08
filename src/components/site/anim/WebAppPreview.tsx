@@ -2,10 +2,10 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 
 const TYPED = "Pick the part from the bin and place it in the tray.";
-const ways = ["Your task", "Your robot", "Your priorities"];
-const builds = ["Agree the goal", "Review the scope", "Run a focused pilot", "Review next steps"];
+const ways = ["Video of your cell", "Video demo", "VR demo in the twin"];
+const builds = ["Digital twin", "1,000s of variations", "Model adapted", "Safety-tested"];
 
-/** An illustration of the customer journey. */
+/** Mock of the self-serve app: describe the task, show it your way, we build it with you. */
 export function WebAppPreview() {
   const reduce = useReducedMotion();
   const cycle = { duration: 10, repeat: Infinity, ease: "easeInOut" as const };
@@ -16,9 +16,9 @@ export function WebAppPreview() {
         <span className="h-2.5 w-2.5 rounded-full bg-[#5EB8AE]" />
         <span className="h-2.5 w-2.5 rounded-full bg-border" />
         <span className="h-2.5 w-2.5 rounded-full bg-border" />
-        <span className="ml-2 text-sm font-semibold text-foreground">Your pilot journey</span>
+        <span className="ml-2 text-sm font-semibold text-foreground">CloudBee web app</span>
         <span className="ml-auto rounded-full bg-foreground px-3 py-1 text-[11px] font-bold text-white">
-          Work with us
+          First version: Dec 2026
         </span>
       </div>
 
@@ -49,7 +49,7 @@ export function WebAppPreview() {
 
         <div>
           <div className="text-[13px] font-bold uppercase tracking-[3px] text-primary">
-            2 · Bring your context
+            2 · Show it your way (optional)
           </div>
           <div className="mt-3 flex flex-wrap gap-2">
             {ways.map((w, i) => (
@@ -74,7 +74,7 @@ export function WebAppPreview() {
         </div>
 
         <div>
-          <div className="text-[13px] font-bold uppercase tracking-[3px] text-primary">3 · Work with our team</div>
+          <div className="text-[13px] font-bold uppercase tracking-[3px] text-primary">3 · We build it with you</div>
           <div className="mt-3 grid gap-2 sm:grid-cols-2">
             {builds.map((b, i) => {
               const start = 0.45 + i * 0.09;
@@ -102,14 +102,14 @@ export function WebAppPreview() {
         </div>
 
         <div className="flex items-center justify-between gap-4">
-          <span className="text-xs italic text-muted-foreground">An illustration of the pilot journey</span>
+          <span className="text-xs italic text-muted-foreground">Illustration of the product flow</span>
           <motion.span
             className="rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white"
             initial={{ opacity: reduce ? 1 : 0.35 }}
             animate={reduce ? undefined : { opacity: [0.35, 0.35, 1, 1, 0.35] }}
             transition={{ ...cycle, times: [0, 0.82, 0.87, 0.95, 1] }}
           >
-            Explore a pilot →
+            Deploy skill →
           </motion.span>
         </div>
       </div>

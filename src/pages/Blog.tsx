@@ -18,7 +18,6 @@ export default function Blog() {
         .from("blog_posts")
         .select("slug, title, excerpt, category, created_at")
         .eq("published", true)
-        .eq("public_marketing_approved", true)
         .order("created_at", { ascending: false });
       if (data && data.length) {
         const dbPosts: Post[] = data.map((p) => ({
@@ -28,16 +27,16 @@ export default function Blog() {
           category: p.category,
           date: new Date(p.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
         }));
-        // Vetted static routes cannot be overridden by legacy database entries.
-        const staticSlugs = new Set(staticPosts.map((p) => p.slug));
-        setPosts([...dbPosts.filter((p) => !staticSlugs.has(p.slug)), ...staticPosts]);
+        // Merge DB posts first, then static ones (de-duped by slug)
+        const seen = new Set(dbPosts.map((p) => p.slug));
+        setPosts([...dbPosts, ...staticPosts.filter((p) => !seen.has(p.slug))]);
       }
     })();
   }, []);
   return (
     <PageShell
       title="Blog & News - CloudBee Robotics"
-      description="Company news, industry perspectives, and partnership opportunities from CloudBee Robotics."
+      description="Technical insights, research updates, and milestones from CloudBee Robotics."
       path="/blog"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
@@ -46,10 +45,10 @@ export default function Blog() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">Blog & News</div>
             <h1 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-5">
-              News from <span className="text-gradient-blue">CloudBee.</span>
+              Notes from the <span className="text-gradient-blue">frontier.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Company news, industry perspectives, and partnership opportunities from CloudBee Robotics.
+              Technical insights, research updates, and milestones from CloudBee Robotics.
             </p>
           </motion.div>
         </div>

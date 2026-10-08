@@ -6,7 +6,7 @@ const payIn = [
   { lead: "GPU compute", rest: ", on a grant from the WestAI AI service centre" },
   { lead: "A system that already runs", rest: " - not an empty repository and a reading list" },
   { lead: "A named technical supervisor", rest: ", one scheduled hour with you every week, plus code review and pair debugging" },
-  { lead: "Academic writing support", rest: ", with publication arrangements agreed with your university" },
+  { lead: "First authorship", rest: ", with our support on the writing - and negative results are publishable results here" },
 ];
 
 const timeline = [
@@ -139,7 +139,7 @@ export function ThesisProgramDetails() {
             </li>
             <li>
               <strong className="text-foreground">You arrange your own academic supervision.</strong> A professor at your
-              university supervises and examines the thesis, and you register it through your examination office during{" "}
+              university supervises and examines the thesis, and you register it through your examination office during
               {thesisDates.registration}. We act as industry co-supervisor.
             </li>
             <li>
@@ -226,8 +226,7 @@ export function ThesisProgramDetails() {
         </p>
         <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
           A written proposal is available on request, and we are glad to work from your institute's standard framework for
-          intellectual property, confidentiality and publication. Any publication is agreed in advance to protect
-          proprietary technology and customer information.
+          intellectual property, confidentiality and publication. We actively want the results published.
         </p>
         <a
           href={supervisionMailto}

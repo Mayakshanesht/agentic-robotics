@@ -2,20 +2,20 @@ import { FadeUp, Kicker, Section } from "@/components/site/ui";
 
 const steps = [
   {
-    title: "Describe the task",
-    body: "Share what the robot should do, the parts it will handle and the conditions in your work cell. We define the capability and the outcome that matters to your team.",
+    title: "Describe",
+    body: "Write the task in plain words. Optionally add a phone video of your cell or a few demos in VR.",
   },
   {
-    title: "Develop the capability",
-    body: "We work on task scenarios, synthetic data and robot skills around the agreed scope. The focus is handling the variation and physical interactions your task requires.",
+    title: "Generate",
+    body: "We build a digital twin of your cell and generate thousands of situations of your task inside it, with touch and force, on GPUs. No extra robots to buy and no line stopped.",
   },
   {
-    title: "Evaluate together",
-    body: "Review the capability in the appropriate simulation or hardware setting. Assess the result against the task, equipment and success criteria agreed for your pilot.",
+    title: "Adapt",
+    body: "The skill is built for your robot, your gripper and your task, and proven in the twin before it touches hardware.",
   },
   {
-    title: "Refine and expand",
-    body: "Use what you learn to improve the task, plan integration or explore the next capability. Your team remains involved in deciding what is ready for the next step.",
+    title: "Improve",
+    body: "The skill runs on your line and keeps improving there: what the cell throws at it comes back, and the skill is corrected and returned to the robot.",
   },
 ];
 
@@ -25,7 +25,7 @@ export function HowItWorks() {
       <FadeUp className="max-w-3xl">
         <Kicker>How it works</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          From a task description to a robot capability.
+          From one phone video to a robot that improves itself.
         </h2>
       </FadeUp>
 
@@ -44,7 +44,7 @@ export function HowItWorks() {
       </div>
 
       <FadeUp className="mt-8">
-        <p className="text-lg font-semibold text-foreground">Describe. Develop. Evaluate. Improve.</p>
+        <p className="text-lg font-semibold text-foreground">1 demo → 1,000s of scenes and scenarios → no extra demos.</p>
       </FadeUp>
     </Section>
   );

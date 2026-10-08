@@ -9,14 +9,14 @@ const founders = [
     role: "Founder & CEO",
     image: mayurImg,
     linkedin: "https://www.linkedin.com/in/mayur-waghchoure/",
-    bio: "6 years in robotics and autonomous systems, with industry experience and early roles at two startups. M.Sc. RWTH Aachen, 6 research papers.",
+    bio: "6 years in autonomy, 3D perception and synthetic data. Industry roles at Siemens, FEV and Tata Motors; early hire at two startups. M.Sc. RWTH Aachen, 6 research papers.",
   },
   {
     name: "Madhava Pandiyan",
     role: "Co-founder & CTO",
     image: madhavaImg,
     linkedin: "https://www.linkedin.com/in/madhava-pandiyan-cn-8b6b97122/",
-    bio: "Robotics engineer with experience in simulation, locomotion and robotic learning. Builds and runs our hardware lab. M.Sc. RWTH Aachen.",
+    bio: "Deformable simulation, locomotion and reinforcement learning, sim-to-real. Builds and runs our hardware lab. M.Sc. RWTH Aachen.",
   },
 ];
 

@@ -36,13 +36,13 @@ export function SectionRail({ items }: { items: Item[] }) {
                 aria-current={isActive ? "true" : undefined}
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById(i.id)?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+                  document.getElementById(i.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className="group flex min-h-11 min-w-11 items-center justify-end gap-2"
+                className="group flex items-center justify-end gap-2"
               >
                 <span
                   className={`whitespace-nowrap rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold shadow-[var(--shadow-card)] backdrop-blur transition-all ${
-                    isActive ? "text-primary opacity-100" : "text-muted-foreground opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
+                    isActive ? "text-primary opacity-100" : "text-muted-foreground opacity-0 group-hover:opacity-100"
                   }`}
                 >
                   {i.label}

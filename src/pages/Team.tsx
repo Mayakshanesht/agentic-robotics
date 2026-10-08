@@ -48,8 +48,8 @@ const team: Member[] = [
     image: madhavaImg,
     linkedin: "https://www.linkedin.com/in/madhava-pandiyan-cn-8b6b97122/",
     description:
-      "Robotics engineer with experience in simulation, locomotion and robotic learning. Builds and runs our hardware lab. M.Sc. RWTH Aachen.",
-    expertise: ["Robotics", "Simulation", "Robotic learning", "Hardware lab"],
+      "Deformable simulation, locomotion and reinforcement learning, sim-to-real. Builds and runs our hardware lab. M.Sc. RWTH Aachen.",
+    expertise: ["Simulation", "Reinforcement learning", "Sim-to-real", "Hardware lab"],
   },
 ];
 
@@ -82,10 +82,10 @@ export default function Team() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">Team</div>
             <h1 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-5">
-              The engineers <span className="text-gradient-blue">behind CloudBee Robotics.</span>
+              The engineers <span className="text-gradient-blue">building the layer.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Robotics engineers with industry and research experience, building practical industrial capabilities in Aachen, Germany.
+              Robotics engineers and simulation specialists shipping the autonomous OS for embodied AI - out of RWTH Aachen, Germany.
             </p>
             <div className="flex flex-wrap gap-4 mt-6 text-xs font-mono text-muted-foreground">
               <span className="inline-flex items-center gap-1.5"><MapPin size={12} /> Aachen, Germany</span>
@@ -165,8 +165,8 @@ export default function Team() {
               </div>
               <h3 className="font-display font-bold text-xl text-foreground mb-2">Your name here</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                We're growing the founding team across AI, robotics and software engineering. Help us bring
-                robotics to practical industrial work.
+                We're growing the founding team across AI, robotics, simulation and platform. Build the
+                capability factory for physical AI with us.
               </p>
               <Link to="/careers" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-blue hover:gap-3 transition-all">
                 See open roles <ArrowRight size={14} />

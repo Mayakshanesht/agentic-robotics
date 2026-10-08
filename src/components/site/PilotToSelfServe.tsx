@@ -7,9 +7,9 @@ import { GdprConsent } from "@/components/GdprConsent";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 
 const steps = [
-  { title: "Pilot your first capability", body: "Choose one handling, assembly or manipulation task. Agree the robot, the test setting and the results your team needs to see." },
-  { title: "Build on what works", body: "Use the pilot to explore refinement and further tasks. Our self-improving OS is being built around an ongoing cycle of capability development and evaluation." },
-  { title: "Help shape self-serve access", body: "A self-serve web application is in development. Join the waitlist to hear about future access and help us understand the capabilities industrial teams need." },
+  { title: "Pilot", body: "We build your first skill with you, in your cell, in about 2 weeks." },
+  { title: "Self-improving OS", body: "It runs on every robot and keeps getting better." },
+  { title: "Web app", body: "Our engineers deliver pilots through it from December 2026, and it opens to customers, self-serve, from mid-2027." },
 ];
 
 const robotTypes = ["Arm", "Humanoid", "Dexterous hand", "Other"];
@@ -55,6 +55,7 @@ function Waitlist() {
         use_case: d.task || null,
       });
       if (error) throw error;
+      // Notifications are sent by authenticated server-side webhooks.
       setDone(true);
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : "Could not submit, please try again");
@@ -66,14 +67,14 @@ function Waitlist() {
   if (done) {
     return (
       <div className="rounded-2xl border border-border bg-white p-7 text-center shadow-[var(--shadow-card)]">
-        <p className="text-lg font-semibold text-foreground">Thanks. You're on the list for CloudBee Robotics updates.</p>
+        <p className="text-lg font-semibold text-foreground">Thanks. We'll be in touch before the first version opens.</p>
       </div>
     );
   }
 
   return (
     <form onSubmit={submit} className="rounded-2xl border border-border bg-white p-7 shadow-[var(--shadow-card)]">
-      <h3 className="text-xl font-bold text-foreground">Join the waitlist</h3>
+      <h3 className="text-xl font-bold text-foreground">Join the web app waitlist</h3>
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium text-[#13233B]">Work email *</span>
@@ -131,14 +132,10 @@ export function PilotToSelfServe() {
   return (
     <Section id="waitlist" className="border-t border-border bg-white">
       <FadeUp className="max-w-3xl">
-        <Kicker>From pilot to platform</Kicker>
+        <Kicker>How we work with you</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          A first robot skill. A growing capability platform.
+          Start with one skill. Scale to every robot.
         </h2>
-        <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          Start with a focused industrial pilot today. Help shape a platform that pairs synthetic contact-rich
-          data with robot skills and ongoing improvement, with self-serve access planned as the product develops.
-        </p>
       </FadeUp>
 
       <div className="mt-10 grid items-stretch gap-4 lg:grid-cols-3">

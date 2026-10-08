@@ -1,35 +1,155 @@
 {
-  "review": "Outcome-only simulation crops reviewed for diagnostic overlays, tooling and identifiable customer information. Videos are muted and source metadata stripped.",
+  "review": "Exact original website assets from commit 64c7e1a restored per the user's explicit request to restore the original content, layout and videos. Checksums verify original bytes. Original overlays, audio and metadata are retained; this registration does not claim outcome-only crops or exhaustive frame-by-frame inspection.",
   "assets": [
     {
-      "path": "marketing/demos/contact-interaction-simulation.mp4",
-      "sha256": "8b3848222f7c15519fd537e2ec26ec663712048626933e612ed9c1c3c45f4535",
-      "kind": "video"
-    },
-    {
-      "path": "marketing/demos/contact-interaction-simulation-poster.jpg",
-      "sha256": "7ddaefb7670a62ce99109b12babbef3fed88cfdc2fbe9045e3410b6e439a96b1",
+      "path": "media/contact-rich-mobile-poster.jpg",
+      "sha256": "03a61ed41e12112c2c3a52a1224fdbdaa6f30c6b211cdafa16be54ca5d6e41a8",
       "kind": "poster"
     },
     {
-      "path": "marketing/demos/humanoid-walking-simulation.mp4",
-      "sha256": "6a6d0af95b73a20c8b2c9f883b48d2c9b7f99c40db8958defad73ad330057723",
+      "path": "media/contact-rich-mobile.mp4",
+      "sha256": "a7a7d754f4fa9326fcca1717ccaf632c69d7bcb0e8cbddfa20897916fca326a0",
       "kind": "video"
     },
     {
-      "path": "marketing/demos/humanoid-walking-simulation-poster.jpg",
-      "sha256": "754e9c36e6b04f11ba5e492a3fd713549d54f639c9ab4a00867911a52f33ba4c",
+      "path": "media/contact-rich-poster.jpg",
+      "sha256": "efbf86fba9a0b0e1c9ae029ba16d711cde9d436209db8eedaf2c7ad6792fa7f1",
       "kind": "poster"
     },
     {
-      "path": "marketing/demos/object-handling-simulation.mp4",
-      "sha256": "1f63b588bda416567f0f578cba8c3e11d94b0e36b459b36578c93cd1b379b93b",
+      "path": "media/contact-rich.mp4",
+      "sha256": "66e6bdb89c8d86b29197ad3e53c2bcb5e64948abe8df5af8c752734c7bacbf02",
       "kind": "video"
     },
     {
-      "path": "marketing/demos/object-handling-simulation-poster.jpg",
-      "sha256": "77865b358829cea3a52e502121c949689f2dc1a8e6d088f3ef7a4ee3171ff88a",
+      "path": "media/dataset-generation-mobile-poster.jpg",
+      "sha256": "7d9b15d5d8d620095b237ddbf7a71feae375b140866bdaa5ab1eb5cc73d3a889",
       "kind": "poster"
+    },
+    {
+      "path": "media/dataset-generation-mobile.mp4",
+      "sha256": "d744e644766a0580f9da9b832516efd9e93f30296264ae16fb6f31383b7acd1c",
+      "kind": "video"
+    },
+    {
+      "path": "media/dataset-generation-poster.jpg",
+      "sha256": "20f65292e0767e93b11b72f3fdd74a3e9c6e325efb1b54d36b9e4240f1a64d9e",
+      "kind": "poster"
+    },
+    {
+      "path": "media/dataset-generation.mp4",
+      "sha256": "f60d57018ff3abc394c59a88a89170964735746965ce648b30b3073f197cc8a4",
+      "kind": "video"
+    },
+    {
+      "path": "media/g1-walk-hero-poster.jpg",
+      "sha256": "2901cbb562d1574ee4fcea29d4d382ea63fe61d0345aab222128e4ad2e7611cb",
+      "kind": "poster"
+    },
+    {
+      "path": "media/g1-walk-hero.mp4",
+      "sha256": "5f0ccf28508f2c8250292276e0ae4016332a8d49f9ce12a9d053115aaeb22495",
+      "kind": "video"
+    },
+    {
+      "path": "media/g1-walk-poster.jpg",
+      "sha256": "c4a73574e4962c466397cf4dbd7f9aafbc14b054de714441502e4b3733b8bbcd",
+      "kind": "poster"
+    },
+    {
+      "path": "media/g1-walk.mp4",
+      "sha256": "668b1207db970d61a32a093dd5ca1280dcc388e76feab9ba126b4378858ead9f",
+      "kind": "video"
+    },
+    {
+      "path": "media/robot-demo-poster.jpg",
+      "sha256": "23966d1e40e963be13ca28510f8bc0d7dc244d5b7a33b0153aaec65393d60c6a",
+      "kind": "poster"
+    },
+    {
+      "path": "media/trained-model-mobile-poster.jpg",
+      "sha256": "ff176af133a0fac37d59257781480b97e35babaa6e4caca9488f1b963970b1b2",
+      "kind": "poster"
+    },
+    {
+      "path": "media/trained-model-mobile.mp4",
+      "sha256": "fa8c8cecf542a783d114678a57857c337ac8e65f48ac62ac2b6ad3c3a8103b9d",
+      "kind": "video"
+    },
+    {
+      "path": "media/trained-model-poster.jpg",
+      "sha256": "c10cecc21b3cfdbb32c35230666233ff2d6c5f8d6f3504410e5f2541b0796ee3",
+      "kind": "poster"
+    },
+    {
+      "path": "media/trained-model.mp4",
+      "sha256": "e2091ef480c38c002ec714686af7f6e0078ff0be3b73b93ca7423643007d2fab",
+      "kind": "video"
+    },
+    {
+      "path": "media/twin-compare-mobile-poster.jpg",
+      "sha256": "55a2f33acd55ad6a174e2b93a7abfa46fcdb3eabc7b3223e330f7ca3992eecdb",
+      "kind": "poster"
+    },
+    {
+      "path": "media/twin-compare-mobile.mp4",
+      "sha256": "8ef65f9a73dd5f0292b7f2d3d5edbff3f4269ddf360852ec5e9f3a5f9b86199d",
+      "kind": "video"
+    },
+    {
+      "path": "media/twin-compare-poster.jpg",
+      "sha256": "2d68e00bf0272fde888d28bf2172fced7ff111d4a9d22203da2adf0458a79da3",
+      "kind": "poster"
+    },
+    {
+      "path": "media/twin-compare.mp4",
+      "sha256": "80bcc9909e6a35204edade83753661d176545b1461209fa6d72073b9e5bf542c",
+      "kind": "video"
+    },
+    {
+      "path": "media/twin-room-poster.jpg",
+      "sha256": "bd35ccde32f28b9aca9dbd03a9f48571446edbabc1f79718bf48b7cf3d6eb01b",
+      "kind": "poster"
+    },
+    {
+      "path": "media/twin-room.mp4",
+      "sha256": "d016dda04cc09a2d436fedcf2bd30e45f608b708a4315210123e6e150cf56cd3",
+      "kind": "video"
+    },
+    {
+      "path": "media/walkthrough-poster.jpg",
+      "sha256": "040b2623e65c6e79ae8bbadedab7e201284ba9f7d661b7d98b643161b71df553",
+      "kind": "poster"
+    },
+    {
+      "path": "media/walkthrough.mp4",
+      "sha256": "ba9767cd6375d9119cddd3919f2e974b9192b3260ef9f65a248a11c42ddbeb27",
+      "kind": "video"
+    },
+    {
+      "path": "videos/robot-demo.mp4",
+      "sha256": "607073735e42044b9ccabeb884136b0b800f8facd9a7e38bc20b3bb732072c82",
+      "kind": "video"
+    },
+    {
+      "path": "videos/video-to-motion.mp4",
+      "sha256": "e63ca5cecd7fb0dd3926ae1ecf69621a4bb6b2fc179d95727b2e5bf038b784a3",
+      "kind": "video"
+    },
+    {
+      "path": "src/assets/hero-animation.gif",
+      "sha256": "c2c8ae7821139609b1a4d985eeed9aab4fa00ff76cd8ac70d9dd060583684bc6",
+      "kind": "animation"
+    },
+    {
+      "path": "src/assets/hero/humanoid-pallet.mp4",
+      "sha256": "76a76546acd7efdf22cbe03839264b3f675b8f4939d504050f65e96c5ac239a6",
+      "kind": "video"
+    },
+    {
+      "path": "src/assets/scene_generation_demo.mp4",
+      "sha256": "8387f8d206ea79a7b62e9dbe63bbd7525c2d79f2eacad31127ce532d5f969440",
+      "kind": "video"
     }
   ]
 }

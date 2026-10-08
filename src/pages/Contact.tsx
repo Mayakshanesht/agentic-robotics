@@ -8,7 +8,6 @@ import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { GdprConsent } from "@/components/GdprConsent";
-import { sectors } from "@/data/company";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -26,8 +25,7 @@ export default function Contact() {
   const initialInterest = (interests as readonly string[]).includes(params.get("interest") ?? "")
     ? (params.get("interest") as string)
     : "Pilot Program";
-  const sector = sectors.find((item) => item === params.get("sector"));
-  const [form, setForm] = useState({ name: "", company: "", email: "", interest: initialInterest, message: sector ? `I'd like to discuss a pilot for ${sector.toLowerCase()}. Our task is: ` : "" });
+  const [form, setForm] = useState({ name: "", company: "", email: "", interest: initialInterest, message: "" });
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [gdpr, setGdpr] = useState(false);
@@ -54,7 +52,7 @@ export default function Contact() {
         message: parsed.data.message,
       });
       if (error) throw error;
-      // Notifications are sent server-side after the database insert.
+      // Notifications are sent by authenticated server-side webhooks.
       setDone(true);
       toast.success("Message sent. We'll be in touch shortly.");
       setForm({ name: "", company: "", email: "", interest: "Pilot Program", message: "" });

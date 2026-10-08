@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useReducedMotion } from "framer-motion";
-import { Pause, Play } from "lucide-react";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 import { ImproveLoop } from "@/components/site/anim/ImproveLoop";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const stations = [
   {
-    label: "Put a skill to work",
-    body: "Start with a useful handling or assembly task on your robot, with clear criteria for successful operation.",
+    label: "It runs",
+    body: "The skill is on your robot, in your cell, doing the task on the line.",
   },
   {
-    label: "Assess the performance",
-    body: "Understand how the capability handles the task and its variations. Keep quality, consistency and practical use at the centre of the review.",
+    label: "It notices",
+    body: "A new part, a moved fixture, a different light. The runs that go wrong are kept instead of thrown away, so the cell itself tells us what changed.",
   },
   {
-    label: "Improve the capability",
-    body: "Refine the skill as parts, tasks and work-cell requirements change. The goal is a capability that keeps becoming more useful in your operation.",
+    label: "The data is corrected",
+    body: "Your twin covers what the line ran into, with touch and force recorded, until the skill handles it. Nobody has to stop the line or collect demonstrations by hand.",
   },
   {
-    label: "Build on what works",
-    body: "Develop a growing set of robot capabilities, from individual handling steps toward more complete industrial workflows.",
+    label: "The model is corrected",
+    body: "The skill is adapted again on the new data and tested in the twin before it goes back on the robot. The line keeps running while that happens.",
   },
 ];
 
@@ -31,43 +30,31 @@ export function SelfImprovingOs() {
   const reduce = useReducedMotion();
   const isMobile = useIsMobile();
   const [lap, setLap] = useState(0);
-  const [paused, setPaused] = useState(false);
   const step = lap % stations.length;
 
   useEffect(() => {
-    if (reduce || paused) return;
+    if (reduce) return;
     const t = setInterval(() => setLap((l) => l + 1), STEP_MS);
     return () => clearInterval(t);
-  }, [reduce, paused]);
+  }, [reduce]);
 
   return (
     <Section id="self-improving" className="border-t border-border">
       <FadeUp className="max-w-3xl">
         <Kicker>The self-improving OS</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Robot skills built to keep improving.
+          The skill does not stop learning once it is live.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          We are building a self-improving operating system for robotics: software that brings useful robot
-          skills into a continuous cycle of operation, assessment and improvement. Our ambition is to give
-          industrial teams a growing set of capabilities for the work they need done.
+          A robot skill built once starts ageing the moment the cell changes: one new part and the integrator comes
+          back. Ours is not built once. It runs, it notices, the data is corrected, the model is corrected, and it goes
+          back on the robot. Then it does that again.
         </p>
       </FadeUp>
 
       <div className="mt-12 grid items-center gap-10 lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:gap-12">
         <FadeUp className="mx-auto w-full max-w-[520px]">
           <ImproveLoop step={step} lap={lap} labels={!isMobile} />
-          {!reduce && (
-            <button
-              type="button"
-              onClick={() => setPaused((value) => !value)}
-              aria-pressed={paused}
-              className="mx-auto mt-3 flex min-h-11 items-center gap-2 rounded-full border border-primary/30 bg-white px-4 py-2 text-sm font-semibold text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              {paused ? <Play size={16} aria-hidden /> : <Pause size={16} aria-hidden />}
-              {paused ? "Play capability cycle" : "Pause capability cycle"}
-            </button>
-          )}
         </FadeUp>
 
         <FadeUp delay={0.1}>
@@ -101,11 +88,10 @@ export function SelfImprovingOs() {
 
       <FadeUp delay={0.1} className="mt-10 max-w-3xl">
         <p className="text-[17px] leading-relaxed text-[#13233B]">
-          <strong className="text-foreground">Where we are today:</strong> robot arms running in our Aachen
-          hardware lab, with humanoid and dexterous-hand demonstrations in simulation. Industrial pilots focus
-          on a defined task and agreed assessment criteria.{" "}
+          One loop keeping data, model and robot in step, for every skill you run with us. That is what we mean by a
+          self-improving OS for robotics.{" "}
           <Link to="/how-it-works" className="font-semibold text-primary hover:underline">
-            Explore the pilot journey →
+            See the four steps →
           </Link>
         </p>
       </FadeUp>

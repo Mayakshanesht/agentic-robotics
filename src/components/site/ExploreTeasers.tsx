@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
 
 const cards = [
-  { to: "/how-it-works", title: "How it works", body: "What to expect when you bring us an industrial task, from the first conversation to the pilot review." },
-  { to: "/why-cloudbee", title: "Why CloudBee", body: "Our industrial focus, robotics experience and approach to a focused pilot." },
-  { to: "/pilots", title: "Pilots", body: "How to start a focused pilot for your industrial task and stay in touch with our team." },
+  { to: "/how-it-works", title: "How it works", body: "Four steps from a described task to a working skill, and why touch and force change the data." },
+  { to: "/why-cloudbee", title: "Why CloudBee", body: "One loop instead of five separate problems, and what that does to time and cost." },
+  { to: "/pilots", title: "Pilots", body: "Where we are running today, how a pilot works, and the web app that follows." },
   { to: "/investors", title: "Investors", body: "We're raising our pre-seed round. Request the deck and a demo." },
 ];
 

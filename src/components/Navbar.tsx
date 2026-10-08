@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
@@ -29,22 +29,9 @@ export function LogoBadge({ className = "h-10" }: { className?: string }) {
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const menuButton = useRef<HTMLButtonElement>(null);
   const location = useLocation();
 
   useEffect(() => setIsOpen(false), [location.pathname]);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-        menuButton.current?.focus();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-white/95 backdrop-blur-md">
@@ -74,7 +61,7 @@ export function Navbar() {
             </Link>
           </div>
 
-          <button ref={menuButton} type="button" className="p-3 text-foreground lg:hidden" onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? "Close menu" : "Open menu"} aria-expanded={isOpen} aria-controls="mobile-navigation">
+          <button className="p-2 text-foreground lg:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu" aria-expanded={isOpen}>
             {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -83,7 +70,6 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}

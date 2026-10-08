@@ -1,81 +1,189 @@
-import { Hand, Settings2, Shuffle, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
-import { BOOK_A_PILOT_PATH } from "@/data/company";
+import { DataComparison } from "@/components/site/anim/DataComparison";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-const cards = [
-  {
-    icon: Hand,
-    title: "Grasping and handling",
-    body: "Interaction-rich scenarios for picking, holding, moving and placing parts. Useful handling depends on how the robot and object work together through the task.",
-    tasks: ["Pick and place", "Part handling", "Tool handling"],
-  },
-  {
-    icon: Settings2,
-    title: "Assembly and insertion",
-    body: "Tasks where contact and alignment matter: bringing parts together, inserting components and working through several connected steps.",
-    tasks: ["Component alignment", "Insertion", "Assembly support"],
-  },
-  {
-    icon: Shuffle,
-    title: "Variation within the task",
-    body: "Different parts, starting positions and task requirements broaden the situations considered when developing and evaluating a robot capability.",
-    tasks: ["Object variation", "Task variation", "Practical evaluation"],
-  },
-];
+const TEAL = "#0D9488";
+const AMBER = "#B45309";
+const LINE = "#E2E8F0";
+const loop = { duration: 5, repeat: Infinity, ease: "easeInOut" as const };
+
+function Vision({ reduce }: { reduce: boolean | null }) {
+  return (
+    <svg viewBox="0 0 160 90" className="h-full w-full" aria-hidden>
+      <rect x="4" y="4" width="152" height="82" rx="8" fill="#F8FAFC" stroke={LINE} />
+      <rect x="62" y="40" width="34" height="34" rx="4" fill={TEAL} fillOpacity="0.2" stroke={TEAL} strokeWidth="2" />
+      <motion.g
+        initial={{ opacity: reduce ? 1 : 0 }}
+        animate={reduce ? undefined : { opacity: [0, 1, 1, 0] }}
+        transition={loop}
+      >
+        <rect x="56" y="34" width="46" height="46" rx="3" fill="none" stroke={TEAL} strokeWidth="1.5" strokeDasharray="5 4" />
+        <line x1="79" y1="22" x2="79" y2="34" stroke={TEAL} strokeWidth="1.5" />
+        <text x="79" y="18" fontSize="9" textAnchor="middle" fill={TEAL} fontWeight="700">
+          x, y, z
+        </text>
+      </motion.g>
+    </svg>
+  );
+}
+
+function Touch({ reduce }: { reduce: boolean | null }) {
+  return (
+    <svg viewBox="0 0 160 90" className="h-full w-full" aria-hidden>
+      <rect x="4" y="4" width="152" height="82" rx="8" fill="#F8FAFC" stroke={LINE} />
+      {Array.from({ length: 8 }).map((_, i) => (
+        <motion.rect
+          key={i}
+          x={20 + i * 16}
+          y="26"
+          width="12"
+          height="14"
+          rx="2"
+          fill={TEAL}
+          initial={{ opacity: reduce ? 0.8 : 0.15 }}
+          animate={reduce ? undefined : { opacity: [0.15, 0.9, 0.35, 0.15] }}
+          transition={{ ...loop, delay: (i % 4) * 0.08 }}
+        />
+      ))}
+      <motion.path
+        d="M20 62 H60 L72 50 L86 70 L100 58 H140"
+        fill="none"
+        stroke={AMBER}
+        strokeWidth="2"
+        strokeLinecap="round"
+        initial={{ pathLength: reduce ? 1 : 0 }}
+        animate={reduce ? undefined : { pathLength: [0, 1, 1, 0] }}
+        transition={loop}
+      />
+      <text x="80" y="84" fontSize="9" textAnchor="middle" fill={AMBER} fontWeight="700">
+        slip detected
+      </text>
+    </svg>
+  );
+}
+
+function Together({ reduce }: { reduce: boolean | null }) {
+  return (
+    <svg viewBox="0 0 160 90" className="h-full w-full" aria-hidden>
+      <rect x="4" y="4" width="152" height="82" rx="8" fill="#F8FAFC" stroke={LINE} />
+      <text x="22" y="26" fontSize="9" fill="#5B6B85">
+        grip force
+      </text>
+      <rect x="22" y="32" width="116" height="14" rx="7" fill="#EEF2F6" />
+      <motion.rect
+        x="22"
+        y="32"
+        height="14"
+        rx="7"
+        fill={TEAL}
+        initial={{ width: reduce ? 78 : 30 }}
+        animate={reduce ? undefined : { width: [30, 30, 78, 78, 30] }}
+        transition={{ ...loop, times: [0, 0.25, 0.45, 0.85, 1] }}
+      />
+      <motion.text
+        x="80"
+        y="68"
+        fontSize="10"
+        textAnchor="middle"
+        fontWeight="700"
+        fill={TEAL}
+        initial={{ opacity: reduce ? 1 : 0 }}
+        animate={reduce ? undefined : { opacity: [0, 0, 1, 1, 0] }}
+        transition={{ ...loop, times: [0, 0.3, 0.5, 0.85, 1] }}
+      >
+        hold steady
+      </motion.text>
+    </svg>
+  );
+}
 
 export function ContactRich() {
+  const onPhone = useIsMobile();
+  const reduce = useReducedMotion();
+  const cards = [
+    {
+      title: "Vision says where",
+      body: "Cameras and depth tell the robot where the object is and how to approach it. That is where most robot data stops.",
+      art: <Vision reduce={reduce} />,
+    },
+    {
+      title: "Touch says how hard",
+      body: "Contact tells the robot how firmly it is holding, and the moment the object starts to slip in its grip. A camera cannot see that.",
+      art: <Touch reduce={reduce} />,
+    },
+    {
+      title: "Together they say how much force to add",
+      body: "Vision and touch read at the same instant tell the robot how much more to squeeze, and when to stop. That is what decides whether the task succeeds.",
+      art: <Together reduce={reduce} />,
+    },
+  ];
+
   return (
     <Section id="contact-rich" className="border-t border-border">
       <FadeUp className="max-w-3xl">
-        <Kicker>Our data offering</Kicker>
+        <Kicker>Contact-rich data</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Synthetic contact-rich data for industrial manipulation.
+          Why touch belongs in the data, not just vision.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          Industrial work depends on physical interaction: grasping a part, handling a tool, or bringing
-          components together. Our synthetic contact-rich data offering supports the development and
-          evaluation of robot skills for these interaction-rich tasks.
+          The tasks that matter in a factory are decided by contact. Training data that only carries pixels teaches a
+          robot where things are, never how they feel.
         </p>
       </FadeUp>
+
       <div className="mt-10 grid gap-5 lg:grid-cols-3">
-        {cards.map(({ icon: Icon, title, body, tasks }, i) => (
-          <FadeUp key={title} delay={i * 0.08}>
-            <div className="h-full rounded-2xl border border-border bg-white p-7 shadow-[var(--shadow-card)]">
-              <Icon size={32} className="text-primary" aria-hidden />
-              <h3 className="mt-5 text-xl font-bold text-foreground">{title}</h3>
-              <p className="mt-3 text-[17px] leading-relaxed text-[#13233B]">{body}</p>
-              <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${title} applications`}>
-                {tasks.map((task) => (
-                  <li key={task} className="rounded-full border border-border bg-[#F8FAFC] px-3 py-1 text-xs font-medium text-[#13233B]">{task}</li>
-                ))}
-              </ul>
+        {cards.map((c, i) => (
+          <FadeUp key={c.title} delay={i * 0.08}>
+            <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-[var(--shadow-card)]">
+              <div className="h-28">{c.art}</div>
+              <h3 className="mt-5 text-xl font-bold text-foreground">{c.title}</h3>
+              <p className="mt-3 text-[17px] leading-relaxed text-[#13233B]">{c.body}</p>
             </div>
           </FadeUp>
         ))}
       </div>
 
-      <FadeUp className="mt-10 rounded-2xl border border-primary/20 bg-secondary/50 p-7 lg:p-8">
-        <div className="grid gap-7 md:grid-cols-2">
-          <div>
-            <h3 className="text-xl font-bold text-foreground">For robotics and AI teams</h3>
-            <p className="mt-3 text-[17px] leading-relaxed text-[#13233B]">
-              Explore task-relevant data for learning and evaluating manipulation skills. Start with the
-              interactions your robot needs to handle and the questions you need to answer.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-foreground">For industrial teams</h3>
-            <p className="mt-3 text-[17px] leading-relaxed text-[#13233B]">
-              Connect the capability to a useful application in manufacturing, automotive, electronics or
-              logistics. A focused pilot helps assess the fit for your robot, parts and operation.
-            </p>
-          </div>
+      <FadeUp className="mt-14 max-w-3xl">
+        <h3 className="text-[1.6rem] font-bold leading-tight tracking-[-0.5px] text-foreground lg:text-[1.9rem]">
+          The same task, recorded two ways.
+        </h3>
+        <p className="mt-4 text-[17px] leading-relaxed text-[#13233B]">
+          A dataset of pixels only, next to the same task recorded with touch and force on top. Only the second one
+          carries the moment that decides whether the task succeeds.
+        </p>
+      </FadeUp>
+      <div className="mt-8">
+        <DataComparison />
+      </div>
+
+      <FadeUp delay={0.1} className="mt-14">
+        <div className="-mx-6 overflow-hidden border border-x-0 border-border bg-[#0A1C33] shadow-[var(--shadow-card)] md:mx-0 md:rounded-2xl md:border-x">
+          <video
+            src={onPhone ? "/media/contact-rich-mobile.mp4" : "/media/contact-rich.mp4"}
+            poster={onPhone ? "/media/contact-rich-mobile-poster.jpg" : "/media/contact-rich-poster.jpg"}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            aria-label="One recording seen through every sensor at once: head and wrist cameras, depth and the physics view on the left, and on the right the touch pads on each fingertip, the force on the skin, the height of the object and what each joint carries"
+            className={`${onPhone ? "aspect-[640/786]" : "aspect-[1600/662]"} w-full`}
+          />
         </div>
-        <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
-          <Link to={BOOK_A_PILOT_PATH} className="btn-pilot px-6 py-3">Discuss your application <ArrowRight size={16} aria-hidden /></Link>
-          <Link to="/contact" className="inline-flex min-h-11 items-center text-sm font-semibold text-primary hover:underline">Talk about your data needs →</Link>
-        </div>
+        <p className="mt-3 px-6 text-sm text-muted-foreground md:px-0">
+          {onPhone
+            ? "One recording, seen through every camera, the depth sensor and the physics view at the same moment. The touch and force readouts are on the wider screens."
+            : "One recording, every sensor at once: cameras, depth, the touch pads on each fingertip, grip force and what each joint carries."}
+        </p>
+      </FadeUp>
+
+      <FadeUp className="mt-8">
+        <p className="max-w-3xl text-[17px] leading-relaxed text-[#13233B]">
+          So we generate it: every run in your twin is recorded with vision, depth, touch and force at the same moment,
+          thousands of runs at a time. That is the data a model needs to handle contact, and it scales with GPUs instead
+          of with people.
+        </p>
       </FadeUp>
     </Section>
   );

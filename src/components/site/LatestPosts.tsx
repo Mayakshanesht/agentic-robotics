@@ -11,17 +11,14 @@ export function LatestPosts({ limit = 3 }: { limit?: number }) {
   const [posts, setPosts] = useState<Post[]>(staticPosts.slice(0, limit));
 
   useEffect(() => {
-    let active = true;
-    setPosts(staticPosts.slice(0, limit));
     (async () => {
       const { data } = await supabase
         .from("blog_posts")
         .select("title, excerpt, slug, category, created_at")
         .eq("published", true)
-        .eq("public_marketing_approved", true)
         .order("created_at", { ascending: false })
         .limit(limit);
-      if (!active || !data?.length) return;
+      if (!data?.length) return;
       const dbPosts: Post[] = data.map((p) => ({
         title: p.title,
         excerpt: p.excerpt ?? "",
@@ -29,10 +26,9 @@ export function LatestPosts({ limit = 3 }: { limit?: number }) {
         category: p.category ?? "Update",
         slug: `/blog/${p.slug}`,
       }));
-      const staticSlugs = new Set(staticPosts.map((p) => p.slug));
-      setPosts([...dbPosts.filter((p) => !staticSlugs.has(p.slug)), ...staticPosts].slice(0, limit));
+      const seen = new Set(dbPosts.map((p) => p.slug));
+      setPosts([...dbPosts, ...staticPosts.filter((p) => !seen.has(p.slug))].slice(0, limit));
     })();
-    return () => { active = false; };
   }, [limit]);
 
   return (

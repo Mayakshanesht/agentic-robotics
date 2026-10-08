@@ -94,20 +94,6 @@
 }
 
 @layer components {
-  .skip-link {
-    @apply fixed left-4 top-4 z-[200] rounded-md bg-primary px-4 py-3 font-semibold text-primary-foreground shadow-lg;
-    transform: translateY(calc(-100% - 1rem));
-    opacity: 0;
-    pointer-events: none;
-  }
-  .skip-link:focus {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-    outline: 2px solid hsl(var(--foreground));
-    outline-offset: 3px;
-  }
-
   .section-container { @apply mx-auto max-w-7xl px-6 lg:px-8; }
   .section-spacing { @apply py-20 lg:py-28; }
 
@@ -266,9 +252,6 @@
   .animate-spin-slow { animation: spin-slow 18s linear infinite; }
 
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .conic-halo, .marquee-track, .animate-float, .animate-spin-slow,
-    .animate-bounce, .animate-pulse, .animate-glow-pulse,
-    .animate-fade-up { animation: none !important; }
+    .conic-halo, .marquee-track, .animate-float, .animate-spin-slow { animation: none !important; }
   }
 }

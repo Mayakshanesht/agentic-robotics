@@ -1,24 +1,24 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FadeUp, Kicker, Section } from "@/components/site/ui";
-import { DefineGoal, FocusPilot, ReviewOutcome } from "@/components/site/anim/MakeSteps";
+import { OneVideoMany, SignalLanes, SkillOnRobot } from "@/components/site/anim/MakeSteps";
 import { sectors } from "@/data/company";
 
 const steps = [
   {
-    art: <DefineGoal />,
-    title: "Synthetic contact-rich data",
-    body: "We develop synthetic data for robots interacting with objects: approaching, grasping, handling and assembling. The focus is the physical interaction that makes a task work, including variation in parts and situations.",
+    art: <OneVideoMany />,
+    title: "One video of your cell becomes thousands of runs",
+    body: "A walk through the cell with a phone is all it takes to start. From that we build a twin of your cell and put your task through thousands of situations inside it, so the skill meets the variety of a real line long before it meets your robot. It scales with GPUs instead of with people.",
   },
   {
-    art: <FocusPilot />,
-    title: "Skills for your robot",
-    body: "A useful robot skill must fit the task, the robot and its end effector. We work on capabilities for robot arms, humanoids and dexterous hands, with a pilot shaped around your equipment and success criteria.",
+    art: <SignalLanes />,
+    title: "Every run carries touch and force, not pixels alone",
+    body: "Factory tasks are decided at the moment of contact, and that is exactly when a camera is blocked by the robot's own hand. Each run is recorded through cameras, depth, the touch pads on each fingertip and the force in the grip, at the same instant.",
   },
   {
-    art: <ReviewOutcome />,
-    title: "A platform that keeps improving",
-    body: "Our self-improving OS is designed to bring task development, evaluation and refinement into an ongoing capability cycle. The aim is to build on what a robot can already do as you explore new tasks and conditions.",
+    art: <SkillOnRobot />,
+    title: "The data becomes a skill on your robot",
+    body: "The skill is built for your robot, your gripper and your task, proven in the twin first, then put to work in your cell. What you get is a working capability on your line, not a research project.",
   },
 ];
 
@@ -30,16 +30,16 @@ export function WhatWeMake() {
       <FadeUp className="max-w-3xl">
         <Kicker>What we make</Kicker>
         <h2 className="mt-4 text-[2rem] font-extrabold leading-tight tracking-[-1px] lg:text-[2.5rem]">
-          Data. Robot skills. A platform that keeps improving.
+          Contact-rich synthetic data for industrial manipulation.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-[#13233B]">
-          We are building the foundations for robots that can take on more useful work: synthetic contact-rich
-          data and a self-improving operating system. Start with an industrial task, develop a capability and
-          use the results to guide what comes next.
+          Industrial AI has text and images in abundance. What it does not have is data of robots touching things.
+          Nobody can scrape it, and collecting it by hand costs an hour of someone's day per demonstration. So we
+          generate it, and build the skill from it.
         </p>
       </FadeUp>
 
-      {/* Three connected parts of the public product story. */}
+      {/* the three steps as one line of work, not three separate claims */}
       <div className="relative mt-12 hidden md:block" aria-hidden>
         <div className="absolute inset-x-[16%] top-1/2 h-px -translate-y-1/2 border-t border-dashed border-primary/40" />
         <div className="relative grid grid-cols-3">
@@ -78,7 +78,7 @@ export function WhatWeMake() {
 
       <FadeUp delay={0.1} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
         <Link to="/how-it-works" className="text-base font-semibold text-primary hover:underline">
-          Explore our approach →
+          See how the data is made →
         </Link>
         <p className="text-sm text-muted-foreground">Built for {sectors.join(", ").toLowerCase()}.</p>
       </FadeUp>

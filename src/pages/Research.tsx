@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Award, Building2, Briefcase, CheckCircle2, Cpu } from "lucide-react";
+import { ArrowRight, GraduationCap, Award, Beaker, Building2, Briefcase, CheckCircle2, Cpu } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { EventGallery } from "@/components/site/EventGallery";
@@ -11,21 +11,14 @@ const credibility = [
   { icon: Award, title: "EXIST Grant", body: "Awarded the German federal startup grant - backing the research and validating commercial and technical potential.", url: "https://www.exist.de" },
   { icon: Cpu, title: "WestAI Compute Grant", body: "Awarded GPU compute through the WestAI AI Service Center.", url: "https://westai.de" },
   { icon: Building2, title: "Collective Incubator", body: "Backed by a leading deep-tech incubator.", url: "https://www.collective-incubator.de" },
-  { icon: Briefcase, title: "Industrial Focus", body: "Working with industrial teams to explore practical robotics applications." },
-];
-
-const engineeringFocus = [
-  { title: "Synthetic data for physical interaction", body: "Developing data around robots interacting with objects: grasping, handling, placing and assembling, with the variety a useful task requires." },
-  { title: "Skills across robot families", body: "Working on task capabilities for robot arms, humanoids and dexterous hands, with attention to the robot and end effector involved." },
-  { title: "A self-improving OS", body: "Building a platform around task development, evaluation and refinement, so the next capability can build on what has already been learned." },
-  { title: "Simulation and hands-on evaluation", body: "Combining simulation demonstrations with work on real robot arms in our Aachen hardware lab. Each pilot defines the test setting and evidence needed for its next step." },
+  { icon: Briefcase, title: "Industrial Traction", body: "Pilots running with industrial customers." },
 ];
 
 export default function Research() {
   return (
     <PageShell
       title="Research & Traction - CloudBee Robotics"
-      description="An RWTH Aachen spin-off supported by EXIST, WestAI and the Collective Incubator, with an industrial focus and its own hardware lab in Aachen."
+      description="Grounded in science. Validated in the field. An RWTH Aachen spin-off backed by the EXIST grant, a WestAI compute grant and the Collective Incubator, with pilots running at industrial companies."
       path="/research"
     >
       <section className="relative pt-32 lg:pt-40 pb-16 bg-hero-gradient overflow-hidden">
@@ -35,32 +28,9 @@ export default function Research() {
             <div className="text-xs font-mono uppercase tracking-wider text-accent-green mb-4">Research & Traction</div>
             <h1 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-5">
               Grounded in <span className="text-gradient-blue">Science.</span> <br />
-              Focused on <span className="text-gradient-green">Industry.</span>
+              Validated in the <span className="text-gradient-green">Field.</span>
             </h1>
           </motion.div>
-        </div>
-      </section>
-
-      <section className="section-spacing border-t border-border bg-white">
-        <div className="section-container">
-          <div className="max-w-3xl">
-            <div className="text-xs font-mono uppercase tracking-wider text-accent-blue mb-4">What we are building</div>
-            <h2 className="font-display font-bold text-3xl lg:text-4xl">From physical interaction to useful robot capabilities.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Our work connects synthetic contact-rich data with robot skills and an operating system designed
-              for ongoing improvement. The demonstrations show current simulation work; our lab provides a
-              place to explore real robot tasks with industrial teams.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {engineeringFocus.map((focus, i) => (
-              <motion.div key={focus.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.5 }} className="glass-card p-7">
-                <h3 className="font-display font-semibold text-xl">{focus.title}</h3>
-                <p className="mt-3 text-muted-foreground leading-relaxed">{focus.body}</p>
-              </motion.div>
-            ))}
-          </div>
-          <Link to="/#see-it-work" className="mt-7 inline-flex items-center gap-2 font-semibold text-accent-blue">Watch our demonstrations <ArrowRight size={16} /></Link>
         </div>
       </section>
 
@@ -117,11 +87,11 @@ export default function Research() {
           {/* Pilots Underway */}
           <div className="max-w-3xl mx-auto mt-16 glass-card p-8 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-accent-green/30 bg-accent-green/10 text-xs font-mono text-accent-green">
-              <CheckCircle2 size={12} /> Pilot Programme
+              <CheckCircle2 size={12} /> Pilots Underway
             </div>
             <h3 className="font-display font-bold text-2xl mb-3">Become a Pilot Partner</h3>
             <p className="text-muted-foreground mb-6">
-              Bring us the industrial task you want to automate and discuss a focused pilot with our team.
+              We are currently running functional pilots. If you're interested in becoming a pilot partner, reach out.
             </p>
             <Link to="/contact" className="btn-pilot">
               Become a Pilot Partner <ArrowRight size={16} />
@@ -131,7 +101,7 @@ export default function Research() {
       </section>
       <FundingStrip />
 
-      <EventGallery title="Meet CloudBee Robotics" />
+      <EventGallery title="Our lab, our events, our people" />
 
     </PageShell>
   );

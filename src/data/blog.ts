@@ -4,40 +4,39 @@ import { ExternalLink, Calendar, Trophy, Rocket, Target, Award, Cpu } from "luci
  * ============================================================
  * BLOG POSTS  -  add new entries by pushing to this array
  * ============================================================
- * Review all public copy for proprietary technology and customer confidentiality.
  * Each post needs: slug (route after /blog/), title, excerpt,
  * date, category. Full article lives in src/pages/BlogPost*.tsx
  * For new posts, duplicate one of those files and add a Route.
  */
 export const blogPosts = [
   {
-    title: "The Last Mile of Automation Is Dependable Work",
+    title: "The Last Mile Is Touch: Why Robots Need to Feel to Finish the Job",
     excerpt:
-      "Useful automation starts with the people and priorities on the production floor. Our focus is practical value, everyday usability, and a clear conversation about your needs.",
+      "Vision gets a robot to the object. Touch is what lets it finish the job. Where tactile sensing is a requirement, why robot skin wears out, and what has to happen before touch reaches every production robot.",
     date: "Oct 6, 2026",
-    category: "Industry",
+    category: "Research",
     slug: "/blog/the-last-mile-is-touch",
   },
   {
-    title: "Helping Robots Become Useful at Work",
+    title: "Why Physical AI Needs 4D Synthetic Data",
     excerpt:
-      "Our ambition is to make industrial automation more accessible, with customer needs and clear business priorities at the center.",
+      "Robot data is still collected one demonstration at a time, mostly vision only. The missing dimensions are time and contact, and both have to be generated.",
     date: "Jan 15, 2026",
-    category: "Company",
+    category: "Technology",
     slug: "/blog/why-physical-ai-needs-4d-synthetic-data",
   },
   {
-    title: "Building Confidence in Industrial Automation",
+    title: "Narrowing the Sim-to-Real Gap",
     excerpt:
-      "A useful robotics conversation starts with your business goals. Here is what we want industrial partners to expect from working with CloudBee.",
+      "Not a solved problem, and anyone who says otherwise is selling something. What the gap costs you, what we do about it, and what we will and will not publish.",
     date: "Jan 10, 2026",
-    category: "Partnerships",
+    category: "Research",
     slug: "/blog/sim-to-real-gap-solved",
   },
   {
     title: "Introducing CloudBee Robotics",
     excerpt:
-      "Meet the RWTH Aachen spin-off working to make industrial robots more useful for the people and businesses that depend on them.",
+      "An RWTH Aachen spin-off building the self-improving OS for robots: contact-rich 4D synthetic data, and skills built for the cell they run in.",
     date: "Jan 5, 2026",
     category: "Announcement",
     slug: "/blog/introducing-cloudbee-robotics",
@@ -55,7 +54,7 @@ export const news = [
     title: "CloudBee Robotics Secures WestAI Compute Grant",
     date: "June 2026",
     description:
-      "CloudBee Robotics has secured a compute grant from the WestAI AI Service Center. We thank the WestAI team for supporting our company and our ambition to bring more useful robotics to industry.",
+      "CloudBee Robotics has secured a compute grant from the WestAI AI Service Center. The compute goes into building and testing robot skills for industrial partners. A big thank you to the WestAI team for backing our work.",
     link: "/research",
     highlight: "WestAI Grant",
   },
@@ -64,7 +63,7 @@ export const news = [
     title: "CloudBee Robotics Awarded EXIST Funding",
     date: "May 2026 - Present",
     description:
-      "CloudBee Robotics has been awarded EXIST funding from the German Federal Government, a milestone in our journey to make robotics more accessible to industry. We thank RWTH Collective Incubator, RWTH Innovation, Therese Liegmann, Hanna, Dr. Tobias Recker, and our academic mentor Dr. Bastian Leibe for their support.",
+      "We're excited to share that CloudBee Robotics has been awarded EXIST funding from the German Federal Government - a major milestone as we continue building in the agentic physical AI space, bringing state-of-the-art AI models into industrial robotics, robotic arms, humanoids, AGVs, healthcare, home care, and agriculture. Huge thanks to RWTH Collective Incubator, RWTH Innovation, Therese Liegmann, Hanna, Dr. Tobias Recker, and our academic mentor Dr. Bastian Leibe.",
     link: "https://www.linkedin.com/posts/mayur-waghchoure-a5aba5ab_cloudbeerobotics-existfunding-startupfunding-share-7454759287098191872-71IS",
     highlight: "EXIST Grant",
   },
@@ -72,7 +71,7 @@ export const news = [
     icon: Rocket,
     title: "Deloitte Problem-Solution Fit Program Begins",
     date: "September 2025",
-    description: "CloudBee Robotics was selected for the Deloitte Problem-Solution Fit program to explore customer needs and strengthen our business proposition.",
+    description: "CloudBee Robotics selected for the Deloitte Problem-Solution Fit program to validate our agentic physical AI infrastructure.",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7386834347191848960",
     highlight: "Program Start",
   },
@@ -80,7 +79,7 @@ export const news = [
     icon: Trophy,
     title: "Successfully Completed Deloitte Program",
     date: "December 2025",
-    description: "CloudBee Robotics completed the Deloitte Problem-Solution Fit program, bringing fresh perspective to our customer focus and business direction.",
+    description: "Strong validation of our problem definition and solution direction for physical AI infrastructure.",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7418516640637624320",
     highlight: "Milestone",
   },
